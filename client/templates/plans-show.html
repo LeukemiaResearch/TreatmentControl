@@ -1,0 +1,966 @@
+<template name="plansShow">
+  <div class="page lists-show">
+    <nav class="js-title-nav">   <!-- style="height:220px;" -->
+      {{#if editing}}
+        <div class="row">
+          <div class="col-md-2">
+            <!-- date time -->
+            <h6>Dato:</h6><input class="form-control" name="regdate" type="viewtime" value="{{header.createdAt}}">
+          </div>
+          <div class="col-md-8">
+            <form class="js-edit-form list-edit-form">         
+              <input class="form-control" type="text" name="name" value="{{header.name}}">
+              <!-- <input type="text" placeholder="Type to add MTX number" value="{{mtx}}"> -->
+               <div class="nav-group right">
+                <a href="#" class="js-cancel nav-item"><span class="icon-close js-cancel" title="Cancel"></span></a>
+              </div>
+            </form>
+          </div>      
+          <div class="col-md-1">
+            <div class="form-group"> 
+                 <h6>MTX nr:</h6><input class="form-control" name="mtx" type="number" placeholder="Type to add MTX number" value="{{header.mtx}}">
+              </div>
+          </div>
+        </div>   
+      {{else}}
+       <div class="row">
+        <div class="col-md-2">
+            <!-- date time -->
+            <h6>Dato:</h6><input class="form-control" name="regdate" type="viewtime" value="{{header.createdAt}}">
+        </div>
+        <div class="col-md-8">
+        <div class="nav-group">
+          <a href="#" class="js-menu nav-item"><span class="icon-list-unordered" title="Show menu"></span></a>
+        </div>
+        <!-- <h6><label>Patient Name</label></h6>
+        <br> -->
+        <h1 class="js-edit-list title-page"><span class="title-wrapper">{{header.name}}</span> <span class="count-list">{{incompleteCount}}</span></h1>
+
+        <div class="nav-group right">
+          <div class="nav-item options-mobile">
+            <select class="list-edit">
+              <option disabled selected>Select an action</option>
+              {{#if userId}}
+                <option value="public">Make Public</option>
+              {{else}}
+                <option value="private">Make Private</option>
+              {{/if}}
+              <option value="delete">Delete</option>
+            </select>
+            <span class="icon-cog"></span>
+          </div>
+          <div class="options-web">
+            <a class="js-toggle-list-privacy nav-item">
+              {{#if userId}}
+                <span class="icon-lock" title="Make list public"></span>
+              {{else}}
+                <span class="icon-unlock" title="Make list private"></span>
+              {{/if}}
+            </a>
+
+            <a class="js-delete-list nav-item">
+              <span class="icon-trash" title="Delete list"></span>
+            </a>
+          </div>
+        </div>
+        </div>
+        <div class="col-md-1">
+            <div class="form-group"> 
+                 <h6>MTX nr:</h6><input class="form-control" name="mtx" type="number" placeholder="Type to add MTX number" value="{{header.mtx}}">
+              </div>
+          </div>
+        </div>
+      {{/if}}
+      
+      
+       <!-- <div class="row">
+        <div class="col-xs-4"> -->
+          <hr>
+        <div class="row">
+         
+            
+          <div class="col-md-7">
+         <form class="js-todo-new todo-new input-symbol">           
+               <!-- <span class="icon-add js-todo-add"></span>                       -->
+               <div class="form-group">
+                 <h6>Patient Name:</h6><input class="form-control" name="patientname" type="text" placeholder="Type to add Patient Name" value="{{patient.name}}" > 
+                 </div>
+                 <div class="form-group">
+               <h6>CPR:</h6><input class="form-control" name="cpr" type="mumber" placeholder="Type to add CPR number" value="{{patient.cpr}}">
+              </div>
+              <!-- <div class="form-group"> 
+                 <h6>MTX nr:</h6><input class="form-control" name="mtx" type="number" placeholder="Type to add MTX number" value="{{mtx}}">
+              </div> -->
+          </form>
+        </div>
+          <div class="col-md-2">
+            <form class="js-todo-new todo-new input-symbol"> 
+                
+              
+              <div class="form-group"> 
+               <h6>Height:</h6><input class="form-control" name="height" type="number" placeholder="Type to add patient height" value="{{patient.height}}">
+              </div>
+              <div class="form-group">  
+               <h6>Weight:</h6><input class="form-control" name="weight" type="number" placeholder="Type to add patient weight" value="{{patient.weight}}">
+              </div>
+            </form>
+          </div>
+          <div class="col-md-2">
+            <form class="js-todo-new todo-new input-symbol"> 
+              <div class="form-group">  
+                <h6>P-kreatin: µmol/l</h6><input class="form-control" name="pcreatin" type="number" placeholder="Type to add pcreatin" value="{{header.pcreatin}}">
+              </div>
+               <!-- <h6>Surface:</h6><input type="text" value="{{weight}}*{{height}}" disabled> -->
+               <div class="form-group">
+                 <h6>Surface: m²</h6><input class="form-control" type="number" value="{{patient.surface.value}}" disabled>
+               </div>
+            </form>
+          </div>
+           
+        </div>
+        <hr>
+               <!-- {{#with treatments}}
+               <h6>Treatment:</h6><input type="text" value="{{field1}}" disabled>
+               {{/with}} -->
+              
+               <!-- <span class="icon-add js-todo-add"></span>  -->
+               <!-- <input type="text" placeholder="Type to add new tasks">   -->
+       
+         
+        <!-- </div>
+       </div> -->
+    </nav>
+    
+    <!-- <input type="text" name="name" value="{{mtx}}"> -->
+    <div class="content-scrollable list-items">
+      {{#if header.mtx}}
+      <div class="row"> 
+      <hr>
+      <h2 class="title">Treatments</h2>
+      <hr>
+      </div>
+      <!-- {{#if todosReady}}
+        {{#with _id}} {{! Establish new data context with only the '_id'
+                          field. This way, when the 'incompleteCount' field
+                          changes, we don't re-render the list contents }}
+          {{#each todos this}}
+            {{> todosItem}}
+          {{else}}
+
+          
+    
+
+            <div class="wrapper-message">
+              <div class="title-message">No tasks here</div>
+              <div class="subtitle-message">Add new tasks using the field above</div>
+            </div>
+          {{/each}}
+        {{/with}}
+      {{else}}
+          <div class="wrapper-message">
+            <div class="title-message">Loading tasks...</div>
+          </div>
+      {{/if}} -->
+     
+        <!-- {{#if todosReady}} -->
+        <!-- {{#if treatments.[0].value2 }} -->
+
+<!-- BEGINING OF THE FORM!!! -->
+    <form>    
+    <hr> 
+      <!-- ROW for every line -->
+      <div class="row">   
+         <!-- {{#with treatments.[0]}} -->
+        <div class="col-md-2">
+            <!-- datetime -->
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}">     -->
+        </div> 
+        
+        <div class="col-md-7">
+            <h6>{{treatments.one.field1.text}}:</h6>
+         </div>
+        
+         <div class="col-md-2">
+          {{#if field1.value}} <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.one.field1.value1}}">  {{/if}}
+         </div> 
+         <!-- {{/with}} -->
+      </div>
+
+      <div class="row">   
+         <!-- {{#with treatments.[0]}} -->
+        <div class="col-md-2">
+            <!-- datetime -->
+        </div> 
+        
+        <div class="col-md-7">
+            <h6>{{treatments.one.field2.text}}:</h6>
+         </div>
+        
+         <div class="col-md-2">
+           <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.one.field2.value}}" disabled>  
+         </div> 
+         <div class="col-md-1"><h6>ml/time</h6></div>
+         <!-- {{/with}} -->
+      </div>
+
+      <div class="row">   
+         <!-- {{#with treatments.[0]}} -->
+        <div class="col-md-2">
+            <!-- datetime -->
+        </div> 
+        
+        <div class="col-md-7">
+            <h6>{{treatments.one.field3.text}}:</h6>
+         </div>
+        
+         <div class="col-md-2">
+          <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.one.field3.value}}" disabled>   
+         <!-- {{/with}} -->
+        </div>
+        <div class="col-md-1"><h6>ml/time</h6></div>
+        
+      </div>
+
+      <div class="row">   
+         <!-- {{#with treatments.[0]}} -->
+        <div class="col-md-2">
+            <!-- datetime -->
+        </div> 
+        
+        <div class="col-md-7">
+            <h6>{{treatments.one.field4.text}}:</h6>
+         </div>
+        
+         <div class="col-md-2">
+          <!-- <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.[0].value4}}">    -->
+         </div> 
+         <!-- {{/with}} -->
+      </div>
+
+      <div class="row">   
+         <!-- {{#with treatments.[0]}} -->
+        <div class="col-md-2">
+            <!-- datetime -->
+        </div> 
+        
+        <div class="col-md-7">
+            <h6>{{treatments.one.field5.text}}:</h6>
+         </div>
+        
+         <div class="col-md-2">
+          <!-- <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.[0].value5}}">    -->
+         </div> 
+         <!-- {{/with}} -->
+      </div>
+
+      <!-- END ROW for every line -->
+
+
+      <hr>
+    </form>
+    
+    <!-- SECOND FORM  --> 
+    <form id="first" class="{{checkedClass}}">
+      <hr>
+       <div class="row">
+         <div class="col-md-12">
+      
+      <input type="checkbox" checked="{{treatments.two.checked}}" name="checked" value="{{treatments.two.checked}}"> Register Treatment
+      
+     </div>
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+          <h6>Time -4</h6>
+        </div>
+        <div class="col-md-7">
+          <h6>{{treatments.two.field1.text}}:</h6>
+        </div>
+         <div class="col-md-2">
+           <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.two.field1.value}}" disabled>  
+         </div> 
+         <div class="col-md-1"><h6>ml/time</h6></div>  
+      </div>
+      <hr>
+    </form>
+
+    <!-- THIRD FORM -->
+    <form>
+      <hr>
+      <div class="row">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+            <h6>Time 0</h6>
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.tree.field1.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field1.value}}" disabled> 
+          </div>
+          <div class="col-md-1">
+            <h6>ml/6 timer</h6>
+          </div>
+      </div> 
+
+      <div class="row">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+            <h6>Skriv start</h6>
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.tree.field2.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field2.value}}" disabled> 
+          </div>
+          <div class="col-md-1">
+            <h6>mg furosemid iv.</h6>
+          </div>
+      </div>  
+
+      <div class="row">
+          <div class="col-md-2">
+            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.tree.field3.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-1">
+          </div>
+      </div> 
+
+      <div class="row">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.tree.field4.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field4.value}}" disabled>
+          </div>
+          <div class="col-md-1"> 
+            <h6>mmol Na-bicarbonat</h6>
+          </div>
+      </div> 
+
+      <div class="row">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.tree.field5.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control" name="pcreatin1" type="number" placeholder="Type to insert value" value="{{treatments.tree.field4.pcreatin}}">
+          </div>
+          <div class="col-md-1">
+             <h6>µmol/l</h6>
+          </div>
+      </div> 
+
+      <div class="row">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.tree.field6.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-1">
+          </div>
+      </div> 
+      
+      <div class="row">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.tree.field7.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field7.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+          </div>
+      </div> 
+
+      <div class="row">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+          </div>
+          <div class="col-md-7">
+            <h6><b>{{treatments.tree.field8.text}}:</b></h6>
+          </div >
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-1">
+          </div>
+      </div> 
+      <hr>   
+    </form>
+
+    <!-- FORTH FORM -->
+    <form>
+      <hr>
+       <div class="row">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+             <h6>Time 1</h6>
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.four.field1.text}}</h6>             
+          </div >
+          <div class="col-md-2">
+            <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.four.field1.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg MTX</h6>
+          </div>
+      </div>
+      <hr>     
+    </form>
+
+    <!-- FIFTH FORM -->
+    <form>
+     <hr>
+      <div class="row">
+          <div class="col-md-2">
+            <h6>Time +23</h6>
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.five.field1.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control" name="semtx" type="number" placeholder="Type to insert value" value="{{treatments.five.field1.semtx}}">            
+          </div>
+          <div class="col-md-1">
+            <h6>µmol/l</h6>
+          </div>
+      </div> 
+      <div class="row">
+          <div class="col-md-2">
+            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.five.field2.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control" name="pcreatin2" type="number" placeholder="Type to insert value" value="{{treatments.five.field2.pcreatin}}">
+          </div>
+          <div class="col-md-1">
+            <h6>µmol/l</h6>
+          </div>
+      </div> 
+      <div class="row">
+          <div class="col-md-2">
+          
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.five.field3.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control" name="semtx1" type="number" placeholder="Type to insert value" value="{{treatments.five.field3.semtx}}">
+          </div>
+          <div class="col-md-1">
+            <h6>mg MTX i.sp.</h6>
+          </div>
+      </div> 
+     <hr>
+    </form>
+
+    <!-- SIXTH FORM -->
+    <form>
+       <hr>
+      <div class="row">
+          <div class="col-md-2">
+            <h6>Time +24</h6>
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.six.field1.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="semtx" type="number" placeholder="Type to insert value" value="{{treatments.[4].field1.semtx}}">    -->         
+          </div>
+          <div class="col-md-1">
+            <!-- <h6>µmol/l</h6> -->
+          </div>
+      </div> 
+      <hr>
+    </form>
+
+    <!-- SEVENTH FORM -->
+    <form>
+     <hr>
+      <div class="row">
+          <div class="col-md-2">
+            <h6>Time +36</h6>
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.seven.field1.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control" name="semtx2" type="number" placeholder="Type to insert value" value="{{treatments.seven.field1.semtx}}">            
+          </div>
+          <div class="col-md-1">
+            <h6>µmol/l</h6>
+          </div>
+      </div> 
+      <div class="row">
+          <div class="col-md-2">
+            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.seven.field2.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control" name="pcreatin3" type="number" placeholder="Type to insert value" value="{{treatments.seven.field2.pcreatin}}">
+          </div>
+          <div class="col-md-1">
+            <h6>µmol/l</h6>
+          </div>
+      </div> 
+      <br>
+      <div class="row">
+          <div class="col-md-2">
+          
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.seven.field3.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.seven.field3.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>ml/time</h6>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-2">
+          
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.seven.field4.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.seven.field4.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>ml/6 timer</h6>
+          </div>
+      </div>  
+     <hr>
+    </form>
+
+    <!-- EIGHT FORM -->
+    <form>
+      <hr>
+      <div class="row">
+        <div class="col-md-2">
+             <h6>Time +42</h6>
+          </div>
+        <div class="col-md-7">
+            <h6>{{treatments.eight.field1.text}}:</h6>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control" name="semtx3" type="number" placeholder="Type to insert value" value="{{treatments.eight.field1.semtx}}">            
+          </div>
+          <div class="col-md-1">
+            <h6>µmol/l</h6>
+          </div>    
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.eight.field2.text}}</h6>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control" name="docname" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field2.name}}">
+          </div>
+        <div class="col-md-2">
+            <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.eight.field2.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.eight.field3.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+                 
+          </div>
+          <div class="col-md-1">
+         
+          </div> 
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-7">
+             <h6><b>{{treatments.eight.field4.text}}</b></h6>
+          </div >
+          <div class="col-md-2">
+                 
+          </div>
+          <div class="col-md-1">
+         
+          </div> 
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-7">
+             <h6><b>{{treatments.eight.field5.text}}</b></h6>
+          </div >
+          <div class="col-md-2">
+                 
+          </div>
+          <div class="col-md-1">
+         
+          </div> 
+      </div>
+      <hr>
+    </form>
+
+    <!-- LOGIC FOR CHANGE DIFF. PLANS -->
+        {{#if treatments.nine.hurtig.visible.value}}
+        <hr>       
+        <div class="row">         
+            <h2 class="extract" style="text-align:center;"><b>{{treatments.nine.hurtig.name}}</b></h2>          
+        </div>          
+         <hr> 
+        {{/if}}
+
+        {{#if treatments.nine.normal.visible.value}}
+        <hr>       
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="extract" style="text-align:center;"><b>{{treatments.nine.normal.name}}</b></h2>
+          </div> 
+        </div>          
+         <hr> 
+        {{/if}}
+
+
+    <!-- NINTH FORM-->
+
+      {{#if treatments.nine.hurtig.visible.value}}
+      <!-- HURTIG -->
+      <!-- FIRST -->
+    <form>
+      <hr>
+      <div class="row">
+          <div class="col-md-2">
+            <h6>Time +48</h6>
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.hurtig.first.field1.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control" name="semtx4" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.first.field1.semtx}}">                    
+          </div>
+          <div class="col-md-1">
+             <h6>µmol/l</h6>       
+          </div> 
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.first.field2.text}}</h6>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control" name="docname1" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.first.field2.name}}">
+          </div>
+        <div class="col-md-2">
+            <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.first.field2.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      <hr>
+    </form>
+
+      <!-- SECOND -->
+      <form>
+      <hr>
+      <div class="row">
+          <div class="col-md-2">
+            <h6>Time +54</h6>
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.hurtig.second.field1.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control" name="semtx5" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.second.field1.semtx}}">                    
+          </div>
+          <div class="col-md-1">
+             <h6>µmol/l</h6>       
+          </div> 
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.second.field2.text}}</h6>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control" name="docname2" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.second.field2.name}}">
+          </div>
+        <div class="col-md-2">
+            <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.second.field2.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+       <div class="row">
+        <div class="col-md-2">
+            
+          </div>
+         <div class="col-md-7">
+            <h6>{{treatments.nine.hurtig.second.field3.text}}</h6>
+          </div>
+           
+        <div class="col-md-2">
+             
+          </div>
+          <div class="col-md-1">
+           
+          </div>   
+      </div>
+      <hr>
+    </form>
+    {{/if}}
+    
+
+    {{#if treatments.nine.normal.visible.value}}
+    <!-- NORMAL -->
+      <!--FIRST  -->
+    <form>
+      <hr>
+      <div class="row">
+          <div class="col-md-2">
+            <h6>Time +48</h6>
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.normal.first.field1.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control" name="semtx6" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.first.field1.semtx}}">                    
+          </div>
+          <div class="col-md-1">
+             <h6>µmol/l</h6>       
+          </div> 
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.first.field2.text}}</h6>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control" name="docname3" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.first.field2.name}}">
+          </div>
+        <div class="col-md-2">
+            <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.first.field2.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      <hr>
+    </form>
+
+      <!--SECOND FORM -->
+      <form>
+      <hr>
+      <div class="row">
+          <div class="col-md-2">
+            <h6>Time +54</h6>
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.normal.second.field1.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control" name="semtx7" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.second.field1.semtx}}">                    
+          </div>
+          <div class="col-md-1">
+             <h6>µmol/l</h6>       
+          </div> 
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.second.field2.text}}</h6>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control" name="docname4" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.second.field2.name}}">
+          </div>
+        <div class="col-md-2">
+            <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.second.field2.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+       <hr>
+    </form>
+      
+    <!-- THIRD FORM -->
+    <form>
+      <hr>
+      <div class="row">
+          <div class="col-md-2">
+            <h6>Time +66</h6>
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.normal.third.field1.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control" name="semtx8" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field1.semtx}}">                    
+          </div>
+          <div class="col-md-1">
+             <h6>µmol/l</h6>       
+          </div> 
+      </div>
+      <div class="row">
+        <div class="col-md-2">
+            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+          </div>
+         <div class="col-md-7">
+            <h6>{{treatments.nine.normal.third.field2.text}}</h6>
+          </div>          
+        <div class="col-md-2">
+            <input class="form-control" name="pcreatin4" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field2.pcreatin}}">
+          </div>
+          <div class="col-md-1">
+            <h6>µmol/l</h6>
+          </div>   
+      </div>
+      {{#if treatments.nine.normal.third.field3.value}}
+      <div class="row">
+        <div class="col-md-2">
+          
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.third.field4.text}}</h6>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control" name="docname5" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.third.field4.name}}">
+          </div>
+        <div class="col-md-2">
+            <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field4.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+       <br>
+      <div class="row">
+          <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.normal.third.field3.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+                                 
+          </div>
+          <div class="col-md-1">
+                
+          </div> 
+      </div>
+
+      <div class="row">
+          <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.normal.third.field5.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+                                 
+          </div>
+          <div class="col-md-1">
+                
+          </div> 
+      </div>
+      <div class="row">
+          <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.normal.third.field6.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+                                 
+          </div>
+          <div class="col-md-1">
+                
+          </div> 
+      </div>
+      <div class="row">
+          <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.normal.third.field7.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+                                 
+          </div>
+          <div class="col-md-1">
+                
+          </div> 
+      </div>
+      <br>
+      <div class="row">
+          <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.normal.third.field8.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+                                 
+          </div>
+          <div class="col-md-1">
+                
+          </div> 
+      </div>
+        
+
+      <hr>
+    </form>
+    {{/if}}
+  
+        {{/if}}
+        
+    </div>
+
+  </div>
+</template>

@@ -1,0 +1,31 @@
+ #menu {
+    border-left-width: 0px;
+    margin-left: 10px;
+    /*padding-right: 59px;*/
+    margin-top: 25px;
+    padding-left: 40px;
+ }
+
+ #content-container {
+ 	padding-right: 90px;
+ 	border-left: thick double  rgb(238, 238, 238);
+ 	border-right: thick double  rgb(238, 238, 238);
+ 	
+ }
+
+ h2.title {
+    text-align: center;
+}
+
+div.foot {
+ text-align: :center;
+}
+
+h2.extract {
+	text-align: :center;
+}
+
+form.treatment {
+
+	background-color: gray;
+}
