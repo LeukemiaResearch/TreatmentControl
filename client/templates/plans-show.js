@@ -39,15 +39,15 @@ Template.plansShow.helpers({
     if(this.treatments.two.checked == true) {
     // $("form.treatment").css("background-color" , "gray");
        // $("#first").addClass('treatment');
-       // $(this).parent().parent().addClass('treatment');
-       $(this).closest('form').addClass('treatment');
+        // $(this).parent().parent().addClass('treatment');
+       // $(this).closest('form').addClass('treatment');
     // Lists.update(this.listId, {$inc: {incompleteCount: checked ? -1 : 1}});
      return 'treatment';
     } else {  
       // $("form.treatment").css("background-color" , "white"); 
       // $("#first").removeClass('treatment');
-      // $(this).parent().parent().removeClass('treatment');
-        $(this).closest('form').removeClass('treatment');
+       // $(this).parent().parent().removeClass('treatment');
+        // $(this).closest('form').removeClass('treatment');
 
   } 
    var p = $(".content-scrollable").find("form");
