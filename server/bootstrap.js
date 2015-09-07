@@ -6,7 +6,7 @@ Meteor.startup(function () {
 {
     "_id" : "GENERAL-PLAN",
     "header" : {
-        "createdAt" : ISODate("2015-07-12T13:14:00.337Z"),
+        "createdAt" : new Date(),
         "name" : "General Plan",
         "mtx" : "1",
         "pcreatin" : "20"

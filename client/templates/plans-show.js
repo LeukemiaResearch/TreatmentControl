@@ -34,24 +34,34 @@ Template.plansShow.onRendered(function() {
 
 Template.plansShow.helpers({
 
-// checkbox dev
-  checkedClass: function() {
-    if(this.treatments.two.checked == true) {
+ // checkbox dev
+ checkedClass  :  function(list, template) {
+   if(this.treatments.two.checked == true)  {   
+      $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
+ //     $(".content-scrollable form.treatment").next().next().addClass('blue');
+  // console.log(p);
+ //    if($(".content-scrollable form").hasClass('blue')) {
+ //       $(".content-scrollable form.blue").next().addClass('blue');
+    //}
     // $("form.treatment").css("background-color" , "gray");
        // $("#first").addClass('treatment');
         // $(this).parent().parent().addClass('treatment');
        // $(this).closest('form').addClass('treatment');
     // Lists.update(this.listId, {$inc: {incompleteCount: checked ? -1 : 1}});
-     return 'treatment';
-    } else {  
+    
+  return 'treatment';
+   } else if (this.treatments.two.checked == false) {  
+    $(".content-scrollable form.treatment").next().siblings().not(".treatment").removeClass('blue');
+    // $(".content-scrollable form").removeClass('blue');
+  // $(".content-scrollable form.treatment").removeClass('treatment')
       // $("form.treatment").css("background-color" , "white"); 
       // $("#first").removeClass('treatment');
        // $(this).parent().parent().removeClass('treatment');
         // $(this).closest('form').removeClass('treatment');
+    //      return;
 
   } 
-   var p = $(".content-scrollable").find("form");
-   console.log(p);
+  
   },
 
   editing: function() {
@@ -70,97 +80,41 @@ Template.plansShow.helpers({
    console.log(a);
   },
   
-  // surface1: function () {
-  //     // var $input1 = $('.js-todo-new input[name=height]');
-  //     // var input1 = $('.js-todo-new input[name=height]').val();
-  //     // var input2 = $('.js-todo-new input[name=weight]').val();
-  //   // var $input2 = $(event.target).find('[name=weight]');
-  //   // if (! $input1.val() && ! $input2.val() )
-  //  //   if (! input1 & ! input2)
-  //     var input1 = Plans.findOne(this._id).height;
-  //     var input2 = Plans.findOne(this._id).weight;
-  //      var test = (Math.sqrt(input1*input2))/60; 
-  //     //  if (!test)
-  //     //   return;
-  //     // else 
-  //     console.log(input1);
-  //     Plans.update(this._id, {$set: {surface: test}});
-  //    return test.toFixed(2); 
-  //   // var b = 5;
-  //   // var c = 3;
-  //   // return b+c;
-
-  // },
   
-  // eventvalue1: function() {
-  //   var sur = Plans.findOne(this._id).surface.toFixed(2);
-  //   var val = (Math.round(3000*sur)/24);
-  //   // console.log(sur);
-  //   // console.log(val);
-  //   Plans.update(this._id,  {$set: {"treatments.0.value2": val.toFixed()}});
-  //    return val.toFixed();
-  // }, 
-
-  // eventvalue2: function() {
-  //   var sur = Plans.findOne(this._id).surface;
-  //   var val = (Math.round(2000*sur)/24);
-  //   Plans.update(this._id,  {$set: {"treatments.0.value3": val.toFixed()}});
-  //    return val.toFixed();
-  // }, 
+   
   
-  // eventvalue3: function() {
-  //   var sur = Plans.findOne(this._id).surface;
-  //   var val = (Math.round(150*sur));
-  //   console.log(val);
-  //   Plans.update(this._id,  {$set: {"treatments.1.value1": val.toFixed()}});
-  //    return val.toFixed();
-  // },
-
-  // eventvalue4: function() {
-  //   var sur = Plans.findOne(this._id).surface;
-  //   var val = (Math.round(600*sur));
-  //   console.log(val);
-  //   Plans.update(this._id,  {$set: {"treatments.2.value1": val.toFixed()}});
-  //    return val.toFixed();
-  // },
-
-  // eventvalue5: function() {
-  //   var sur = Plans.findOne(this._id).surface;
-  //   var val = (Math.round(0.75*sur));
-  //   console.log(val);
-  //   Plans.update(this._id,  {$set: {"treatments.2.value2": val.toFixed()}});
-  //    return val.toFixed();
-  // },
-
-  // eventvalue6: function() {
-  //   var sur = Plans.findOne(this._id).surface;
-  //   var val = (Math.round(20*sur));
-  //   console.log(val);
-  //   Plans.update(this._id,  {$set: {"treatments.2.value4": val.toFixed()}});
-  //    return val.toFixed();
-  // }  
-  
+   
 
 });
 
-// var surface = function () {
-//       // var $input1 = $('.js-todo-new input[name=height]');
-//       var input1 = $('.js-todo-new input[name=height]').val();
-//       var input2 = $('.js-todo-new input[name=weight]').val();
-//     // var $input2 = $(event.target).find('[name=weight]');
-//     // if (! $input1.val() && ! $input2.val() )
-//    //   if (! input1 & ! input2)
-//        var test = (Math.sqrt(input1*input2))/60; 
-//        if (!test)
-//         return;
-//       else 
-//       console.log(test);
-//      return test.toFixed(2); 
-//     // var b = 5;
-//     // var c = 3;
-//     // return b+c;
-
-//   }
+//  // checkbox dev
+// var checkedClass =  function(list, template) {
+//    if(this.treatments.two.checked) {   
+//      $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
+ 
+//  //     $(".content-scrollable form.treatment").next().next().addClass('blue');
+//   // console.log(p);
+//  //    if($(".content-scrollable form").hasClass('blue')) {
+//  //       $(".content-scrollable form.blue").next().addClass('blue');
+//     //}
+//     // $("form.treatment").css("background-color" , "gray");
+//        // $("#first").addClass('treatment');
+//         // $(this).parent().parent().addClass('treatment');
+//        // $(this).closest('form').addClass('treatment');
+//     // Lists.update(this.listId, {$inc: {incompleteCount: checked ? -1 : 1}});
+//     return 'treatment';
+    
+//    } else  {  
+//     $(".content-scrollable form").removeClass('blue');
+//   // $(".content-scrollable form.treatment").removeClass('treatment')
+//       // $("form.treatment").css("background-color" , "white"); 
+//       // $("#first").removeClass('treatment');
+//        // $(this).parent().parent().removeClass('treatment');
+//         // $(this).closest('form').removeClass('treatment');
+//     //      return;
+//   } 
+  
+//   };
 
 var editPlan = function(list, template) {
   Session.set(EDITING_KEY, true);
@@ -279,12 +233,27 @@ Template.plansShow.events({
 
 // CHECKBOX DEVELOPMENT //
 
-  'change [type=checkbox]': function(event) {
+  'change [type=checkbox]': function(event, template) {
     var checked = $(event.target).is(':checked');
     Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});
+    // if( this.treatments.two.checked ) {
+    //   $(this).closest('form').addClass('treatment');
+    //      $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
+   // var a =  $(".content-scrollable form.treatment");
+   // var b =  $(".content-scrollable form:last");   
+    // $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
+   // console.log(a);
+   // console.log(b);
+   // console.log(c);  
+    // }
+    // else {
+    //    $(".content-scrollable form").removeClass('blue');
+    // }
+
     if( this.treatments.two.userId ) {
           Plans.update(this._id, {$unset: {"treatments.two.userId" : true}});
     }
+
   },
   // 'submit .js-todo-new': function(event) {
   //   event.preventDefault();
