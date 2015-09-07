@@ -6,7 +6,7 @@ Meteor.startup(function () {
 {
     "_id" : "GENERAL-PLAN",
     "header" : {
-        "createdAt" : ISODate("2015-07-12T13:14:00.337Z"),
+        "createdAt" : new Date(),
         "name" : "General Plan",
         "mtx" : "1",
         "pcreatin" : "20"
@@ -24,7 +24,7 @@ Meteor.startup(function () {
     "treatments" : {
         "one" : {
             "checked" : "",
-            "createdAt" : ISODate("2015-07-13T13:14:00.337Z"),
+            "createdAt" : new Date(),
             "field1" : {
                 "text" : "Hydreringsvæske: 5% glucose tilsat 40 mmol Na-bicarbonat og 20 mmol KCl/liter",
                 "method" : "",
