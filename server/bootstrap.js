@@ -1,7 +1,7 @@
 // if the database is empty on server start, create some sample data.
 Meteor.startup(function () {
   if (Plans.find().count() === 0) {
-    var data = [
+    var data =
 
 {
     "_id" : "GENERAL-PLAN",
@@ -288,13 +288,7 @@ Meteor.startup(function () {
         }
     },
     "name" : "General Plan"
-}
-
-
-
-         
-      
-    ];
+};
 
     var timestamp = (new Date()).getTime();
     var plan_id = Plans.insert(data);
