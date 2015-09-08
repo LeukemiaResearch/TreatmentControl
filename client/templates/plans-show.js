@@ -36,8 +36,8 @@ Template.plansShow.helpers({
 
  // checkbox dev
  checkedClass  :  function(list, template) {
-   if(this.treatments.two.checked == true)  {   
-      $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
+   if(this.treatments.two.checked === true)  {   
+     $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
  //     $(".content-scrollable form.treatment").next().next().addClass('blue');
   // console.log(p);
  //    if($(".content-scrollable form").hasClass('blue')) {
@@ -50,18 +50,14 @@ Template.plansShow.helpers({
     // Lists.update(this.listId, {$inc: {incompleteCount: checked ? -1 : 1}});
     
   return 'treatment';
-   } else if (this.treatments.two.checked == false) {  
-    $(".content-scrollable form.treatment").next().siblings().not(".treatment").removeClass('blue');
+   }     
     // $(".content-scrollable form").removeClass('blue');
   // $(".content-scrollable form.treatment").removeClass('treatment')
       // $("form.treatment").css("background-color" , "white"); 
       // $("#first").removeClass('treatment');
        // $(this).parent().parent().removeClass('treatment');
         // $(this).closest('form').removeClass('treatment');
-    //      return;
-
-  } 
-  
+    //      return; 
   },
 
   editing: function() {
@@ -168,6 +164,24 @@ var togglePlanPrivacy = function(list) {
   }
 };
 
+var colorchange = function(list) {
+   var a =  $(".content-scrollable form.treatment").next().next().hasClass('blue');
+   var b = $(".content-scrollable form").hasClass('treatment'); 
+   var c = list.treatments.two.checked;
+    if ( c == false) {
+      console.log(c);
+    return $(".content-scrollable form.treatment").next().siblings().not(".treatment").removeClass('blue'); 
+    } 
+     else  {
+      console.log(c);
+       return $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue'); 
+     
+     }
+   
+ 
+
+};
+
 Template.plansShow.events({
   'click .js-cancel': function() {
     Session.set(EDITING_KEY, false);
@@ -227,28 +241,32 @@ Template.plansShow.events({
     template.$('.js-todo-new input').focus();
   },
 
-
+  
 
 
 
 // CHECKBOX DEVELOPMENT //
+  'click [type=checkbox]' : function(event, template){
+     colorchange(this);
+  },
 
+   
   'change [type=checkbox]': function(event, template) {
     var checked = $(event.target).is(':checked');
     Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});
-    // if( this.treatments.two.checked ) {
-    //   $(this).closest('form').addClass('treatment');
-    //      $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
+    
+     
    // var a =  $(".content-scrollable form.treatment");
    // var b =  $(".content-scrollable form:last");   
     // $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
    // console.log(a);
    // console.log(b);
    // console.log(c);  
-    // }
-    // else {
-    //    $(".content-scrollable form").removeClass('blue');
-    // }
+     
+    //  else {
+    //     // $(".content-scrollable form").removeClass('blue');
+    //  $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
+    //  }
 
     if( this.treatments.two.userId ) {
           Plans.update(this._id, {$unset: {"treatments.two.userId" : true}});
