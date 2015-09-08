@@ -1,7 +1,7 @@
 // if the database is empty on server start, create some sample data.
 Meteor.startup(function () {
   if (Plans.find().count() === 0) {
-    var data = [
+    var data =
 
 {
     "_id" : "GENERAL-PLAN",
@@ -24,7 +24,7 @@ Meteor.startup(function () {
     "treatments" : {
         "one" : {
             "checked" : "",
-            "createdAt" : ISODate("2015-07-13T13:14:00.337Z"),
+            "createdAt" : new Date(),
             "field1" : {
                 "text" : "Hydreringsvæske: 5% glucose tilsat 40 mmol Na-bicarbonat og 20 mmol KCl/liter",
                 "method" : "",
@@ -288,13 +288,7 @@ Meteor.startup(function () {
         }
     },
     "name" : "General Plan"
-}
-
-
-
-         
-      
-    ];
+};
 
     var timestamp = (new Date()).getTime();
     var plan_id = Plans.insert(data);
