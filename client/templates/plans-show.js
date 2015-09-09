@@ -38,7 +38,7 @@ Template.plansShow.helpers({
  checkedClass  :  function(list, template) {
 
    if(this.treatments.two.checked === true)  {   
-     $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
+     $(".content-scrollable form.treatment:last").next().siblings().not(".treatment").addClass('blue');
  //     $(".content-scrollable form.treatment").next().next().addClass('blue');
   // console.log(p);
  //    if($(".content-scrollable form").hasClass('blue')) {
@@ -50,13 +50,13 @@ Template.plansShow.helpers({
        // $(this).closest('form').addClass('treatment');
     // Lists.update(this.listId, {$inc: {incompleteCount: checked ? -1 : 1}});
     
-  return 'treatment';
+  return Session.get('checkedClass') && 'treatment';    // Session e novoto 
 
    }   
    else {
-    //$(".content-scrollable form.treatment").next().siblings().not(".treatment").removeClass('blue');
-    $(".content-scrollable form").removeClass('blue');
-    //return;
+    $(".content-scrollable form.treatment:last").next().siblings().not(".treatment").removeClass('blue');
+   // $(".content-scrollable form").removeClass('blue');
+    return Session.get('checkedClass');    // NOVOTO 
    }  
     // $(".content-scrollable form").removeClass('blue');
   // $(".content-scrollable form.treatment").removeClass('treatment')
@@ -64,7 +64,7 @@ Template.plansShow.helpers({
       // $("#first").removeClass('treatment');
        // $(this).parent().parent().removeClass('treatment');
         // $(this).closest('form').removeClass('treatment');
-    return Session.get('checkedClass');
+   // return Session.get('checkedClass');  // STAROTO 
   },
 
   editing: function() {
@@ -250,14 +250,12 @@ Template.plansShow.events({
 
 
 // CHECKBOX DEVELOPMENT //
-  // 'click [type=checkbox]' : function(event, template){
-  //    colorchange(this);
-  // },
+   
 
    
-  'change [type=checkbox]': function(event, template) {
+  'change [name=checked]': function(event, template) {
     var checked = $(event.target).is(':checked');
-    Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});
+    Plans.update(this._id, {$set: {"treatments.one.checked": checked , "treatments.one.userId" : Meteor.userId()}});
     // colorchange(this);
      console.log(checked);
      if (checked === true) {     
@@ -289,34 +287,50 @@ Template.plansShow.events({
     //  }
 
     if( this.treatments.two.userId ) {
-          Plans.update(this._id, {$unset: {"treatments.two.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.one.userId" : true}});
     }
 
   },
-  // 'submit .js-todo-new': function(event) {
-  //   event.preventDefault();
 
-  //   var $input = $(event.target).find('[type=text]');
-  //   if (! $input.val())
-  //     return;
-    
-  //   Todos.insert({
-  //     listId: this._id,
-  //     text: $input.val(),
-  //     checked: false,
-  //     createdAt: new Date()
-  //   });
-  //   Lists.update(this._id, {$inc: {incompleteCount: 1}});
-  //   $input.val('');
-  // } ,
+  'change [name=checked1]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if( !this.treatments.one.checked ) {
 
-  // 'focus input[name=patientname]': function(event) {
-  //   Session.set(EDITING_KEY, this._id);
-  // },
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});    
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.two.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.two.userId" : true}});
+    }
+  },
 
-  // 'focus input[name=mtx]': function(event) {
-  //   Session.set(EDITING_KEY, this._id);
-  // },
+// OPIT S BUTON
+  'click [name=checked2]': function(event, template) {
+    event.preventDefault();
+    var checked = $(event.target).is(':submit');
+    console.log(checked);
+    if( !this.treatments.one.checked ) {
+      checked = false;
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});    
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.two.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.two.userId" : true}});
+    }
+  },
+  
   
   
   'blur input[name=patientname] input[name=mtx] input[name=semtx] input[name=semtx1] input[name=semtx2] input[name=semtx3] input[name=semtx4] input[name=semtx5] input[name=semtx6] input[name=semtx7] input[name=semtx8] input[name=docname] input[name=docname1] input[name=docname2] input[name=docname3] input[name=docname4] input[name=docname5]': function(event) {

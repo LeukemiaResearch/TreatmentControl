@@ -254,3 +254,19 @@ Template.appBody.events({
   }
 });
 //Meteor.methods - last work on
+
+
+
+
+// http://projectricochet.com/blog/meteor-js-performance#.Ve_pqxGqqko  --Which templates are being reprocessed? TIPS FOR Debugging METEOR JS //
+                                        // OR  http://stackoverflow.com/questions/15422456/detecting-which-reactive-query-was-triggered //
+  //   _.each(Template, function (template, name) {
+  //     var oldRender = template.rendered;
+  //     var counter = 0;
+ 
+  //     template.rendered = function () {
+  //       console.log(name, "render count: ", ++counter);
+  //       oldRender && oldRender.apply(this, arguments);
+  //     };
+  //   });
+  // }

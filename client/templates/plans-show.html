@@ -166,8 +166,15 @@
         <!-- {{#if treatments.[0].value2 }} -->
 
 <!-- BEGINING OF THE FORM!!! -->
-    <form>    
-    <hr> 
+   <form class="{{checkedClass}}">    
+    <hr>
+        <div class="row">     
+        <div class="col-md-12">
+      
+          <input type="checkbox" checked="{{treatments.one.checked}}" name="checked" value="{{treatments.one.checked}}"> Register Treatment
+      
+        </div>
+      </div>
       <!-- ROW for every line -->
       <div class="row">   
          <!-- {{#with treatments.[0]}} -->
@@ -266,7 +273,8 @@
        <div class="row">
          <div class="col-md-12">
       
-      <input type="checkbox" checked="{{treatments.two.checked}}" name="checked" value="{{treatments.two.checked}}"> Register Treatment
+      <!-- <input type="checkbox" checked="{{treatments.two.checked}}" name="checked1" value="{{treatments.two.checked}}"> Register Treatment -->
+      <input type="submit" name="checked2" value="{{treatments.two.checked}}"> Register Treatment
       
      </div>
       </div>
