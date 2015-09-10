@@ -36,41 +36,68 @@ Template.plansShow.helpers({
 
  // checkbox dev
  checkedClass  :  function(list, template) {
-
+  $(".content-scrollable form").not('.treatment').slice(1, 15).addClass('blue'); // GENERAL STATE 
+  // FIRST FORM //
+  if (this.treatments.one.checked === true) {
+    $(".content-scrollable form:first").addClass('treatment');
+    $(".content-scrollable form:first").next().removeClass('blue');   
+  } 
+  else {
+    $(".content-scrollable form:first").removeClass('treatment');
+    $(".content-scrollable form:first").next().addClass('blue'); 
+  }
+  // SECOND FORM //
     if(this.treatments.two.checked === true)  {   
     // $(".content-scrollable form.treatment:last").next().siblings().not(".treatment").addClass('blue');
      
-     $(".content-scrollable form").not('.treatment').slice(1, 10).addClass('blue');
- //     $(".content-scrollable form.treatment").next().next().addClass('blue');
-  // console.log(p);
- //    if($(".content-scrollable form").hasClass('blue')) {
- //       $(".content-scrollable form.blue").next().addClass('blue');
-    //}
-    // $("form.treatment").css("background-color" , "gray");
-       // $("#first").addClass('treatment');
-        // $(this).parent().parent().addClass('treatment');
-       // $(this).closest('form').addClass('treatment');
-    // Lists.update(this.listId, {$inc: {incompleteCount: checked ? -1 : 1}});
-    
-   // return Session.get('checkedClass') && 'treatment';    // Session e novoto 
-     // return   'treatment';
-     
-      $(".content-scrollable form:first").next().addClass('treatment');
-       
+     $(".content-scrollable form:first").next().addClass('treatment');
+     $(".content-scrollable form:first").next().next().removeClass('blue');
+          
    }   
-   else if (this.treatments.two.checked === false) {
-    $(".content-scrollable form.treatment:last").next().siblings().not(".treatment").removeClass('blue');
-   // $(".content-scrollable form").removeClass('blue');
-    // return Session.get('checkedClass');    // NOVOTO 
-   } 
-   else {} 
-    // $(".content-scrollable form").removeClass('blue');
-  // $(".content-scrollable form.treatment").removeClass('treatment')
-      // $("form.treatment").css("background-color" , "white"); 
-      // $("#first").removeClass('treatment');
-       // $(this).parent().parent().removeClass('treatment');
-        // $(this).closest('form').removeClass('treatment');
-     return Session.get('checkedClass');  // STAROTO 
+   else  {
+    $(".content-scrollable form:first").next().removeClass('treatment');
+    $(".content-scrollable form:first").next().next().addClass('blue');
+     
+   }
+   // THIRD FORM //
+   if(this.treatments.tree.checked === true)  {   
+        
+     $(".content-scrollable form:first").next().next().addClass('treatment');
+     $(".content-scrollable form:first").next().next().next().removeClass('blue');
+          
+   }   
+   else  {
+    $(".content-scrollable form:first").next().next().removeClass('treatment');
+    $(".content-scrollable form:first").next().next().next().addClass('blue');
+     
+   }
+   //FORTH FORM //
+   if(this.treatments.four.checked === true)  {   
+        
+     $(".content-scrollable form:first").next().next().next().addClass('treatment');
+     $(".content-scrollable form:first").next().next().next().next().removeClass('blue');
+          
+   }   
+   else  {
+    $(".content-scrollable form:first").next().next().next().removeClass('treatment');
+    $(".content-scrollable form:first").next().next().next().next().addClass('blue');
+     
+   }
+   // FIFTH FORM //
+   if(this.treatments.five.checked === true)  {   
+        
+     $(".content-scrollable form:first").next().next().next().next().addClass('treatment');
+     $(".content-scrollable form:first").next().next().next().next().next().removeClass('blue');
+          
+   }   
+   else  {
+    $(".content-scrollable form:first").next().next().next().next().removeClass('treatment');
+    $(".content-scrollable form:first").next().next().next().next().next().addClass('blue');
+     
+   }  
+   
+     
+    // return Session.get('checkedClass');  // STAROTO 
   },
 
   editing: function() {
@@ -308,6 +335,10 @@ Template.plansShow.events({
 
       return alert("You cannot register this treatment before the previous one!");
     }
+    if( this.treatments.tree.checked ) {
+
+      return alert("You cannot unregister this treatment before when next one is registered!");
+    }
     else {
       Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});  
     }
@@ -324,7 +355,7 @@ Template.plansShow.events({
   },
 
 // OPIT S BUTTON
-  'click [name=checked2]': function(event, template) {
+  'click [name=checking]': function(event, template) {
     event.preventDefault();
     var checked = $(event.target).is(':submit');
     console.log(checked);
@@ -341,6 +372,81 @@ Template.plansShow.events({
      }    
     if( this.treatments.two.userId ) {
           Plans.update(this._id, {$unset: {"treatments.two.userId" : true}});
+    }
+  },
+
+  'change [name=checked2]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if(!this.treatments.two.checked) {
+
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    if( this.treatments.four.checked ) {
+
+      return alert("You cannot unregister this treatment before when next one is registered!");
+    }
+    else {
+      Plans.update(this._id, {$set: {"treatments.tree.checked": checked , "treatments.tree.userId" : Meteor.userId()}});  
+    }
+      
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.tree.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.tree.userId" : true}});
+    }
+  },
+
+  'change [name=checked3]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if(!this.treatments.tree.checked) {
+
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    if( this.treatments.five.checked ) {
+
+      return alert("You cannot unregister this treatment before when next one is registered!");
+    }
+    else {
+      Plans.update(this._id, {$set: {"treatments.four.checked": checked , "treatments.four.userId" : Meteor.userId()}});  
+    }
+      
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.four.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.four.userId" : true}});
+    }
+  },
+
+  'change [name=checked4]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if(!this.treatments.four.checked) {
+
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    if( this.treatments.six.checked ) {
+
+      return alert("You cannot unregister this treatment before when next one is registered!");
+    }
+    else {
+      Plans.update(this._id, {$set: {"treatments.five.checked": checked , "treatments.five.userId" : Meteor.userId()}});  
+    }
+      
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.five.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.five.userId" : true}});
     }
   },
   
