@@ -37,8 +37,10 @@ Template.plansShow.helpers({
  // checkbox dev
  checkedClass  :  function(list, template) {
 
-   if(this.treatments.two.checked === true)  {   
-     $(".content-scrollable form.treatment:last").next().siblings().not(".treatment").addClass('blue');
+    if(this.treatments.two.checked === true)  {   
+    // $(".content-scrollable form.treatment:last").next().siblings().not(".treatment").addClass('blue');
+     
+     $(".content-scrollable form").not('.treatment').slice(1, 10).addClass('blue');
  //     $(".content-scrollable form.treatment").next().next().addClass('blue');
   // console.log(p);
  //    if($(".content-scrollable form").hasClass('blue')) {
@@ -50,21 +52,25 @@ Template.plansShow.helpers({
        // $(this).closest('form').addClass('treatment');
     // Lists.update(this.listId, {$inc: {incompleteCount: checked ? -1 : 1}});
     
-  return Session.get('checkedClass') && 'treatment';    // Session e novoto 
-
+   // return Session.get('checkedClass') && 'treatment';    // Session e novoto 
+     // return   'treatment';
+     
+      $(".content-scrollable form:first").next().addClass('treatment');
+       
    }   
-   else {
+   else if (this.treatments.two.checked === false) {
     $(".content-scrollable form.treatment:last").next().siblings().not(".treatment").removeClass('blue');
    // $(".content-scrollable form").removeClass('blue');
-    return Session.get('checkedClass');    // NOVOTO 
-   }  
+    // return Session.get('checkedClass');    // NOVOTO 
+   } 
+   else {} 
     // $(".content-scrollable form").removeClass('blue');
   // $(".content-scrollable form.treatment").removeClass('treatment')
       // $("form.treatment").css("background-color" , "white"); 
       // $("#first").removeClass('treatment');
        // $(this).parent().parent().removeClass('treatment');
         // $(this).closest('form').removeClass('treatment');
-   // return Session.get('checkedClass');  // STAROTO 
+     return Session.get('checkedClass');  // STAROTO 
   },
 
   editing: function() {
@@ -255,6 +261,10 @@ Template.plansShow.events({
    
   'change [name=checked]': function(event, template) {
     var checked = $(event.target).is(':checked');
+    if( this.treatments.one.checked  && this.treatments.two.checked) {
+
+      return alert("You cannot unregister this treatment before unregister the next one!");
+    }
     Plans.update(this._id, {$set: {"treatments.one.checked": checked , "treatments.one.userId" : Meteor.userId()}});
     // colorchange(this);
      console.log(checked);
@@ -298,7 +308,10 @@ Template.plansShow.events({
 
       return alert("You cannot register this treatment before the previous one!");
     }
-    Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});    
+    else {
+      Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});  
+    }
+      
      if (checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
@@ -310,7 +323,7 @@ Template.plansShow.events({
     }
   },
 
-// OPIT S BUTON
+// OPIT S BUTTON
   'click [name=checked2]': function(event, template) {
     event.preventDefault();
     var checked = $(event.target).is(':submit');
