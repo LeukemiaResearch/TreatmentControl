@@ -94,7 +94,43 @@ Template.plansShow.helpers({
     $(".content-scrollable form:first").next().next().next().next().removeClass('treatment');
     $(".content-scrollable form:first").next().next().next().next().next().addClass('blue');
      
-   }  
+   }
+   //SIX FORM
+   if(this.treatments.six.checked === true)  {   
+        
+     $(".content-scrollable form:first").next().next().next().next().next().addClass('treatment');
+     $(".content-scrollable form:first").next().next().next().next().next().next().removeClass('blue');
+          
+   }   
+   else  {
+    $(".content-scrollable form:first").next().next().next().next().next().removeClass('treatment');
+    $(".content-scrollable form:first").next().next().next().next().next().next().addClass('blue');
+     
+   }
+   //SEVEN FORM
+   if(this.treatments.seven.checked === true)  {   
+        
+     $(".content-scrollable form:first").next().next().next().next().next().next().addClass('treatment');
+     $(".content-scrollable form:first").next().next().next().next().next().next().next().removeClass('blue');
+          
+   }   
+   else  {
+    $(".content-scrollable form:first").next().next().next().next().next().next().removeClass('treatment');
+    $(".content-scrollable form:first").next().next().next().next().next().next().next().addClass('blue');
+     
+   }
+   //EIGHT FORM //
+   if(this.treatments.eight.checked === true)  {   
+        
+    $(".content-scrollable form:first").next().next().next().next().next().next().next().addClass('treatment');
+    $(".content-scrollable form:first").next().next().next().next().next().next().next().next().next().next().next().removeClass('blue');
+          
+   }   
+   else  {
+    $(".content-scrollable form:first").next().next().next().next().next().next().next().removeClass('treatment');
+    $(".content-scrollable form:first").next().next().next().next().next().next().next().next().next().next().next().addClass('blue');
+     
+   }   
    
      
     // return Session.get('checkedClass');  // STAROTO 
@@ -449,6 +485,81 @@ Template.plansShow.events({
           Plans.update(this._id, {$unset: {"treatments.five.userId" : true}});
     }
   },
+
+  'change [name=checked5]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if(!this.treatments.five.checked) {
+
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    if( this.treatments.seven.checked ) {
+
+      return alert("You cannot unregister this treatment before when next one is registered!");
+    }
+    else {
+      Plans.update(this._id, {$set: {"treatments.six.checked": checked , "treatments.six.userId" : Meteor.userId()}});  
+    }
+      
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.six.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.six.userId" : true}});
+    }
+  },
+
+  'change [name=checked6]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if(!this.treatments.six.checked) {
+
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    if( this.treatments.eight.checked ) {
+
+      return alert("You cannot unregister this treatment before when next one is registered!");
+    }
+    else {
+      Plans.update(this._id, {$set: {"treatments.seven.checked": checked , "treatments.seven.userId" : Meteor.userId()}});  
+    }
+      
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.seven.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.seven.userId" : true}});
+    }
+  },
+
+  'change [name=checked7]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if(!this.treatments.seven.checked) {
+
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    if( this.treatments.nine.hurtig.checked || this.treatments.nine.normal.checked ) {
+
+      return alert("You cannot unregister this treatment before when next one is registered!");
+    }
+    else {
+      Plans.update(this._id, {$set: {"treatments.eight.checked": checked , "treatments.eight.userId" : Meteor.userId()}});  
+    }
+      
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.eight.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.eight.userId" : true}});
+    }
+  },
   
   
   
@@ -800,4 +911,7 @@ Template.plansShow.events({
 
 
    // 38 + 275  CHECKBOX -- STATUS: USERID - DA , BACKGROUND - COLOR - DA ,  /////////////////    TRQBVA DA SE NARAVI LOGIC ZA SLEDVASHTITE FORM-S I INPUT FIELSD TO BE 
-   // SETTED DISABLE I ALERT BOX KOQTO DA PROVERI DALI VSI4KI INPUT-I SA POPALNENI !!!   
+   // SETTED DISABLE I ALERT BOX KOQTO DA PROVERI DALI VSI4KI INPUT-I SA POPALNENI !!!   ====  DONE
+
+
+   // DA NAPRAVQ CHECKBOX-OVETE NA POSLEDNITE HURTIG NORMAL INPUT-I   !!!!
