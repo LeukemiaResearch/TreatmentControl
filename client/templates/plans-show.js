@@ -14,7 +14,10 @@ Template.plansShow.onRendered(function() {
     // Handle for launch screen defined in app-body.js
     planRenderHold.release();    
     firstRender = false;
+
   }
+
+  
 
   this.find('.js-title-nav')._uihooks = {
     insertElement: function(node, next) {
@@ -36,7 +39,10 @@ Template.plansShow.helpers({
 
  // checkbox dev
  checkedClass  :  function(list, template) {
-  $(".content-scrollable form").not('.treatment').slice(1, 15).addClass('blue'); // GENERAL STATE 
+  //if(this.header.mtx>0) {
+   //  $(".content-scrollable form").not('.treatment').slice(1, 15).addClass('blue'); // GENERAL STATE 
+  //}
+ 
   // FIRST FORM //
   if (this.treatments.one.checked === true) {
     $(".content-scrollable form:first").addClass('treatment');
@@ -798,7 +804,7 @@ Template.plansShow.events({
   }, 300),
 
   'keyup input[name=mtx]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"header.mtx": event.target.value}});
+    Plans.update(this._id, {$set: {"header.mtx": event.target.value}});   
   }, 300),
 
   'keyup input[name=height]': _.throttle(function(event) {
