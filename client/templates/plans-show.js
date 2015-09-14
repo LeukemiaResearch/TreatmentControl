@@ -16,8 +16,106 @@ Template.plansShow.onRendered(function() {
     firstRender = false;
 
   }
+console.log(this.data.treatments.one.checked);
+  // $(".content-scrollable form").not('.treatment').slice(1, 20).addClass('blue');
+  $(".content-scrollable form").not('.treatment').slice(1, 20).addClass('blue');
+   // FIRST FORM //
+//   if (this.data.treatments.one.checked === true) {
 
-  
+//     $(".content-scrollable form:first").removeClass('blue'); 
+//     $(".content-scrollable form:first").addClass('treatment');
+//     $(".content-scrollable form:first").next().removeClass('blue');   
+//   } 
+//   else {
+//     $(".content-scrollable form:first").removeClass('treatment');
+//     $(".content-scrollable form:first").next().addClass('blue'); 
+//   }
+//   // SECOND FORM //
+//     if(this.data.treatments.two.checked === true)  {   
+//     // $(".content-scrollable form.treatment:last").next().siblings().not(".treatment").addClass('blue');
+     
+//    $(".content-scrollable form:first").next().addClass('treatment');
+//      $(".content-scrollable form:first").next().next().removeClass('blue');
+          
+//    }   
+//    else  {
+//     $(".content-scrollable form:first").next().removeClass('treatment');
+//     $(".content-scrollable form:first").next().next().addClass('blue');
+     
+//    }
+//    // THIRD FORM //
+//    if(this.data.treatments.tree.checked === true)  {   
+        
+//      $(".content-scrollable form:first").next().next().addClass('treatment');
+//      $(".content-scrollable form:first").next().next().next().removeClass('blue');
+          
+//    }   
+//    else  {
+//     $(".content-scrollable form:first").next().next().removeClass('treatment');
+//     $(".content-scrollable form:first").next().next().next().addClass('blue');
+     
+// }
+//    //FORTH FORM //
+//    if(this.data.treatments.four.checked === true)  {   
+        
+//      $(".content-scrollable form:first").next().next().next().addClass('treatment');
+//      $(".content-scrollable form:first").next().next().next().next().removeClass('blue');
+          
+//    }   
+
+//    else  {
+//     $(".content-scrollable form:first").next().next().next().removeClass('treatment');
+//     $(".content-scrollable form:first").next().next().next().next().addClass('blue');
+     
+//    }
+//    // FIFTH FORM //
+//    if(this.data.treatments.five.checked === true)  {   
+        
+//      $(".content-scrollable form:first").next().next().next().next().addClass('treatment');
+//      $(".content-scrollable form:first").next().next().next().next().next().removeClass('blue');
+          
+//    }   
+//    else  {
+//     $(".content-scrollable form:first").next().next().next().next().removeClass('treatment');
+//     $(".content-scrollable form:first").next().next().next().next().next().addClass('blue');
+     
+//    }
+//  //SIX FORM
+//    if(this.data.treatments.six.checked === true)  {   
+        
+//      $(".content-scrollable form:first").next().next().next().next().next().addClass('treatment');
+//      $(".content-scrollable form:first").next().next().next().next().next().next().removeClass('blue');
+          
+//    }   
+//    else  {
+//     $(".content-scrollable form:first").next().next().next().next().next().removeClass('treatment');
+//     $(".content-scrollable form:first").next().next().next().next().next().next().addClass('blue');
+     
+//    }
+//    //SEVEN FORM
+//    if(this.data.treatments.seven.checked === true)  {   
+        
+//      $(".content-scrollable form:first").next().next().next().next().next().next().addClass('treatment');
+//      $(".content-scrollable form:first").next().next().next().next().next().next().next().removeClass('blue');
+          
+//    }   
+//    else  {
+//     $(".content-scrollable form:first").next().next().next().next().next().next().removeClass('treatment');
+//     $(".content-scrollable form:first").next().next().next().next().next().next().next().addClass('blue');
+     
+//    }
+//    //EIGHT FORM //
+//    if(this.data.treatments.eight.checked === true)  {   
+        
+//     $(".content-scrollable form:first").next().next().next().next().next().next().next().addClass('treatment');
+//     $(".content-scrollable form:first").next().next().next().next().next().next().next().next().next().next().next().removeClass('blue');
+          
+//    }   
+//    else  {
+//     $(".content-scrollable form:first").next().next().next().next().next().next().next().removeClass('treatment');
+//     $(".content-scrollable form:first").next().next().next().next().next().next().next().next().next().next().next().addClass('blue');
+     
+//    }   
 
   this.find('.js-title-nav')._uihooks = {
     insertElement: function(node, next) {
@@ -37,6 +135,24 @@ Template.plansShow.onRendered(function() {
 
 Template.plansShow.helpers({
 
+  //hidden the Treatment plan if mtx Nr not been register
+  hidden : function(list) {
+    if(!this.header.mtx) {
+       return 'hidden'; 
+    }
+    else 
+      return;
+
+   //  if(this.header.mtx>0) {
+   //    var b = $(".content-scrollable form").not('.treatment').slice(1, 15).addClass('blue');
+   //    console.log(b);
+   // return   b;// GENERAL STATE 
+   // }
+
+      
+  },
+
+
  // checkbox dev
  checkedClass  :  function(list, template) {
   //if(this.header.mtx>0) {
@@ -45,6 +161,7 @@ Template.plansShow.helpers({
  
   // FIRST FORM //
   if (this.treatments.one.checked === true) {
+    $(".content-scrollable form:first").removeClass('blue'); 
     $(".content-scrollable form:first").addClass('treatment');
     $(".content-scrollable form:first").next().removeClass('blue');   
   } 
@@ -244,6 +361,10 @@ var togglePlanPrivacy = function(list) {
 
     Plans.update(list._id, {$set: {userId: Meteor.userId()}});
   }
+};
+
+var jey = function() {
+  return $(".content-scrollable form").not('.treatment').slice(1, 15).addClass('blue'); // GENERAL STATE 
 };
 
 // var colorchange = function(plan) {
@@ -803,9 +924,12 @@ Template.plansShow.events({
     Plans.update(this._id, {$set: {"patient.cpr": event.target.value}});
   }, 300),
 
+  
+
   'keyup input[name=mtx]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"header.mtx": event.target.value}});   
+    Plans.update(this._id, {$set: {"header.mtx": event.target.value}});
   }, 300),
+  
 
   'keyup input[name=height]': _.throttle(function(event) {
     Plans.update(this._id, {$set: {"patient.height": event.target.value}});
@@ -921,3 +1045,6 @@ Template.plansShow.events({
 
 
    // DA NAPRAVQ CHECKBOX-OVETE NA POSLEDNITE HURTIG NORMAL INPUT-I   !!!!
+
+
+   
