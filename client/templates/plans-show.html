@@ -166,7 +166,7 @@
         <!-- {{#if treatments.[0].value2 }} -->
 
 <!-- BEGINING OF THE FORM!!! -->
-   <form class="{{checkedClass}}">    
+   <form class="{{checkedClass}} {{checkedClass1}}">    
     <hr>
         <div class="row">     
         <div class="col-md-12">
@@ -267,7 +267,7 @@
     </form>
     
     <!-- SECOND FORM  --> 
-    <form  class="{{checkedClass}}">
+    <form  class="{{checkedClass}} {{checkedClass2}}">
   
       <hr>
        <div class="row">
@@ -294,7 +294,7 @@
     </form>
 
     <!-- THIRD FORM -->
-    <form>
+    <form class="{{checkedClass}} {{checkedClass3}}">
       <hr>
       <div class="row">
         <div class="col-md-12">      
@@ -335,7 +335,7 @@
 
       <div class="row">
           <div class="col-md-2">
-            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">
+            <input class="form-control" name="regdate" type="date" value="{{treatments.tree.createdAt}}" {{disabled}}>
           </div>
           <div class="col-md-7">
             <h6>{{treatments.tree.field3.text}}:</h6>
@@ -369,7 +369,7 @@
             <h6>{{treatments.tree.field5.text}}:</h6>
           </div >
           <div class="col-md-2">
-            <input class="form-control" name="pcreatin1" type="number" placeholder="Type to insert value" value="{{treatments.tree.field4.pcreatin}}">
+            <input class="form-control" name="pcreatin1" type="number" placeholder="Type to insert value" value="{{treatments.tree.field4.pcreatin}}" {{disabled}}>
           </div>
           <div class="col-md-1">
              <h6>µmol/l</h6>
@@ -419,7 +419,7 @@
     </form>
 
     <!-- FORTH FORM -->
-    <form>
+    <form class="{{checkedClass}} {{checkedClass4}}">
       <hr>
       <div class="row">
         <div class="col-md-12">      
@@ -445,7 +445,7 @@
     </form>
 
     <!-- FIFTH FORM -->
-    <form>
+    <form class="{{checkedClass}} {{checkedClass5}}">
      <hr>
       <div class="row">
         <div class="col-md-12">      
@@ -498,7 +498,7 @@
     </form>
 
     <!-- SIXTH FORM -->
-    <form>
+    <form class="{{checkedClass}} {{checkedClass6}}">
        <hr>
        <div class="row">
         <div class="col-md-12">      
@@ -523,7 +523,7 @@
     </form>
 
     <!-- SEVENTH FORM -->
-    <form>
+    <form class="{{checkedClass}} {{checkedClass7}}">
      <hr>
       <div class="row">
         <div class="col-md-12">      
@@ -591,7 +591,7 @@
     </form>
 
     <!-- EIGHT FORM -->
-    <form>
+    <form class="{{checkedClass}} {{checkedClass8}}">
       <hr>
       <div class="row">
         <div class="col-md-12">      
@@ -701,8 +701,13 @@
       {{#if treatments.nine.hurtig.visible.value}}
       <!-- HURTIG -->
       <!-- FIRST -->
-    <form>
+    <form class="{{checkedClass}} {{checkedClass9}}">
       <hr>
+      <div class="row">
+        <div class="col-md-12">      
+          <input type="checkbox" checked="{{treatments.nine.hurtig.first.checked}}" name="checked8" value="{{treatments.nine.hurtig.first.checked}}"> Register Treatment      
+        </div>
+      </div> 
       <div class="row">
           <div class="col-md-2">
             <h6>Time +48</h6>
@@ -738,8 +743,13 @@
     </form>
 
       <!-- SECOND -->
-      <form>
+      <form class="{{checkedClass}} {{checkedClass10}}">
       <hr>
+      <div class="row">
+        <div class="col-md-12">      
+          <input type="checkbox" checked="{{treatments.nine.hurtig.second.checked}}" name="checked9" value="{{treatments.nine.hurtig.second.checked}}"> Register Treatment      
+        </div>
+      </div> 
       <div class="row">
           <div class="col-md-2">
             <h6>Time +54</h6>
@@ -794,8 +804,13 @@
     {{#if treatments.nine.normal.visible.value}}
     <!-- NORMAL -->
       <!--FIRST  -->
-    <form>
+    <form class="{{checkedClass}} {{checkedClass11}}">
       <hr>
+      <div class="row">
+        <div class="col-md-12">      
+          <input type="checkbox" checked="{{treatments.nine.normal.first.checked}}" name="checked10" value="{{treatments.nine.normal.first.checked}}"> Register Treatment      
+        </div>
+      </div> 
       <div class="row">
           <div class="col-md-2">
             <h6>Time +48</h6>
@@ -831,8 +846,13 @@
     </form>
 
       <!--SECOND FORM -->
-      <form>
+      <form class="{{checkedClass}} {{checkedClass12}}">
       <hr>
+      <div class="row">
+        <div class="col-md-12">      
+          <input type="checkbox" checked="{{treatments.nine.normal.second.checked}}" name="checked11" value="{{treatments.nine.normal.second.checked}}"> Register Treatment      
+        </div>
+      </div> 
       <div class="row">
           <div class="col-md-2">
             <h6>Time +54</h6>
@@ -868,8 +888,13 @@
     </form>
       
     <!-- THIRD FORM -->
-    <form>
+    <form class="{{checkedClass}} {{checkedClass13}}">
       <hr>
+      <div class="row">
+        <div class="col-md-12">      
+          <input type="checkbox" checked="{{treatments.nine.normal.third.checked}}" name="checked12" value="{{treatments.nine.normal.third.checked}}"> Register Treatment      
+        </div>
+      </div> 
       <div class="row">
           <div class="col-md-2">
             <h6>Time +66</h6>

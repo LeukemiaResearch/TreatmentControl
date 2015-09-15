@@ -6,6 +6,7 @@ var firstRender = true;
 var planRenderHold = LaunchScreen.hold();
 planFadeInHold = null;
 
+
 Template.plansShow.onRendered(function() {
   if (firstRender) {
     // Released in app-body.js
@@ -16,106 +17,13 @@ Template.plansShow.onRendered(function() {
     firstRender = false;
 
   }
-console.log(this.data.treatments.one.checked);
+
   // $(".content-scrollable form").not('.treatment').slice(1, 20).addClass('blue');
-  $(".content-scrollable form").not('.treatment').slice(1, 20).addClass('blue');
-   // FIRST FORM //
-//   if (this.data.treatments.one.checked === true) {
+ // $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
 
-//     $(".content-scrollable form:first").removeClass('blue'); 
-//     $(".content-scrollable form:first").addClass('treatment');
-//     $(".content-scrollable form:first").next().removeClass('blue');   
-//   } 
-//   else {
-//     $(".content-scrollable form:first").removeClass('treatment');
-//     $(".content-scrollable form:first").next().addClass('blue'); 
-//   }
-//   // SECOND FORM //
-//     if(this.data.treatments.two.checked === true)  {   
-//     // $(".content-scrollable form.treatment:last").next().siblings().not(".treatment").addClass('blue');
-     
-//    $(".content-scrollable form:first").next().addClass('treatment');
-//      $(".content-scrollable form:first").next().next().removeClass('blue');
-          
-//    }   
-//    else  {
-//     $(".content-scrollable form:first").next().removeClass('treatment');
-//     $(".content-scrollable form:first").next().next().addClass('blue');
-     
-//    }
-//    // THIRD FORM //
-//    if(this.data.treatments.tree.checked === true)  {   
-        
-//      $(".content-scrollable form:first").next().next().addClass('treatment');
-//      $(".content-scrollable form:first").next().next().next().removeClass('blue');
-          
-//    }   
-//    else  {
-//     $(".content-scrollable form:first").next().next().removeClass('treatment');
-//     $(".content-scrollable form:first").next().next().next().addClass('blue');
-     
-// }
-//    //FORTH FORM //
-//    if(this.data.treatments.four.checked === true)  {   
-        
-//      $(".content-scrollable form:first").next().next().next().addClass('treatment');
-//      $(".content-scrollable form:first").next().next().next().next().removeClass('blue');
-          
-//    }   
 
-//    else  {
-//     $(".content-scrollable form:first").next().next().next().removeClass('treatment');
-//     $(".content-scrollable form:first").next().next().next().next().addClass('blue');
-     
-//    }
-//    // FIFTH FORM //
-//    if(this.data.treatments.five.checked === true)  {   
-        
-//      $(".content-scrollable form:first").next().next().next().next().addClass('treatment');
-//      $(".content-scrollable form:first").next().next().next().next().next().removeClass('blue');
-          
-//    }   
-//    else  {
-//     $(".content-scrollable form:first").next().next().next().next().removeClass('treatment');
-//     $(".content-scrollable form:first").next().next().next().next().next().addClass('blue');
-     
-//    }
-//  //SIX FORM
-//    if(this.data.treatments.six.checked === true)  {   
-        
-//      $(".content-scrollable form:first").next().next().next().next().next().addClass('treatment');
-//      $(".content-scrollable form:first").next().next().next().next().next().next().removeClass('blue');
-          
-//    }   
-//    else  {
-//     $(".content-scrollable form:first").next().next().next().next().next().removeClass('treatment');
-//     $(".content-scrollable form:first").next().next().next().next().next().next().addClass('blue');
-     
-//    }
-//    //SEVEN FORM
-//    if(this.data.treatments.seven.checked === true)  {   
-        
-//      $(".content-scrollable form:first").next().next().next().next().next().next().addClass('treatment');
-//      $(".content-scrollable form:first").next().next().next().next().next().next().next().removeClass('blue');
-          
-//    }   
-//    else  {
-//     $(".content-scrollable form:first").next().next().next().next().next().next().removeClass('treatment');
-//     $(".content-scrollable form:first").next().next().next().next().next().next().next().addClass('blue');
-     
-//    }
-//    //EIGHT FORM //
-//    if(this.data.treatments.eight.checked === true)  {   
-        
-//     $(".content-scrollable form:first").next().next().next().next().next().next().next().addClass('treatment');
-//     $(".content-scrollable form:first").next().next().next().next().next().next().next().next().next().next().next().removeClass('blue');
-          
-//    }   
-//    else  {
-//     $(".content-scrollable form:first").next().next().next().next().next().next().next().removeClass('treatment');
-//     $(".content-scrollable form:first").next().next().next().next().next().next().next().next().next().next().next().addClass('blue');
-     
-//    }   
+   
+ 
 
   this.find('.js-title-nav')._uihooks = {
     insertElement: function(node, next) {
@@ -142,14 +50,197 @@ Template.plansShow.helpers({
     }
     else 
       return;
+  },
+ 
+  disabled : function (list) {
+    if(this.treatments.tree.field4.pcreatin && this.treatments.tree.createdAt) {
+      Session.set("disabled", "ready");
+    }
+    if(this.treatments.tree.checked) { Session.set("disabled", "disabled"); }
+    else { Session.set("disabled", ""); }
 
-   //  if(this.header.mtx>0) {
-   //    var b = $(".content-scrollable form").not('.treatment').slice(1, 15).addClass('blue');
-   //    console.log(b);
-   // return   b;// GENERAL STATE 
-   // }
+    return Session.get("disabled");
+  },
+   // FIRST FORM //
+  checkedClass1 : function(list) {
+   
+  if (this.treatments.one.checked === true) { 
+      Session.set("first" , "treatment");
+      Session.set("second" , "");
+  } 
+  else {
+    Session.set("first" , "");
+    Session.set("second" , "blue");
+  } 
+    return Session.get("first");
+  },
 
+   // SECOND FORM //
+  checkedClass2 : function(list) {
+    
+    if(this.treatments.two.checked === true)  {    
+     Session.set("second" , "treatment");
+     Session.set("third" , "");     
+   }   
+   else  {
+        if (Session.equals("first", "treatment")) {
+          Session.set("second" , "");
+         }      
+          else {  Session.set("second" , "blue");  }       
+     Session.set("third" , "blue");      
+   }
+    return Session.get("second");
+  },
+
+  // THIRD FORM //
+  checkedClass3 : function(list) {
+    
+   if(this.treatments.tree.checked === true)  {   
+     Session.set("third" , "treatment");
+     Session.set("forth" , "");            
+   }   
+   else  {
+      if (Session.equals("second", "treatment")) { Session.set("third" , ""); } else { Session.set("third" , "blue"); }
+      Session.set("forth" , "blue");
+   }
+    return Session.get("third");
+  },
+
+   // FORTH FORM //
+  checkedClass4 : function(list) {
+   
+   if(this.treatments.four.checked === true)  {   
+     Session.set("forth" , "treatment");
+     Session.set("fifth" , "");            
+   }   
+   else  {
+      if (Session.equals("third", "treatment")) { Session.set("forth" , ""); } else { Session.set("forth" , "blue"); }
+      Session.set("fifth" , "blue");
+   }
+    return Session.get("forth");
+  },
+
+  // FIFTH FORM //
+  checkedClass5 : function(list) {
+    
+   if(this.treatments.five.checked === true)  {   
+     Session.set("fifth" , "treatment");
+     Session.set("six" , "");            
+   }   
+   else  {
+      if (Session.equals("forth", "treatment")) { Session.set("fifth" , ""); } else { Session.set("fifth" , "blue"); }
+      Session.set("six" , "blue");
+   }
+    return Session.get("fifth");
+  },
+
+  // SIXTH FORM //
+  checkedClass6 : function(list) {
       
+   if(this.treatments.six.checked === true)  {   
+     Session.set("six" , "treatment");
+     Session.set("seven" , "");            
+   }   
+   else  {
+      if (Session.equals("fifth", "treatment")) { Session.set("six" , ""); } else { Session.set("six" , "blue"); }
+      Session.set("seven" , "blue");
+   }
+    return Session.get("six");
+    },
+
+     // SEVEN FORM //
+  checkedClass7 : function(list) {
+     
+   if(this.treatments.seven.checked === true)  {   
+     Session.set("seven" , "treatment");
+     Session.set("eight" , "");            
+   }   
+   else  {
+      if (Session.equals("six", "treatment")) { Session.set("seven" , ""); } else { Session.set("seven" , "blue"); }
+      Session.set("eight" , "blue");
+   }
+    return Session.get("seven");
+  },
+
+     // EIGHT FORM //
+  checkedClass8 : function(list) {
+     
+   if(this.treatments.eight.checked === true)  {   
+     Session.set("eight" , "treatment");
+     Session.set("nine" , "");            
+   }   
+   else  {
+      if (Session.equals("seven", "treatment")) { Session.set("eight" , ""); } else { Session.set("eight" , "blue"); }
+      Session.set("nine" , "blue");
+   }
+    return Session.get("eight");
+  },
+
+  // NINE FORM  HURTIG FIRST
+  checkedClass9 : function(list) {
+    if(this.treatments.nine.hurtig.first.checked === true)  {   
+     Session.set("nine" , "treatment");
+     Session.set("ten" , "");            
+   }   
+   else  {
+      if (Session.equals("eight", "treatment")) { Session.set("nine" , ""); } else { Session.set("nine" , "blue"); }
+      Session.set("ten" , "blue");
+   }
+    return Session.get("nine");
+  },
+
+  // NINE FORM  HURTIG SECOND LAST  
+  checkedClass10 : function(list) {
+    if(this.treatments.nine.hurtig.second.checked === true)  {   
+     Session.set("ten" , "treatment");
+    // Session.set("ten" , "");            
+   }   
+   else  {
+      if (Session.equals("nine", "treatment")) { Session.set("ten" , ""); } else { Session.set("ten" , "blue"); }
+     // Session.set("ten" , "blue");
+   }
+    return Session.get("ten");
+  },
+
+
+  // NINE FORM NORMAL FIRST
+  checkedClass11 : function(list) {
+     if(this.treatments.nine.normal.first.checked === true)  {   
+     Session.set("eleven" , "treatment");
+     Session.set("twelve" , "");            
+   }   
+   else  {
+      if (Session.equals("eight", "treatment")) { Session.set("eleven" , ""); } else { Session.set("eleven" , "blue"); }
+      Session.set("twelve" , "blue");
+   }
+    return Session.get("eleven");
+  },
+
+
+  // NINE FORM NORMAL SECOND
+  checkedClass12 : function(list) {
+    if(this.treatments.nine.normal.second.checked === true)  {   
+     Session.set("twelve" , "treatment");
+     Session.set("thirdteen" , "");            
+   }   
+   else  {
+      if (Session.equals("eleven", "treatment")) { Session.set("twelve" , ""); } else { Session.set("twelve" , "blue"); }
+      Session.set("thirdteen" , "blue");
+   }
+    return Session.get("twelve");
+  },
+
+  // NINE FORM NORMAL THIRD
+  checkedClass13 : function(list) {
+    if(this.treatments.nine.normal.third.checked === true)  {   
+     Session.set("thirdteen" , "treatment");
+     //Session.set("thirdteen" , "");            
+   }   
+   else  {
+      if (Session.equals("twelve", "treatment")) { Session.set("thirdteen" , ""); } else { Session.set("thirdteen" , "blue"); }
+     // Session.set("thirdteen" , "blue");
+   }
+    return Session.get("thirdteen");
   },
 
 
@@ -159,101 +250,119 @@ Template.plansShow.helpers({
    //  $(".content-scrollable form").not('.treatment').slice(1, 15).addClass('blue'); // GENERAL STATE 
   //}
  
-  // FIRST FORM //
-  if (this.treatments.one.checked === true) {
-    $(".content-scrollable form:first").removeClass('blue'); 
-    $(".content-scrollable form:first").addClass('treatment');
-    $(".content-scrollable form:first").next().removeClass('blue');   
-  } 
-  else {
-    $(".content-scrollable form:first").removeClass('treatment');
-    $(".content-scrollable form:first").next().addClass('blue'); 
-  }
-  // SECOND FORM //
-    if(this.treatments.two.checked === true)  {   
-    // $(".content-scrollable form.treatment:last").next().siblings().not(".treatment").addClass('blue');
+  // // FIRST FORM //
+  // if (this.treatments.one.checked === true) {
+  //    // $(".content-scrollable form:first").removeClass('blue'); 
+  //    // $(".content-scrollable form:first").addClass('treatment');
+  //    // $(".content-scrollable form:first").next().removeClass('blue');   
+  //     Session.set("first" , "treatment");
+  //     Session.set("second" , "");
+  // } 
+  // else {
+  //  // $(".content-scrollable form:first").removeClass('treatment');
+  //  // $(".content-scrollable form:first").next().addClass('blue');
+  //   Session.set("first" , "");
+  //   Session.set("second" , "blue");
+  // } 
+  
+  // // SECOND FORM //
+  //   if(this.treatments.two.checked === true)  {   
+  //   // $(".content-scrollable form.treatment:last").next().siblings().not(".treatment").addClass('blue');
      
-     $(".content-scrollable form:first").next().addClass('treatment');
-     $(".content-scrollable form:first").next().next().removeClass('blue');
-          
-   }   
-   else  {
-    $(".content-scrollable form:first").next().removeClass('treatment');
-    $(".content-scrollable form:first").next().next().addClass('blue');
-     
-   }
-   // THIRD FORM //
-   if(this.treatments.tree.checked === true)  {   
+  //    // $(".content-scrollable form:first").next().addClass('treatment');
+  //    // $(".content-scrollable form:first").next().next().removeClass('blue'); 
+  //    Session.set("second" , "treatment");
+  //    Session.set("third" , "");     
+  //  }   
+  //  else  {
+  //   // $(".content-scrollable form:first").next().removeClass('treatment');
+  //   // $(".content-scrollable form:first").next().next().addClass('blue');
+  //    // if (Session.equals("first", "treatment")) { // PROBA DALI E PO-BARZO SAS SESSION
+  //       if (Session.equals("first", "treatment")) {
+  //         Session.set("second" , "");
+  //        }      
+  //         else {  Session.set("second" , "blue");  } 
+       
+    
+  //    Session.set("third" , "blue");      
+  //  }
+
+
+   // // THIRD FORM //
+   // if(this.treatments.tree.checked === true)  {   
         
-     $(".content-scrollable form:first").next().next().addClass('treatment');
-     $(".content-scrollable form:first").next().next().next().removeClass('blue');
-          
-   }   
-   else  {
-    $(".content-scrollable form:first").next().next().removeClass('treatment');
-    $(".content-scrollable form:first").next().next().next().addClass('blue');
-     
-   }
-   //FORTH FORM //
-   if(this.treatments.four.checked === true)  {   
+   //   // $(".content-scrollable form:first").next().next().addClass('treatment');
+   //   // $(".content-scrollable form:first").next().next().next().removeClass('blue');
+   //   Session.set("third" , "treatment");
+   //   Session.set("forth" , "");            
+   // }   
+   // else  {
+   //  // $(".content-scrollable form:first").next().next().removeClass('treatment');
+   //  // $(".content-scrollable form:first").next().next().next().addClass('blue');
+   //    if (Session.equals("second", "treatment")) { Session.set("third" , ""); } else { Session.set("third" , "blue"); }
+   //    Session.set("forth" , "blue");
+   // }
+
+   // //FORTH FORM //
+   // if(this.treatments.four.checked === true)  {   
         
-     $(".content-scrollable form:first").next().next().next().addClass('treatment');
-     $(".content-scrollable form:first").next().next().next().next().removeClass('blue');
+   //   $(".content-scrollable form:first").next().next().next().addClass('treatment');
+   //   $(".content-scrollable form:first").next().next().next().next().removeClass('blue');
           
-   }   
-   else  {
-    $(".content-scrollable form:first").next().next().next().removeClass('treatment');
-    $(".content-scrollable form:first").next().next().next().next().addClass('blue');
+   // }   
+   // else  {
+   //  $(".content-scrollable form:first").next().next().next().removeClass('treatment');
+   //  $(".content-scrollable form:first").next().next().next().next().addClass('blue');
      
-   }
-   // FIFTH FORM //
-   if(this.treatments.five.checked === true)  {   
+   // }
+   // // FIFTH FORM //
+   // if(this.treatments.five.checked === true)  {   
         
-     $(".content-scrollable form:first").next().next().next().next().addClass('treatment');
-     $(".content-scrollable form:first").next().next().next().next().next().removeClass('blue');
+   //   $(".content-scrollable form:first").next().next().next().next().addClass('treatment');
+   //   $(".content-scrollable form:first").next().next().next().next().next().removeClass('blue');
           
-   }   
-   else  {
-    $(".content-scrollable form:first").next().next().next().next().removeClass('treatment');
-    $(".content-scrollable form:first").next().next().next().next().next().addClass('blue');
+   // }   
+   // else  {
+   //  $(".content-scrollable form:first").next().next().next().next().removeClass('treatment');
+   //  $(".content-scrollable form:first").next().next().next().next().next().addClass('blue');
      
-   }
-   //SIX FORM
-   if(this.treatments.six.checked === true)  {   
+   // }
+   // //SIX FORM
+   // if(this.treatments.six.checked === true)  {   
         
-     $(".content-scrollable form:first").next().next().next().next().next().addClass('treatment');
-     $(".content-scrollable form:first").next().next().next().next().next().next().removeClass('blue');
+   //   $(".content-scrollable form:first").next().next().next().next().next().addClass('treatment');
+   //   $(".content-scrollable form:first").next().next().next().next().next().next().removeClass('blue');
           
-   }   
-   else  {
-    $(".content-scrollable form:first").next().next().next().next().next().removeClass('treatment');
-    $(".content-scrollable form:first").next().next().next().next().next().next().addClass('blue');
+   // }   
+   // else  {
+   //  $(".content-scrollable form:first").next().next().next().next().next().removeClass('treatment');
+   //  $(".content-scrollable form:first").next().next().next().next().next().next().addClass('blue');
      
-   }
-   //SEVEN FORM
-   if(this.treatments.seven.checked === true)  {   
+   // }
+   // //SEVEN FORM
+   // if(this.treatments.seven.checked === true)  {   
         
-     $(".content-scrollable form:first").next().next().next().next().next().next().addClass('treatment');
-     $(".content-scrollable form:first").next().next().next().next().next().next().next().removeClass('blue');
+   //   $(".content-scrollable form:first").next().next().next().next().next().next().addClass('treatment');
+   //   $(".content-scrollable form:first").next().next().next().next().next().next().next().removeClass('blue');
           
-   }   
-   else  {
-    $(".content-scrollable form:first").next().next().next().next().next().next().removeClass('treatment');
-    $(".content-scrollable form:first").next().next().next().next().next().next().next().addClass('blue');
+   // }   
+   // else  {
+   //  $(".content-scrollable form:first").next().next().next().next().next().next().removeClass('treatment');
+   //  $(".content-scrollable form:first").next().next().next().next().next().next().next().addClass('blue');
      
-   }
-   //EIGHT FORM //
-   if(this.treatments.eight.checked === true)  {   
+   // }
+   // //EIGHT FORM //
+   // if(this.treatments.eight.checked === true)  {   
         
-    $(".content-scrollable form:first").next().next().next().next().next().next().next().addClass('treatment');
-    $(".content-scrollable form:first").next().next().next().next().next().next().next().next().next().next().next().removeClass('blue');
+   //  $(".content-scrollable form:first").next().next().next().next().next().next().next().addClass('treatment');
+   //  $(".content-scrollable form:first").next().next().next().next().next().next().next().next().next().next().next().removeClass('blue');
           
-   }   
-   else  {
-    $(".content-scrollable form:first").next().next().next().next().next().next().next().removeClass('treatment');
-    $(".content-scrollable form:first").next().next().next().next().next().next().next().next().next().next().next().addClass('blue');
+   // }   
+   // else  {
+   //  $(".content-scrollable form:first").next().next().next().next().next().next().next().removeClass('treatment');
+   //  $(".content-scrollable form:first").next().next().next().next().next().next().next().next().next().next().next().addClass('blue');
      
-   }   
+   // }   
    
      
     // return Session.get('checkedClass');  // STAROTO 
@@ -685,6 +794,131 @@ Template.plansShow.events({
      }    
     if( this.treatments.eight.userId ) {
           Plans.update(this._id, {$unset: {"treatments.eight.userId" : true}});
+    }
+  },
+
+  'change [name=checked8]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if(!this.treatments.eight.checked) {
+
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    if( this.treatments.nine.hurtig.second.checked ) {
+
+      return alert("You cannot unregister this treatment before when next one is registered!");
+    }
+    else {
+      Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.checked": checked , "treatments.nine.hurtig.first.userId" : Meteor.userId()}});  
+    }
+      
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.nine.hurtig.first.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.nine.hurtig.first.userId" : true}});
+    }
+  },
+
+  'change [name=checked9]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if(!this.treatments.nine.hurtig.first.checked) {
+
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    // if( this.treatments.nine.hurtig.second.checked ) {
+
+    //   return alert("You cannot unregister this treatment before when next one is registered!");
+    // }
+    else {
+      Plans.update(this._id, {$set: {"treatments.nine.hurtig.second.checked": checked , "treatments.nine.hurtig.second.userId" : Meteor.userId()}});  
+    }
+      
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.nine.hurtig.second.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.nine.hurtig.second.userId" : true}});
+    }
+  },
+
+  'change [name=checked10]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if(!this.treatments.eight.checked) {
+
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    if( this.treatments.nine.normal.second.checked ) {
+
+      return alert("You cannot unregister this treatment before when next one is registered!");
+    }
+    else {
+      Plans.update(this._id, {$set: {"treatments.nine.normal.first.checked": checked , "treatments.nine.normal.first.userId" : Meteor.userId()}});  
+    }
+      
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.nine.normal.first.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.nine.normal.first.userId" : true}});
+    }
+  },
+
+  'change [name=checked11]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if(!this.treatments.nine.normal.first.checked) {
+
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    if( this.treatments.nine.normal.third.checked ) {
+
+      return alert("You cannot unregister this treatment before when next one is registered!");
+    }
+    else {
+      Plans.update(this._id, {$set: {"treatments.nine.normal.second.checked": checked , "treatments.nine.normal.second.userId" : Meteor.userId()}});  
+    }
+      
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.nine.normal.second.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.nine.normal.second.userId" : true}});
+    }
+  },
+
+  'change [name=checked12]': function(event, template) {
+    var checked = $(event.target).is(':checked');
+    if(!this.treatments.nine.normal.second.checked) {
+
+      return alert("You cannot register this treatment before the previous one!");
+    }
+    // if( this.treatments.nine.normal.third.checked ) {
+
+    //   return alert("You cannot unregister this treatment before when next one is registered!");
+    // }
+    else {
+      Plans.update(this._id, {$set: {"treatments.nine.normal.third.checked": checked , "treatments.nine.normal.third.userId" : Meteor.userId()}});  
+    }
+      
+     if (checked === true) {     
+      Session.set('checkedClass', 'treatment');         
+     }
+     else {       
+         Session.set('checkedClass','');   
+     }    
+    if( this.treatments.nine.normal.third.userId ) {
+          Plans.update(this._id, {$unset: {"treatments.nine.normal.third.userId" : true}});
     }
   },
   

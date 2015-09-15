@@ -23,7 +23,7 @@ Meteor.startup(function () {
     },
     "treatments" : {
         "one" : {
-            "checked" : "",
+            "checked" : false,
             "createdAt" : new Date(),
             "field1" : {
                 "text" : "Hydreringsvæske: 5% glucose tilsat 40 mmol Na-bicarbonat og 20 mmol KCl/liter",
@@ -52,7 +52,7 @@ Meteor.startup(function () {
             }
         },
         "two" : {
-            "checked" : true,
+            "checked" : false,
             "field1" : {
                 "text" : "Forhydrering med hydreningsvæske starter. I alt 600 ml/m²/ 4 timer",
                 "method" : "Math.round(150*this.patient.surface.value)",
@@ -61,7 +61,7 @@ Meteor.startup(function () {
             "userId" : "ZCqSk67FPujfRSuWA"
         },
         "tree" : {
-            "checked" : "",
+            "checked" : false,
             "field1" : {
                 "text" : "Diuresemåling begynder. Diureser > 600 ml/m²/ 6 timer",
                 "method" : "Math.round(600*this.patient.surface.value)",
@@ -103,7 +103,7 @@ Meteor.startup(function () {
             "value1" : "NaN"
         },
         "four" : {
-            "checked" : "",
+            "checked" : false,
             "field1" : {
                 "text" : "9/10 af MTX dosis gives på 23 timer. Hydreringsvæske reduceret til samlet 3000 ml/m2/døgn",
                 "method" : "Math.ceil(450*this.patient.surface.value-1)*10",
@@ -111,7 +111,7 @@ Meteor.startup(function () {
             }
         },
         "five" : {
-            "checked" : "",
+            "checked" : false,
             "createdAt" : "",
             "field1" : {
                 "text" : "Tag Se-MTX konc t23 (steady state, analyseres næste dag)  -- Se-MTX t23",
@@ -127,14 +127,14 @@ Meteor.startup(function () {
             }
         },
         "six" : {
-            "checked" : "",
+            "checked" : false,
             "createdAt" : "",
             "field1" : {
                 "text" : "MTX infusionen afsluttes - hydreringsvæskens hastighed øges"
             }
         },
         "seven" : {
-            "checked" : "",
+            "checked" : false,
             "createdAt" : "",
             "field1" : {
                 "text" : "Tag Se-MTX konc t36 (analyseres sammen med Se-MTX t42 og Se-MTX t23) -- Se-MTX t36",
@@ -156,7 +156,7 @@ Meteor.startup(function () {
             }
         },
         "eight" : {
-            "checked" : "",
+            "checked" : false,
             "createdAt" : "",
             "field1" : {
                 "text" : "Tag Se-MTX konc t42 (analyseres sammen med Se-MTX t36 og Se-MTX t23)  -- Se-MTX t42:",
@@ -188,6 +188,7 @@ Meteor.startup(function () {
                     "value" : true
                 },
                 "first" : {
+                    "checked" : false,
                     "createdAt" : "",
                     "field1" : {
                         "text" : "Tag Se-MTX konc t48 (analyseres med Se-MTX t54 næste dag) --Se-MTX t48: ",
@@ -201,6 +202,7 @@ Meteor.startup(function () {
                     }
                 },
                 "second" : {
+                    "checked" : false,
                     "createdAt" : "",
                     "field1" : {
                         "text" : "Tag Se-MTX konc t54 (analyseres med Se-MTX t48 næste dag) --Se-MTX t54: ",
@@ -225,6 +227,7 @@ Meteor.startup(function () {
                     "value" : false
                 },
                 "first" : {
+                    "checked" : false,
                     "createdAt" : "",
                     "field1" : {
                         "text" : "Tag Se-MTX konc t48 (analyseres med Se-MTX t54 og Se-MTX t66 næste dag) --Se-MTX t48:",
@@ -238,6 +241,7 @@ Meteor.startup(function () {
                     }
                 },
                 "second" : {
+                    "checked" : false,
                     "createdAt" : "",
                     "field1" : {
                         "text" : "Tag Se-MTX konc t54 (analyseres med Se-MTX t48 og Se-MTX t66 næste dag) --Se-MTX t54:",
@@ -251,6 +255,7 @@ Meteor.startup(function () {
                     }
                 },
                 "third" : {
+                    "checked" : false,
                     "createdAt" : "",
                     "field1" : {
                         "text" : "Tag Se-MTX konc t66 (analyseres med Se-MTX t48 og Se-MTX t54 næste dag) --Se-MTX t66:",
