@@ -460,7 +460,7 @@
             <h6>{{treatments.five.field1.text}}:</h6>
           </div >
           <div class="col-md-2">
-            <input class="form-control" name="semtx" type="number" placeholder="Type to insert value" value="{{treatments.five.field1.semtx}}">            
+            <input class="form-control" name="semtx" type="number" placeholder="Type to insert value" value="{{treatments.five.field1.semtx}}" {{disabled1}}>            
           </div>
           <div class="col-md-1">
             <h6>µmol/l</h6>
@@ -468,13 +468,13 @@
       </div> 
       <div class="row">
           <div class="col-md-2">
-            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+            <input class="form-control" name="regdate" type="date" value="{{treatments.five.createdAt}}" {{disabled1}}>   
           </div>
           <div class="col-md-7">
             <h6>{{treatments.five.field2.text}}:</h6>
           </div >
           <div class="col-md-2">
-            <input class="form-control" name="pcreatin2" type="number" placeholder="Type to insert value" value="{{treatments.five.field2.pcreatin}}">
+            <input class="form-control" name="pcreatin2" type="number" placeholder="Type to insert value" value="{{treatments.five.field2.pcreatin}}" {{disabled1}}>
           </div>
           <div class="col-md-1">
             <h6>µmol/l</h6>
@@ -488,7 +488,7 @@
             <h6>{{treatments.five.field3.text}}:</h6>
           </div >
           <div class="col-md-2">
-            <input class="form-control" name="semtx1" type="number" placeholder="Type to insert value" value="{{treatments.five.field3.semtx}}">
+            <input class="form-control" name="semtx1" type="number" placeholder="Type to insert value" value="{{treatments.five.field3.semtx}}" {{disabled1}}>
           </div>
           <div class="col-md-1">
             <h6>mg MTX i.sp.</h6>
@@ -538,7 +538,7 @@
             <h6>{{treatments.seven.field1.text}}:</h6>
           </div >
           <div class="col-md-2">
-            <input class="form-control" name="semtx2" type="number" placeholder="Type to insert value" value="{{treatments.seven.field1.semtx}}">            
+            <input class="form-control" name="semtx2" type="number" placeholder="Type to insert value" value="{{treatments.seven.field1.semtx}}" {{disabled2}}>            
           </div>
           <div class="col-md-1">
             <h6>µmol/l</h6>
@@ -546,13 +546,13 @@
       </div> 
       <div class="row">
           <div class="col-md-2">
-            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+            <input class="form-control" name="regdate" type="date" value="{{treatments.seven.createdAt}}" {{disabled2}}>   
           </div>
           <div class="col-md-7">
             <h6>{{treatments.seven.field2.text}}:</h6>
           </div >
           <div class="col-md-2">
-            <input class="form-control" name="pcreatin3" type="number" placeholder="Type to insert value" value="{{treatments.seven.field2.pcreatin}}">
+            <input class="form-control" name="pcreatin3" type="number" placeholder="Type to insert value" value="{{treatments.seven.field2.pcreatin}}" {{disabled2}}>
           </div>
           <div class="col-md-1">
             <h6>µmol/l</h6>
@@ -606,7 +606,7 @@
             <h6>{{treatments.eight.field1.text}}:</h6>
           </div>
         <div class="col-md-2">
-            <input class="form-control" name="semtx3" type="number" placeholder="Type to insert value" value="{{treatments.eight.field1.semtx}}">            
+            <input class="form-control" name="semtx3" type="number" placeholder="Type to insert value" value="{{treatments.eight.field1.semtx}}" {{disabled3}}>            
           </div>
           <div class="col-md-1">
             <h6>µmol/l</h6>
@@ -614,13 +614,13 @@
       </div>
       <div class="row">
         <div class="col-md-2">
-            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+            <input class="form-control" name="regdate" type="date" value="{{treatments.eight.createdAt}}" {{disabled3}}>   
           </div>
          <div class="col-md-3">
             <h6>{{treatments.eight.field2.text}}</h6>
           </div>
           <div class="col-md-4">
-            <input class="form-control" name="docname" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field2.name}}">
+            <input class="form-control" name="docname" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field2.name}}" {{disabled3}}>
           </div>
         <div class="col-md-2">
             <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.eight.field2.value}}" disabled>
@@ -716,7 +716,7 @@
              <h6>{{treatments.nine.hurtig.first.field1.text}}:</h6>
           </div>
           <div class="col-md-2">
-            <input class="form-control" name="semtx4" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.first.field1.semtx}}">                    
+            <input class="form-control" name="semtx4" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.first.field1.semtx}}" {{disabled4}}>                    
           </div>
           <div class="col-md-1">
              <h6>µmol/l</h6>       
@@ -724,13 +724,13 @@
       </div>
       <div class="row">
         <div class="col-md-2">
-            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+            <input class="form-control" name="regdate" type="date" value="{{treatments.nine.hurtig.first.createdAt}}" {{disabled4}}>   
           </div>
          <div class="col-md-3">
             <h6>{{treatments.nine.hurtig.first.field2.text}}</h6>
           </div>
           <div class="col-md-4">
-            <input class="form-control" name="docname1" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.first.field2.name}}">
+            <input class="form-control" name="docname1" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.first.field2.name}}" {{disabled4}}>
           </div>
         <div class="col-md-2">
             <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.first.field2.value}}" disabled>
@@ -758,7 +758,7 @@
              <h6>{{treatments.nine.hurtig.second.field1.text}}:</h6>
           </div>
           <div class="col-md-2">
-            <input class="form-control" name="semtx5" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.second.field1.semtx}}">                    
+            <input class="form-control" name="semtx5" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.second.field1.semtx}}" {{disabled5}}>                    
           </div>
           <div class="col-md-1">
              <h6>µmol/l</h6>       
@@ -766,13 +766,13 @@
       </div>
       <div class="row">
         <div class="col-md-2">
-            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+            <input class="form-control" name="regdate" type="date" value="{{treatments.nine.hurtig.second.createdAt}}" {{disabled5}}>   
           </div>
          <div class="col-md-3">
             <h6>{{treatments.nine.hurtig.second.field2.text}}</h6>
           </div>
           <div class="col-md-4">
-            <input class="form-control" name="docname2" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.second.field2.name}}">
+            <input class="form-control" name="docname2" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.second.field2.name}}" {{disabled5}}>
           </div>
         <div class="col-md-2">
             <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.second.field2.value}}" disabled>
@@ -819,7 +819,7 @@
              <h6>{{treatments.nine.normal.first.field1.text}}:</h6>
           </div>
           <div class="col-md-2">
-            <input class="form-control" name="semtx6" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.first.field1.semtx}}">                    
+            <input class="form-control" name="semtx6" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.first.field1.semtx}}" {{disabled6}}>                    
           </div>
           <div class="col-md-1">
              <h6>µmol/l</h6>       
@@ -827,13 +827,13 @@
       </div>
       <div class="row">
         <div class="col-md-2">
-            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+            <input class="form-control" name="regdate" type="date" value="{{treatments.nine.normal.first.createdAt}}" {{disabled6}}>   
           </div>
          <div class="col-md-3">
             <h6>{{treatments.nine.normal.first.field2.text}}</h6>
           </div>
           <div class="col-md-4">
-            <input class="form-control" name="docname3" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.first.field2.name}}">
+            <input class="form-control" name="docname3" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.first.field2.name}}" {{disabled6}}>
           </div>
         <div class="col-md-2">
             <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.first.field2.value}}" disabled>
@@ -861,7 +861,7 @@
              <h6>{{treatments.nine.normal.second.field1.text}}:</h6>
           </div>
           <div class="col-md-2">
-            <input class="form-control" name="semtx7" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.second.field1.semtx}}">                    
+            <input class="form-control" name="semtx7" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.second.field1.semtx}}" {{disabled7}}>                    
           </div>
           <div class="col-md-1">
              <h6>µmol/l</h6>       
@@ -869,13 +869,13 @@
       </div>
       <div class="row">
         <div class="col-md-2">
-            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+            <input class="form-control" name="regdate" type="date" value="{{treatments.nine.normal.second.createdAt}}" {{disabled7}}>   
           </div>
          <div class="col-md-3">
             <h6>{{treatments.nine.normal.second.field2.text}}</h6>
           </div>
           <div class="col-md-4">
-            <input class="form-control" name="docname4" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.second.field2.name}}">
+            <input class="form-control" name="docname4" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.second.field2.name}}" {{disabled7}}>
           </div>
         <div class="col-md-2">
             <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.second.field2.value}}" disabled>
@@ -903,7 +903,7 @@
              <h6>{{treatments.nine.normal.third.field1.text}}:</h6>
           </div>
           <div class="col-md-2">
-            <input class="form-control" name="semtx8" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field1.semtx}}">                    
+            <input class="form-control" name="semtx8" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field1.semtx}}" {{disabled8}}>                    
           </div>
           <div class="col-md-1">
              <h6>µmol/l</h6>       
@@ -911,13 +911,13 @@
       </div>
       <div class="row">
         <div class="col-md-2">
-            <input class="form-control" name="regdate" type="date" value="{{createdAt}}">   
+            <input class="form-control" name="regdate" type="date" value="{{treatments.nine.normal.third.createdAt}}" {{disabled8}}>   
           </div>
          <div class="col-md-7">
             <h6>{{treatments.nine.normal.third.field2.text}}</h6>
           </div>          
         <div class="col-md-2">
-            <input class="form-control" name="pcreatin4" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field2.pcreatin}}">
+            <input class="form-control" name="pcreatin4" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field2.pcreatin}}" {{disabled8}}>
           </div>
           <div class="col-md-1">
             <h6>µmol/l</h6>
@@ -932,7 +932,7 @@
             <h6>{{treatments.nine.normal.third.field4.text}}</h6>
           </div>
           <div class="col-md-4">
-            <input class="form-control" name="docname5" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.third.field4.name}}">
+            <input class="form-control" name="docname5" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.third.field4.name}}" {{disabled8}}>
           </div>
         <div class="col-md-2">
             <input class="form-control" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field4.value}}" disabled>

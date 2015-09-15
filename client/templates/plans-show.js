@@ -61,6 +61,91 @@ Template.plansShow.helpers({
 
     return Session.get("disabled");
   },
+
+  disabled1 : function (list) {
+    if(this.treatments.five.field1.semtx && this.treatments.five.field2.pcreatin && this.treatments.five.createdAt && this.treatments.five.field3.semtx) {
+      Session.set("disabled", "ready");
+    }
+    if(this.treatments.five.checked) { Session.set("disabled", "disabled"); }
+    else { Session.set("disabled", ""); }
+
+    return Session.get("disabled");
+  },
+
+  disabled2 : function (list) {
+    if(this.treatments.seven.field1.semtx && this.treatments.seven.createdAt && this.treatments.seven.field2.pcreatin) {
+      Session.set("disabled", "ready");
+    }
+    if(this.treatments.seven.checked) { Session.set("disabled", "disabled"); }
+    else { Session.set("disabled", ""); }
+
+    return Session.get("disabled");
+  },
+
+  disabled3 : function (list) {
+    if(this.treatments.eight.field1.semtx && this.treatments.eight.createdAt && this.treatments.eight.field2.name) {
+      Session.set("disabled", "ready");
+    }
+    if(this.treatments.eight.checked) { Session.set("disabled", "disabled"); }
+    else { Session.set("disabled", ""); }
+
+    return Session.get("disabled");
+  },
+
+  disabled4 : function (list) {
+    if(this.treatments.nine.hurtig.first.field1.semtx && this.treatments.nine.hurtig.first.createdAt && this.treatments.nine.hurtig.first.field2.name) {
+      Session.set("disabled", "ready");
+    }
+    if(this.treatments.nine.hurtig.first.checked) { Session.set("disabled", "disabled"); }
+    else { Session.set("disabled", ""); }
+
+    return Session.get("disabled");
+  },
+
+  disabled5 : function (list) {
+    if(this.treatments.nine.hurtig.second.field1.semtx && this.treatments.nine.hurtig.second.createdAt && this.treatments.nine.hurtig.second.field2.name) {
+      Session.set("disabled", "ready");
+    }
+    if(this.treatments.nine.hurtig.second.checked) { Session.set("disabled", "disabled"); }
+    else { Session.set("disabled", ""); }
+
+    return Session.get("disabled");
+  },
+
+  disabled6 : function (list) {
+    if(this.treatments.nine.normal.first.field1.semtx && this.treatments.nine.normal.first.createdAt && this.treatments.nine.normal.first.field2.name) {
+      Session.set("disabled", "ready");
+    }
+    if(this.treatments.nine.normal.first.checked) { Session.set("disabled", "disabled"); }
+    else { Session.set("disabled", ""); }
+
+    return Session.get("disabled");
+  },
+
+  disabled7 : function (list) {
+    if(this.treatments.nine.normal.second.field1.semtx && this.treatments.nine.normal.second.createdAt && this.treatments.nine.normal.second.field2.name) {
+      Session.set("disabled", "ready");
+    }
+    if(this.treatments.nine.normal.second.checked) { Session.set("disabled", "disabled"); }
+    else { Session.set("disabled", ""); }
+
+    return Session.get("disabled");
+  },
+
+  disabled8 : function (list) {
+    if(this.treatments.nine.normal.third.field1.semtx && this.treatments.nine.normal.third.createdAt && this.treatments.nine.normal.third.field2.pcreatin && this.treatments.nine.normal.third.field4.name) {
+      Session.set("disabled", "ready");
+    }
+    if(this.treatments.nine.normal.third.checked) { Session.set("disabled", "disabled"); }
+    else { Session.set("disabled", ""); }
+
+    return Session.get("disabled");
+  },
+
+
+
+
+
    // FIRST FORM //
   checkedClass1 : function(list) {
    
@@ -1278,7 +1363,9 @@ Template.plansShow.events({
    // SETTED DISABLE I ALERT BOX KOQTO DA PROVERI DALI VSI4KI INPUT-I SA POPALNENI !!!   ====  DONE
 
 
-   // DA NAPRAVQ CHECKBOX-OVETE NA POSLEDNITE HURTIG NORMAL INPUT-I   !!!!
+   // DA NAPRAVQ CHECKBOX-OVETE NA POSLEDNITE HURTIG NORMAL INPUT-I   !!!! ====DONE
+
+   // DA DOVARSHA disabled form validation POSLEDNO WORK ON
 
 
    
