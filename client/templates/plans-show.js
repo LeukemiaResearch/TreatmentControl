@@ -56,7 +56,7 @@ Template.plansShow.helpers({
     if(this.treatments.tree.field4.pcreatin && this.treatments.tree.createdAt) {
       Session.set("disabled", "ready");
     }
-    if(this.treatments.tree.checked) { Session.set("disabled", "disabled"); }
+    if(this.treatments.tree.checked || Session.equals("third" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
     return Session.get("disabled");
@@ -66,7 +66,7 @@ Template.plansShow.helpers({
     if(this.treatments.five.field1.semtx && this.treatments.five.field2.pcreatin && this.treatments.five.createdAt && this.treatments.five.field3.semtx) {
       Session.set("disabled", "ready");
     }
-    if(this.treatments.five.checked) { Session.set("disabled", "disabled"); }
+    if(this.treatments.five.checked || Session.equals("fifth" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
     return Session.get("disabled");
@@ -76,7 +76,7 @@ Template.plansShow.helpers({
     if(this.treatments.seven.field1.semtx && this.treatments.seven.createdAt && this.treatments.seven.field2.pcreatin) {
       Session.set("disabled", "ready");
     }
-    if(this.treatments.seven.checked) { Session.set("disabled", "disabled"); }
+    if(this.treatments.seven.checked || Session.equals("seven" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
     return Session.get("disabled");
@@ -86,7 +86,7 @@ Template.plansShow.helpers({
     if(this.treatments.eight.field1.semtx && this.treatments.eight.createdAt && this.treatments.eight.field2.name) {
       Session.set("disabled", "ready");
     }
-    if(this.treatments.eight.checked) { Session.set("disabled", "disabled"); }
+    if(this.treatments.eight.checked || Session.equals("eight" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
     return Session.get("disabled");
@@ -96,7 +96,7 @@ Template.plansShow.helpers({
     if(this.treatments.nine.hurtig.first.field1.semtx && this.treatments.nine.hurtig.first.createdAt && this.treatments.nine.hurtig.first.field2.name) {
       Session.set("disabled", "ready");
     }
-    if(this.treatments.nine.hurtig.first.checked) { Session.set("disabled", "disabled"); }
+    if(this.treatments.nine.hurtig.first.checked || Session.equals("nine" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
     return Session.get("disabled");
@@ -106,7 +106,7 @@ Template.plansShow.helpers({
     if(this.treatments.nine.hurtig.second.field1.semtx && this.treatments.nine.hurtig.second.createdAt && this.treatments.nine.hurtig.second.field2.name) {
       Session.set("disabled", "ready");
     }
-    if(this.treatments.nine.hurtig.second.checked) { Session.set("disabled", "disabled"); }
+    if(this.treatments.nine.hurtig.second.checked || Session.equals("ten" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
     return Session.get("disabled");
@@ -116,7 +116,7 @@ Template.plansShow.helpers({
     if(this.treatments.nine.normal.first.field1.semtx && this.treatments.nine.normal.first.createdAt && this.treatments.nine.normal.first.field2.name) {
       Session.set("disabled", "ready");
     }
-    if(this.treatments.nine.normal.first.checked) { Session.set("disabled", "disabled"); }
+    if(this.treatments.nine.normal.first.checked || Session.equals("eleven" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
     return Session.get("disabled");
@@ -126,7 +126,7 @@ Template.plansShow.helpers({
     if(this.treatments.nine.normal.second.field1.semtx && this.treatments.nine.normal.second.createdAt && this.treatments.nine.normal.second.field2.name) {
       Session.set("disabled", "ready");
     }
-    if(this.treatments.nine.normal.second.checked) { Session.set("disabled", "disabled"); }
+    if(this.treatments.nine.normal.second.checked || Session.equals("twelve" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
     return Session.get("disabled");
@@ -136,7 +136,7 @@ Template.plansShow.helpers({
     if(this.treatments.nine.normal.third.field1.semtx && this.treatments.nine.normal.third.createdAt && this.treatments.nine.normal.third.field2.pcreatin && this.treatments.nine.normal.third.field4.name) {
       Session.set("disabled", "ready");
     }
-    if(this.treatments.nine.normal.third.checked) { Session.set("disabled", "disabled"); }
+    if(this.treatments.nine.normal.third.checked || Session.equals("thirdteen" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
     return Session.get("disabled");
@@ -649,9 +649,12 @@ Template.plansShow.events({
 
       return alert("You cannot unregister this treatment before unregister the next one!");
     }
-    Plans.update(this._id, {$set: {"treatments.one.checked": checked , "treatments.one.userId" : Meteor.userId()}});
+    if (!this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { return alert("You must register the patient details first");}
+
+     Plans.update(this._id, {$set: {"treatments.one.checked": checked , "treatments.one.userId" : Meteor.userId()}});  
     // colorchange(this);
      console.log(checked);
+     console.log(Meteor.userId());
      if (checked === true) {     
       Session.set('checkedClass', 'treatment');
       
@@ -680,7 +683,7 @@ Template.plansShow.events({
     //  $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
     //  }
 
-    if( this.treatments.two.userId ) {
+    if( this.treatments.one.userId && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.one.userId" : true}});
     }
 
@@ -696,7 +699,7 @@ Template.plansShow.events({
 
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
-    else {
+    else {     
       Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});  
     }
       
@@ -727,7 +730,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.two.userId ) {
+    if( this.treatments.two.userId && checked === false ) {
           Plans.update(this._id, {$unset: {"treatments.two.userId" : true}});
     }
   },
@@ -743,6 +746,7 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
+      if (!this.treatments.tree.field5.pcreatin) { return alert("You need to fill-in all fields first!");}
       Plans.update(this._id, {$set: {"treatments.tree.checked": checked , "treatments.tree.userId" : Meteor.userId()}});  
     }
       
@@ -752,7 +756,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.tree.userId ) {
+    if( this.treatments.tree.userId && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.tree.userId" : true}});
     }
   },
@@ -777,7 +781,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.four.userId ) {
+    if( this.treatments.four.userId && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.four.userId" : true}});
     }
   },
@@ -793,6 +797,7 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
+      if (!this.treatments.five.field1.semtx || !this.treatments.five.field2.pcreatin || !this.treatments.five.field3.semtx) { return alert("You need to fill-in all fields first!");}
       Plans.update(this._id, {$set: {"treatments.five.checked": checked , "treatments.five.userId" : Meteor.userId()}});  
     }
       
@@ -802,7 +807,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.five.userId ) {
+    if( this.treatments.five.userId && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.five.userId" : true}});
     }
   },
@@ -827,7 +832,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.six.userId ) {
+    if( this.treatments.six.userId  && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.six.userId" : true}});
     }
   },
@@ -843,6 +848,7 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
+      if (!this.treatments.seven.field1.semtx || !this.treatments.seven.field2.pcreatin) { return alert("You need to fill-in all fields first!");}
       Plans.update(this._id, {$set: {"treatments.seven.checked": checked , "treatments.seven.userId" : Meteor.userId()}});  
     }
       
@@ -852,7 +858,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.seven.userId ) {
+    if( this.treatments.seven.userId && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.seven.userId" : true}});
     }
   },
@@ -868,6 +874,7 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
+      if (!this.treatments.eight.field1.semtx || !this.treatments.eight.field2.name) { return alert("You need to fill-in all fields first!");}
       Plans.update(this._id, {$set: {"treatments.eight.checked": checked , "treatments.eight.userId" : Meteor.userId()}});  
     }
       
@@ -877,7 +884,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.eight.userId ) {
+    if( this.treatments.eight.userId && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.eight.userId" : true}});
     }
   },
@@ -893,6 +900,7 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
+      if (!this.treatments.nine.hurtig.first.field1.semtx || !this.treatments.nine.hurtig.first.field2.name) { return alert("You need to fill-in all fields first!");}
       Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.checked": checked , "treatments.nine.hurtig.first.userId" : Meteor.userId()}});  
     }
       
@@ -902,7 +910,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.nine.hurtig.first.userId ) {
+    if( this.treatments.nine.hurtig.first.userId && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.nine.hurtig.first.userId" : true}});
     }
   },
@@ -918,6 +926,7 @@ Template.plansShow.events({
     //   return alert("You cannot unregister this treatment before when next one is registered!");
     // }
     else {
+      if (!this.treatments.nine.hurtig.second.field1.semtx || !this.treatments.nine.hurtig.second.field2.name) { return alert("You need to fill-in all fields first!");}
       Plans.update(this._id, {$set: {"treatments.nine.hurtig.second.checked": checked , "treatments.nine.hurtig.second.userId" : Meteor.userId()}});  
     }
       
@@ -927,7 +936,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.nine.hurtig.second.userId ) {
+    if( this.treatments.nine.hurtig.second.userId && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.nine.hurtig.second.userId" : true}});
     }
   },
@@ -943,6 +952,7 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
+      if (!this.treatments.nine.normal.first.field1.semtx || !this.treatments.nine.normal.first.field2.name) { return alert("You need to fill-in all fields first!");}
       Plans.update(this._id, {$set: {"treatments.nine.normal.first.checked": checked , "treatments.nine.normal.first.userId" : Meteor.userId()}});  
     }
       
@@ -952,7 +962,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.nine.normal.first.userId ) {
+    if( this.treatments.nine.normal.first.userId && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.nine.normal.first.userId" : true}});
     }
   },
@@ -968,6 +978,7 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
+      if (!this.treatments.nine.normal.second.field1.semtx || !this.treatments.nine.normal.second.field2.name) { return alert("You need to fill-in all fields first!");}
       Plans.update(this._id, {$set: {"treatments.nine.normal.second.checked": checked , "treatments.nine.normal.second.userId" : Meteor.userId()}});  
     }
       
@@ -977,7 +988,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.nine.normal.second.userId ) {
+    if( this.treatments.nine.normal.second.userId && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.nine.normal.second.userId" : true}});
     }
   },
@@ -993,6 +1004,7 @@ Template.plansShow.events({
     //   return alert("You cannot unregister this treatment before when next one is registered!");
     // }
     else {
+      if (!this.treatments.nine.normal.third.field1.semtx || !this.treatments.nine.normal.third.field2.pcreatin || !this.treatments.nine.normal.third.field4.name) { return alert("You need to fill-in all fields first!");}
       Plans.update(this._id, {$set: {"treatments.nine.normal.third.checked": checked , "treatments.nine.normal.third.userId" : Meteor.userId()}});  
     }
       
@@ -1002,7 +1014,7 @@ Template.plansShow.events({
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.nine.normal.third.userId ) {
+    if( this.treatments.nine.normal.third.userId && checked === false) {
           Plans.update(this._id, {$unset: {"treatments.nine.normal.third.userId" : true}});
     }
   },
@@ -1263,7 +1275,7 @@ Template.plansShow.events({
   }, 300),
 
   'keyup input[name=pcreatin1]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.tree.field4.pcreatin": event.target.value}});
+    Plans.update(this._id, {$set: {"treatments.tree.field5.pcreatin": event.target.value}});
   }, 300),
 
   'keyup input[name=pcreatin2]': _.throttle(function(event) {
