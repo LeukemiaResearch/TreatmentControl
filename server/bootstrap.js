@@ -8,23 +8,23 @@ Meteor.startup(function () {
     "header" : {
         "createdAt" : new Date(),
         "name" : "General Plan",
-        "mtx" : "1",
-        "pcreatin" : "20"
+        "mtx" : "",
+        "pcreatin" : ""
     },
     "patient" : {
-        "name" : "Atanas Antonov",
-        "cpr" : "255555-4555",
-        "height" : "165",
-        "weight" : "75",
+        "name" : "",
+        "cpr" : "",
+        "height" : "",
+        "weight" : "",
         "surface" : {
             "method" : "(Math.sqrt(this.patient.height*this.patient.weight)/60)",
-            "value" : 1.825741858350554
+            "value" : 0
         }
     },
     "treatments" : {
         "one" : {
             "checked" : false,
-            "createdAt" : new Date(),
+            "createdAt" : "",
             "field1" : {
                 "text" : "Hydreringsvæske: 5% glucose tilsat 40 mmol Na-bicarbonat og 20 mmol KCl/liter",
                 "method" : "",
@@ -33,12 +33,12 @@ Meteor.startup(function () {
             "field2" : {
                 "text" : "Total væskemængde 3000 ml/m²/døgn",
                 "method" : "(Math.round(3000*this.patient.surface.value)/24).toFixed()",
-                "value" : "228"
+                "value" : "0"
             },
             "field3" : {
                 "text" : "Heraf mindst 2000 ml/m²/døgn iv.",
                 "method" : "(Math.round(2000*this.patient.surface.value)/24).toFixed()",
-                "value" : "152"
+                "value" : "0"
             },
             "field4" : {
                 "text" : "Begræns peroralt indtag til 1000 ml/m² under infusion af MTX",
@@ -50,27 +50,29 @@ Meteor.startup(function () {
                 "method" : "",
                 "value" : null
             }
+            
         },
         "two" : {
             "checked" : false,
             "field1" : {
                 "text" : "Forhydrering med hydreningsvæske starter. I alt 600 ml/m²/ 4 timer",
                 "method" : "Math.round(150*this.patient.surface.value)",
-                "value" : 274
-            },
-            "userId" : "ZCqSk67FPujfRSuWA"
+                "value" : 0
+            }
+            
         },
         "tree" : {
+            "createdAt" : "",
             "checked" : false,
             "field1" : {
                 "text" : "Diuresemåling begynder. Diureser > 600 ml/m²/ 6 timer",
                 "method" : "Math.round(600*this.patient.surface.value)",
-                "value" : 1095
+                "value" : 0
             },
             "field2" : {
                 "text" : "Hvis diuresen er mindre gives furosemid 0,5 (- 1) mg/kg iv",
                 "method" : "Math.round(0.75*this.patient.surface.value)",
-                "value" : 1
+                "value" : 0
             },
             "field3" : {
                 "text" : "Urin pH skal være = eller over 7 før start på MTX",
@@ -80,7 +82,7 @@ Meteor.startup(function () {
             "field4" : {
                 "text" : "Ved urin-pH < 7: Giv Na-bicarbonat 20 mmol/m² iv over 30 min. i 40 ml hydreringsv.",
                 "method" : "Math.round(20*this.patient.surface.value)",
-                "value" : 37,
+                "value" : 0,
                 "pcreatin" : "22"
             },
             "field5" : {
@@ -95,36 +97,39 @@ Meteor.startup(function () {
             "field7" : {
                 "text" : "1/10 af MTX dosis gives over 1 time",
                 "method" : "Math.ceil(50*this.patient.surface.value-1)*10",
-                "value" : 910
+                "value" : -10
             },
             "field8" : {
                 "text" : "Ved urin pH > 8 skiftes til KNaG uden bicarbonat i 3 time. Når pH er under 8 skiftes til bicarbonatholdig hydrering"
             },
             "value1" : "NaN"
+            
         },
         "four" : {
             "checked" : false,
             "field1" : {
                 "text" : "9/10 af MTX dosis gives på 23 timer. Hydreringsvæske reduceret til samlet 3000 ml/m2/døgn",
                 "method" : "Math.ceil(450*this.patient.surface.value-1)*10",
-                "value" : 8210
+                "value" : -10
             }
+            
         },
         "five" : {
             "checked" : false,
             "createdAt" : "",
             "field1" : {
                 "text" : "Tag Se-MTX konc t23 (steady state, analyseres næste dag)  -- Se-MTX t23",
-                "semtx" : "1"
+                "semtx" : ""
             },
             "field2" : {
                 "text" : "Tag P-kreatinin konc t23  -- P-kreatin",
-                "pcreatin" : "22"
+                "pcreatin" : ""
             },
             "field3" : {
                 "text" : "Pt. køres på OP til MTX is. ",
-                "semtx" : "33"
+                "semtx" : ""
             }
+            
         },
         "six" : {
             "checked" : false,
@@ -132,41 +137,43 @@ Meteor.startup(function () {
             "field1" : {
                 "text" : "MTX infusionen afsluttes - hydreringsvæskens hastighed øges"
             }
+           
         },
         "seven" : {
             "checked" : false,
             "createdAt" : "",
             "field1" : {
                 "text" : "Tag Se-MTX konc t36 (analyseres sammen med Se-MTX t42 og Se-MTX t23) -- Se-MTX t36",
-                "semtx" : "11"
+                "semtx" : ""
             },
             "field2" : {
                 "text" : "Tag P-kreatinin konc t36 -- P-kreatin",
-                "pcreatin" : "22"
+                "pcreatin" : ""
             },
             "field3" : {
                 "text" : "Hvis P-kreatinin t23 eller t36 er steget > 50% eller Se-MTX t36 > 3,0 µmol/l: --- øges hydreringsvæsken til 4500 ml/m²/24 timer",
                 "method" : "(Math.round(4500*this.patient.surface.value)/24).toFixed()",
-                "value" : "342"
+                "value" : "0"
             },
             "field4" : {
                 "text" : "Diurese: 900 ml/m²/ 6 timer",
                 "method" : "Math.round(900*this.patient.surface.value).toFixed()",
-                "value" : "1643"
+                "value" : "0"
             }
+            
         },
         "eight" : {
             "checked" : false,
             "createdAt" : "",
             "field1" : {
                 "text" : "Tag Se-MTX konc t42 (analyseres sammen med Se-MTX t36 og Se-MTX t23)  -- Se-MTX t42:",
-                "semtx" : "0.5"
+                "semtx" : ""
             },
             "field2" : {
                 "text" : "1. calciumfolinat-dosis 15 mg/m².   Givet af:",
-                "name" : "As",
+                "name" : "",
                 "method" : "Math.round(15*this.patient.surface.value).toFixed()",
-                "value" : "27"
+                "value" : "0"
             },
             "field3" : {
                 "text" : "Opstart evt. calciumfolinat mundskyl"
@@ -177,6 +184,7 @@ Meteor.startup(function () {
             "field5" : {
                 "text" : "For se-MTX konc t42 <0,6 µmol/l (hurtig udskillelse) fortsæt på dette skema t48:"
             }
+            
         },
         "nine" : {
             "createdAt" : "",
@@ -185,7 +193,7 @@ Meteor.startup(function () {
                 "name" : "Hurtig",
                 "visible" : {
                     "method" : "(this.treatments.eight.field1.semtx>=0.01 && this.treatments.eight.field1.semtx<0.6)",
-                    "value" : true
+                    "value" : false
                 },
                 "first" : {
                     "checked" : false,
@@ -198,21 +206,22 @@ Meteor.startup(function () {
                         "text" : "2. calciumfolinat-dosis. Giv calciumfolinat 15 mg/m².   Givet af:",
                         "name" : "",
                         "method" : "Math.round(15*this.patient.surface.value).toFixed()",
-                        "value" : "27"
+                        "value" : "0"
                     }
+                    
                 },
                 "second" : {
                     "checked" : false,
                     "createdAt" : "",
                     "field1" : {
                         "text" : "Tag Se-MTX konc t54 (analyseres med Se-MTX t48 næste dag) --Se-MTX t54: ",
-                        "semtx" : "1"
+                        "semtx" : ""
                     },
                     "field2" : {
                         "text" : "3. calciumfolinat-dosis. Giv calciumfolinat 15 mg/m².   Givet af:",
                         "name" : "",
                         "method" : "Math.round(15*this.patient.surface.value).toFixed()",
-                        "value" : "27"
+                        "value" : "0"
                     },
                     "field3" : {
                         "text" : "Patienten kobles fra efter t54 + calciumfolinat. Pt udskrives."
@@ -237,8 +246,9 @@ Meteor.startup(function () {
                         "text" : "2. calciumfolinat-dosis. Giv calciumfolinat 15 mg/m².   Givet af:",
                         "name" : "",
                         "method" : "Math.round(15*this.patient.surface.value).toFixed()",
-                        "value" : "27"
+                        "value" : "0"
                     }
+                    
                 },
                 "second" : {
                     "checked" : false,
@@ -251,15 +261,16 @@ Meteor.startup(function () {
                         "text" : "3. calciumfolinat-dosis. Giv calciumfolinat 15 mg/m².   Givet af:",
                         "name" : "",
                         "method" : "Math.round(15*this.patient.surface.value).toFixed()",
-                        "value" : "27"
+                        "value" : "0"
                     }
+                    
                 },
                 "third" : {
                     "checked" : false,
                     "createdAt" : "",
                     "field1" : {
                         "text" : "Tag Se-MTX konc t66 (analyseres med Se-MTX t48 og Se-MTX t54 næste dag) --Se-MTX t66:",
-                        "semtx" : "0.2"
+                        "semtx" : ""
                     },
                     "field2" : {
                         "text" : "Tag P-kreatinin konc t66",
@@ -268,13 +279,13 @@ Meteor.startup(function () {
                     "field3" : {
                         "text" : "For se-MTX t66 >= 0,2 µmol/l gives 4. calciumfolinatdosis.",
                         "method" : "(this.treatments.nine.normal.third.field1.semtx >= 0.2)",
-                        "value" : true
+                        "value" : false
                     },
                     "field4" : {
                         "text" : "4. calciumfolinat-dosis. Giv calciumfolinat 15 mg/m².   Givet af:",
                         "name" : "",
                         "method" : "Math.round(15*this.patient.surface.value).toFixed()",
-                        "value" : "27"
+                        "value" : "0"
                     },
                     "field5" : {
                         "text" : "For se-MTX t66 0,2 - 0,3 µmol/l udskrives patienten efter 4.dosis calciumfolinat."

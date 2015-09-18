@@ -53,9 +53,9 @@ Template.plansShow.helpers({
   },
  
   disabled : function (list) {
-    if(this.treatments.tree.field4.pcreatin && this.treatments.tree.createdAt) {
-      Session.set("disabled", "ready");
-    }
+    // if(this.treatments.tree.field4.pcreatin && this.treatments.tree.createdAt) {
+    //   Session.set("disabled", "ready");
+    // }
     if(this.treatments.tree.checked || Session.equals("third" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
@@ -63,9 +63,9 @@ Template.plansShow.helpers({
   },
 
   disabled1 : function (list) {
-    if(this.treatments.five.field1.semtx && this.treatments.five.field2.pcreatin && this.treatments.five.createdAt && this.treatments.five.field3.semtx) {
-      Session.set("disabled", "ready");
-    }
+    // if(this.treatments.five.field1.semtx && this.treatments.five.field2.pcreatin && this.treatments.five.createdAt && this.treatments.five.field3.semtx) {
+    //   Session.set("disabled", "ready");
+    // }
     if(this.treatments.five.checked || Session.equals("fifth" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
@@ -73,9 +73,9 @@ Template.plansShow.helpers({
   },
 
   disabled2 : function (list) {
-    if(this.treatments.seven.field1.semtx && this.treatments.seven.createdAt && this.treatments.seven.field2.pcreatin) {
-      Session.set("disabled", "ready");
-    }
+    // if(this.treatments.seven.field1.semtx && this.treatments.seven.createdAt && this.treatments.seven.field2.pcreatin) {
+    //   Session.set("disabled", "ready");
+    // }
     if(this.treatments.seven.checked || Session.equals("seven" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
@@ -83,9 +83,9 @@ Template.plansShow.helpers({
   },
 
   disabled3 : function (list) {
-    if(this.treatments.eight.field1.semtx && this.treatments.eight.createdAt && this.treatments.eight.field2.name) {
-      Session.set("disabled", "ready");
-    }
+    // if(this.treatments.eight.field1.semtx && this.treatments.eight.createdAt && this.treatments.eight.field2.name) {
+    //   Session.set("disabled", "ready");
+    // }
     if(this.treatments.eight.checked || Session.equals("eight" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
@@ -93,9 +93,9 @@ Template.plansShow.helpers({
   },
 
   disabled4 : function (list) {
-    if(this.treatments.nine.hurtig.first.field1.semtx && this.treatments.nine.hurtig.first.createdAt && this.treatments.nine.hurtig.first.field2.name) {
-      Session.set("disabled", "ready");
-    }
+    // if(this.treatments.nine.hurtig.first.field1.semtx && this.treatments.nine.hurtig.first.createdAt && this.treatments.nine.hurtig.first.field2.name) {
+    //   Session.set("disabled", "ready");
+    // }
     if(this.treatments.nine.hurtig.first.checked || Session.equals("nine" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
@@ -103,9 +103,9 @@ Template.plansShow.helpers({
   },
 
   disabled5 : function (list) {
-    if(this.treatments.nine.hurtig.second.field1.semtx && this.treatments.nine.hurtig.second.createdAt && this.treatments.nine.hurtig.second.field2.name) {
-      Session.set("disabled", "ready");
-    }
+    // if(this.treatments.nine.hurtig.second.field1.semtx && this.treatments.nine.hurtig.second.createdAt && this.treatments.nine.hurtig.second.field2.name) {
+    //   Session.set("disabled", "ready");
+    // }
     if(this.treatments.nine.hurtig.second.checked || Session.equals("ten" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
@@ -113,9 +113,9 @@ Template.plansShow.helpers({
   },
 
   disabled6 : function (list) {
-    if(this.treatments.nine.normal.first.field1.semtx && this.treatments.nine.normal.first.createdAt && this.treatments.nine.normal.first.field2.name) {
-      Session.set("disabled", "ready");
-    }
+    // if(this.treatments.nine.normal.first.field1.semtx && this.treatments.nine.normal.first.createdAt && this.treatments.nine.normal.first.field2.name) {
+    //   Session.set("disabled", "ready");
+    // }
     if(this.treatments.nine.normal.first.checked || Session.equals("eleven" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
@@ -123,9 +123,9 @@ Template.plansShow.helpers({
   },
 
   disabled7 : function (list) {
-    if(this.treatments.nine.normal.second.field1.semtx && this.treatments.nine.normal.second.createdAt && this.treatments.nine.normal.second.field2.name) {
-      Session.set("disabled", "ready");
-    }
+    // if(this.treatments.nine.normal.second.field1.semtx && this.treatments.nine.normal.second.createdAt && this.treatments.nine.normal.second.field2.name) {
+    //   Session.set("disabled", "ready");
+    // }
     if(this.treatments.nine.normal.second.checked || Session.equals("twelve" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
@@ -133,9 +133,9 @@ Template.plansShow.helpers({
   },
 
   disabled8 : function (list) {
-    if(this.treatments.nine.normal.third.field1.semtx && this.treatments.nine.normal.third.createdAt && this.treatments.nine.normal.third.field2.pcreatin && this.treatments.nine.normal.third.field4.name) {
-      Session.set("disabled", "ready");
-    }
+    // if(this.treatments.nine.normal.third.field1.semtx && this.treatments.nine.normal.third.createdAt && this.treatments.nine.normal.third.field2.pcreatin && this.treatments.nine.normal.third.field4.name) {
+    //   Session.set("disabled", "ready");
+    // }
     if(this.treatments.nine.normal.third.checked || Session.equals("thirdteen" , "blue")) { Session.set("disabled", "disabled"); }
     else { Session.set("disabled", ""); }
 
@@ -557,9 +557,9 @@ var togglePlanPrivacy = function(list) {
   }
 };
 
-var jey = function() {
-  return $(".content-scrollable form").not('.treatment').slice(1, 15).addClass('blue'); // GENERAL STATE 
-};
+// var jey = function() {
+//   return $(".content-scrollable form").not('.treatment').slice(1, 15).addClass('blue'); // GENERAL STATE 
+// };
 
 // var colorchange = function(plan) {
 //    var a =  $(".content-scrollable form.treatment").next().next().hasClass('blue');
@@ -642,20 +642,20 @@ Template.plansShow.events({
 // CHECKBOX DEVELOPMENT //
    
 
-   
-  'change [name=checked]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+   // 'change [name=checked]': function(event, template) {
+  'click [name=checked]': function(event, template) {
+    // var checked = $(event.target).is(':checked');
     if( this.treatments.one.checked  && this.treatments.two.checked) {
 
       return alert("You cannot unregister this treatment before unregister the next one!");
     }
     if (!this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { return alert("You must register the patient details first");}
 
-     Plans.update(this._id, {$set: {"treatments.one.checked": checked , "treatments.one.userId" : Meteor.userId()}});  
+     Plans.update(this._id, {$set: {"treatments.one.checked": ! this.treatments.one.checked , "treatments.one.userId" : Meteor.userId()}});  
     // colorchange(this);
-     console.log(checked);
+     console.log(this.treatments.one.checked);
      console.log(Meteor.userId());
-     if (checked === true) {     
+     if (this.treatments.one.checked === true) {     
       Session.set('checkedClass', 'treatment');
       
       // var b = $(".content-scrollable form").hasClass('treatment'); 
@@ -683,13 +683,13 @@ Template.plansShow.events({
     //  $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
     //  }
 
-    if( this.treatments.one.userId && checked === false) {
+    if( this.treatments.one.userId && this.treatments.one.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.one.userId" : true}});
     }
 
   },
 
-  'change [name=checked1]': function(event, template) {
+  'click [name=checked1]': function(event, template) {
     var checked = $(event.target).is(':checked');
     if( !this.treatments.one.checked ) {
 
@@ -700,42 +700,42 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {     
-      Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.two.checked": ! this.treatments.two.checked , "treatments.two.userId" : Meteor.userId()}});  
     }
       
-     if (checked === true) {     
+     if (this.treatments.two.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.two.userId ) {
+    if( this.treatments.two.userId && this.treatments.two.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.two.userId" : true}});
     }
   },
 
 // OPIT S BUTTON
-  'click [name=checking]': function(event, template) {
-    event.preventDefault();
-    var checked = $(event.target).is(':submit');
-    console.log(checked);
-    if( !this.treatments.one.checked ) {
-      checked = false;
-      return alert("You cannot register this treatment before the previous one!");
-    }
-    Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});    
-     if (checked === true) {     
-      Session.set('checkedClass', 'treatment');         
-     }
-     else {       
-         Session.set('checkedClass','');   
-     }    
-    if( this.treatments.two.userId && checked === false ) {
-          Plans.update(this._id, {$unset: {"treatments.two.userId" : true}});
-    }
-  },
+  // 'click [name=checking]': function(event, template) {
+  //   event.preventDefault();
+  //   var checked = $(event.target).is(':submit');
+  //   console.log(checked);
+  //   if( !this.treatments.one.checked ) {
+  //     checked = false;
+  //     return alert("You cannot register this treatment before the previous one!");
+  //   }
+  //   Plans.update(this._id, {$set: {"treatments.two.checked": checked , "treatments.two.userId" : Meteor.userId()}});    
+  //    if (checked === true) {     
+  //     Session.set('checkedClass', 'treatment');         
+  //    }
+  //    else {       
+  //        Session.set('checkedClass','');   
+  //    }    
+  //   if( this.treatments.two.userId && checked === true ) {
+  //         Plans.update(this._id, {$unset: {"treatments.two.userId" : true}});
+  //   }
+  // },
 
-  'change [name=checked2]': function(event, template) {
+  'click [name=checked2]': function(event, template) {
     var checked = $(event.target).is(':checked');
     if(!this.treatments.two.checked) {
 
@@ -747,22 +747,22 @@ Template.plansShow.events({
     }
     else {
       if (!this.treatments.tree.field5.pcreatin) { return alert("You need to fill-in all fields first!");}
-      Plans.update(this._id, {$set: {"treatments.tree.checked": checked , "treatments.tree.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.tree.checked": ! this.treatments.tree.checked , "treatments.tree.userId" : Meteor.userId()}});  
     }
       
-     if (checked === true) {     
+     if (this.treatments.tree.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.tree.userId && checked === false) {
+    if( this.treatments.tree.userId && this.treatments.tree.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.tree.userId" : true}});
     }
   },
 
-  'change [name=checked3]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+  'click [name=checked3]': function(event, template) {
+    // var checked = $(event.target).is(':checked');
     if(!this.treatments.tree.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -772,22 +772,22 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
-      Plans.update(this._id, {$set: {"treatments.four.checked": checked , "treatments.four.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.four.checked": ! this.treatments.four.checked , "treatments.four.userId" : Meteor.userId()}});  
     }
       
-     if (checked === true) {     
+     if (this.treatments.four.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.four.userId && checked === false) {
+    if( this.treatments.four.userId && this.treatments.four.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.four.userId" : true}});
     }
   },
 
-  'change [name=checked4]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+  'click [name=checked4]': function(event, template) {
+    // var checked = $(event.target).is(':checked');
     if(!this.treatments.four.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -798,22 +798,22 @@ Template.plansShow.events({
     }
     else {
       if (!this.treatments.five.field1.semtx || !this.treatments.five.field2.pcreatin || !this.treatments.five.field3.semtx) { return alert("You need to fill-in all fields first!");}
-      Plans.update(this._id, {$set: {"treatments.five.checked": checked , "treatments.five.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.five.checked": ! this.treatments.five.checked , "treatments.five.userId" : Meteor.userId()}});  
     }
       
-     if (checked === true) {     
+     if (this.treatments.five.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.five.userId && checked === false) {
+    if( this.treatments.five.userId && this.treatments.five.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.five.userId" : true}});
     }
   },
 
-  'change [name=checked5]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+  'click [name=checked5]': function(event, template) {
+    // var checked = $(event.target).is(':checked');
     if(!this.treatments.five.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -823,22 +823,22 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
-      Plans.update(this._id, {$set: {"treatments.six.checked": checked , "treatments.six.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.six.checked": ! this.treatments.six.checked , "treatments.six.userId" : Meteor.userId()}});  
     }
       
-     if (checked === true) {     
+     if (this.treatments.six.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.six.userId  && checked === false) {
+    if( this.treatments.six.userId  && this.treatments.six.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.six.userId" : true}});
     }
   },
 
-  'change [name=checked6]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+  'click [name=checked6]': function(event, template) {
+    // var checked = $(event.target).is(':checked');
     if(!this.treatments.six.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -849,48 +849,48 @@ Template.plansShow.events({
     }
     else {
       if (!this.treatments.seven.field1.semtx || !this.treatments.seven.field2.pcreatin) { return alert("You need to fill-in all fields first!");}
-      Plans.update(this._id, {$set: {"treatments.seven.checked": checked , "treatments.seven.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.seven.checked": ! this.treatments.seven.checked , "treatments.seven.userId" : Meteor.userId()}});  
     }
       
-     if (checked === true) {     
+     if (this.treatments.seven.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.seven.userId && checked === false) {
+    if( this.treatments.seven.userId && this.treatments.seven.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.seven.userId" : true}});
     }
   },
 
-  'change [name=checked7]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+  'click [name=checked7]': function(event, template) {
+    // var checked = $(event.target).is(':checked');
     if(!this.treatments.seven.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
     }
-    if( this.treatments.nine.hurtig.checked || this.treatments.nine.normal.checked ) {
+    if( this.treatments.nine.hurtig.first.checked || this.treatments.nine.normal.first.checked ) {
 
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
       if (!this.treatments.eight.field1.semtx || !this.treatments.eight.field2.name) { return alert("You need to fill-in all fields first!");}
-      Plans.update(this._id, {$set: {"treatments.eight.checked": checked , "treatments.eight.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.eight.checked": ! this.treatments.eight.checked , "treatments.eight.userId" : Meteor.userId()}});  
     }
       
-     if (checked === true) {     
+     if (this.treatments.eight.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.eight.userId && checked === false) {
+    if( this.treatments.eight.userId && this.treatments.eight.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.eight.userId" : true}});
     }
   },
 
-  'change [name=checked8]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+  'click [name=checked8]': function(event, template) {
+    // var checked = $(event.target).is(':checked');
     if(!this.treatments.eight.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -901,22 +901,22 @@ Template.plansShow.events({
     }
     else {
       if (!this.treatments.nine.hurtig.first.field1.semtx || !this.treatments.nine.hurtig.first.field2.name) { return alert("You need to fill-in all fields first!");}
-      Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.checked": checked , "treatments.nine.hurtig.first.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.checked": ! this.treatments.nine.hurtig.first.checked , "treatments.nine.hurtig.first.userId" : Meteor.userId()}});  
     }
       
-     if (checked === true) {     
+     if (this.treatments.nine.hurtig.first.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.nine.hurtig.first.userId && checked === false) {
+    if( this.treatments.nine.hurtig.first.userId && this.treatments.nine.hurtig.first.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.nine.hurtig.first.userId" : true}});
     }
   },
 
-  'change [name=checked9]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+  'click [name=checked9]': function(event, template) {
+    // var checked = $(event.target).is(':checked');
     if(!this.treatments.nine.hurtig.first.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -927,22 +927,22 @@ Template.plansShow.events({
     // }
     else {
       if (!this.treatments.nine.hurtig.second.field1.semtx || !this.treatments.nine.hurtig.second.field2.name) { return alert("You need to fill-in all fields first!");}
-      Plans.update(this._id, {$set: {"treatments.nine.hurtig.second.checked": checked , "treatments.nine.hurtig.second.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.nine.hurtig.second.checked": ! this.treatments.nine.hurtig.second.checked , "treatments.nine.hurtig.second.userId" : Meteor.userId()}});  
     }
       
-     if (checked === true) {     
+     if (this.treatments.nine.hurtig.second.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.nine.hurtig.second.userId && checked === false) {
+    if( this.treatments.nine.hurtig.second.userId && this.treatments.nine.hurtig.second.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.nine.hurtig.second.userId" : true}});
     }
   },
 
-  'change [name=checked10]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+  'click [name=checked10]': function(event, template) {
+    // var checked = $(event.target).is(':checked');
     if(!this.treatments.eight.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -953,22 +953,22 @@ Template.plansShow.events({
     }
     else {
       if (!this.treatments.nine.normal.first.field1.semtx || !this.treatments.nine.normal.first.field2.name) { return alert("You need to fill-in all fields first!");}
-      Plans.update(this._id, {$set: {"treatments.nine.normal.first.checked": checked , "treatments.nine.normal.first.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.nine.normal.first.checked": ! this.treatments.nine.normal.first.checked , "treatments.nine.normal.first.userId" : Meteor.userId()}});  
     }
       
-     if (checked === true) {     
+     if (this.treatments.nine.normal.first.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.nine.normal.first.userId && checked === false) {
+    if( this.treatments.nine.normal.first.userId && this.treatments.nine.normal.first.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.nine.normal.first.userId" : true}});
     }
   },
 
-  'change [name=checked11]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+  'click [name=checked11]': function(event, template) {
+    // var checked = $(event.target).is(':checked');
     if(!this.treatments.nine.normal.first.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -979,22 +979,22 @@ Template.plansShow.events({
     }
     else {
       if (!this.treatments.nine.normal.second.field1.semtx || !this.treatments.nine.normal.second.field2.name) { return alert("You need to fill-in all fields first!");}
-      Plans.update(this._id, {$set: {"treatments.nine.normal.second.checked": checked , "treatments.nine.normal.second.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.nine.normal.second.checked": ! this.treatments.nine.normal.second.checked , "treatments.nine.normal.second.userId" : Meteor.userId()}});  
     }
       
-     if (checked === true) {     
+     if (this.treatments.nine.normal.second.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.nine.normal.second.userId && checked === false) {
+    if( this.treatments.nine.normal.second.userId && this.treatments.nine.normal.second.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.nine.normal.second.userId" : true}});
     }
   },
 
-  'change [name=checked12]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+  'click [name=checked12]': function(event, template) {
+    // var checked = $(event.target).is(':checked');
     if(!this.treatments.nine.normal.second.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -1003,135 +1003,60 @@ Template.plansShow.events({
 
     //   return alert("You cannot unregister this treatment before when next one is registered!");
     // }
-    else {
+  
       if (!this.treatments.nine.normal.third.field1.semtx || !this.treatments.nine.normal.third.field2.pcreatin || !this.treatments.nine.normal.third.field4.name) { return alert("You need to fill-in all fields first!");}
-      Plans.update(this._id, {$set: {"treatments.nine.normal.third.checked": checked , "treatments.nine.normal.third.userId" : Meteor.userId()}});  
-    }
+      Plans.update(this._id, {$set: {"treatments.nine.normal.third.checked": ! this.treatments.nine.normal.third.checked , "treatments.nine.normal.third.userId" : Meteor.userId()}});  
+    
       
-     if (checked === true) {     
+     if (this.treatments.nine.normal.third.checked === true) {     
       Session.set('checkedClass', 'treatment');         
      }
      else {       
          Session.set('checkedClass','');   
      }    
-    if( this.treatments.nine.normal.third.userId && checked === false) {
+    if( this.treatments.nine.normal.third.userId && this.treatments.nine.normal.third.checked === true) {
           Plans.update(this._id, {$unset: {"treatments.nine.normal.third.userId" : true}});
     }
   },
   
   
   
-  'blur input[name=patientname] input[name=mtx] input[name=semtx] input[name=semtx1] input[name=semtx2] input[name=semtx3] input[name=semtx4] input[name=semtx5] input[name=semtx6] input[name=semtx7] input[name=semtx8] input[name=docname] input[name=docname1] input[name=docname2] input[name=docname3] input[name=docname4] input[name=docname5]': function(event) {
-    if (Session.equals(EDITING_KEY, this._id))
-      Session.set(EDITING_KEY, null);
-  },
+  // 'blur input[name=patientname] input[name=mtx] input[name=semtx] input[name=semtx1] input[name=semtx2] input[name=semtx3] input[name=semtx4] input[name=semtx5] input[name=semtx6] input[name=semtx7] input[name=semtx8] input[name=docname] input[name=docname1] input[name=docname2] input[name=docname3] input[name=docname4] input[name=docname5]': function(event) {
+  //   if (Session.equals(EDITING_KEY, this._id))
+  //     Session.set(EDITING_KEY, null);
+  // },
 
-  'blur input[name=cpr]': function(event) {
-    if (Session.equals(EDITING_KEY, this._id))
-      Session.set(EDITING_KEY, null);
-  },
+  // 'blur input[name=cpr]': function(event) {
+  //   if (Session.equals(EDITING_KEY, this._id))
+  //     Session.set(EDITING_KEY, null);
+  // },
   
-  'blur input[name=mtx]': function(event) {
+  // 'blur input[name=mtx]': function(event) {
+  //   if (Session.equals(EDITING_KEY, this._id))
+  //     Session.set(EDITING_KEY, null);
+  // },
+
+  // 'blur input[name=height]': function(event) {
+  //   if (Session.equals(EDITING_KEY, this._id))
+  //     Session.set(EDITING_KEY, null);
+  // },
+
+  // 'blur input[name=weight]': function(event) {
+  //   if (Session.equals(EDITING_KEY, this._id))
+  //     Session.set(EDITING_KEY, null);
+  // },
+
+  // 'blur input[name=pcreatin] input[name=pcreatin1] input[name=pcreatin2] input[name=pcreatin3] input[name=pcreatin4]': function(event) {
+  //   if (Session.equals(EDITING_KEY, this._id))
+  //     Session.set(EDITING_KEY, null);
+  // },
+
+  'blur .inputfield': function(event) {
     if (Session.equals(EDITING_KEY, this._id))
       Session.set(EDITING_KEY, null);
   },
 
-  'blur input[name=height]': function(event) {
-    if (Session.equals(EDITING_KEY, this._id))
-      Session.set(EDITING_KEY, null);
-  },
-
-  'blur input[name=weight]': function(event) {
-    if (Session.equals(EDITING_KEY, this._id))
-      Session.set(EDITING_KEY, null);
-  },
-
-  'blur input[name=pcreatin] input[name=pcreatin1] input[name=pcreatin2] input[name=pcreatin3] input[name=pcreatin4]': function(event) {
-    if (Session.equals(EDITING_KEY, this._id))
-      Session.set(EDITING_KEY, null);
-  },
-
-  'keydown input[name=patientname]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
-
-  'keydown input[name=cpr]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
-
-  'keydown input[name=mtx]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
-
-  'keydown input[name=semtx]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
-
-  'keydown input[name=semtx1]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
-
-  'keydown input[name=semtx2]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
-
-  'keydown input[name=semtx3]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
-
-  'keydown input[name=semtx4]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
-
-  'keydown input[name=semtx5]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
-
-  'keydown input[name=semtx6]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
-
-  'keydown input[name=semtx7]': function(event) {
+  'keydown .inputfield': function(event) {
     // ESC or ENTER
     if (event.which === 27 || event.which === 13) {
       event.preventDefault();
@@ -1140,216 +1065,327 @@ Template.plansShow.events({
   },
 
 
-  'keydown input[name=height]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=patientname]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
-  'keydown input[name=weight]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=cpr]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
-  'keydown input[name=pcreatin]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=mtx]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
-  'keydown input[name=pcreatin1]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=semtx]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
-  'keydown input[name=pcreatin2]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=semtx1]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
-  'keydown input[name=pcreatin3]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=semtx2]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
-  'keydown input[name=pcreatin4]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=semtx3]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+  // 'keydown input[name=semtx4]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+  // 'keydown input[name=semtx5]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+  // 'keydown input[name=semtx6]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+  // 'keydown input[name=semtx7]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+
+  // 'keydown input[name=height]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+  // 'keydown input[name=weight]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+  // 'keydown input[name=pcreatin]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+  // 'keydown input[name=pcreatin1]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+  // 'keydown input[name=pcreatin2]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+  // 'keydown input[name=pcreatin3]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+  // 'keydown input[name=pcreatin4]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
   
-  'keydown input[name=docname]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=docname]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
-  'keydown input[name=docname1]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=docname1]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
-  'keydown input[name=docname2]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=docname2]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
-  'keydown input[name=docname3]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=docname3]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
-  'keydown input[name=docname4]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=docname4]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
-  'keydown input[name=docname5]': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+  // 'keydown input[name=docname5]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
+
+  // 'keydown input[name=docname5]': function(event) {
+  //   // ESC or ENTER
+  //   if (event.which === 27 || event.which === 13) {
+  //     event.preventDefault();
+  //     event.target.blur();
+  //   }
+  // },
 
   // update the text of the item on keypress but throttle the event to ensure
   // we don't flood the server with updates (handles the event at most once 
   // every 300ms)
-  'keyup input[name=patientname]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"patient.name": event.target.value}});
-  }, 300),
+  // 'keyup input[name=patientname]': _.throttle(function(event) {
+  //   Plans.update(this._id, {$set: {"patient.name": event.target.value}});
+  // }, 300),
 
-  'keyup input[name=cpr]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"patient.cpr": event.target.value}});
-  }, 300),
+
+  'keyup input.inputfield': _.debounce(function(event) {
+    var DbFieldName = $(":focus").attr("name");
+    console.log(DbFieldName);
+    console.log(event.target.value);
+    var param = {};
+    param[DbFieldName] = event.target.value;
+    Plans.update(this._id, {$set: param});
+  }, 350),
+
+  // 'keyup input[name=patientname]': _.throttle(function(event) {
+  //   Plans.update(this._id, {$set: {"patient.name": event.target.value}});
+  // }),
+
+  // 'keyup input[name=cpr]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"patient.cpr": event.target.value}});
+  // }),
 
   
 
-  'keyup input[name=mtx]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"header.mtx": event.target.value}});
-  }, 300),
+  // 'keyup input[name=mtx]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"header.mtx": event.target.value}});
+  // }),
   
 
-  'keyup input[name=height]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"patient.height": event.target.value}});
-  }, 300),
+  // 'keyup input[name=height]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"patient.height": event.target.value}});
+  // }),
 
-  'keyup input[name=weight]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"patient.weight": event.target.value}});
-  }, 300),
+  // 'keyup input[name=weight]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"patient.weight": event.target.value}});
+  // }),
 
-  'keyup input[name=pcreatin]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"header.pcreatin": event.target.value}});
-  }, 300),
+  // 'keyup input[name=pcreatin]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"header.pcreatin": event.target.value}});
+  // }),
 
-  'keyup input[name=pcreatin1]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.tree.field5.pcreatin": event.target.value}});
-  }, 300),
+  // 'keyup input[name=pcreatin1]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.tree.field5.pcreatin": event.target.value}});
+  // }),
 
-  'keyup input[name=pcreatin2]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.five.field2.pcreatin": event.target.value}});
-  }, 300),
+  // 'keyup input[name=pcreatin2]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.five.field2.pcreatin": event.target.value}});
+  // }),
 
-  'keyup input[name=pcreatin3]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.seven.field2.pcreatin": event.target.value}});
-  }, 300),
+  // 'keyup input[name=pcreatin3]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.seven.field2.pcreatin": event.target.value}});
+  // }),
 
-  'keyup input[name=pcreatin4]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.nine.normal.third.field2.pcreatin": event.target.value}});
-  }, 300),
+  // 'keyup input[name=pcreatin4]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.nine.normal.third.field2.pcreatin": event.target.value}});
+  // }),
 
-  'keyup input[name=semtx]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.five.field1.semtx": event.target.value}});
-  }, 300),
+  // 'keyup input[name=semtx]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.five.field1.semtx": event.target.value}});
+  // }),
 
-  'keyup input[name=semtx1]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.five.field3.semtx": event.target.value}});
-  }, 300),
+  // 'keyup input[name=semtx1]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.five.field3.semtx": event.target.value}});
+  // }),
 
-  'keyup input[name=semtx2]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.seven.field1.semtx": event.target.value}});
-  }, 300),
+  // 'keyup input[name=semtx2]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.seven.field1.semtx": event.target.value}});
+  // }),
 
-  'keyup input[name=semtx3]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.eight.field1.semtx": event.target.value}});
-  }, 300),
+  // 'keyup input[name=semtx3]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.eight.field1.semtx": event.target.value}});
+  // }),
 
-  'keyup input[name=semtx4]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.field1.semtx": event.target.value}});
-  }, 300),
+  // 'keyup input[name=semtx4]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.field1.semtx": event.target.value}});
+  // }),
 
-  'keyup input[name=semtx5]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.nine.hurtig.second.field1.semtx": event.target.value}});
-  }, 300),
+  // 'keyup input[name=semtx5]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.nine.hurtig.second.field1.semtx": event.target.value}});
+  // }),
 
-  'keyup input[name=semtx6]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.nine.normal.first.field1.semtx": event.target.value}});
-  }, 300),
+  // 'keyup input[name=semtx6]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.nine.normal.first.field1.semtx": event.target.value}});
+  // }),
 
-  'keyup input[name=semtx7]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.nine.normal.second.field1.semtx": event.target.value}});
-  }, 300),
+  // 'keyup input[name=semtx7]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.nine.normal.second.field1.semtx": event.target.value}});
+  // }),
 
-  'keyup input[name=semtx8]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.nine.normal.third.field1.semtx": event.target.value}});
-  }, 300),
+  // 'keyup input[name=semtx8]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.nine.normal.third.field1.semtx": event.target.value}});
+  // }),
 
 
-  'keyup input[name=docname]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.eight.field2.name": event.target.value}});
-  }, 300),
+  // 'keyup input[name=docname]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.eight.field2.name": event.target.value}});
+  // }, 300),
 
-  'keyup input[name=docname1]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.field2.name": event.target.value}});
-  }, 300),
+  // 'keyup input[name=docname1]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.field2.name": event.target.value}});
+  // }, 300),
 
-  'keyup input[name=docname2]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.nine.hurtig.second.field2.name": event.target.value}});
-  }, 300),
+  // 'keyup input[name=docname2]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.nine.hurtig.second.field2.name": event.target.value}});
+  // }, 300),
 
-  'keyup input[name=docname3]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.nine.normal.first.field2.name": event.target.value}});
-  }, 300),
+  // 'keyup input[name=docname3]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.nine.normal.first.field2.name": event.target.value}});
+  // }, 300),
 
-  'keyup input[name=docname4]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.nine.normal.second.field2.name": event.target.value}});
-  }, 300),
+  // 'keyup input[name=docname4]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.nine.normal.second.field2.name": event.target.value}});
+  // }, 300),
 
-  'keyup input[name=docname5]': _.throttle(function(event) {
-    Plans.update(this._id, {$set: {"treatments.nine.normal.third.field4.name": event.target.value}});
-  }, 300),
+  // 'keyup input[name=docname5]': _.debounce(function(event) {
+  //   Plans.update(this._id, {$set: {"treatments.nine.normal.third.field4.name": event.target.value}});
+  // }, 300),
 
 
 });
