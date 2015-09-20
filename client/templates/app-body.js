@@ -183,12 +183,8 @@ Template.appBody.events({
     
      console.log(list1);
          
-    // Todos.insert({
-    //   listId: list._id,
-    //   text: task.text,
-    //   checked: false,
-    //   createdAt: new Date()
-    // });
+     var message = "Are you sure you want to create new plan ";
+  if (confirm(message)) {
     list1_id = Plans.insert({
       incompleteCount: 0,
       header: {
@@ -248,8 +244,16 @@ Template.appBody.events({
         // }
       // ]
     });
+    
+
+   Router.go('plansShow', {_id: list1_id});
+    return true;
+  } else {
+    return false;
+  }
+    
     // Router.go('plansShow', list1);
-    Router.go('plansShow', {_id: list1_id});
+    
     // Router.go('plansShow');
   }
 });

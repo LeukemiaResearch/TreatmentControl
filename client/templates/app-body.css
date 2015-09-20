@@ -34,3 +34,7 @@ form.blue {
 
 	background-color: lightblue;
 }
+
+a.btn-secondary {
+	margin:10px;
+}

@@ -42,10 +42,10 @@
         {{/each}}
 
       </div> -->
-
+        <hr>
       <div class="list-todos">
         <a class="js-new-plan link-list-new"><span class="icon-plus"></span>New Patient Plan</a>
-
+        <hr>
         {{#each plans}}
           <li><a href="{{pathFor 'plansShow'}}" class="list-todo {{activePlanClass}}" title="{{header.name}}">
             {{#if userId}}

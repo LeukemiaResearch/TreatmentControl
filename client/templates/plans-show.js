@@ -41,6 +41,9 @@ Template.plansShow.onRendered(function() {
 });
 
 
+
+
+
 Template.plansShow.helpers({
 
   //hidden the Treatment plan if mtx Nr not been register
@@ -1281,7 +1284,7 @@ Template.plansShow.events({
     var param = {};
     param[DbFieldName] = event.target.value;
     Plans.update(this._id, {$set: param});
-  }, 350),
+  }),
 
   // 'keyup input[name=patientname]': _.throttle(function(event) {
   //   Plans.update(this._id, {$set: {"patient.name": event.target.value}});

@@ -9,3 +9,8 @@ insecure
 iron:router@0.9.4
 accounts-password
 twbs:bootstrap
+tsega:bootstrap3-datetimepicker@=3.1.3_3
+aldeed:autoform
+aldeed:autoform-bs-datetimepicker
+aldeed:simple-schema
+aldeed:collection2

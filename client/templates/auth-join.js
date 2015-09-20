@@ -19,6 +19,8 @@ Template.join.events({
     var email = template.$('[name=email]').val();
     var password = template.$('[name=password]').val();
     var confirm = template.$('[name=confirm]').val();
+    // var FirstName = template.$('[name=firstname]').val();
+    // var LastName = template.$('[name=lastname]').val();
 
     var errors = {};
 
@@ -34,6 +36,14 @@ Template.join.events({
       errors.confirm = 'Please confirm your password';
     }
 
+    // if (  ! FirstName) {
+    //   errors.FirstName = 'Please Enter First Name';
+    // }
+
+    // if (  ! LastName) {
+    //   errors.LastName = 'Please Enter Last Name';
+    // }
+
     Session.set(ERRORS_KEY, errors);
     if (_.keys(errors).length) {
       return;
@@ -42,6 +52,8 @@ Template.join.events({
     Accounts.createUser({
       email: email,
       password: password
+      // firstname: FirstName,
+      // lastname: LastName
     }, function(error) {
       if (error) {
         return Session.set(ERRORS_KEY, {'none': error.reason});
