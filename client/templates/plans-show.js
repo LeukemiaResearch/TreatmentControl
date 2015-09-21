@@ -21,7 +21,7 @@ Template.plansShow.onRendered(function() {
   // $(".content-scrollable form").not('.treatment').slice(1, 20).addClass('blue');
  // $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
 
-
+ $('#picker-1').datetimepicker({});
    
  
 
@@ -580,6 +580,23 @@ var togglePlanPrivacy = function(list) {
 // };
 
 Template.plansShow.events({
+
+  //DateTimePicker Development//
+      // 'input #picker-1 input': function () {
+      //   // Get the selected start date
+      //   var picked_date = $("#picker-1").data("DateTimePicker").getDate();
+
+      //   // Disable any dates before the start date for the end date
+      //   $('#picker-2').data("DateTimePicker").setMinDate(new Date(picked_date.toString()));
+      //   console.log(new Date(picked_date.toString()));
+
+      //   // Set the end date to the selected start date
+      //   $('#picker-2').data("DateTimePicker").setDate(new Date(picked_date.toString()));
+      // },
+
+
+  // END //
+
   'click .js-cancel': function() {
     Session.set(EDITING_KEY, false);
   },
@@ -1281,10 +1298,33 @@ Template.plansShow.events({
     var DbFieldName = $(":focus").attr("name");
     console.log(DbFieldName);
     console.log(event.target.value);
+    console.log(event);
     var param = {};
     param[DbFieldName] = event.target.value;
     Plans.update(this._id, {$set: param});
   }),
+
+  'mouseup input.inputfield': _.debounce(function(event) {
+    var DbFieldName = $(":focus").attr("name");
+    console.log(DbFieldName);
+    console.log(event.target.value);
+    console.log(event);
+    var param = {};
+    param[DbFieldName] = event.target.value;
+    Plans.update(this._id, {$set: param});
+  }),
+
+   'mousewheel input.inputfield': _.debounce(function(event) {
+    var DbFieldName = $(":focus").attr("name");
+    console.log(DbFieldName);
+    console.log(event.target.value);
+    console.log(event);
+    var param = {};
+    param[DbFieldName] = event.target.value;
+    Plans.update(this._id, {$set: param});
+  }),
+
+
 
   // 'keyup input[name=patientname]': _.throttle(function(event) {
   //   Plans.update(this._id, {$set: {"patient.name": event.target.value}});

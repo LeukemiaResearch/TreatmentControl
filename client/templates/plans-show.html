@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-2">
             <!-- date time -->
-            <h6>Dato:</h6><input class="form-control input-sm" name="regdate" type="viewtime" value="{{header.createdAt}}">
+            <h6>Dato:</h6><input class="form-control inputfield input-sm" name="header.createdAt" type="datetime-local" value="{{header.createdAt}}">
             <!-- <h6>Dato:</h6>{{#autoForm id="afUpdateDemo" schema="Schemas.plans" type=update collection=Collections.Plans doc=selectedPersonDoc autosave=true}}
   {{> afQuickField name="datetimepicker" type="bootstrap-datetimepicker"}}
  {{/autoForm}} -->
@@ -30,10 +30,25 @@
        <div class="row">
         <div class="col-md-2">
             <!-- date time -->
-            <h6>Dato:</h6><input class="form-control input-sm" name="regdate" type="viewtime" value="{{header.createdAt}}">
-            <!-- <h6>Dato:</h6>{{#autoForm id="afUpdateDemo" type=update collection=Collections.Plans doc=selectedPersonDoc autosave=true}}
-  {{> afQuickField name="datetimepicker" type="bootstrap-datetimepicker"}}
- {{/autoForm}} -->
+            <h6>Dato:</h6><input class="form-control inputfield input-sm " name="header.createdAt" type="datetime-local" value="{{header.createdAt}}">
+         <!--    {{#autoForm collection="Try" id="plansShow" type="update" autosave=true}}
+    
+    <div class="clearfix">
+      <div class="form-group col-md-4 {{#if afFieldIsInvalid name='createdAt'}}has-error{{/if}}">
+        <label class="control-label">Dato</label>
+        <div class="input-group date " id='picker-1'>
+          {{> afFieldInput name='createdAt' type='text' class='form-control input-sm' trueLabel="False" falseLabel="False"}}
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+        {{#if afFieldIsInvalid name='createdAt'}}
+          <span class="help-block">{{{afFieldMessage name='createdAt'}}}</span>
+        {{/if}}
+      </div>
+    
+    </div>  
+    {{/autoForm}} -->
         </div>
         <div class="col-md-8">
         <div class="nav-group">
