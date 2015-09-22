@@ -6,6 +6,7 @@ Meteor.startup(function () {
 {
     "_id" : "GENERAL-PLAN",
     "header" : {
+        // "createdAt" : new Date(),
         "createdAt" : new Date(),
         "name" : "General Plan",
         "mtx" : "",

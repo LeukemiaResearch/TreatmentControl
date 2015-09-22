@@ -27,7 +27,7 @@ h2.extract {
 
 form.treatment {
 
-	background-color: gray;
+	background-color: rgb(155, 153, 153);
 }
 
 form.blue {
@@ -38,3 +38,4 @@ form.blue {
 a.btn-secondary {
 	margin:10px;
 }
+

@@ -182,7 +182,9 @@ Template.appBody.events({
        
     
      console.log(list1);
-         
+  if (! Meteor.user()) {
+    return alert("Please sign in or create an account to make plans.");
+  }       
      var message = "Are you sure you want to create new plan ";
   if (confirm(message)) {
     list1_id = Plans.insert({

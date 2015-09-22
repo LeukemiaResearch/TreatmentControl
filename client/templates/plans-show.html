@@ -104,13 +104,13 @@
           <div class="col-md-7 col-lg-7">
          <form class="js-todo-new todo-new input-symbol">           
                <!-- <span class="icon-add js-todo-add"></span>                       -->
-               <div class="form-group">
+                  <div class="form-group">
                  <!-- <h6>Patient Name:</h6><input class="form-control inputfield" name="patientname" type="text" placeholder="Type to add Patient Name" value="{{patient.name}}" >  -->
-                 <h6>Patient Name:</h6><input class="form-control inputfield input-sm" name="patient.name" type="text" placeholder="Type to add Patient Name" value="{{patient.name}}" >
+                   <h6>Patient Name:</h6><input class="form-control inputfield input-sm" name="patient.name" type="text" placeholder="Type to add Patient Name" value="{{patient.name}}" >
                  </div>
                  <div class="form-group">
-               <h6>CPR:</h6><input class="form-control inputfield input-sm" name="patient.cpr" type="mumber" placeholder="Type to add CPR number" value="{{patient.cpr}}">
-              </div>
+                   <h6>CPR:</h6><input class="form-control inputfield input-sm" name="patient.cpr" type="mumber" placeholder="Type to add CPR number" value="{{patient.cpr}}">
+                 </div>
               <!-- <div class="form-group"> 
                  <h6>MTX nr:</h6><input class="form-control" name="mtx" type="number" placeholder="Type to add MTX number" value="{{mtx}}">
               </div> -->
@@ -209,55 +209,56 @@
         <div class="col-md-7">
             <h6>{{treatments.one.field1.text}}:</h6>
          </div>
-        
-         <div class="col-md-2">
+        <div class="col-md-1">          
+         </div> 
+         <div class="col-md-1">
           {{#if field1.value}} <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field1.value1}}">  {{/if}}
          </div> 
          <!-- {{/with}} -->
       </div>
-
+      
       <div class="row">   
          <!-- {{#with treatments.[0]}} -->
         <div class="col-md-2">
-            <!-- datetime -->
+            <!-- datetime --><h6>Dato:</h6>
         </div> 
         
-        <div class="col-md-7">
+        <div class="col-md-8">
             <h6>{{treatments.one.field2.text}}:</h6>
          </div>
         
-         <div class="col-md-2">
+         <div class="col-md-1">
            <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field2.value}}" disabled>  
          </div> 
          <div class="col-md-1"><h6>ml/time</h6></div>
          <!-- {{/with}} -->
       </div>
-
+      
       <div class="row">   
          <!-- {{#with treatments.[0]}} -->
-        <div class="col-md-2">
-            <!-- datetime -->
+        <div class="col-md-2 col-lg-2">
+            <!-- datetime --><input class="form-control inputfield input-sm" name="treatments.one.createdAt" type="datetime-local" value="{{treatments.one.createdAt}}" {{disone}}>
         </div> 
         
-        <div class="col-md-7">
+        <div class="col-md-8 col-lg-8">
             <h6>{{treatments.one.field3.text}}:</h6>
          </div>
         
-         <div class="col-md-2">
+         <div class="col-md-1 col-lg-1">
           <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field3.value}}" disabled>   
          <!-- {{/with}} -->
         </div>
-        <div class="col-md-1"><h6>ml/time</h6></div>
+        <div class="col-md-1 col-lg-1"><h6>ml/time</h6></div>
         
       </div>
-
+       
       <div class="row">   
          <!-- {{#with treatments.[0]}} -->
         <div class="col-md-2">
             <!-- datetime -->
         </div> 
         
-        <div class="col-md-7">
+        <div class="col-md-8">
             <h6>{{treatments.one.field4.text}}:</h6>
          </div>
         
@@ -266,14 +267,14 @@
          </div> 
          <!-- {{/with}} -->
       </div>
-
+        
       <div class="row">   
          <!-- {{#with treatments.[0]}} -->
         <div class="col-md-2">
             <!-- datetime -->
         </div> 
         
-        <div class="col-md-7">
+        <div class="col-md-8">
             <h6>{{treatments.one.field5.text}}:</h6>
          </div>
         

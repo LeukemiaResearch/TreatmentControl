@@ -21,7 +21,7 @@ Template.plansShow.onRendered(function() {
   // $(".content-scrollable form").not('.treatment').slice(1, 20).addClass('blue');
  // $(".content-scrollable form.treatment").next().siblings().not(".treatment").addClass('blue');
 
- $('#picker-1').datetimepicker({});
+ // $('#picker-1').datetimepicker({});
    
  
 
@@ -54,95 +54,84 @@ Template.plansShow.helpers({
     else 
       return;
   },
- 
+  
+  disone : function (list) {
+     
+    if(this.treatments.one.checked || !this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { return 'disabled'; }
+  },
+
+
   disabled : function (list) {
     // if(this.treatments.tree.field4.pcreatin && this.treatments.tree.createdAt) {
     //   Session.set("disabled", "ready");
     // }
-    if(this.treatments.tree.checked || Session.equals("third" , "blue")) { Session.set("disabled", "disabled"); }
-    else { Session.set("disabled", ""); }
-
-    return Session.get("disabled");
+    if(this.treatments.tree.checked || Session.equals("third" , "blue")) { return 'disabled'; }
   },
+
+  // disabled1 : function (list) {
+  //   // if(this.treatments.five.field1.semtx && this.treatments.five.field2.pcreatin && this.treatments.five.createdAt && this.treatments.five.field3.semtx) {
+  //   //   Session.set("disabled", "ready");
+  //   // }
+  //   if(this.treatments.five.checked || Session.equals("fifth" , "blue")) { Session.set("disabled", "disabled"); }
+  //   else { Session.set("disabled", ""); }
+
+  //   return Session.get("disabled");
+  // },
 
   disabled1 : function (list) {
     // if(this.treatments.five.field1.semtx && this.treatments.five.field2.pcreatin && this.treatments.five.createdAt && this.treatments.five.field3.semtx) {
     //   Session.set("disabled", "ready");
     // }
-    if(this.treatments.five.checked || Session.equals("fifth" , "blue")) { Session.set("disabled", "disabled"); }
-    else { Session.set("disabled", ""); }
-
-    return Session.get("disabled");
+    if(this.treatments.five.checked || Session.equals("fifth" , "blue")) { return 'disabled'; }    
   },
 
   disabled2 : function (list) {
     // if(this.treatments.seven.field1.semtx && this.treatments.seven.createdAt && this.treatments.seven.field2.pcreatin) {
     //   Session.set("disabled", "ready");
     // }
-    if(this.treatments.seven.checked || Session.equals("seven" , "blue")) { Session.set("disabled", "disabled"); }
-    else { Session.set("disabled", ""); }
-
-    return Session.get("disabled");
+    if(this.treatments.seven.checked || Session.equals("seven" , "blue")) { return 'disabled'; }
   },
 
   disabled3 : function (list) {
     // if(this.treatments.eight.field1.semtx && this.treatments.eight.createdAt && this.treatments.eight.field2.name) {
     //   Session.set("disabled", "ready");
     // }
-    if(this.treatments.eight.checked || Session.equals("eight" , "blue")) { Session.set("disabled", "disabled"); }
-    else { Session.set("disabled", ""); }
-
-    return Session.get("disabled");
+    if(this.treatments.eight.checked || Session.equals("eight" , "blue")) { return 'disabled'; }
   },
 
   disabled4 : function (list) {
     // if(this.treatments.nine.hurtig.first.field1.semtx && this.treatments.nine.hurtig.first.createdAt && this.treatments.nine.hurtig.first.field2.name) {
     //   Session.set("disabled", "ready");
     // }
-    if(this.treatments.nine.hurtig.first.checked || Session.equals("nine" , "blue")) { Session.set("disabled", "disabled"); }
-    else { Session.set("disabled", ""); }
-
-    return Session.get("disabled");
+    if(this.treatments.nine.hurtig.first.checked || Session.equals("nine" , "blue")) { return 'disabled'; }
   },
 
   disabled5 : function (list) {
     // if(this.treatments.nine.hurtig.second.field1.semtx && this.treatments.nine.hurtig.second.createdAt && this.treatments.nine.hurtig.second.field2.name) {
     //   Session.set("disabled", "ready");
     // }
-    if(this.treatments.nine.hurtig.second.checked || Session.equals("ten" , "blue")) { Session.set("disabled", "disabled"); }
-    else { Session.set("disabled", ""); }
-
-    return Session.get("disabled");
+    if(this.treatments.nine.hurtig.second.checked || Session.equals("ten" , "blue")) { return 'disabled'; }
   },
 
   disabled6 : function (list) {
     // if(this.treatments.nine.normal.first.field1.semtx && this.treatments.nine.normal.first.createdAt && this.treatments.nine.normal.first.field2.name) {
     //   Session.set("disabled", "ready");
     // }
-    if(this.treatments.nine.normal.first.checked || Session.equals("eleven" , "blue")) { Session.set("disabled", "disabled"); }
-    else { Session.set("disabled", ""); }
-
-    return Session.get("disabled");
+    if(this.treatments.nine.normal.first.checked || Session.equals("eleven" , "blue")) { return 'disabled'; }
   },
 
   disabled7 : function (list) {
     // if(this.treatments.nine.normal.second.field1.semtx && this.treatments.nine.normal.second.createdAt && this.treatments.nine.normal.second.field2.name) {
     //   Session.set("disabled", "ready");
     // }
-    if(this.treatments.nine.normal.second.checked || Session.equals("twelve" , "blue")) { Session.set("disabled", "disabled"); }
-    else { Session.set("disabled", ""); }
-
-    return Session.get("disabled");
+    if(this.treatments.nine.normal.second.checked || Session.equals("twelve" , "blue")) { return 'disabled'; }
   },
 
   disabled8 : function (list) {
     // if(this.treatments.nine.normal.third.field1.semtx && this.treatments.nine.normal.third.createdAt && this.treatments.nine.normal.third.field2.pcreatin && this.treatments.nine.normal.third.field4.name) {
     //   Session.set("disabled", "ready");
     // }
-    if(this.treatments.nine.normal.third.checked || Session.equals("thirdteen" , "blue")) { Session.set("disabled", "disabled"); }
-    else { Session.set("disabled", ""); }
-
-    return Session.get("disabled");
+    if(this.treatments.nine.normal.third.checked || Session.equals("thirdteen" , "blue")) { return 'disabled'; }
   },
 
 
@@ -519,7 +508,7 @@ var editPlan = function(list, template) {
 
 var savePlan = function(list, template) {
   Session.set(EDITING_KEY, false);
-  Plans.update(list._id, {$set: {name: template.$('[name=name]').val()}});
+  Plans.update(list._id, {$set: {"header.name": template.$('[name=name]').val()}});
 }
 
 var deletePlan = function(list) {
@@ -665,6 +654,9 @@ Template.plansShow.events({
    // 'change [name=checked]': function(event, template) {
   'click [name=checked]': function(event, template) {
     // var checked = $(event.target).is(':checked');
+    if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if( this.treatments.one.checked  && this.treatments.two.checked) {
 
       return alert("You cannot unregister this treatment before unregister the next one!");
@@ -710,7 +702,10 @@ Template.plansShow.events({
   },
 
   'click [name=checked1]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+   // var checked = $(event.target).is(':checked');
+   if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if( !this.treatments.one.checked ) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -756,7 +751,9 @@ Template.plansShow.events({
   // },
 
   'click [name=checked2]': function(event, template) {
-    var checked = $(event.target).is(':checked');
+     if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if(!this.treatments.two.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -782,7 +779,9 @@ Template.plansShow.events({
   },
 
   'click [name=checked3]': function(event, template) {
-    // var checked = $(event.target).is(':checked');
+     if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if(!this.treatments.tree.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -807,7 +806,9 @@ Template.plansShow.events({
   },
 
   'click [name=checked4]': function(event, template) {
-    // var checked = $(event.target).is(':checked');
+    if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if(!this.treatments.four.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -817,7 +818,7 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
-      if (!this.treatments.five.field1.semtx || !this.treatments.five.field2.pcreatin || !this.treatments.five.field3.semtx) { return alert("You need to fill-in all fields first!");}
+     if (!this.treatments.five.field1.semtx || !this.treatments.five.field2.pcreatin || !this.treatments.five.field3.semtx) { return alert("You need to fill-in all fields first!");}
       Plans.update(this._id, {$set: {"treatments.five.checked": ! this.treatments.five.checked , "treatments.five.userId" : Meteor.userId()}});  
     }
       
@@ -833,7 +834,9 @@ Template.plansShow.events({
   },
 
   'click [name=checked5]': function(event, template) {
-    // var checked = $(event.target).is(':checked');
+     if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if(!this.treatments.five.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -858,7 +861,9 @@ Template.plansShow.events({
   },
 
   'click [name=checked6]': function(event, template) {
-    // var checked = $(event.target).is(':checked');
+     if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if(!this.treatments.six.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -884,7 +889,9 @@ Template.plansShow.events({
   },
 
   'click [name=checked7]': function(event, template) {
-    // var checked = $(event.target).is(':checked');
+    if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if(!this.treatments.seven.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -910,7 +917,9 @@ Template.plansShow.events({
   },
 
   'click [name=checked8]': function(event, template) {
-    // var checked = $(event.target).is(':checked');
+     if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if(!this.treatments.eight.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -936,7 +945,9 @@ Template.plansShow.events({
   },
 
   'click [name=checked9]': function(event, template) {
-    // var checked = $(event.target).is(':checked');
+     if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if(!this.treatments.nine.hurtig.first.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -962,7 +973,9 @@ Template.plansShow.events({
   },
 
   'click [name=checked10]': function(event, template) {
-    // var checked = $(event.target).is(':checked');
+     if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if(!this.treatments.eight.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -988,7 +1001,9 @@ Template.plansShow.events({
   },
 
   'click [name=checked11]': function(event, template) {
-    // var checked = $(event.target).is(':checked');
+     if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if(!this.treatments.nine.normal.first.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -1014,7 +1029,9 @@ Template.plansShow.events({
   },
 
   'click [name=checked12]': function(event, template) {
-    // var checked = $(event.target).is(':checked');
+     if (! Meteor.user()) {
+    return alert("Please sign in to register or unregister treatment!");
+  } 
     if(!this.treatments.nine.normal.second.checked) {
 
       return alert("You cannot register this treatment before the previous one!");
@@ -1071,18 +1088,26 @@ Template.plansShow.events({
   //     Session.set(EDITING_KEY, null);
   // },
 
-  'blur .inputfield': function(event) {
-    if (Session.equals(EDITING_KEY, this._id))
-      Session.set(EDITING_KEY, null);
-  },
+    'blur .inputfield': function(event) {
+      if (Session.equals(EDITING_KEY, this._id))
+        Session.set(EDITING_KEY, null);
+    },
 
-  'keydown .inputfield': function(event) {
-    // ESC or ENTER
-    if (event.which === 27 || event.which === 13) {
-      event.preventDefault();
-      event.target.blur();
-    }
-  },
+    'keydown .inputfield': function(event) {
+      // ESC or ENTER
+      if (event.which === 27 || event.which === 13) {
+        event.preventDefault();
+        event.target.blur();
+      }
+    },
+
+    'mousedown .inputfield': function(event) {
+      // ESC or ENTER
+      if (event.which === 27 || event.which === 13) {
+        event.preventDefault();
+        event.target.blur();
+      }
+    },
 
 
   // 'keydown input[name=patientname]': function(event) {
@@ -1294,35 +1319,48 @@ Template.plansShow.events({
   // }, 300),
 
 
-  'keyup input.inputfield': _.debounce(function(event) {
-    var DbFieldName = $(":focus").attr("name");
-    console.log(DbFieldName);
-    console.log(event.target.value);
-    console.log(event);
-    var param = {};
-    param[DbFieldName] = event.target.value;
-    Plans.update(this._id, {$set: param});
-  }),
+    'keyup input.inputfield': _.debounce(function(event) {
+       if (! Meteor.user()) {
+    return alert("Please sign in to register or change data!");
+        } 
+      var DbFieldName = $(":focus").attr("name");
+      console.log(DbFieldName);
+      console.log(event.target.value);
+      console.log(event);
+      var param = {};
+      param[DbFieldName] = event.target.value;
+      Plans.update(this._id, {$set: param});
+    },300),
 
-  'mouseup input.inputfield': _.debounce(function(event) {
-    var DbFieldName = $(":focus").attr("name");
-    console.log(DbFieldName);
-    console.log(event.target.value);
-    console.log(event);
-    var param = {};
-    param[DbFieldName] = event.target.value;
-    Plans.update(this._id, {$set: param});
-  }),
+    'click input.inputfield': _.debounce(function(event) {
+       if (! Meteor.user()) {
+    return alert("Please sign in to register or change data!");
+        } 
+      // var DbFieldName = $(":focus").attr("name");
+      var DbFieldName  = $(document.activeElement).attr("name");
+      console.log(DbFieldName);
+      console.log(event.target.value);
+      console.log(event);
+      var param = {};
+      param[DbFieldName] = event.target.value;
+      Plans.update(this._id, {$set: param});
+    },300),
 
-   'mousewheel input.inputfield': _.debounce(function(event) {
-    var DbFieldName = $(":focus").attr("name");
-    console.log(DbFieldName);
-    console.log(event.target.value);
-    console.log(event);
-    var param = {};
-    param[DbFieldName] = event.target.value;
-    Plans.update(this._id, {$set: param});
-  }),
+     'mousewheel input.inputfield': _.debounce(function(event) {
+       if (! Meteor.user()) {
+        return alert("Please sign in to register or change data!");
+        } 
+        
+      //var DbFieldName = $(":focus").attr("name");
+      var DbFieldName  = $(document.activeElement).attr("name");
+      console.log(DbFieldName);
+      console.log(event.target.value);
+      console.log(event);
+      var param = {};
+      param[DbFieldName] = event.target.value;
+      Plans.update(this._id, {$set: param});
+      
+    },300),
 
 
 
