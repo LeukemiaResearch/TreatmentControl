@@ -187,10 +187,18 @@ Template.appBody.events({
   }       
      var message = "Are you sure you want to create new plan ";
   if (confirm(message)) {
+
+    var t  = new Date();
+    t .setHours(t.getDate() + 2);
+    var time = t.toISOString().substring(0,16);
+    //var time = ((time1.toISOString().substring(0,16)) + (time1.toISOString().substring(23,24))); 
+    // console.log(time);
+    // console.log(t);
+    
     list1_id = Plans.insert({
       incompleteCount: 0,
       header: {
-        createdAt: new Date(), 
+        createdAt: time, 
         name: Plans.defaultName(),
         mtx: "",
         pcreatin: ""
