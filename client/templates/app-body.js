@@ -187,13 +187,16 @@ Template.appBody.events({
   }       
      var message = "Are you sure you want to create new plan ";
   if (confirm(message)) {
-
+ 
     var t  = new Date();
-    t .setHours(t.getDate() + 2);
+   t .setHours(t.getHours() + 2);
+
     var time = t.toISOString().substring(0,16);
+   // time.setHours(time.getDate() + 2);
     //var time = ((time1.toISOString().substring(0,16)) + (time1.toISOString().substring(23,24))); 
-    // console.log(time);
+    
     // console.log(t);
+    // console.log(time);
     
     list1_id = Plans.insert({
       incompleteCount: 0,
@@ -206,8 +209,8 @@ Template.appBody.events({
       patient : {
         name: "",
         cpr:"",
-        height: "0",
-        weight: "0",
+        height: "",
+        weight: "",
         surface: Plans.findOne({"header.name": "General Plan"}).patient.surface
       }, 
       treatments: Plans.findOne({"header.name" :"General Plan"}).treatments
@@ -284,3 +287,9 @@ Template.appBody.events({
   //     };
   //   });
   // }
+
+
+
+  //LIST//
+  //DA probvam da pokazvam vremeto bez input  
+  // disable helper za mtx , patient 

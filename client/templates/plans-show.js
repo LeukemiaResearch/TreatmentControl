@@ -517,6 +517,8 @@ var deletePlan = function(list) {
     return alert("Sorry, you cannot delete the final public plan!");
   }
   
+  if (list._id === 'GENERAL-PLAN') { return alert("You cannot delete the GENERAL PLAN");}
+
   var message = "Are you sure you want to delete the plan " + list.name + "?";
   if (confirm(message)) {
     // we must remove each item individually from the client
