@@ -60,6 +60,12 @@ Template.plansShow.helpers({
     if(this.treatments.one.checked || !this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { return 'disabled'; }
   },
 
+  distwo : function (list) {
+     
+    if(this.treatments.two.checked || Session.equals("second" , "blue")) { return 'disabled'; }
+  },
+
+
 
   disabled : function (list) {
     // if(this.treatments.tree.field4.pcreatin && this.treatments.tree.createdAt) {
@@ -498,6 +504,9 @@ Template.plansShow.helpers({
 //   };
 
 var editPlan = function(list, template) {
+  if (! Meteor.user()) {
+    return alert("You need to be sign in to edit the plan name.");
+  }
   Session.set(EDITING_KEY, true);
   
   // force the template to redraw based on the reactive change
@@ -507,11 +516,16 @@ var editPlan = function(list, template) {
 };
 
 var savePlan = function(list, template) {
+  
   Session.set(EDITING_KEY, false);
   Plans.update(list._id, {$set: {"header.name": template.$('[name=name]').val()}});
 }
 
 var deletePlan = function(list) {
+  if (! Meteor.user()) {
+    return alert("You need to be sign in to delete a plan.");
+  }
+
   // ensure the last public list cannot be deleted.
   if (! list.userId && Plans.find({userId: {$exists: false}}).count() === 1) {
     return alert("Sorry, you cannot delete the final public plan!");
@@ -765,7 +779,7 @@ Template.plansShow.events({
       return alert("You cannot unregister this treatment before when next one is registered!");
     }
     else {
-      if (!this.treatments.tree.field5.pcreatin) { return alert("You need to fill-in all fields first!");}
+      if (!this.treatments.tree.field5.pcreatin || !this.treatments.tree.createdAt) { return alert("You need to fill-in all fields first!");}
       Plans.update(this._id, {$set: {"treatments.tree.checked": ! this.treatments.tree.checked , "treatments.tree.userId" : Meteor.userId()}});  
     }
       
@@ -1331,7 +1345,9 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
+      if (DbFieldName !== undefined || checked || checked1 || checked2 || checked3 || checked4 || checked5 || checked6 || checked7 || checked8 || checked9 || checked10 || checked11 || checked12) {
       Plans.update(this._id, {$set: param});
+      } 
     },300),
 
     'click input.inputfield': _.debounce(function(event) {
@@ -1345,7 +1361,9 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
+      if (DbFieldName !== undefined || checked || checked1 || checked2 || checked3 || checked4 || checked5 || checked6 || checked7 || checked8 || checked9 || checked10 || checked11 || checked12) {
       Plans.update(this._id, {$set: param});
+      } 
     },300),
 
      'mousewheel input.inputfield': _.debounce(function(event) {
@@ -1360,8 +1378,9 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
+      if (DbFieldName !== undefined || checked || checked1 || checked2 || checked3 || checked4 || checked5 || checked6 || checked7 || checked8 || checked9 || checked10 || checked11 || checked12) {
       Plans.update(this._id, {$set: param});
-      
+      }     
     },300),
 
 
