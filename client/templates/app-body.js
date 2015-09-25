@@ -92,7 +92,12 @@ Template.appBody.helpers({
     return Todos.find();
   },
   plans: function() {
-    return Plans.find();
+    //return Plans.find();
+    
+    // return Plans.findOne("GENERAL-PLAN"); 
+     // return Plans.findOne(Session.get("searchplan")); 
+      return Plans.find({ $or : [ { _id : "GENERAL-PLAN" } , { "patient.cpr" : Session.get("searchplan") }  ] } ); 
+   
   },
   activeListClass: function() {
     var current = Router.current();
@@ -114,6 +119,8 @@ Template.appBody.helpers({
     }
   }
   });
+
+  
 
 Template.appBody.events({
   'click .js-menu': function() {
@@ -258,7 +265,7 @@ Template.appBody.events({
       // ]
     });
     
-
+    //console.log(list1_id);
    Router.go('plansShow', {_id: list1_id});
     return true;
   } else {

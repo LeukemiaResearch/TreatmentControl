@@ -109,7 +109,7 @@ Meteor.startup(function () {
         "four" : {
             "checked" : false,
             // "time" : {
-            //      "method" : "(this.treatments.tree.createdAt.setHours(t.getHours() + 1))",
+            //      "method" : "new Date(this.treatments.tree.createdAt).setHours(t.getHours() + 1)",
             //      "value" : ""  
             // },
             "field1" : {
