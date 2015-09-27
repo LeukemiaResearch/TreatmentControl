@@ -106,18 +106,17 @@ Meteor.startup(function () {
             "value1" : "NaN"
             
         },
-        "four" : {
-            "checked" : false,
+        "four" : { "checked" : false,
             // "time" : {
             //      "method" : "new Date(this.treatments.tree.createdAt).setHours(t.getHours() + 1)",
             //      "value" : ""  
             // },
+            "time" : 1,
             "field1" : {
                 "text" : "9/10 af MTX dosis gives på 23 timer. Hydreringsvæske reduceret til samlet 3000 ml/m2/døgn",
                 "method" : "Math.ceil(450*this.patient.surface.value-1)*10",
                 "value" : -10
             }
-            
         },
         "five" : {
             "checked" : false,

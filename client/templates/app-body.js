@@ -96,7 +96,7 @@ Template.appBody.helpers({
     
     // return Plans.findOne("GENERAL-PLAN"); 
      // return Plans.findOne(Session.get("searchplan")); 
-      return Plans.find({ $or : [ { _id : "GENERAL-PLAN" } , { "patient.cpr" : Session.get("searchplan") }  ] } ); 
+      return Plans.find({ $or : [ { _id : { $in: [ "GENERAL-PLAN", Session.get("searchplan") ]}} , { "patient.cpr" : Session.get("searchplan") }  ] } ); 
    
   },
   activeListClass: function() {
@@ -267,6 +267,7 @@ Template.appBody.events({
     
     //console.log(list1_id);
    Router.go('plansShow', {_id: list1_id});
+   Session.set("searchplan" , list1_id );
     return true;
   } else {
     return false;

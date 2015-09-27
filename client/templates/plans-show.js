@@ -54,7 +54,20 @@ Template.plansShow.helpers({
     else 
       return;
   },
+
+  //TIME FOR DIFFERENT TREATMENTS +1,+6,+23 ...etc 
+  time1 : function(list) {
+    var time_begin = this.treatments.tree.createdAt;
+    var time_new = new Date(time_begin);
+    time_new.setHours(time_new.getHours() + this.treatments.four.time);
+    var time_set = time_new.toISOString().substring(0,16);
+   // time_new.toISOString().substring(0,16);
+    return time_set;
+  },
+
   
+
+  //DISABLE CHECKED OR UNACTIVE FORM FROM INPUT
   disone : function (list) {
      
     if(this.treatments.one.checked || !this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { return 'disabled'; }
@@ -1345,10 +1358,10 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
-      if (DbFieldName !== undefined || checked || checked1 || checked2 || checked3 || checked4 || checked5 || checked6 || checked7 || checked8 || checked9 || checked10 || checked11 || checked12) {
+      if (DbFieldName !== undefined || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
       Plans.update(this._id, {$set: param});
       } 
-    },300),
+    },50),
 
     'click input.inputfield': _.debounce(function(event) {
        if (! Meteor.user()) {
@@ -1360,11 +1373,12 @@ Template.plansShow.events({
       console.log(event.target.value);
       console.log(event);
       var param = {};
+      
+      if (DbFieldName !== "undefined" || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
       param[DbFieldName] = event.target.value;
-      if (DbFieldName !== undefined || checked || checked1 || checked2 || checked3 || checked4 || checked5 || checked6 || checked7 || checked8 || checked9 || checked10 || checked11 || checked12) {
       Plans.update(this._id, {$set: param});
       } 
-    },300),
+    },50),
 
      'mousewheel input.inputfield': _.debounce(function(event) {
        if (! Meteor.user()) {
@@ -1378,10 +1392,10 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
-      if (DbFieldName !== undefined || checked || checked1 || checked2 || checked3 || checked4 || checked5 || checked6 || checked7 || checked8 || checked9 || checked10 || checked11 || checked12) {
+      if (DbFieldName !== undefined || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
       Plans.update(this._id, {$set: param});
       }     
-    },300),
+    },50),
 
 
 
