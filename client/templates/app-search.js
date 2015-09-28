@@ -1,3 +1,5 @@
+ //tempsearch = {} 
+
 Template.search.events({
   'submit': function(event, template) {
     event.preventDefault();
@@ -9,8 +11,15 @@ Template.search.events({
     var searchplan = Plans.findOne({"patient.cpr": search});
    console.log(search); 
    if (searchplan) {
-    Session.set("multi", true);
-    Session.set("searchplan", search);
+    // Session.set("multi", true);
+   // Session.set("searchplan", search);
+    var temp = Plans.findOne({tempsearch : {$exists : true}});
+    if (temp) {
+    Plans.update({_id: temp._id } , {$unset : {tempsearch : ""}});  
+    }
+    
+     Plans.update(searchplan._id, {$set: {tempsearch : search}});
+    // tempsearch = searchplan.tempsearch; 
     Router.go('plansShow', {_id : searchplan._id});
    }
    else { return alert("Patient plan not exist!");}

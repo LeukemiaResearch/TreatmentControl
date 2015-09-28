@@ -57,12 +57,14 @@ Template.plansShow.helpers({
 
   //TIME FOR DIFFERENT TREATMENTS +1,+6,+23 ...etc 
   time1 : function(list) {
+    if (this.treatments.tree.createdAt){
     var time_begin = this.treatments.tree.createdAt;
     var time_new = new Date(time_begin);
     time_new.setHours(time_new.getHours() + this.treatments.four.time);
     var time_set = time_new.toISOString().substring(0,16);
    // time_new.toISOString().substring(0,16);
     return time_set;
+    }
   },
 
   
@@ -598,6 +600,26 @@ var togglePlanPrivacy = function(list) {
 // };
 
 Template.plansShow.events({
+
+  // CLOSEING TREATMENT PLAN
+  'click [name=done]' : function() {
+    if (! Meteor.user()) {
+    return alert("Please sign to close the Treatment Plan!");
+  } 
+     var message = "Are you finish with the treatment?";
+     if (confirm(message)) {
+      var temp = Plans.findOne({tempsearch : {$exists : true}});
+    if (temp) {
+     // var tempo = Plans.find({ "patient.cpr" :  this.patient.cpr }).count();
+      //console.log(tempo);
+      if (Plans.find({ "patient.cpr" :  this.patient.cpr }).count() > 1) {return alert("Patient plan with the same CPR exist!!! Please insert correct CPR!!!");}
+    Plans.update({_id: temp._id } , {$unset : {tempsearch : ""}}); 
+
+    }
+   Router.go('search', Plans.findOne());
+      return true;
+     } else {return false;}
+  },
 
   //DateTimePicker Development//
       // 'input #picker-1 input': function () {
@@ -1358,7 +1380,7 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
-      if (DbFieldName !== undefined || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
+      if (typeof DbFieldName != undefined || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
       Plans.update(this._id, {$set: param});
       } 
     },50),
@@ -1374,7 +1396,7 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       
-      if (DbFieldName !== "undefined" || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
+      if (typeof DbFieldName != "undefined" || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
       param[DbFieldName] = event.target.value;
       Plans.update(this._id, {$set: param});
       } 
@@ -1392,7 +1414,8 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
-      if (DbFieldName !== undefined || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
+
+      if (typeof DbFieldName != "undefined" || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
       Plans.update(this._id, {$set: param});
       }     
     },50),

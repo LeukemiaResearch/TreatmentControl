@@ -95,9 +95,24 @@ Template.appBody.helpers({
     //return Plans.find();
     
     // return Plans.findOne("GENERAL-PLAN"); 
-     // return Plans.findOne(Session.get("searchplan")); 
+     // return Plans.findOne(Session.get("searchplan"));
+     var tempsearch = Plans.findOne({tempsearch : {$exists : true}});
+     // console.log(tempsearch);
+     if (tempsearch) {
+      return Plans.find({ $or : [ { _id : { $in: [ "GENERAL-PLAN", tempsearch._id ]}} , { "patient.cpr" : tempsearch.patient.cpr }  ] } );
+    } 
+    else {
       return Plans.find({ $or : [ { _id : { $in: [ "GENERAL-PLAN", Session.get("searchplan") ]}} , { "patient.cpr" : Session.get("searchplan") }  ] } ); 
-   
+    }
+      
+     //  console.log(this.patient.cpr);
+     // if ( this.patient.cpr === undefined )  {  
+     //      return Plans.find({ $or : [ { _id : { $in: [ "GENERAL-PLAN", Session.get("searchplan") ]}} , { "patient.cpr" : search }  ] } );
+     // }
+     // else {
+     //    return Plans.find({ $or : [ { _id : { $in: [ "GENERAL-PLAN", this._id ]}} , { "patient.cpr" : this.patient.cpr }  ] } );
+     // }
+      
   },
   activeListClass: function() {
     var current = Router.current();
@@ -265,9 +280,14 @@ Template.appBody.events({
       // ]
     });
     
-    //console.log(list1_id);
+    var temp = Plans.findOne({tempsearch : {$exists : true}});
+    if (temp) {
+    Plans.update({_id: temp._id } , {$unset : {tempsearch : ""}});  
+    }
+    
+     Plans.update(list1_id, {$set: {tempsearch : list1_id}});
    Router.go('plansShow', {_id: list1_id});
-   Session.set("searchplan" , list1_id );
+ //  Session.set("searchplan" , list1_id );
     return true;
   } else {
     return false;
@@ -276,7 +296,9 @@ Template.appBody.events({
     // Router.go('plansShow', list1);
     
     // Router.go('plansShow');
-  }
+  },
+
+
 });
 //Meteor.methods - last work on
 

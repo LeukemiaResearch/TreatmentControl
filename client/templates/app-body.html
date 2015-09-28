@@ -60,9 +60,13 @@
         {{/each}}
         <!-- {{/with}} -->
       </div>
-    </section>
+      <hr>
     <div><a href="{{pathFor 'search'}}" class="btn-secondary">Search patient</a></div>
+    </section>
+    
     </div>
+    
+    
     {{#unless connected}}
       <div class="notifications">
         <div class="notification">
@@ -79,6 +83,7 @@
      
     <!-- <div id="content-container" class="col-md-10"> -->
     <div id="content-container" class="container col-md-10">
+
       {{#each thisArray}}
         {{> yield}}
       {{/each}}
