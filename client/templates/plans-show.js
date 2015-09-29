@@ -67,6 +67,83 @@ Template.plansShow.helpers({
     }
   },
 
+  time23 : function(list) {
+    if (this.treatments.tree.createdAt){
+    var time_begin = this.treatments.tree.createdAt;
+    var time_new = new Date(time_begin);
+    time_new.setHours(time_new.getHours() + this.treatments.five.time);
+    var time_set = time_new.toISOString().substring(0,16);
+   // time_new.toISOString().substring(0,16);
+    return time_set;
+    }
+  },
+
+  time24 : function(list) {
+    if (this.treatments.tree.createdAt){
+    var time_begin = this.treatments.tree.createdAt;
+    var time_new = new Date(time_begin);
+    time_new.setHours(time_new.getHours() + this.treatments.six.time);
+    var time_set = time_new.toISOString().substring(0,16);
+   // time_new.toISOString().substring(0,16);
+    return time_set;
+    }
+  },
+
+  time36 : function(list) {
+    if (this.treatments.tree.createdAt){
+    var time_begin = this.treatments.tree.createdAt;
+    var time_new = new Date(time_begin);
+    time_new.setHours(time_new.getHours() + this.treatments.seven.time);
+    var time_set = time_new.toISOString().substring(0,16);
+   // time_new.toISOString().substring(0,16);
+    return time_set;
+    }
+  },
+
+  time42 : function(list) {
+    if (this.treatments.tree.createdAt){
+    var time_begin = this.treatments.tree.createdAt;
+    var time_new = new Date(time_begin);
+    time_new.setHours(time_new.getHours() + this.treatments.eight.time);
+    var time_set = time_new.toISOString().substring(0,16);
+   // time_new.toISOString().substring(0,16);
+    return time_set;
+    }
+  },
+
+  time48 : function(list) {
+    if (this.treatments.tree.createdAt){
+    var time_begin = this.treatments.tree.createdAt;
+    var time_new = new Date(time_begin);
+    time_new.setHours(time_new.getHours() + this.treatments.nine.normal.first.time);
+    var time_set = time_new.toISOString().substring(0,16);
+   // time_new.toISOString().substring(0,16);
+    return time_set;
+    }
+  },
+
+  time54 : function(list) {
+    if (this.treatments.tree.createdAt){
+    var time_begin = this.treatments.tree.createdAt;
+    var time_new = new Date(time_begin);
+    time_new.setHours(time_new.getHours() + this.treatments.nine.normal.second.time);
+    var time_set = time_new.toISOString().substring(0,16);
+   // time_new.toISOString().substring(0,16);
+    return time_set;
+    }
+  },
+
+  time66 : function(list) {
+    if (this.treatments.tree.createdAt){
+    var time_begin = this.treatments.tree.createdAt;
+    var time_new = new Date(time_begin);
+    time_new.setHours(time_new.getHours() + this.treatments.nine.normal.third.time);
+    var time_set = time_new.toISOString().substring(0,16);
+   // time_new.toISOString().substring(0,16);
+    return time_set;
+    }
+  },
+
   
 
   //DISABLE CHECKED OR UNACTIVE FORM FROM INPUT

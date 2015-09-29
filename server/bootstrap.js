@@ -98,7 +98,7 @@ Meteor.startup(function () {
             "field7" : {
                 "text" : "1/10 af MTX dosis gives over 1 time",
                 "method" : "Math.ceil(50*this.patient.surface.value-1)*10",
-                "value" : -10
+                "value" : ""
             },
             "field8" : {
                 "text" : "Ved urin pH > 8 skiftes til KNaG uden bicarbonat i 3 time. Når pH er under 8 skiftes til bicarbonatholdig hydrering"
@@ -115,11 +115,12 @@ Meteor.startup(function () {
             "field1" : {
                 "text" : "9/10 af MTX dosis gives på 23 timer. Hydreringsvæske reduceret til samlet 3000 ml/m2/døgn",
                 "method" : "Math.ceil(450*this.patient.surface.value-1)*10",
-                "value" : -10
+                "value" : ""
             }
         },
         "five" : {
             "checked" : false,
+            "time" : 23,
             "createdAt" : "",
             "field1" : {
                 "text" : "Tag Se-MTX konc t23 (steady state, analyseres næste dag)  -- Se-MTX t23",
@@ -137,6 +138,7 @@ Meteor.startup(function () {
         },
         "six" : {
             "checked" : false,
+            "time" : 24,
             "createdAt" : "",
             "field1" : {
                 "text" : "MTX infusionen afsluttes - hydreringsvæskens hastighed øges"
@@ -145,6 +147,7 @@ Meteor.startup(function () {
         },
         "seven" : {
             "checked" : false,
+            "time" : 36,
             "createdAt" : "",
             "field1" : {
                 "text" : "Tag Se-MTX konc t36 (analyseres sammen med Se-MTX t42 og Se-MTX t23) -- Se-MTX t36",
@@ -168,6 +171,7 @@ Meteor.startup(function () {
         },
         "eight" : {
             "checked" : false,
+            "time" : 42,
             "createdAt" : "",
             "field1" : {
                 "text" : "Tag Se-MTX konc t42 (analyseres sammen med Se-MTX t36 og Se-MTX t23)  -- Se-MTX t42:",
@@ -241,6 +245,7 @@ Meteor.startup(function () {
                 },
                 "first" : {
                     "checked" : false,
+                    "time" : 48,
                     "createdAt" : "",
                     "field1" : {
                         "text" : "Tag Se-MTX konc t48 (analyseres med Se-MTX t54 og Se-MTX t66 næste dag) --Se-MTX t48:",
@@ -256,6 +261,7 @@ Meteor.startup(function () {
                 },
                 "second" : {
                     "checked" : false,
+                    "time" : 54,
                     "createdAt" : "",
                     "field1" : {
                         "text" : "Tag Se-MTX konc t54 (analyseres med Se-MTX t48 og Se-MTX t66 næste dag) --Se-MTX t54:",
@@ -271,6 +277,7 @@ Meteor.startup(function () {
                 },
                 "third" : {
                     "checked" : false,
+                    "time" : 66,
                     "createdAt" : "",
                     "field1" : {
                         "text" : "Tag Se-MTX konc t66 (analyseres med Se-MTX t48 og Se-MTX t54 næste dag) --Se-MTX t66:",
