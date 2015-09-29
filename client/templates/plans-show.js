@@ -1457,7 +1457,7 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
-      if (typeof DbFieldName != undefined || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
+      if (typeof DbFieldName === "string" && ! (/checked/i).test(DbFieldName)) {
       Plans.update(this._id, {$set: param});
       } 
     },50),
@@ -1472,11 +1472,11 @@ Template.plansShow.events({
       console.log(event.target.value);
       console.log(event);
       var param = {};
-      
-      if (typeof DbFieldName != "undefined" || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
       param[DbFieldName] = event.target.value;
+      
+      if (typeof DbFieldName === "string" && ! (/checked/i).test(DbFieldName)) {
       Plans.update(this._id, {$set: param});
-      } 
+      }  
     },50),
 
      'mousewheel input.inputfield': _.debounce(function(event) {
@@ -1492,7 +1492,7 @@ Template.plansShow.events({
       var param = {};
       param[DbFieldName] = event.target.value;
 
-      if (typeof DbFieldName != "undefined" || 'checked' || 'checked1' || 'checked2' || 'checked3' || 'checked4' || 'checked5' || 'checked6' || 'checked7' || 'checked8' || 'checked9' || 'checked10' || 'checked11' || 'checked12') {
+      if (typeof DbFieldName === "string" && ! (/checked/i).test(DbFieldName)) {
       Plans.update(this._id, {$set: param});
       }     
     },50),
