@@ -147,6 +147,10 @@ Template.plansShow.helpers({
   
 
   //DISABLE CHECKED OR UNACTIVE FORM FROM INPUT
+  dispatient : function (list) {
+    if (this.treatments.one.checked) { return 'disabled'; }
+  },
+
   disone : function (list) {
      
     if(this.treatments.one.checked || !this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { return 'disabled'; }
@@ -157,6 +161,15 @@ Template.plansShow.helpers({
     if(this.treatments.two.checked || Session.equals("second" , "blue")) { return 'disabled'; }
   },
 
+  disfour : function (list) {
+     
+    if(this.treatments.four.checked || Session.equals("forth" , "blue")) { return 'disabled'; }
+  },
+
+  dissix : function (list) {
+     
+    if(this.treatments.six.checked || Session.equals("six" , "blue")) { return 'disabled'; }
+  },
 
 
   disabled : function (list) {

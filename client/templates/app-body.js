@@ -82,6 +82,15 @@ Template.appBody.helpers({
     var email = Meteor.user().emails[0].address;
     return email.substring(0, email.indexOf('@'));
   },
+  usernameLocalPart: function() {
+     
+    
+    var email = Meteor.user().emails[0].address;
+    if(Meteor.user().profile) { return Meteor.user().profile.name; }
+    else {     
+    return email.substring(0, email.indexOf('@')); 
+  }   
+  },
   userMenuOpen: function() {
     return Session.get(USER_MENU_KEY);
   },

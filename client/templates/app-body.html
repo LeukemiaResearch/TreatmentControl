@@ -6,21 +6,22 @@
     <div class="col-md-2">
     <section id="menu">
       {{#if currentUser}}
-        <div class="btns-group-vertical">
+        <div class="btns-group-vertical text-center">
           <a href="#" class="js-user-menu btn-secondary">
             {{#if userMenuOpen}}
               <span class="icon-arrow-up"></span>
               {{else}}
               <span class="icon-arrow-down"></span>
             {{/if}}
-            {{emailLocalPart}}
+            <!-- {{emailLocalPart}} -->
+            {{usernameLocalPart}}
           </a>
           {{#if userMenuOpen}}
             <a class="js-logout btn-secondary">Logout</a>
           {{/if}}
         </div>
       {{else}}
-        <div class="btns-group">
+        <div class="btns-group text-center">
           <a href="{{pathFor 'signin'}}" class="btn-secondary">Sign In</a>
           <a href="{{pathFor 'join'}}" class="btn-secondary">Join</a>
         </div>
@@ -43,7 +44,7 @@
 
       </div> -->
         <hr>
-      <div class="list-todos">
+      <div class="list-todos text-center">
         <a class="js-new-plan link-list-new"><span class="icon-plus"></span>New Patient Plan</a>
         <hr>
         <!-- {{#with plans}} -->
@@ -61,7 +62,7 @@
         <!-- {{/with}} -->
       </div>
       <hr>
-    <div><a href="{{pathFor 'search'}}" class="btn-secondary">Search patient</a></div>
+    <div><a href="{{pathFor 'search'}}" class="btn-secondary center-block menu">Search patient</a></div>
     </section>
     
     </div>
