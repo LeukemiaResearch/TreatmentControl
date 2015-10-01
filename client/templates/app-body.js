@@ -101,17 +101,23 @@ Template.appBody.helpers({
     return Todos.find();
   },
   plans: function() {
-    //return Plans.find();
     
     // return Plans.findOne("GENERAL-PLAN"); 
      // return Plans.findOne(Session.get("searchplan"));
-     var tempsearch = Plans.findOne({tempsearch : {$exists : true}});
-     // console.log(tempsearch);
-     if (tempsearch) {
-      return Plans.find({ $or : [ { _id : { $in: [ "GENERAL-PLAN", tempsearch._id ]}} , { "patient.cpr" : tempsearch.patient.cpr }  ] } );
-    } 
+     // var tempsearch = Plans.findOne({tempsearch : {$exists : true} , userId : this.userId});
+     // var tempsearch = Plans.findOne({ userId : this.userId});
+     //  console.log(tempsearch);
+    
+    // var temp = Plans.findOne({userId: Meteor.userId()});
+    //   console.log(temp);
+     // if ( temp ) {
+      if ( Meteor.user()) {
+      return Plans.find({ $or : [ { _id : "GENERAL-PLAN"} , { userId : Meteor.userId() }  ] } );  
+      }
+      
+    // } 
     else {
-      return Plans.find({ $or : [ { _id : { $in: [ "GENERAL-PLAN", Session.get("searchplan") ]}} , { "patient.cpr" : Session.get("searchplan") }  ] } ); 
+      return Plans.find('GENERAL-PLAN').fetch(); 
     }
       
      //  console.log(this.patient.cpr);
@@ -171,12 +177,14 @@ Template.appBody.events({
     
     // if we are on a private list, we'll need to go to a public one
     var current = Router.current();
-    if (current.route.name === 'listsShow' && current.data().userId) {
-      Router.go('listsShow', Lists.findOne({userId: {$exists: false}}));
-    }
-    if (current.route.name === 'plansShow' && current.data().userId) {
-      Router.go('plansShow', Plans.findOne({userId: {$exists: false}}));
-    }
+    // if (current.route.name === 'listsShow' && current.data().userId) {
+    //   Router.go('listsShow', Lists.findOne({userId: {$exists: false}}));
+    // }
+    // if (current.route.name === 'plansShow' && current.data().userId) {
+    //   // Router.go('plansShow', Plans.findOne({userId: {$exists: false}}));
+    //  Router.go('home');
+    // }
+    Router.go('home');
   },
 
   'click .js-new-list': function() {
@@ -289,12 +297,18 @@ Template.appBody.events({
       // ]
     });
     
-    var temp = Plans.findOne({tempsearch : {$exists : true}});
-    if (temp) {
-    Plans.update({_id: temp._id } , {$unset : {tempsearch : ""}});  
-    }
+    // var temp = Plans.findOne({tempsearch : {$exists : true}});
+    // if (temp) {
+    // Plans.update({_id: temp._id } , {$unset : {tempsearch : ""}});  
+    // }
     
-     Plans.update(list1_id, {$set: {tempsearch : list1_id}});
+    var temp = Plans.findOne({userId: Meteor.userId()});
+
+    if (temp) {
+    Plans.update({_id: temp._id } , {$unset : {tempsearch : "" , userId : true}});  
+    }
+
+     Plans.update(list1_id, {$set: {tempsearch : list1_id , userId: Meteor.userId()}});
    Router.go('plansShow', {_id: list1_id});
  //  Session.set("searchplan" , list1_id );
     return true;

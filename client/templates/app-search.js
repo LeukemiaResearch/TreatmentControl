@@ -13,12 +13,13 @@ Template.search.events({
    if (searchplan) {
     // Session.set("multi", true);
    // Session.set("searchplan", search);
-    var temp = Plans.findOne({tempsearch : {$exists : true}});
+     var temp = Plans.findOne({userId: Meteor.userId()});
+
     if (temp) {
-    Plans.update({_id: temp._id } , {$unset : {tempsearch : ""}});  
+    Plans.update({_id: temp._id } , {$unset : {tempsearch : "" , userId : true}});  
     }
     
-     Plans.update(searchplan._id, {$set: {tempsearch : search}});
+     Plans.update(searchplan._id, {$set: {tempsearch : search , userId : Meteor.userId()}});
     // tempsearch = searchplan.tempsearch; 
     Router.go('plansShow', {_id : searchplan._id});
    }

@@ -703,7 +703,10 @@ Template.plansShow.events({
      // var tempo = Plans.find({ "patient.cpr" :  this.patient.cpr }).count();
       //console.log(tempo);
       if (Plans.find({ "patient.cpr" :  this.patient.cpr }).count() > 1) {return alert("Patient plan with the same CPR exist!!! Please insert correct CPR!!!");}
-    Plans.update({_id: temp._id } , {$unset : {tempsearch : ""}}); 
+
+      //plase for validation of cpr
+      if (this.patient.cpr === "") {return alert("You need to insert patient CPR!");}
+    Plans.update({_id: temp._id } , {$unset : {tempsearch : "" , userId : true}}); 
 
     }
    Router.go('search', Plans.findOne());

@@ -27,15 +27,30 @@ Meteor.publish('todos', function() {
  // --------------------------------------------------------------------------
 
  // DA NAPRAVQ VSI4KI  PLANOVE OSVEN GRENERAL TREATMENT PLAN PRIVATE !!!
-Meteor.publish('treatmentplans', function() {
+// Meteor.publish('treatmentplans', function() {
   
 
-  return Plans.find({});
-});
-
-// Meteor.publish('publicPlans', function() {
-//   return Plans.find({userId: {$exists: false}});
+//   return Plans.find({});
 // });
+
+Meteor.publish('publicPlans', function() {
+ 	 // var tempsearch = Plans.findOne({tempsearch : {$exists : true} , userId : this.userId});
+     // var tempsearch = Plans.findOne({ userId : this.userId});
+     //  console.log(tempsearch);
+    //  if ( tempsearch ) {
+    //   return Plans.find({ $or : [ { _id : "GENERAL-PLAN"} , { userId : this.userId }  ] } );
+    // } 
+    // else {
+    //  //  return Plans.find({ $or : [ { _id : { $in: [ "GENERAL-PLAN", Session.get("searchplan") ]}} , { "patient.cpr" : Session.get("searchplan") }  ] } ); 
+    //   //return Plans.find({ $or : [ { _id : "GENERAL-PLAN"} , { userId : {$exists : false} }  ] } );
+    //   return Plans.find();
+    // }
+
+
+
+
+   return Plans.find();
+});
 
 // Meteor.publish('privatePlans', function() {
 //   if (this.userId) {
