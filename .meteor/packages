@@ -17,3 +17,4 @@ orionjs:core@=1.4.0
 iron:router
 orionjs:bootstrap
 kadira:debug
+meteorhacks:kadira

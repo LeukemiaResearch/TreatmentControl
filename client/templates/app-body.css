@@ -56,3 +56,7 @@ button.done {
 a.menu {
     text-align: center;
 }
+
+#container {
+        background: azure;
+}
