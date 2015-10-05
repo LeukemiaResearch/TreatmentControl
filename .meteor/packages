@@ -18,3 +18,4 @@ iron:router
 orionjs:bootstrap
 kadira:debug
 meteorhacks:kadira
+fortawesome:fontawesome
