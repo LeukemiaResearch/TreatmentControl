@@ -222,7 +222,8 @@ Template.appBody.events({
     
      console.log(list1);
   if (! Meteor.user()) {
-    return alert("Please sign in or create an account to make plans.");
+    // return alert("Please sign in or create an account to make plans.");
+     return  Notifications.addNotification("Warning", "Please sign in to create plans", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  }); 
   }       
      var message = "Are you sure you want to create new plan ";
   if (confirm(message)) {
@@ -309,9 +310,11 @@ Template.appBody.events({
     }
 
      Plans.update(list1_id, {$set: {tempsearch : list1_id , userId: Meteor.userId()}});
+     console.log(list1_id);
+    //  return  Notifications.addNotification("Success", "New Tretment Plan been created", {type:parseInt(4, 10), timeout: parseInt(5000, 10), userCloseable: true  });
    Router.go('plansShow', {_id: list1_id});
  //  Session.set("searchplan" , list1_id );
-    return true;
+     Notifications.addNotification("Success", "New Tretment Plan been created", {type:parseInt(4, 10), timeout: parseInt(5000, 10), userCloseable: true  });;
   } else {
     return false;
   }

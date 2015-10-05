@@ -6,7 +6,9 @@ Template.search.events({
      search = template.$('[name=search]').val();
     
     if (! Meteor.user()) {
-    return alert("You need to be sign in order to search for patient.");
+   // return alert("You need to be sign in order to search for patient.");
+   template.$('[name=search]').val('');
+     return  Notifications.addNotification("Warning", "You need to be sign in order to search for patient", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   }
     var searchplan = Plans.findOne({"patient.cpr": search});
    console.log(search); 
@@ -23,7 +25,11 @@ Template.search.events({
     // tempsearch = searchplan.tempsearch; 
     Router.go('plansShow', {_id : searchplan._id});
    }
-   else { return alert("Patient plan not exist!");}
+   else { 
+   // return alert("Patient plan not exist!");
+   template.$('[name=search]').val('');
+    return  Notifications.addNotification("Warning", "Patient plan not exist!", {type:parseInt(3, 10), timeout: parseInt(2000, 10), userCloseable: true  });
+ }
   // Router.go('home');
 
     // var FirstName = template.$('[name=firstname]').val();

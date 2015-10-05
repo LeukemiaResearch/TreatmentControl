@@ -52,6 +52,11 @@ Meteor.publish('publicPlans', function() {
    return Plans.find();
 });
 
+Meteor.publish('plans1', function() {
+    
+   return Plans1.find();
+});
+
 // Meteor.publish('privatePlans', function() {
 //   if (this.userId) {
 //     return Plans.find({userId: this.userId});
@@ -59,3 +64,5 @@ Meteor.publish('publicPlans', function() {
 //     this.ready();
 //   }
 // });
+
+

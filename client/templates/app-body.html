@@ -16,9 +16,9 @@
             <!-- {{emailLocalPart}} -->
             {{usernameLocalPart}}
           </a>
-          {{#if userMenuOpen}}
+          <!-- {{#if userMenuOpen}} -->
             <a class="js-logout btn-secondary">Logout</a>
-          {{/if}}
+          <!-- {{/if}} -->
         </div>
       {{else}}
         <div class="btns-group text-center">
@@ -87,7 +87,8 @@
      
     <!-- <div id="content-container" class="col-md-10"> -->
     <div id="content-container" class="container col-md-10">
-
+      {{> notifications}}
+      
       {{#each thisArray}}
         {{> yield}}
       {{/each}}

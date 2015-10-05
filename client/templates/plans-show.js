@@ -610,7 +610,8 @@ Template.plansShow.helpers({
 
 var editPlan = function(list, template) {
   if (! Meteor.user()) {
-    return alert("You need to be sign in to edit the plan name.");
+   // return alert("You need to be sign in to edit the plan name.");
+    return Notifications.addNotification("Warning", "You need to be sign in to edit the plan name.", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   }
   Session.set(EDITING_KEY, true);
   
@@ -628,15 +629,17 @@ var savePlan = function(list, template) {
 
 var deletePlan = function(list) {
   if (! Meteor.user()) {
-    return alert("You need to be sign in to delete a plan.");
+  //  return alert("You need to be sign in to delete a plan.");
+    return Notifications.addNotification("Warning", "You need to be sign in to delete a plan.", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   }
 
   // ensure the last public list cannot be deleted.
   if (! list.userId && Plans.find({userId: {$exists: false}}).count() === 1) {
-    return alert("Sorry, you cannot delete the final public plan!");
+  //  return alert("Sorry, you cannot delete the final public plan!");
+     return Notifications.addNotification("Warning", "Sorry, you cannot delete the final public plan!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  }); 
   }
   
-  if (list._id === 'GENERAL-PLAN') { return alert("You cannot delete the GENERAL PLAN");}
+  if (list._id === 'GENERAL-PLAN') {  return Notifications.addNotification("Warning", "You can't delete the GENERAL-PLAN!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
 
   var message = "Are you sure you want to delete the plan " + list.name + "?";
   if (confirm(message)) {
@@ -645,9 +648,9 @@ var deletePlan = function(list) {
     //   Todos.remove(todo._id);
     // });
     Plans.remove(list._id);
-
+   // return Notifications.addNotification("Info", "You deleted treatment plan", {type:parseInt(3, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     Router.go('home');
-    return true;
+    return true + Notifications.addNotification("Info", "You deleted treatment plan", {type:parseInt(3, 10), timeout: parseInt(3000, 10), userCloseable: true  });;
   } else {
     return false;
   }
@@ -655,7 +658,8 @@ var deletePlan = function(list) {
 
 var togglePlanPrivacy = function(list) {
   if (! Meteor.user()) {
-    return alert("Please sign in or create an account to make private plans.");
+    //return alert("Please sign in or create an account to make private plans.");
+       return Notifications.addNotification("Info", "Please sign in or create an account to make private plans.", {type:parseInt(3, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   }
 
   if (list.userId) {
@@ -663,7 +667,8 @@ var togglePlanPrivacy = function(list) {
   } else {
     // ensure the last public list cannot be made private
     if (Plans.find({userId: {$exists: false}}).count() === 1) {
-      return alert("Sorry, you cannot make the final public plan private!");
+     // return alert("Sorry, you cannot make the final public plan private!");
+      return Notifications.addNotification("Warning", "Sorry, you cannot make the final public plan private!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
 
     Plans.update(list._id, {$set: {userId: Meteor.userId()}});
@@ -694,7 +699,8 @@ Template.plansShow.events({
   // CLOSEING TREATMENT PLAN
   'click [name=done]' : function() {
     if (! Meteor.user()) {
-    return alert("Please sign to close the Treatment Plan!");
+  //  return alert("Please sign to close the Treatment Plan!");
+     return Notifications.addNotification("Denied", "Please sign to close the Treatment Plan!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
      var message = "Are you finish with the treatment?";
      if (confirm(message)) {
@@ -702,10 +708,10 @@ Template.plansShow.events({
     if (temp) {
      // var tempo = Plans.find({ "patient.cpr" :  this.patient.cpr }).count();
       //console.log(tempo);
-      if (Plans.find({ "patient.cpr" :  this.patient.cpr }).count() > 1) {return alert("Patient plan with the same CPR exist!!! Please insert correct CPR!!!");}
+      if (Plans.find({ "patient.cpr" :  this.patient.cpr }).count() > 1) { return Notifications.addNotification("Warning", "Patient plan with the same CPR exist!!! Please insert correct CPR!!!", {type:parseInt(1, 10), timeout: parseInt(5000, 10), userCloseable: true  });}
 
       //plase for validation of cpr
-      if (this.patient.cpr === "") {return alert("You need to insert patient CPR!");}
+      if (this.patient.cpr === "") { return Notifications.addNotification("Warning", "You need to insert patient CPR!", {type:parseInt(1, 10), timeout: parseInt(5000, 10), userCloseable: true  });}
     Plans.update({_id: temp._id } , {$unset : {tempsearch : "" , userId : true}}); 
 
     }
@@ -799,13 +805,18 @@ Template.plansShow.events({
   'click [name=checked]': function(event, template) {
     // var checked = $(event.target).is(':checked');
     if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+   // return alert("Please sign in to register or unregister treatment!");
+    return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if( this.treatments.one.checked  && this.treatments.two.checked) {
 
-      return alert("You cannot unregister this treatment before unregister the next one!");
+    //  return alert("You cannot unregister this treatment before unregister the next one!");
+      return Notifications.addNotification("Denied", "You cannot unregister this treatment before unregister the next one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
-    if (!this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { return alert("You must register the patient details first");}
+    if (!this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { 
+     // return alert("You must register the patient details first"); 
+      return Notifications.addNotification("Denied", "You must register the patient details first", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+    }
 
      Plans.update(this._id, {$set: {"treatments.one.checked": ! this.treatments.one.checked , "treatments.one.userId" : Meteor.userId()}});  
     // colorchange(this);
@@ -848,15 +859,17 @@ Template.plansShow.events({
   'click [name=checked1]': function(event, template) {
    // var checked = $(event.target).is(':checked');
    if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+   return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if( !this.treatments.one.checked ) {
 
-      return alert("You cannot register this treatment before the previous one!");
+    //  return alert("You cannot register this treatment before the previous one!");
+      return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     if( this.treatments.tree.checked ) {
 
-      return alert("You cannot unregister this treatment before when next one is registered!");
+     // return alert("You cannot unregister this treatment before when next one is registered!");
+      return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {     
       Plans.update(this._id, {$set: {"treatments.two.checked": ! this.treatments.two.checked , "treatments.two.userId" : Meteor.userId()}});  
@@ -896,18 +909,18 @@ Template.plansShow.events({
 
   'click [name=checked2]': function(event, template) {
      if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+    return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if(!this.treatments.two.checked) {
 
-      return alert("You cannot register this treatment before the previous one!");
+      return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     if( this.treatments.four.checked ) {
 
-      return alert("You cannot unregister this treatment before when next one is registered!");
+      return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-      if (!this.treatments.tree.field5.pcreatin || !this.treatments.tree.createdAt) { return alert("You need to fill-in all fields first!");}
+      if (!this.treatments.tree.field5.pcreatin || !this.treatments.tree.createdAt) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.tree.checked": ! this.treatments.tree.checked , "treatments.tree.userId" : Meteor.userId()}});  
     }
       
@@ -924,15 +937,15 @@ Template.plansShow.events({
 
   'click [name=checked3]': function(event, template) {
      if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+    return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if(!this.treatments.tree.checked) {
 
-      return alert("You cannot register this treatment before the previous one!");
+      return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     if( this.treatments.five.checked ) {
 
-      return alert("You cannot unregister this treatment before when next one is registered!");
+       return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
       Plans.update(this._id, {$set: {"treatments.four.checked": ! this.treatments.four.checked , "treatments.four.userId" : Meteor.userId()}});  
@@ -951,18 +964,18 @@ Template.plansShow.events({
 
   'click [name=checked4]': function(event, template) {
     if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+    return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if(!this.treatments.four.checked) {
 
-      return alert("You cannot register this treatment before the previous one!");
+       return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     if( this.treatments.six.checked ) {
 
-      return alert("You cannot unregister this treatment before when next one is registered!");
+      return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-     if (!this.treatments.five.field1.semtx || !this.treatments.five.field2.pcreatin || !this.treatments.five.field3.semtx) { return alert("You need to fill-in all fields first!");}
+     if (!this.treatments.five.field1.semtx || !this.treatments.five.field2.pcreatin || !this.treatments.five.field3.semtx) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.five.checked": ! this.treatments.five.checked , "treatments.five.userId" : Meteor.userId()}});  
     }
       
@@ -979,15 +992,15 @@ Template.plansShow.events({
 
   'click [name=checked5]': function(event, template) {
      if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+    return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if(!this.treatments.five.checked) {
 
-      return alert("You cannot register this treatment before the previous one!");
+      return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     if( this.treatments.seven.checked ) {
 
-      return alert("You cannot unregister this treatment before when next one is registered!");
+      return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
       Plans.update(this._id, {$set: {"treatments.six.checked": ! this.treatments.six.checked , "treatments.six.userId" : Meteor.userId()}});  
@@ -1006,18 +1019,18 @@ Template.plansShow.events({
 
   'click [name=checked6]': function(event, template) {
      if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+    return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if(!this.treatments.six.checked) {
 
-      return alert("You cannot register this treatment before the previous one!");
+      return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     if( this.treatments.eight.checked ) {
 
-      return alert("You cannot unregister this treatment before when next one is registered!");
+      return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-      if (!this.treatments.seven.field1.semtx || !this.treatments.seven.field2.pcreatin) { return alert("You need to fill-in all fields first!");}
+      if (!this.treatments.seven.field1.semtx || !this.treatments.seven.field2.pcreatin) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.seven.checked": ! this.treatments.seven.checked , "treatments.seven.userId" : Meteor.userId()}});  
     }
       
@@ -1034,18 +1047,18 @@ Template.plansShow.events({
 
   'click [name=checked7]': function(event, template) {
     if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+     return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if(!this.treatments.seven.checked) {
 
-      return alert("You cannot register this treatment before the previous one!");
+      return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     if( this.treatments.nine.hurtig.first.checked || this.treatments.nine.normal.first.checked ) {
 
-      return alert("You cannot unregister this treatment before when next one is registered!");
+     return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-      if (!this.treatments.eight.field1.semtx || !this.treatments.eight.field2.name) { return alert("You need to fill-in all fields first!");}
+      if (!this.treatments.eight.field1.semtx || !this.treatments.eight.field2.name) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.eight.checked": ! this.treatments.eight.checked , "treatments.eight.userId" : Meteor.userId()}});  
     }
       
@@ -1062,18 +1075,18 @@ Template.plansShow.events({
 
   'click [name=checked8]': function(event, template) {
      if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+   return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if(!this.treatments.eight.checked) {
 
-      return alert("You cannot register this treatment before the previous one!");
+      return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     if( this.treatments.nine.hurtig.second.checked ) {
 
-      return alert("You cannot unregister this treatment before when next one is registered!");
+      return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-      if (!this.treatments.nine.hurtig.first.field1.semtx || !this.treatments.nine.hurtig.first.field2.name) { return alert("You need to fill-in all fields first!");}
+      if (!this.treatments.nine.hurtig.first.field1.semtx || !this.treatments.nine.hurtig.first.field2.name) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.checked": ! this.treatments.nine.hurtig.first.checked , "treatments.nine.hurtig.first.userId" : Meteor.userId()}});  
     }
       
@@ -1090,18 +1103,21 @@ Template.plansShow.events({
 
   'click [name=checked9]': function(event, template) {
      if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+    return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if(!this.treatments.nine.hurtig.first.checked) {
 
-      return alert("You cannot register this treatment before the previous one!");
+       return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     // if( this.treatments.nine.hurtig.second.checked ) {
 
     //   return alert("You cannot unregister this treatment before when next one is registered!");
     // }
     else {
-      if (!this.treatments.nine.hurtig.second.field1.semtx || !this.treatments.nine.hurtig.second.field2.name) { return alert("You need to fill-in all fields first!");}
+      if (!this.treatments.nine.hurtig.second.field1.semtx || !this.treatments.nine.hurtig.second.field2.name) { 
+       // return alert("You need to fill-in all fields first!");
+         return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+      }
       Plans.update(this._id, {$set: {"treatments.nine.hurtig.second.checked": ! this.treatments.nine.hurtig.second.checked , "treatments.nine.hurtig.second.userId" : Meteor.userId()}});  
     }
       
@@ -1118,18 +1134,18 @@ Template.plansShow.events({
 
   'click [name=checked10]': function(event, template) {
      if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+     return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if(!this.treatments.eight.checked) {
 
-      return alert("You cannot register this treatment before the previous one!");
+      return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     if( this.treatments.nine.normal.second.checked ) {
 
-      return alert("You cannot unregister this treatment before when next one is registered!");
+      return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-      if (!this.treatments.nine.normal.first.field1.semtx || !this.treatments.nine.normal.first.field2.name) { return alert("You need to fill-in all fields first!");}
+      if (!this.treatments.nine.normal.first.field1.semtx || !this.treatments.nine.normal.first.field2.name) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.nine.normal.first.checked": ! this.treatments.nine.normal.first.checked , "treatments.nine.normal.first.userId" : Meteor.userId()}});  
     }
       
@@ -1146,18 +1162,18 @@ Template.plansShow.events({
 
   'click [name=checked11]': function(event, template) {
      if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+    return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if(!this.treatments.nine.normal.first.checked) {
 
-      return alert("You cannot register this treatment before the previous one!");
+      return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     if( this.treatments.nine.normal.third.checked ) {
 
-      return alert("You cannot unregister this treatment before when next one is registered!");
+      return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-      if (!this.treatments.nine.normal.second.field1.semtx || !this.treatments.nine.normal.second.field2.name) { return alert("You need to fill-in all fields first!");}
+      if (!this.treatments.nine.normal.second.field1.semtx || !this.treatments.nine.normal.second.field2.name) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.nine.normal.second.checked": ! this.treatments.nine.normal.second.checked , "treatments.nine.normal.second.userId" : Meteor.userId()}});  
     }
       
@@ -1174,18 +1190,18 @@ Template.plansShow.events({
 
   'click [name=checked12]': function(event, template) {
      if (! Meteor.user()) {
-    return alert("Please sign in to register or unregister treatment!");
+    return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
     if(!this.treatments.nine.normal.second.checked) {
 
-      return alert("You cannot register this treatment before the previous one!");
+      return Notifications.addNotification("Denied", "You cannot register this treatment before register the previous one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     // if( this.treatments.nine.normal.third.checked ) {
 
     //   return alert("You cannot unregister this treatment before when next one is registered!");
     // }
   
-      if (!this.treatments.nine.normal.third.field1.semtx || !this.treatments.nine.normal.third.field2.pcreatin || !this.treatments.nine.normal.third.field4.name) { return alert("You need to fill-in all fields first!");}
+      if (!this.treatments.nine.normal.third.field1.semtx || !this.treatments.nine.normal.third.field2.pcreatin || !this.treatments.nine.normal.third.field4.name) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.nine.normal.third.checked": ! this.treatments.nine.normal.third.checked , "treatments.nine.normal.third.userId" : Meteor.userId()}});  
     
       
@@ -1465,7 +1481,7 @@ Template.plansShow.events({
 
     'keyup input.inputfield': _.debounce(function(event) {
        if (! Meteor.user()) {
-    return alert("Please sign in to register or change data!");
+    return Notifications.addNotification("Denied", "Please sign in to register or change data!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
         } 
       var DbFieldName = $(":focus").attr("name");
       console.log(DbFieldName);
@@ -1480,7 +1496,7 @@ Template.plansShow.events({
 
     'click input.inputfield': _.debounce(function(event) {
        if (! Meteor.user()) {
-    return alert("Please sign in to register or change data!");
+    return Notifications.addNotification("Denied", "Please sign in to register or change data!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
         } 
       // var DbFieldName = $(":focus").attr("name");
       var DbFieldName  = $(document.activeElement).attr("name");
@@ -1497,7 +1513,7 @@ Template.plansShow.events({
 
      'mousewheel input.inputfield': _.debounce(function(event) {
        if (! Meteor.user()) {
-        return alert("Please sign in to register or change data!");
+        return Notifications.addNotification("Denied", "Please sign in to register or change data!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
         } 
         
       //var DbFieldName = $(":focus").attr("name");
