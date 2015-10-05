@@ -60,3 +60,20 @@ a.menu {
 #container {
         background: azure;
 }
+
+@media screen and (min-width: 1640px) {
+  #menu {
+        position: fixed;
+    }
+}
+
+a.activ {
+    border: 2px solid;
+    padding: 10px;
+    background: #dddddd;
+    border-radius: 1em;
+}
+
+div.foot {
+    margin-top: 150px;
+}
