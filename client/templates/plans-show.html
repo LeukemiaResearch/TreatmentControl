@@ -22,7 +22,13 @@
           </div>      
           <div class="col-md-1">
             <div class="form-group"> 
-                 <h6>MTX nr:</h6><input class="form-control inputfield input-sm" name="header.mtx" type="number" placeholder="Type to add MTX number" value="{{header.mtx}}" {{dispatient}}>
+                 <h6>MTX nr: {{header.mtx}}</h6>
+                  <select class="mtx-option" {{dispatient}}>>
+              <option disabled selected>Select MTX nr</option>             
+                <option value="1">1</option>             
+                <option value="2">2</option>           
+              <option value="3">3</option>
+            </select>
               </div>
           </div>
         </div>   
@@ -92,7 +98,13 @@
         </div>
         <div class="col-md-1">
             <div class="form-group"> 
-                 <h6>MTX nr:</h6><input class="form-control inputfield input-sm" name="header.mtx" type="number" placeholder="Type to add MTX number" value="{{header.mtx}}" {{dispatient}}>
+                 <h6>MTX nr: {{header.mtx}}</h6>
+                  <select class="mtx-option" {{dispatient}}>>
+              <option disabled selected>Select MTX nr</option>             
+                <option value="1">1</option>             
+                <option value="2">2</option>           
+              <option value="3">3</option>
+            </select>
               </div>
           </div>
         </div>
@@ -195,7 +207,7 @@
 <!-- BEGINING OF THE FORM!!! -->
 
     <!-- FIRST FORM  -->
-   <form class="{{checkedClass}} {{checkedClass1}}">    
+   <form class="active {{checkedClass1}}">    
     <hr>
          
         <div class="row" >
@@ -317,7 +329,7 @@
     </form>
     
     <!-- SECOND FORM  --> 
-    <form  class="{{checkedClass}} {{checkedClass2}}">
+    <form  class="active  {{checkedClass2}}">
   
       <hr>
        <div class="row" >
@@ -362,7 +374,7 @@
     </form>
 
     <!-- THIRD FORM -->
-    <form class="{{checkedClass}} {{checkedClass3}}">
+    <form class="active {{checkedClass3}}">
       <hr>
       <div class="row" >
           <div class="col-md-12">
@@ -506,7 +518,7 @@
     </form>
 
     <!-- FORTH FORM -->
-    <form class="{{checkedClass}} {{checkedClass4}}">
+    <form class="active {{checkedClass4}}">
       <hr>
       <div class="row" >
           <div class="col-md-12">
@@ -555,7 +567,7 @@
     </form>
 
     <!-- FIFTH FORM -->
-    <form class="{{checkedClass}} {{checkedClass5}}">
+    <form class="active {{checkedClass5}}">
      <hr>
       <div class="row" >
           <div class="col-md-12">
@@ -629,7 +641,7 @@
     </form>
 
     <!-- SIXTH FORM -->
-    <form class="{{checkedClass}} {{checkedClass6}}">
+    <form class="active {{checkedClass6}}">
        <hr>
        <div class="row" >
           <div class="col-md-12">
@@ -675,7 +687,7 @@
     </form>
 
     <!-- SEVENTH FORM -->
-    <form class="{{checkedClass}} {{checkedClass7}}">
+    <form class="active {{checkedClass7}}">
      <hr>
       <div class="row" >
           <div class="col-md-12">
@@ -764,7 +776,7 @@
     </form>
 
     <!-- EIGHT FORM -->
-    <form class="{{checkedClass}} {{checkedClass8}}">
+    <form class="active {{checkedClass8}}">
       <hr>
       <div class="row" >
           <div class="col-md-12">
@@ -895,7 +907,7 @@
       {{#if treatments.nine.hurtig.visible.value}}
       <!-- HURTIG -->
       <!-- FIRST -->
-    <form class="{{checkedClass}} {{checkedClass9}}">
+    <form class="active {{checkedClass9}}">
       <hr>
        <div class="row" >
           <div class="col-md-12">
@@ -958,7 +970,7 @@
     </form>
 
       <!-- SECOND -->
-      <form class="{{checkedClass}} {{checkedClass10}}">
+      <form class="active {{checkedClass10}}">
       <hr>
       <div class="row" >
           <div class="col-md-12">
@@ -1040,7 +1052,7 @@
     {{#if treatments.nine.normal.visible.value}}
     <!-- NORMAL -->
       <!--FIRST  -->
-    <form class="{{checkedClass}} {{checkedClass11}}">
+    <form class="active {{checkedClass11}}">
       <hr>
       <div class="row" >
           <div class="col-md-12">
@@ -1103,7 +1115,7 @@
     </form>
 
       <!--SECOND FORM -->
-      <form class="{{checkedClass}} {{checkedClass12}}">
+      <form class="active {{checkedClass12}}">
       <hr>
        <div class="row" >
           <div class="col-md-12">
@@ -1166,7 +1178,7 @@
     </form>
       
     <!-- THIRD FORM -->
-    <form class="{{checkedClass}} {{checkedClass13}}">
+    <form class="active {{checkedClass13}}">
       <hr>
       <div class="row" >
           <div class="col-md-12">

@@ -10,6 +10,12 @@ Template.search.events({
    template.$('[name=search]').val('');
      return  Notifications.addNotification("Warning", "You need to be sign in order to search for patient", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   }
+
+  if(Plans.find({"patient.cpr": "", userId: Meteor.userId() }).count()>=1 && Plans.find({"patient.cpr": ""})._id !== "GENERAL-PLAN") {
+      return Notifications.addNotification("Warning", "Please insert to the already open  plan CPR! or delete it before create a new plan!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+    }
+
+
     var searchplan = Plans.findOne({"patient.cpr": search});
    console.log(search); 
    if (searchplan) {
@@ -18,12 +24,23 @@ Template.search.events({
      var temp = Plans.findOne({userId: Meteor.userId()});
 
     if (temp) {
+      if (Plans.find({"patient.cpr": temp.patient.cpr}).count()>1) {
+        return Notifications.addNotification("Warning", "The plan you already open has existing CPR, place correct the CPR of the opened plan before searching for other plan!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+       }
     Plans.update({_id: temp._id } , {$unset : {tempsearch : "" , userId : true}});  
     }
-    
-     Plans.update(searchplan._id, {$set: {tempsearch : search , userId : Meteor.userId()}});
+     
+      
+      
+     if (searchplan._id === "GENERAL-PLAN") {
+      Router.go('plansShow', {_id : searchplan._id});
+     }
+     else {
+      Plans.update(searchplan._id, {$set: {tempsearch : search , userId : Meteor.userId()}});
     // tempsearch = searchplan.tempsearch; 
     Router.go('plansShow', {_id : searchplan._id});
+     }
+     
    }
    else { 
    // return alert("Patient plan not exist!");

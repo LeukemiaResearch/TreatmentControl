@@ -187,28 +187,28 @@ Template.appBody.events({
     Router.go('home');
   },
 
-  'click .js-new-list': function() {
-    var task =  Todos.findOne("uz9XR5NZuqtkTuoj2")
-    var list = {name: Lists.defaultName(), incompleteCount: 0};    
-    list._id = Lists.insert(list);
-    //  task  = function() {
-    //  return  Todos.findOne({_id: "QCgkZXnA7cc6Pdtff" });
-    // };
-     // console.log(task);
+ //  'click .js-new-list': function() {
+ //    var task =  Todos.findOne("uz9XR5NZuqtkTuoj2")
+ //    var list = {name: Lists.defaultName(), incompleteCount: 0};    
+ //    list._id = Lists.insert(list);
+ //    //  task  = function() {
+ //    //  return  Todos.findOne({_id: "QCgkZXnA7cc6Pdtff" });
+ //    // };
+ //     // console.log(task);
     
        
     
- //    console.log(task.text);
+ // //    console.log(task.text);
          
-    Todos.insert({
-      listId: list._id,
-      text: task.text,
-      checked: false,
-      createdAt: new Date()
-    });
+ //    Todos.insert({
+ //      listId: list._id,
+ //      text: task.text,
+ //      checked: false,
+ //      createdAt: new Date()
+ //    });
 
-    Router.go('listsShow', list);
-  },
+ //    Router.go('listsShow', list);
+ //  },
   'click .js-new-plan': function() {
     var task =  Plans.findOne({"header.name":"General Plan"});
     var list1 = {name: Plans.defaultName(), incompleteCount: 0};    
@@ -224,7 +224,11 @@ Template.appBody.events({
   if (! Meteor.user()) {
     // return alert("Please sign in or create an account to make plans.");
      return  Notifications.addNotification("Warning", "Please sign in to create plans", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  }); 
-  }       
+  } 
+  if(Plans.find({"patient.cpr": "", userId: Meteor.userId() }).count()>=1 && Plans.find({"patient.cpr": ""})._id !== "GENERAL-PLAN") {
+      return Notifications.addNotification("Warning", "Please insert to the already open  plan CPR! or delete it before create a new plan!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+    }
+
      var message = "Are you sure you want to create new plan ";
   if (confirm(message)) {
  
@@ -238,6 +242,8 @@ Template.appBody.events({
     // console.log(t);
     // console.log(time);
     
+    
+
     list1_id = Plans.insert({
       incompleteCount: 0,
       header: {

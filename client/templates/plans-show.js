@@ -703,15 +703,17 @@ Template.plansShow.events({
      return Notifications.addNotification("Denied", "Please sign to close the Treatment Plan!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
      var message = "Are you finish with the treatment?";
-     if (confirm(message)) {
-      var temp = Plans.findOne({tempsearch : {$exists : true}});
-    if (temp) {
-     // var tempo = Plans.find({ "patient.cpr" :  this.patient.cpr }).count();
-      //console.log(tempo);
-      if (Plans.find({ "patient.cpr" :  this.patient.cpr }).count() > 1) { return Notifications.addNotification("Warning", "Patient plan with the same CPR exist!!! Please insert correct CPR!!!", {type:parseInt(1, 10), timeout: parseInt(5000, 10), userCloseable: true  });}
+     var temp = Plans.findOne({userId: Meteor.userId()});
+     if (Plans.find({ "patient.cpr" :  this.patient.cpr }).count() > 1) { return Notifications.addNotification("Warning", "Patient plan with the same CPR exist!!! Please insert correct CPR!!!", {type:parseInt(1, 10), timeout: parseInt(5000, 10), userCloseable: true  });}
 
       //plase for validation of cpr
       if (this.patient.cpr === "") { return Notifications.addNotification("Warning", "You need to insert patient CPR!", {type:parseInt(1, 10), timeout: parseInt(5000, 10), userCloseable: true  });}
+     if (confirm(message)) {
+      
+    if (temp) {
+     // var tempo = Plans.find({ "patient.cpr" :  this.patient.cpr }).count();
+      //console.log(tempo);
+      
     Plans.update({_id: temp._id } , {$unset : {tempsearch : "" , userId : true}}); 
 
     }
@@ -772,11 +774,33 @@ Template.plansShow.events({
     } else if ($(event.target).val() === 'delete') {
       deletePlan(this, template);
     } else {
+      if (Plans.find({ "patient.cpr" :  this.patient.cpr }).count() > 1) { 
+           event.target.selectedIndex = 0;
+        return Notifications.addNotification("Warning", "Patient plan with the same CPR exist!!! Please insert correct CPR!!!", {type:parseInt(1, 10), timeout: parseInt(5000, 10), userCloseable: true  });    
+    }
+
+      //plase for validation of cpr
+      if (this.patient.cpr === "") { 
+         event.target.selectedIndex = 0;
+         return Notifications.addNotification("Warning", "You need to insert patient CPR!", {type:parseInt(1, 10), timeout: parseInt(5000, 10), userCloseable: true  });
+    }
       togglePlanPrivacy(this, template);
     }
 
     event.target.selectedIndex = 0;
   },
+
+  'change .mtx-option': function(event, template) {
+
+      if (! Meteor.user()) {
+     //  $(document.activeElement).val('');
+    return Notifications.addNotification("Denied", "Please sign in to register MTX nr!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+        }
+      Plans.update(this._id, {$set: {"header.mtx": $(event.target).val()}});
+
+    event.target.selectedIndex = 0;
+  },
+
   
   'click .js-edit-list': function(event, template) {
     editPlan(this, template);
@@ -1256,7 +1280,12 @@ Template.plansShow.events({
     'keydown .inputfield': function(event) {
       // ESC or ENTER
       if (event.which === 27 || event.which === 13) {
-        event.preventDefault();
+         event.preventDefault();
+         var DbFieldName = $(":focus").attr("name");
+         if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : this.patient.cpr}).count()>1) {
+           
+                return Notifications.addNotification("Warning", "Patient plan with CPR " + event.target.value + " exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+              }
         event.target.blur();
       }
     },
@@ -1264,11 +1293,26 @@ Template.plansShow.events({
     'mousedown .inputfield': function(event) {
       // ESC or ENTER
       if (event.which === 27 || event.which === 13) {
-        event.preventDefault();
+         event.preventDefault();
+
         event.target.blur();
       }
     },
 
+    'mouseout .inputfield' : function(event) {
+        var DbFieldName = $(":focus").attr("name");
+
+         if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : this.patient.cpr}).count()>1) {
+           
+                return Notifications.addNotification("Warning", "Patient plan with CPR " + event.target.value + " exists!", {type:parseInt(2, 10), timeout: parseInt(5000, 10), userCloseable: true  });
+              }   
+    },
+
+    // template.$.click(function(event) {
+    //   if(!$(event.target).closest('.inputfield').length) {
+         
+    // }  
+    // });
 
   // 'keydown input[name=patientname]': function(event) {
   //   // ESC or ENTER
@@ -1491,14 +1535,17 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
-       if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : event.target.value}).count()>=1) {
-          event.target.value = this.patient.cpr;
-          return Notifications.addNotification("Warning", "Patient plan with this CPR exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
-       } 
+        
       if (typeof DbFieldName === "string" && ! (/checked/i).test(DbFieldName)) {
       Plans.update(this._id, {$set: param});
-      } 
-    },300),
+             
+      }
+      if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : this.patient.cpr}).count()>1) {
+           
+           Notifications.addNotification("Warning", "Patient plan with CPR " + event.target.value + " exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+       } 
+       
+    },150),
 
     'click input.inputfield': _.debounce(function(event) {
        if (! Meteor.user()) {
@@ -1512,13 +1559,15 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
-      if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : event.target.value}).count()>1) {
-          return Notifications.addNotification("Warning", "Patient plan with this CPR exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
-       } 
+      
       if (typeof DbFieldName === "string" && ! (/checked/i).test(DbFieldName)) {
       Plans.update(this._id, {$set: param});
-      }  
-    },300),
+      }
+      if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : this.patient.cpr}).count()>1) {
+           
+           Notifications.addNotification("Warning", "Patient plan with CPR " + event.target.value + " exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+       }  
+    },150),
 
      'mousewheel input.inputfield': _.debounce(function(event) {
        if (! Meteor.user()) {
@@ -1533,13 +1582,15 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
-      if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : event.target.value}).count()>1) {
-          return Notifications.addNotification("Warning", "Patient plan with this CPR exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
-       } 
+      
       if (typeof DbFieldName === "string" && ! (/checked/i).test(DbFieldName)) {
       Plans.update(this._id, {$set: param});
-      }     
-    },300),
+      }
+      if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : this.patient.cpr}).count()>1) {
+           
+           Notifications.addNotification("Warning", "Patient plan with CPR " + event.target.value + " exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+       }     
+    },150),
 
 
 

@@ -24,7 +24,12 @@ h3  {
     background-color: yellow;
 }
 
-
+form.active {
+ border-radius: 1em;
+    border: 4px solid yellow;
+    border-radius: 1em;
+    margin-bottom: 10px;
+}
 
 div.foot {
  text-align: :center;
@@ -37,17 +42,24 @@ h2.extract {
 form.treatment {
 
 	background-color: rgb(155, 153, 153);
+    border: 4px solid #111110;
+    border-radius: 1em;
+    margin-bottom: 10px;
 }
 
 h3.treatment {
 
         background-color: #c9302c;
+
 }
 
 
 form.blue {
 
 	background-color: lightblue;
+    border: 4px solid green;
+    border-radius: 1em;
+    margin-bottom: 10px;
 }
 
 h3.blue {
@@ -191,4 +203,19 @@ label {
 
 ul.notifications {
 position: fixed;
+}
+
+
+
+.btn-danger:hover {
+    color: #fff;
+    background-color: #c9302c;
+    border-color: #090808;
+}
+
+
+.btn-success:hover {
+    color: #FFF;
+    background-color: #5cb85c;
+    border-color: #090808;
 }
