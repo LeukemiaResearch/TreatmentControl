@@ -19,6 +19,7 @@ Template.search.events({
     var searchplan = Plans.findOne({"patient.cpr": search});
    console.log(search); 
    if (searchplan) {
+      if(searchplan.userId) { return Notifications.addNotification("Warning", "The Plan you searching is used at the moment from another user!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
     // Session.set("multi", true);
    // Session.set("searchplan", search);
      var temp = Plans.findOne({userId: Meteor.userId()});

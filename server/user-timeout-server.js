@@ -6,7 +6,7 @@
 // - staleSessionPurgeInterval: interval (in ms) at which stale sessions are purged i.e. found and forcibly logged out
 //
 var staleSessionPurgeInterval = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionPurgeInterval || (1*60*1000); // 1min
-var inactivityTimeout = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (5*60*1000); // 30mins
+var inactivityTimeout = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (2*60*1000); // 30mins
 
 //
 // provide a user activity heartbeat method which stamps the user record with a timestamp of the last
@@ -20,6 +20,19 @@ Meteor.methods({
             Meteor.users.update(user._id, {$set: {heartbeat: new Date()}});
         }
     }
+    // ,
+    // userlogout: function(){
+    //     if (!this.userId) { return; }
+    //     var now = new Date(), overdueTimestamp = new Date(now-inactivityTimeout);
+    // var user = Plans.findOne({userId: this.userId});
+    //  if (overdueTimestamp <= 1) {
+    //         if (user) {   
+    //     Plans.update(user._id , {$unset : {userId : true}});       
+    //         }
+    // }
+    // }
+
+   
 });
 
 
@@ -28,8 +41,20 @@ Meteor.methods({
 //
 Meteor.setInterval(function() {
     var now = new Date(), overdueTimestamp = new Date(now-inactivityTimeout);
+    // var user = Meteor.treatmentplans.findOne({userId: this.userId});
+    //  if (overdueTimestamp <= 1) {
+    //         if (user) {   
+    //     Plans.update(user._id , {$unset : {userId : true}});       
+    //         }
+    // }
+
     Meteor.users.update({heartbeat: {$lt: overdueTimestamp}},
                         {$set: {'services.resume.loginTokens': []},
                          $unset: {heartbeat:1}},
-                        {multi: true});
+                        {multi: true}); 
+
+
+            
+   
 }, staleSessionPurgeInterval);
+

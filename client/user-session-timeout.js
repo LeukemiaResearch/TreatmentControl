@@ -19,10 +19,23 @@ Meteor.startup(function() {
     Meteor.setInterval(function() {
         if (Meteor.userId() && activityDetected) {
             Meteor.call('heartbeat');
+
             activityDetected = false;
         }
+       
     }, heartbeatInterval);
 
+    // Meteor.setInterval(function() {
+    //     if (Meteor.userId() ) {
+    //             Meteor.call('userlogout');
+    //         }
+
+
+    // }, heartbeatInterval  );
+        
+       
+    
+     
     //
     // detect activity and mark it as detected on any of the following events
     //
