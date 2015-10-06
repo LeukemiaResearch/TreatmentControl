@@ -125,10 +125,10 @@
                 
               
               <div class="form-group"> 
-               <h6>Height:</h6><input class="form-control inputfield input-sm" name="patient.height" type="number" placeholder="Type to add patient height" value="{{patient.height}}" {{dispatient}}>
+               <h6>Height: (cm)</h6><input class="form-control inputfield input-sm" name="patient.height" type="number" placeholder="Type to add patient height" value="{{patient.height}}" {{dispatient}}>
               </div>
               <div class="form-group">  
-               <h6>Weight:</h6><input class="form-control inputfield input-sm" name="patient.weight" type="number" placeholder="Type to add patient weight" value="{{patient.weight}}" {{dispatient}}>
+               <h6>Weight: (cm)</h6><input class="form-control inputfield input-sm" name="patient.weight" type="number" placeholder="Type to add patient weight" value="{{patient.weight}}" {{dispatient}}>
               </div>
             </form>
           </div>
@@ -197,13 +197,13 @@
     <!-- FIRST FORM  -->
    <form class="{{checkedClass}} {{checkedClass1}}">    
     <hr>
-        <div class="row">     
-        <div class="col-md-12">
-      
-          <!-- <input type="checkbox" checked="{{treatments.one.checked}}" name="checked" value="{{treatments.one.checked}}"> Register Treatment -->
-        <button type="button" name="checked" class="btn {{#if treatments.one.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.one.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+         
+        <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass1}}">First Treatment</h3>   
+          </div>          
         </div>
-      </div>
+        <hr>
       <!-- ROW for every line -->
       <div class="row">   
          <!-- {{#with treatments.[0]}} -->
@@ -294,13 +294,20 @@
           <div class="col-md-2">         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.one.nurseNotes" tyepe="text" value="{{treatments.one.nurseNotes}}" {{disone}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.one.nurseNotes" tyepe="text" value="{{treatments.one.nurseNotes}}" {{disone}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
           </div>
           <div class="col-md-1">            
           </div>
+      </div>
+      <div class="row">     
+        <div class="col-md-12">
+      
+          <!-- <input type="checkbox" checked="{{treatments.one.checked}}" name="checked" value="{{treatments.one.checked}}"> Register Treatment -->
+        <button type="button" name="checked" class="btn {{#if treatments.one.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.one.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
       </div>
 
       <!-- END ROW for every line -->
@@ -313,14 +320,12 @@
     <form  class="{{checkedClass}} {{checkedClass2}}">
   
       <hr>
-       <div class="row">
-         <div class="col-md-12">
-      <!-- <span class="input-group-addon"> -->
-      <!-- <input type="checkbox" checked="{{treatments.two.checked}}" name="checked1" value="{{treatments.two.checked}}"> Register Treatment -->
-      <button type="button" name="checked1" class="btn {{#if treatments.two.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.two.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
-      <!-- </span> -->
-     </div>
-      </div>
+       <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass2}}">Treatment Time-4</h3>   
+          </div>          
+        </div>
+        <hr>
       <div class="row">
         <div class="col-md-2">
           <h6>Time -4</h6><input class="form-control inputfield input-sm" name="treatments.two.createdAt" type="datetime-local" value="{{treatments.two.createdAt}}" {{distwo}}>
@@ -337,7 +342,7 @@
           <div class="col-md-2">         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.two.nurseNotes" tyepe="text" value="{{treatments.two.nurseNotes}}" {{distwo}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.two.nurseNotes" tyepe="text" value="{{treatments.two.nurseNotes}}" {{distwo}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -345,18 +350,26 @@
           <div class="col-md-1">            
           </div>
       </div>
+      <div class="row">
+         <div class="col-md-12">
+      <!-- <span class="input-group-addon"> -->
+      <!-- <input type="checkbox" checked="{{treatments.two.checked}}" name="checked1" value="{{treatments.two.checked}}"> Register Treatment -->
+      <button type="button" name="checked1" class="btn {{#if treatments.two.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.two.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+      <!-- </span> -->
+     </div>
+      </div>
       <hr>
     </form>
 
     <!-- THIRD FORM -->
     <form class="{{checkedClass}} {{checkedClass3}}">
       <hr>
-      <div class="row">
-        <div class="col-md-12">      
-          <!-- <input type="checkbox" checked="{{treatments.tree.checked}}" name="checked2" value="{{treatments.tree.checked}}"> Register Treatment       -->
-          <button type="button" name="checked2" class="btn {{#if treatments.tree.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.tree.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+      <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass3}}">Treatment Start Time</h3>   
+          </div>          
         </div>
-      </div>
+        <hr>
       <div class="row">
           <div class="col-md-2">
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
@@ -475,13 +488,19 @@
           <div class="col-md-2">         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.tree.nurseNotes" tyepe="text" value="{{treatments.tree.nurseNotes}}" {{disabled}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.tree.nurseNotes" tyepe="text" value="{{treatments.tree.nurseNotes}}" {{disabled}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
           </div>
           <div class="col-md-1">            
           </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">      
+          <!-- <input type="checkbox" checked="{{treatments.tree.checked}}" name="checked2" value="{{treatments.tree.checked}}"> Register Treatment       -->
+          <button type="button" name="checked2" class="btn {{#if treatments.tree.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.tree.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
       </div> 
       <hr>   
     </form>
@@ -489,12 +508,12 @@
     <!-- FORTH FORM -->
     <form class="{{checkedClass}} {{checkedClass4}}">
       <hr>
-      <div class="row">
-        <div class="col-md-12">      
-         <!-- <input type="checkbox" checked="{{treatments.four.checked}}" name="checked3" value="{{treatments.four.checked}}"> Register Treatment       -->
-         <button type="button" name="checked3" class="btn {{#if treatments.four.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.four.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+      <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass4}}">Treatment Time +1</h3>   
+          </div>          
         </div>
-      </div>
+        <hr>
        <div class="row">
           <div class="col-md-2">
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
@@ -514,10 +533,10 @@
       <div class="row">
           <div class="col-md-2">
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
-             <h6>Delayed time:</h6><input class="form-control inputfield input-sm" name="treatments.four.createdAt" type="datetime-local" value="{{treatments.four.createdAt}}" {{disfour}}>
+             <h6>Delayed time: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.four.createdAt" type="datetime-local" value="{{treatments.four.createdAt}}" {{disfour}}>
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.four.nurseNotes" tyepe="text" value="{{treatments.four.nurseNotes}}" {{disfour}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.four.nurseNotes" tyepe="text" value="{{treatments.four.nurseNotes}}" {{disfour}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -526,18 +545,24 @@
             
           </div>
       </div>
+      <div class="row">
+        <div class="col-md-12">      
+         <!-- <input type="checkbox" checked="{{treatments.four.checked}}" name="checked3" value="{{treatments.four.checked}}"> Register Treatment       -->
+         <button type="button" name="checked3" class="btn {{#if treatments.four.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.four.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
+      </div>
       <hr>     
     </form>
 
     <!-- FIFTH FORM -->
     <form class="{{checkedClass}} {{checkedClass5}}">
      <hr>
-      <div class="row">
-        <div class="col-md-12">      
-          <!-- <input type="checkbox" checked="{{treatments.five.checked}}" name="checked4" value="{{treatments.five.checked}}"> Register Treatment       -->
-          <button type="button" name="checked4" class="btn {{#if treatments.five.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.five.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+      <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass5}}">Treatment Time +23</h3>   
+          </div>          
         </div>
-      </div>
+        <hr>
       <div class="row">
           <div class="col-md-2">
             <h6>Time +23</h6><input class="form-control input-sm" type="datetime-local" value="{{time23}}" disabled>
@@ -583,16 +608,22 @@
       </div>
       <div class="row">
           <div class="col-md-2">
-           <h6>Delayed time:</h6><input class="form-control inputfield input-sm" name="treatments.five.createdAt" type="datetime-local" value="{{treatments.five.createdAt}}" {{disabled1}}>         
+           <h6>Delayed time: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.five.createdAt" type="datetime-local" value="{{treatments.five.createdAt}}" {{disabled1}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.five.nurseNotes" tyepe="text" value="{{treatments.five.nurseNotes}}" {{disabled1}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.five.nurseNotes" tyepe="text" value="{{treatments.five.nurseNotes}}" {{disabled1}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
           </div>
           <div class="col-md-1">            
           </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">      
+          <!-- <input type="checkbox" checked="{{treatments.five.checked}}" name="checked4" value="{{treatments.five.checked}}"> Register Treatment       -->
+          <button type="button" name="checked4" class="btn {{#if treatments.five.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.five.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
       </div> 
      <hr>
     </form>
@@ -600,12 +631,12 @@
     <!-- SIXTH FORM -->
     <form class="{{checkedClass}} {{checkedClass6}}">
        <hr>
-       <div class="row">
-        <div class="col-md-12">      
-          <!-- <input type="checkbox" checked="{{treatments.six.checked}}" name="checked5" value="{{treatments.six.checked}}"> Register Treatment       -->
-          <button type="button" name="checked5" class="btn {{#if treatments.six.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.six.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+       <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass6}}">Treatment Time +24</h3>   
+          </div>          
         </div>
-      </div>
+        <hr>
       <div class="row">
           <div class="col-md-2">
             <h6>Time +24</h6><input class="form-control input-sm" type="datetime-local" value="{{time24}}" disabled>
@@ -623,16 +654,22 @@
       </div>
       <div class="row">
           <div class="col-md-2">
-           <h6>Delayed time:</h6><input class="form-control inputfield input-sm" name="treatments.six.createdAt" type="datetime-local" value="{{treatments.six.createdAt}}" {{dissix}}>         
+           <h6>Delayed time: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.six.createdAt" type="datetime-local" value="{{treatments.six.createdAt}}" {{dissix}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.six.nurseNotes" tyepe="text" value="{{treatments.six.nurseNotes}}" {{dissix}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.six.nurseNotes" tyepe="text" value="{{treatments.six.nurseNotes}}" {{dissix}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
           </div>
           <div class="col-md-1">            
           </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">      
+          <!-- <input type="checkbox" checked="{{treatments.six.checked}}" name="checked5" value="{{treatments.six.checked}}"> Register Treatment       -->
+          <button type="button" name="checked5" class="btn {{#if treatments.six.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.six.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
       </div>  
       <hr>
     </form>
@@ -640,12 +677,12 @@
     <!-- SEVENTH FORM -->
     <form class="{{checkedClass}} {{checkedClass7}}">
      <hr>
-      <div class="row">
-        <div class="col-md-12">      
-          <!-- <input type="checkbox" checked="{{treatments.seven.checked}}" name="checked6" value="{{treatments.seven.checked}}"> Register Treatment       -->
-          <button type="button" name="checked6" class="btn {{#if treatments.seven.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.seven.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+      <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass7}}">Treatment Time +36</h3>   
+          </div>          
         </div>
-      </div>
+        <hr>
       <div class="row">
           <div class="col-md-2">
             <h6>Time +36</h6><input class="form-control input-sm" type="datetime-local" value="{{time36}}" disabled>
@@ -706,16 +743,22 @@
       </div>
       <div class="row">
           <div class="col-md-2">
-           <h6>Delayed time:</h6><input class="form-control inputfield input-sm" name="treatments.seven.createdAt" type="datetime-local" value="{{treatments.seven.createdAt}}" {{disabled2}}>         
+           <h6>Delayed time: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.seven.createdAt" type="datetime-local" value="{{treatments.seven.createdAt}}" {{disabled2}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.seven.nurseNotes" tyepe="text" value="{{treatments.seven.nurseNotes}}" {{disabled2}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.seven.nurseNotes" tyepe="text" value="{{treatments.seven.nurseNotes}}" {{disabled2}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
           </div>
           <div class="col-md-1">            
           </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">      
+          <!-- <input type="checkbox" checked="{{treatments.seven.checked}}" name="checked6" value="{{treatments.seven.checked}}"> Register Treatment       -->
+          <button type="button" name="checked6" class="btn {{#if treatments.seven.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.seven.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
       </div>   
      <hr>
     </form>
@@ -723,12 +766,12 @@
     <!-- EIGHT FORM -->
     <form class="{{checkedClass}} {{checkedClass8}}">
       <hr>
-      <div class="row">
-        <div class="col-md-12">      
-          <!-- <input type="checkbox" checked="{{treatments.eight.checked}}" name="checked7" value="{{treatments.eight.checked}}"> Register Treatment       -->
-          <button type="button" name="checked7" class="btn {{#if treatments.eight.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.eight.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+      <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass8}}">Treatment Time +42</h3>   
+          </div>          
         </div>
-      </div> 
+        <hr>
       <div class="row">
         <div class="col-md-2">
              <h6>Time +42</h6><input class="form-control input-sm" type="datetime-local" value="{{time42}}" disabled>
@@ -807,17 +850,23 @@
       </div>
       <div class="row">
           <div class="col-md-2">
-           <h6>Delayed time:</h6><input class="form-control inputfield input-sm" name="treatments.eight.createdAt" type="datetime-local" value="{{treatments.eight.createdAt}}" {{disabled3}}>         
+           <h6>Delayed time: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.eight.createdAt" type="datetime-local" value="{{treatments.eight.createdAt}}" {{disabled3}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.eight.nurseNotes" tyepe="text" value="{{treatments.eight.nurseNotes}}" {{disabled3}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.eight.nurseNotes" tyepe="text" value="{{treatments.eight.nurseNotes}}" {{disabled3}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
           </div>
           <div class="col-md-1">            
           </div>
-      </div> 
+      </div>
+      <div class="row">
+        <div class="col-md-12">      
+          <!-- <input type="checkbox" checked="{{treatments.eight.checked}}" name="checked7" value="{{treatments.eight.checked}}"> Register Treatment       -->
+          <button type="button" name="checked7" class="btn {{#if treatments.eight.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.eight.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
+      </div>  
       <hr>
     </form>
 
@@ -848,12 +897,12 @@
       <!-- FIRST -->
     <form class="{{checkedClass}} {{checkedClass9}}">
       <hr>
-      <div class="row">
-        <div class="col-md-12">      
-          <!-- <input type="checkbox" checked="{{treatments.nine.hurtig.first.checked}}" name="checked8" value="{{treatments.nine.hurtig.first.checked}}"> Register Treatment       -->
-          <button type="button" name="checked8" class="btn {{#if treatments.nine.hurtig.first.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.nine.hurtig.first.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+       <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass9}}">Treatment Time +48</h3>   
+          </div>          
         </div>
-      </div> 
+        <hr>
       <div class="row">
           <div class="col-md-2">
             <h6>Time +48</h6><input class="form-control input-sm" type="datetime-local" value="{{time48}}" disabled>
@@ -888,16 +937,22 @@
       </div>
       <div class="row">
           <div class="col-md-2">
-           <h6>Delayed time:</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.createdAt}}" {{disabled4}}>         
+           <h6>Delayed time: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.createdAt}}" {{disabled4}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.nurseNotes" tyepe="text" value="{{treatments.nine.hurtig.first.nurseNotes}}" {{disabled4}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.nurseNotes" tyepe="text" value="{{treatments.nine.hurtig.first.nurseNotes}}" {{disabled4}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
           </div>
           <div class="col-md-1">            
           </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">      
+          <!-- <input type="checkbox" checked="{{treatments.nine.hurtig.first.checked}}" name="checked8" value="{{treatments.nine.hurtig.first.checked}}"> Register Treatment       -->
+          <button type="button" name="checked8" class="btn {{#if treatments.nine.hurtig.first.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.nine.hurtig.first.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
       </div> 
       <hr>
     </form>
@@ -905,12 +960,12 @@
       <!-- SECOND -->
       <form class="{{checkedClass}} {{checkedClass10}}">
       <hr>
-      <div class="row">
-        <div class="col-md-12">      
-          <!-- <input type="checkbox" checked="{{treatments.nine.hurtig.second.checked}}" name="checked9" value="{{treatments.nine.hurtig.second.checked}}"> Register Treatment       -->
-          <button type="button" name="checked9" class="btn {{#if treatments.nine.hurtig.second.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.nine.hurtig.second.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+      <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass10}}">Treatment Time +54</h3>   
+          </div>          
         </div>
-      </div> 
+        <hr>
       <div class="row">
           <div class="col-md-2">
             <h6>Time +54</h6><input class="form-control input-sm" type="datetime-local" value="{{time54}}" disabled>
@@ -960,17 +1015,23 @@
       </div>
       <div class="row">
           <div class="col-md-2">
-           <h6>Delayed time:</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.createdAt}}" {{disabled5}}>         
+           <h6>Delayed time: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.createdAt}}" {{disabled5}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.nurseNotes" tyepe="text" value="{{treatments.nine.hurtig.second.nurseNotes}}" {{disabled5}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.nurseNotes" tyepe="text" value="{{treatments.nine.hurtig.second.nurseNotes}}" {{disabled5}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
           </div>
           <div class="col-md-1">            
           </div>
-      </div> 
+      </div>
+      <div class="row">
+        <div class="col-md-12">      
+          <!-- <input type="checkbox" checked="{{treatments.nine.hurtig.second.checked}}" name="checked9" value="{{treatments.nine.hurtig.second.checked}}"> Register Treatment       -->
+          <button type="button" name="checked9" class="btn {{#if treatments.nine.hurtig.second.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.nine.hurtig.second.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
+      </div>  
       <hr>
     </form>
     {{/if}}
@@ -981,12 +1042,12 @@
       <!--FIRST  -->
     <form class="{{checkedClass}} {{checkedClass11}}">
       <hr>
-      <div class="row">
-        <div class="col-md-12">      
-          <!-- <input type="checkbox" checked="{{treatments.nine.normal.first.checked}}" name="checked10" value="{{treatments.nine.normal.first.checked}}"> Register Treatment       -->
-          <button type="button" name="checked10" class="btn {{#if treatments.nine.normal.first.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.nine.normal.first.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+      <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass11}}">Treatment Time +48</h3>   
+          </div>          
         </div>
-      </div> 
+        <hr>
       <div class="row">
           <div class="col-md-2">
             <h6>Time +48</h6><input class="form-control input-sm" type="datetime-local" value="{{time48}}" disabled>
@@ -1021,10 +1082,10 @@
       </div>
       <div class="row">
           <div class="col-md-2">
-           <h6>Delayed time:</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.first.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.createdAt}}" {{disabled6}}>         
+           <h6>Delayed time: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.first.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.createdAt}}" {{disabled6}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.first.nurseNotes" tyepe="text" value="{{treatments.nine.normal.first.nurseNotes}}" {{disabled6}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.first.nurseNotes" tyepe="text" value="{{treatments.nine.normal.first.nurseNotes}}" {{disabled6}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -1032,18 +1093,24 @@
           <div class="col-md-1">            
           </div>
       </div> 
+      <div class="row">
+        <div class="col-md-12">      
+          <!-- <input type="checkbox" checked="{{treatments.nine.normal.first.checked}}" name="checked10" value="{{treatments.nine.normal.first.checked}}"> Register Treatment       -->
+          <button type="button" name="checked10" class="btn {{#if treatments.nine.normal.first.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.nine.normal.first.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
+      </div> 
       <hr>
     </form>
 
       <!--SECOND FORM -->
       <form class="{{checkedClass}} {{checkedClass12}}">
       <hr>
-      <div class="row">
-        <div class="col-md-12">      
-          <!-- <input type="checkbox" checked="{{treatments.nine.normal.second.checked}}" name="checked11" value="{{treatments.nine.normal.second.checked}}"> Register Treatment       -->
-          <button type="button" name="checked11" class="btn {{#if treatments.nine.normal.second.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.nine.normal.second.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+       <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass12}}">Treatment Time +54</h3>   
+          </div>          
         </div>
-      </div> 
+        <hr>
       <div class="row">
           <div class="col-md-2">
             <h6>Time +54</h6><input class="form-control input-sm" type="datetime-local" value="{{time54}}" disabled>
@@ -1078,10 +1145,10 @@
       </div>
       <div class="row">
           <div class="col-md-2">
-           <h6>Delayed time:</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.second.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.createdAt}}" {{disabled7}}>         
+           <h6>Delayed time: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.second.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.createdAt}}" {{disabled7}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.second.nurseNotes" tyepe="text" value="{{treatments.nine.normal.second.nurseNotes}}" {{disabled7}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.second.nurseNotes" tyepe="text" value="{{treatments.nine.normal.second.nurseNotes}}" {{disabled7}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -1089,18 +1156,24 @@
           <div class="col-md-1">            
           </div>
       </div>
+      <div class="row">
+        <div class="col-md-12">      
+          <!-- <input type="checkbox" checked="{{treatments.nine.normal.second.checked}}" name="checked11" value="{{treatments.nine.normal.second.checked}}"> Register Treatment       -->
+          <button type="button" name="checked11" class="btn {{#if treatments.nine.normal.second.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.nine.normal.second.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
+      </div>
        <hr>
     </form>
       
     <!-- THIRD FORM -->
     <form class="{{checkedClass}} {{checkedClass13}}">
       <hr>
-      <div class="row">
-        <div class="col-md-12">      
-          <!-- <input type="checkbox" checked="{{treatments.nine.normal.third.checked}}" name="checked12" value="{{treatments.nine.normal.third.checked}}"> Register Treatment       -->
-          <button type="button" name="checked12" class="btn {{#if treatments.nine.normal.third.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.nine.normal.third.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+      <div class="row" >
+          <div class="col-md-12">
+            <h3 class="title {{checkedClass13}}">Treatment Time +66</h3>   
+          </div>          
         </div>
-      </div> 
+        <hr>
       <div class="row">
           <div class="col-md-2">
             <h6>Time +66</h6><input class="form-control input-sm" type="datetime-local" value="{{time66}}" disabled>
@@ -1223,18 +1296,25 @@
                 
           </div> 
       </div>
+
       <div class="row">
           <div class="col-md-2">
-           <h6>Delayed time:</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.third.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.createdAt}}" {{disabled8}}>         
+           <h6>Delayed time: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.third.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.createdAt}}" {{disabled8}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: </h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.third.nurseNotes" tyepe="text" value="{{treatments.nine.normal.third.nurseNotes}}" {{disabled8}}>
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.third.nurseNotes" tyepe="text" value="{{treatments.nine.normal.third.nurseNotes}}" {{disabled8}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
           </div>
           <div class="col-md-1">            
           </div>
+      </div>
+       <div class="row">
+        <div class="col-md-12">      
+          <!-- <input type="checkbox" checked="{{treatments.nine.normal.third.checked}}" name="checked12" value="{{treatments.nine.normal.third.checked}}"> Register Treatment       -->
+          <button type="button" name="checked12" class="btn {{#if treatments.nine.normal.third.checked}}btn-danger{{else}}btn-success{{/if}} register">{{#if treatments.nine.normal.third.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
       </div>
         
 

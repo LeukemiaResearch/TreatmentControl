@@ -1479,23 +1479,30 @@ Template.plansShow.events({
   // }, 300),
 
 
-    'keyup input.inputfield': _.debounce(function(event) {
+    'keyup input.inputfield': _.debounce(function(event) {     
        if (! Meteor.user()) {
+       $(document.activeElement).val('');
     return Notifications.addNotification("Denied", "Please sign in to register or change data!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
-        } 
+        }
+
       var DbFieldName = $(":focus").attr("name");
       console.log(DbFieldName);
       console.log(event.target.value);
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
+       if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : event.target.value}).count()>=1) {
+          event.target.value = this.patient.cpr;
+          return Notifications.addNotification("Warning", "Patient plan with this CPR exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+       } 
       if (typeof DbFieldName === "string" && ! (/checked/i).test(DbFieldName)) {
       Plans.update(this._id, {$set: param});
       } 
-    },50),
+    },300),
 
     'click input.inputfield': _.debounce(function(event) {
        if (! Meteor.user()) {
+      $(document.activeElement).val('');
     return Notifications.addNotification("Denied", "Please sign in to register or change data!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
         } 
       // var DbFieldName = $(":focus").attr("name");
@@ -1505,14 +1512,17 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
-      
+      if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : event.target.value}).count()>1) {
+          return Notifications.addNotification("Warning", "Patient plan with this CPR exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+       } 
       if (typeof DbFieldName === "string" && ! (/checked/i).test(DbFieldName)) {
       Plans.update(this._id, {$set: param});
       }  
-    },50),
+    },300),
 
      'mousewheel input.inputfield': _.debounce(function(event) {
        if (! Meteor.user()) {
+       $(document.activeElement).val('');
         return Notifications.addNotification("Denied", "Please sign in to register or change data!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
         } 
         
@@ -1523,11 +1533,13 @@ Template.plansShow.events({
       console.log(event);
       var param = {};
       param[DbFieldName] = event.target.value;
-
+      if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : event.target.value}).count()>1) {
+          return Notifications.addNotification("Warning", "Patient plan with this CPR exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+       } 
       if (typeof DbFieldName === "string" && ! (/checked/i).test(DbFieldName)) {
       Plans.update(this._id, {$set: param});
       }     
-    },50),
+    },300),
 
 
 

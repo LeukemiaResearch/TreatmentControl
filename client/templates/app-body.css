@@ -16,9 +16,15 @@
  	
  }
 
- h2.title {
+ h3,h2.title {
     text-align: center;
 }
+
+h3  {
+    background-color: yellow;
+}
+
+
 
 div.foot {
  text-align: :center;
@@ -33,9 +39,20 @@ form.treatment {
 	background-color: rgb(155, 153, 153);
 }
 
+h3.treatment {
+
+        background-color: #c9302c;
+}
+
+
 form.blue {
 
 	background-color: lightblue;
+}
+
+h3.blue {
+
+        background-color: #5cb85c;
 }
 
 a.btn-secondary {
