@@ -344,7 +344,7 @@ Meteor.startup(function () {
                     if (propVal.hasOwnProperty("method") &&
                         propVal.hasOwnProperty("value")) {
                         //recalculate field value
-                        console.log("expresion :" + propVal.method);
+                        // console.log("expresion :" + propVal.method);
                         var newValue = eval(propVal.method);
                         if (propVal.value!=newValue) {
                             propVal.value=newValue;
@@ -366,13 +366,13 @@ Meteor.startup(function () {
     };
     plans.observeChanges({
         added: function(id, obj) {
-            console.log("added: "+id);
-            console.log(obj);
+            // console.log("added: "+id);
+            // console.log(obj);
             recalculateFields(id);
         },
         changed: function(id, obj) {
-            console.log("changed: "+id);
-            console.log(obj);
+            // console.log("changed: "+id);
+            // console.log(obj);
             recalculateFields(id);
         }
     })
