@@ -1524,6 +1524,7 @@ Template.plansShow.events({
 
 
     'keyup input.inputfield': _.debounce(function(event) {     
+      // heartbeatActivity(); 
        if (! Meteor.user()) {
        $(document.activeElement).val('');
     return Notifications.addNotification("Denied", "Please sign in to register or change data!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
@@ -1545,9 +1546,11 @@ Template.plansShow.events({
            Notifications.addNotification("Warning", "Patient plan with CPR " + event.target.value + " exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
        } 
        
+       
     },150),
 
     'click input.inputfield': _.debounce(function(event) {
+      // heartbeatActivity(); 
        if (! Meteor.user()) {
       $(document.activeElement).val('');
     return Notifications.addNotification("Denied", "Please sign in to register or change data!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
@@ -1567,9 +1570,11 @@ Template.plansShow.events({
            
            Notifications.addNotification("Warning", "Patient plan with CPR " + event.target.value + " exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
        }  
+       
     },150),
 
      'mousewheel input.inputfield': _.debounce(function(event) {
+      // heartbeatActivity(); 
        if (! Meteor.user()) {
        $(document.activeElement).val('');
         return Notifications.addNotification("Denied", "Please sign in to register or change data!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
@@ -1589,7 +1594,8 @@ Template.plansShow.events({
       if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : this.patient.cpr}).count()>1) {
            
            Notifications.addNotification("Warning", "Patient plan with CPR " + event.target.value + " exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
-       }     
+       }    
+       
     },150),
 
 

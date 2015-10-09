@@ -6,8 +6,8 @@
 // - staleSessionHeartbeatInterval: interval (in ms) at which activity heartbeats are sent up to the server
 // - staleSessionActivityEvents: the jquery events which are considered indicator of activity e.g. in an on() call.
 //
-var heartbeatInterval = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionHeartbeatInterval || (1*60*1000); // 3mins
-var activityEvents = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionActivityEvents || 'mousemove click keydown';
+var heartbeatInterval = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionHeartbeatInterval || (1*30*1000); // 3mins
+var activityEvents = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionActivityEvents || 'mousemove click keydown touchstart';
 
 var activityDetected = false;
 
@@ -19,10 +19,15 @@ Meteor.startup(function() {
     Meteor.setInterval(function() {
         if (Meteor.userId() && activityDetected) {
             Meteor.call('heartbeat');
-            Meteor.call('userlogout');
+           
             activityDetected = false;
         }
-       
+        Meteor.call('userlogout');
+        // if (Session.get("useruserlogout", true)) {
+        //     var current = Router.current();
+        //     Router.go('home');
+        //     Session.set("useruserlogout" , false);
+        // }
     }, heartbeatInterval);
 
     // Meteor.setInterval(function() {
