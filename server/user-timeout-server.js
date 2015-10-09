@@ -10,7 +10,7 @@ var inactivityTimeout = Meteor.settings && Meteor.settings.public && Meteor.sett
 var overdueTimestamp = undefined;
     // var test =  Plans.findOne({userId: this.userId});
     // console.log(test);
-   var logout;    
+       
 
 //
 // provide a user activity heartbeat method which stamps the user record with a timestamp of the last
