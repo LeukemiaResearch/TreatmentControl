@@ -10,7 +10,7 @@ var inactivityTimeout = Meteor.settings && Meteor.settings.public && Meteor.sett
 
     // var test =  Plans.findOne({userId: this.userId});
     // console.log(test);
-
+       
 
 //
 // provide a user activity heartbeat method which stamps the user record with a timestamp of the last
@@ -24,17 +24,24 @@ Meteor.methods({
             Meteor.users.update(user._id, {$set: {heartbeat: new Date()}});
         }
     }
-    // ,
-    // userlogout: function(){
-    //     if (!this.userId) { return; }
-    //     var now = new Date(), overdueTimestamp = new Date(now-inactivityTimeout);
-    // var user = Plans.findOne({userId: this.userId});
-    //  if (overdueTimestamp <= 1) {
-    //         if (user) {   
-    //     Plans.update(user._id , {$unset : {userId : true}});       
-    //         }
-    // }
-    // }
+    ,
+    userlogout: function(){
+         if (! Meteor.userId()) { return; }
+
+        var now = new Date(), overdueTimestamp = new Date(now-inactivityTimeout);
+    var user = Plans.findOne({userId: Meteor.userId()});
+    console.log(Meteor.user().heartbeat);
+    console.log(user);
+
+    // need to be fixed to start work at condition 
+    // overdueTimestamp > Meteor.user().heartbeat
+     if (overdueTimestamp <= Meteor.user().heartbeat) {
+            if (user) {   
+        Plans.update(user._id , {$unset : {userId : true}}); 
+       // Router.go('search', Plans.findOne());     
+            }
+    }
+    }
 
    
 });
@@ -69,3 +76,19 @@ Meteor.setInterval(function() {
    
 }, staleSessionPurgeInterval);
 
+// Meteor.startup(function () {
+//     var test =  Plans.findOne({userId: this.userId});
+
+//         console.log(userid1);
+//     // var staleSessionPurgeInterval = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionPurgeInterval || (1*60*1000); // 1min
+//     // var inactivityTimeout = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (2*60*1000); // 30mins
+//     if (this.userId){
+//         // var test =  Plans.findOne({userId: this.userId});
+//         console.log(test);
+//             if (overdueTimestamp <= 1) {
+//                 Plans.update(test._id , {$unset : {userId : true}});   
+//             }
+//     }
+    
+
+// });

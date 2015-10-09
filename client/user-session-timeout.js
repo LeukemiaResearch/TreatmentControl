@@ -19,7 +19,7 @@ Meteor.startup(function() {
     Meteor.setInterval(function() {
         if (Meteor.userId() && activityDetected) {
             Meteor.call('heartbeat');
-
+            Meteor.call('userlogout');
             activityDetected = false;
         }
        
