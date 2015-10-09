@@ -1598,6 +1598,30 @@ Template.plansShow.events({
        
     },150),
 
+    'touchend input.inputfield': _.debounce(function(event) {
+      // heartbeatActivity(); 
+       if (! Meteor.user()) {
+       $(document.activeElement).val('');
+        return Notifications.addNotification("Denied", "Please sign in to register or change data!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+        } 
+        
+      //var DbFieldName = $(":focus").attr("name");
+      var DbFieldName  = $(document.activeElement).attr("name");
+      console.log(DbFieldName);
+      console.log(event.target.value);
+      console.log(event);
+      var param = {};
+      param[DbFieldName] = event.target.value;
+      
+      if (typeof DbFieldName === "string" && ! (/checked/i).test(DbFieldName)) {
+      Plans.update(this._id, {$set: param});
+      }
+      if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : this.patient.cpr}).count()>1) {
+           
+           Notifications.addNotification("Warning", "Patient plan with CPR " + event.target.value + " exists!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
+       }    
+       
+    },150),
 
 
   // 'keyup input[name=patientname]': _.throttle(function(event) {
