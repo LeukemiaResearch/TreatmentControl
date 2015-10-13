@@ -7,10 +7,10 @@
 //
 var staleSessionPurgeInterval = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionPurgeInterval || (1*30*1000); // 1min
 var inactivityTimeout = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (2*60*1000); // 30mins
-var overdueTimestamp = undefined;
+var inactivityTimeoutclient = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (2*55*1000);
     // var test =  Plans.findOne({userId: this.userId});
     // console.log(test);
-       
+  
 
 //
 // provide a user activity heartbeat method which stamps the user record with a timestamp of the last
@@ -29,8 +29,8 @@ Meteor.methods({
       
          if (! Meteor.userId()) { return; }
 
-        var now = new Date();
-         overdueTimestamp = new Date(now-inactivityTimeout);
+         var now = new Date();
+         overdueTimestamp = new Date(now-inactivityTimeoutclient);
     var user = Plans.find({userId: Meteor.userId()});
     user.forEach(function(i) {
         console.log("number of users" + i._id);
@@ -42,7 +42,7 @@ Meteor.methods({
 
     // need to be fixed to start work at condition 
     // overdueTimestamp > Meteor.user().heartbeat
-     if (overdueTimestamp  >= Meteor.user().heartbeat) {
+     if (overdueTimestamp  > Meteor.user().heartbeat) {
            
                user.forEach(function(u) {
                 console.log("hiden plan:" + u);
@@ -75,14 +75,14 @@ Meteor.methods({
 // periodically purge any stale sessions, removing their login tokens and clearing out the stale heartbeat.
 //
 Meteor.setInterval(function() {
-    var now = new Date();
+     var now = new Date();
      overdueTimestamp = new Date(now-inactivityTimeout);
       console.log('server overdueTimestamp' + overdueTimestamp);
     Meteor.users.update({heartbeat: {$lt: overdueTimestamp}},
                         {$set: {'services.resume.loginTokens': []},
                          $unset: {heartbeat:1}},
                         {multi: true});
-                        if (this.heartbeat < overdueTimestamp) {logout = true;} 
+                       
        
    
 }, staleSessionPurgeInterval);

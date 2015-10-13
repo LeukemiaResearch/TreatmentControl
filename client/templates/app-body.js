@@ -187,7 +187,7 @@ Template.appBody.events({
     //   // Router.go('plansShow', Plans.findOne({userId: {$exists: false}}));
     //  Router.go('home');
     // }
-    Router.go('home');
+    Router.go('signin');
   },
 
  //  'click .js-new-list': function() {
