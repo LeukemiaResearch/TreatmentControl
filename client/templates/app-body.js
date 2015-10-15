@@ -37,7 +37,7 @@ Meteor.startup(function () {
 });
 
 Template.appBody.onRendered(function() {
-  this.find('#content-container')._uihooks = {
+  this.find('#page-content-wrapper')._uihooks = {
     insertElement: function(node, next) {
       $(node)
         .hide()
@@ -176,20 +176,15 @@ Template.appBody.events({
     Meteor.call('manualout');
     Meteor.logout();
     
-    
-
     // if we are on a private list, we'll need to go to a public one
     var current = Router.current();
-    // if (current.route.name === 'listsShow' && current.data().userId) {
-    //   Router.go('listsShow', Lists.findOne({userId: {$exists: false}}));
-    // }
-    // if (current.route.name === 'plansShow' && current.data().userId) {
-    //   // Router.go('plansShow', Plans.findOne({userId: {$exists: false}}));
-    //  Router.go('home');
-    // }
     Router.go('signin');
   },
 
+   'click #menu-toggle': function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    },
  //  'click .js-new-list': function() {
  //    var task =  Todos.findOne("uz9XR5NZuqtkTuoj2")
  //    var list = {name: Lists.defaultName(), incompleteCount: 0};    

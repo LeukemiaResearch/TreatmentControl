@@ -6,8 +6,8 @@
 // - staleSessionPurgeInterval: interval (in ms) at which stale sessions are purged i.e. found and forcibly logged out
 //
 var staleSessionPurgeInterval = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionPurgeInterval || (1*30*1000); // 1min
-var inactivityTimeout = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (2*60*1000); // 30mins
-var inactivityTimeoutclient = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (2*55*1000);
+var inactivityTimeout = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (5*60*1000); // 30mins
+var inactivityTimeoutclient = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (5*58*1000);
     // var test =  Plans.findOne({userId: this.userId});
     // console.log(test);
   

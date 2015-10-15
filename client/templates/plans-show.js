@@ -1598,7 +1598,7 @@ Template.plansShow.events({
        
     },150),
 
-    'touchend input.inputfield': _.debounce(function(event) {
+    'touchstart input.inputfield': _.debounce(function(event) {
       // heartbeatActivity(); 
        if (! Meteor.user()) {
        $(document.activeElement).val('');
@@ -1610,11 +1610,15 @@ Template.plansShow.events({
       console.log(DbFieldName);
       console.log(event.target.value);
       console.log(event);
+      Notifications.addNotification("Name", "Name:" + DbFieldName , {type:parseInt(2, 10), timeout: parseInt(5000, 10), userCloseable: true  });
+      Notifications.addNotification("Value", "Value:" + event.target.value , {type:parseInt(3, 10), timeout: parseInt(5000, 10), userCloseable: true  });
+      Notifications.addNotification("Event", "Event:" + event , {type:parseInt(4, 10), timeout: parseInt(5000, 10), userCloseable: true  });
       var param = {};
       param[DbFieldName] = event.target.value;
       
       if (typeof DbFieldName === "string" && ! (/checked/i).test(DbFieldName)) {
       Plans.update(this._id, {$set: param});
+      Notifications.addNotification("Update", "Field:" + param , {type:parseInt(1, 10), timeout: parseInt(5000, 10), userCloseable: true  });
       }
       if( DbFieldName === "patient.cpr" && Plans.find({"patient.cpr" : this.patient.cpr}).count()>1) {
            

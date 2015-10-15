@@ -1,13 +1,20 @@
 <template name="appBody">
   <!-- <div id="container" class="{{menuOpen}} {{cordova}} container"> -->
-  <div id="container" class="{{menuOpen}} {{cordova}}">
-  <div class="row">
-    <hr>
-    <div class="col-md-2">
-    <section id="menu">
+  <div id="wrapper" class="{{menuOpen}} {{cordova}}">
+  
+    <!-- <hr> -->
+    <!-- <div class="col-md-2"> -->
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand">
+                    <a href="/">
+                        TretmentControl
+                    </a>
+                </li>
+    <!-- <section id="menu"> -->
       {{#if currentUser}}
         <div class="btns-group-vertical text-center">
-          <a href="#" class="js-user-menu btn-secondary">
+          <li><a href="#" class="js-user-menu btn-secondary">
             {{#if userMenuOpen}}
               <span class="icon-arrow-up"></span>
               {{else}}
@@ -15,14 +22,14 @@
             {{/if}}
             <!-- {{emailLocalPart}} -->
             {{usernameLocalPart}}
-          </a>
+          </a></li>
           <!-- {{#if userMenuOpen}} -->
-            <a class="js-logout btn-secondary">Logout</a>
+            <li><a class="js-logout btn-secondary">Logout</a></li>
           <!-- {{/if}} -->
         </div>
       {{else}}
         <div class="btns-group text-center">
-          <a href="{{pathFor 'signin'}}" class="btn-secondary">Sign In</a>
+          <li><a href="{{pathFor 'signin'}}" class="btn-secondary">Sign In</a></li>
           <!-- <a href="{{pathFor 'join'}}" class="btn-secondary">Join</a> -->
         </div>
       {{/if}}
@@ -43,31 +50,31 @@
         {{/each}}
 
       </div> -->
-        <hr>
-      <div class="list-todos text-center">
-        <a class="js-new-plan link-list-new"><span class="icon-plus"></span>New Patient Plan</a>
-        <hr>
-        <!-- {{#with plans}} -->
-        {{#each plans}}
-          <li><a href="{{pathFor 'plansShow'}}" class="list-todo {{activePlanClass}}" title="{{header.name}}">
-            {{#if userId}}
-              <span class="icon-lock"></span>
-            {{/if}}
-            {{#if incompleteCount}}
-              <span class="count-list">{{incompleteCount}}</span>
-            {{/if}}
-              
-          
-     
-            {{header.name}}
-          </a></li> <!-- <button type="button" name="done" class="btn-primary">hide</button> </li> -->
-        {{/each}}
-        <!-- {{/with}} -->
-      </div>
-      <hr>
-    <div><a href="{{pathFor 'search'}}" class="btn-secondary center-block menu">Search patient</a></div>
-    </section>
-    
+         <!--  <hr> -->
+        <div class="list-todos text-center">
+          <li><a class="js-new-plan link-list-new"><span class="icon-plus"></span>New Patient Plan</a></li>
+          <!-- <hr> -->
+          <!-- {{#with plans}} -->
+          {{#each plans}}
+            <li><a href="{{pathFor 'plansShow'}}" class="list-todo {{activePlanClass}}" title="{{header.name}}">
+              {{#if userId}}
+                <span class="icon-lock"></span>
+              {{/if}}
+              {{#if incompleteCount}}
+                <span class="count-list">{{incompleteCount}}</span>
+              {{/if}}
+                
+            
+       
+              {{header.name}}
+            </a></li> <!-- <button type="button" name="done" class="btn-primary">hide</button> </li> -->
+          {{/each}}
+          <!-- {{/with}} -->
+        </div>
+        <!-- <hr> -->
+      <div><li><a href="{{pathFor 'search'}}" class="btn-secondary center-block menu">Search patient</a></li></div>
+    <!-- </section> -->
+      </ul>
     </div>
     
     
@@ -86,22 +93,39 @@
     <div class="content-overlay"></div>
      
     <!-- <div id="content-container" class="col-md-10"> -->
-    <div id="content-container" class="container col-md-10">
-      {{> notifications}}
+    <!-- <div id="content-container" class="container col-md-10"> -->
+    <div id="page-content-wrapper">
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+          <div class="container-fluid1">
+              <a href="#menu-toggle" class="menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a>         
+          </div>
+       </nav>
       
-      {{#each thisArray}}
-        {{> yield}}
-      {{/each}}
-    </div> 
-    <hr>
-</div>
+      <div class="container-fluid">       
+                  <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                     <!--  <div class="navbar">
 
-<div class="row">
-  
-    <div  class="foot" style="text-align: center;"><hr><h2>This is the footer  place for info  </h2></div>
+                     <a href="#menu-toggle" class="menu-toggle" id="menu-toggle"><i class="fa fa-bars"></i></a>
+                         </div> -->
+                      {{> notifications}}
+                      
+                      {{#each thisArray}}
+                        {{> yield}}
+                      {{/each}}
+                     </div> 
+                  </div> 
+                  <!-- <hr> -->
+               
+      </div>    
+    </div>
+
+    <!-- <div class="row">
       
-  <hr>
-</div>   
+        <div  class="foot" style="text-align: center;"><hr><h2>This is the footer  place for info  </h2></div>
+          
+        <hr>
+    </div>  -->  
 </div>
 
 </template>
