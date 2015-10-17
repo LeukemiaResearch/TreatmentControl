@@ -34,6 +34,15 @@ Meteor.startup(function () {
     // Show the connection error box
     Session.set(SHOW_CONNECTION_ISSUE_KEY, true);
   }, CONNECTION_ISSUE_TIMEOUT);
+
+  //Hook for benjaminrh:event-hooks 
+    Hooks.init();
+    Hooks.treatCloseAsLogout = true;
+
+    // Hooks.onLoggedOut = function () {
+    // Meteor.logout();
+    // }
+    
 });
 
 Template.appBody.onRendered(function() {
@@ -54,6 +63,7 @@ Template.appBody.onRendered(function() {
       });
     }
   };
+  //this.find('#wrapper').hammer();
 });
 
   // Meteor.methods({
@@ -63,6 +73,8 @@ Template.appBody.onRendered(function() {
 
 
   // });
+
+
 
 Template.appBody.helpers({
   // We use #each on an array of one item so that the "list" template is
@@ -185,6 +197,17 @@ Template.appBody.events({
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
     },
+
+    'panleft panright #wrapper' :function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    },
+
+    'swipe #wrapper' :function() {
+      //e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    },
+
  //  'click .js-new-list': function() {
  //    var task =  Todos.findOne("uz9XR5NZuqtkTuoj2")
  //    var list = {name: Lists.defaultName(), incompleteCount: 0};    

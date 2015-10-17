@@ -39,3 +39,5 @@ random
 ejson
 spacebars
 check
+hammer:hammer
+benjaminrh:event-hooks
