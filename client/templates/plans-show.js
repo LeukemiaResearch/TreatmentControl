@@ -1042,6 +1042,11 @@ Template.plansShow.events({
   },
 
   'click [name=checked6]': function(event, template) {
+    var message = "Are you agree with the shown inputs?";
+    if (this.treatments.seven.checked === true) { message = "Did you want to unregister this treatment?"}
+     
+
+
      if (! Meteor.user()) {
     return Notifications.addNotification("Denied", "Please sign in to register or unregister treatment!", {type:parseInt(2, 10), timeout: parseInt(3000, 10), userCloseable: true  });
   } 
@@ -1055,7 +1060,10 @@ Template.plansShow.events({
     }
     else {
       if (!this.treatments.seven.field1.semtx || !this.treatments.seven.field2.pcreatin) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
-      Plans.update(this._id, {$set: {"treatments.seven.checked": ! this.treatments.seven.checked , "treatments.seven.userId" : Meteor.userId()}});  
+      if (confirm(message)) {
+     Plans.update(this._id, {$set: {"treatments.seven.checked": ! this.treatments.seven.checked , "treatments.seven.userId" : Meteor.userId()}});
+     }    else {return false;} 
+        
     }
       
      if (this.treatments.seven.checked === true) {     
