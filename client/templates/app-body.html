@@ -6,9 +6,9 @@
     <!-- <div class="col-md-2"> -->
     <div id="sidebar-wrapper">
       <ul class="sidebar-nav">
-        <li class="sidebar-brand">
+        <li class="sidebar-brand wiped">
                     <a href="/">
-                        TretmentControl
+                        TreatmentControl
                     </a>
                 </li>
     <!-- <section id="menu"> -->
@@ -24,12 +24,12 @@
             {{usernameLocalPart}}
           </a></li>
           <!-- {{#if userMenuOpen}} -->
-            <li><a class="js-logout btn-secondary">Logout</a></li>
+            <li class="wiped"><a class="js-logout btn-secondary">Logout</a></li>
           <!-- {{/if}} -->
         </div>
       {{else}}
         <div class="btns-group text-center">
-          <li><a href="{{pathFor 'signin'}}" class="btn-secondary">Sign In</a></li>
+          <li class="wiped"><a href="{{pathFor 'signin'}}" class="btn-secondary">Sign In</a></li>
           <!-- <a href="{{pathFor 'join'}}" class="btn-secondary">Join</a> -->
         </div>
       {{/if}}
@@ -56,7 +56,7 @@
           <!-- <hr> -->
           <!-- {{#with plans}} -->
           {{#each plans}}
-            <li><a href="{{pathFor 'plansShow'}}" class="list-todo {{activePlanClass}}" title="{{header.name}}">
+            <li class="wiped"><a href="{{pathFor 'plansShow'}}" class="list-todo {{activePlanClass}}" title="{{header.name}}">
               {{#if userId}}
                 <span class="icon-lock"></span>
               {{/if}}
@@ -72,7 +72,7 @@
           <!-- {{/with}} -->
         </div>
         <!-- <hr> -->
-      <div><li><a href="{{pathFor 'search'}}" class="btn-secondary center-block menu">Search patient</a></li></div>
+      <div><li class="wiped"><a href="{{pathFor 'search'}}" class="btn-secondary center-block menu">Search patient</a></li></div>
     <!-- </section> -->
       </ul>
     </div>

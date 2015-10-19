@@ -18,9 +18,11 @@ Meteor.startup(function () {
   $(document.body).touchwipe({
     wipeLeft: function () {
       Session.set(MENU_KEY, false);
+      // $("#wrapper").toggleClass("toggled");
     },
     wipeRight: function () {
       Session.set(MENU_KEY, true);
+      // $("#wrapper").toggleClass("toggled");
     },
     preventDefaultEvents: false
   });
@@ -38,7 +40,7 @@ Meteor.startup(function () {
   //Hook for benjaminrh:event-hooks 
     Hooks.init();
     Hooks.treatCloseAsLogout = true;
-
+    // updateFocus: 4000; 
     // Hooks.onLoggedOut = function () {
     // Meteor.logout();
     // }
@@ -198,14 +200,26 @@ Template.appBody.events({
         $("#wrapper").toggleClass("toggled");
     },
 
-    'panleft panright #wrapper' :function(e) {
-      e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
-    },
 
-    'swipe #wrapper' :function() {
-      //e.preventDefault();
-      $("#wrapper").toggleClass("toggled");
+      // Mobile wipe development  // 
+    // 'panleft panright #wrapper' :function(e) {
+    //   e.preventDefault();
+    //   $("#wrapper").toggleClass("toggled");
+    // },
+
+    // 'swipe #wrapper' :function() {
+    //   //e.preventDefault();
+    //   $("#wrapper").toggleClass("toggled");
+    // },
+
+    'click li.wiped': function() {
+      if (Meteor.isCordova) {  
+         $("#wrapper").toggleClass("toggled");
+      }   
+      if ( Meteor.isMobile  ) {  
+         $("#wrapper").toggleClass("toggled");
+      }   
+      
     },
 
  //  'click .js-new-list': function() {

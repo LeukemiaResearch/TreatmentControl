@@ -5,8 +5,8 @@
 // - staleSessionInactivityTimeout: the amount of time (in ms) after which, if no activity is noticed, a session will be considered stale
 // - staleSessionPurgeInterval: interval (in ms) at which stale sessions are purged i.e. found and forcibly logged out
 //
-var staleSessionPurgeInterval = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionPurgeInterval || (1*30*1000); // 1min
-var inactivityTimeout = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (5*60*1000); // 30mins
+var staleSessionPurgeInterval = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionPurgeInterval || (1*30*1000); // 0.5 min
+var inactivityTimeout = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (5*60*1000); // 5 mins
 var inactivityTimeoutclient = Meteor.settings && Meteor.settings.public && Meteor.settings.public.staleSessionInactivityTimeout || (5*58*1000);
     // var test =  Plans.findOne({userId: this.userId});
     // console.log(test);
@@ -94,9 +94,10 @@ Hooks.onLoggedOut = function () {
     var user = Plans.findOne({userId: Meteor.userId()});
          console.log(user);
              if (user) {   
-                 Plans.update(user._id , {$unset : {userId : true}});  
-                 Meteor.users.update(Meteor.userId() , {$set: {'services.resume.loginTokens': []},
-                         $unset: {heartbeat:1}});   
+                 Plans.update(user._id , {$unset : {userId : true}});                    
                 }
+
+       Meteor.users.update(Meteor.userId() , {$set: {'services.resume.loginTokens': []},
+                         $unset: {heartbeat:1}});          
              
 }
