@@ -48,15 +48,18 @@ Template.plansShow.helpers({
 
   //hidden the Treatment plan if mtx Nr not been register
   hidden : function(list) {
-    if(!this.header.mtx) {
+    if(this.header) {
+       if(!this.header.mtx) {
        return 'hidden'; 
     }
     else 
       return;
+    }
   },
 
   //TIME FOR DIFFERENT TREATMENTS +1,+6,+23 ...etc 
   time1 : function(list) {
+    if (this.treatments)  {
     if (this.treatments.tree.createdAt){
     var time_begin = this.treatments.tree.createdAt;
     var time_new = new Date(time_begin);
@@ -65,9 +68,11 @@ Template.plansShow.helpers({
    // time_new.toISOString().substring(0,16);
     return time_set;
     }
+    }
   },
 
   time23 : function(list) {
+     if (this.treatments)  {
     if (this.treatments.tree.createdAt){
     var time_begin = this.treatments.tree.createdAt;
     var time_new = new Date(time_begin);
@@ -76,9 +81,11 @@ Template.plansShow.helpers({
    // time_new.toISOString().substring(0,16);
     return time_set;
     }
+    }
   },
 
   time24 : function(list) {
+    if (this.treatments)  {
     if (this.treatments.tree.createdAt){
     var time_begin = this.treatments.tree.createdAt;
     var time_new = new Date(time_begin);
@@ -87,9 +94,11 @@ Template.plansShow.helpers({
    // time_new.toISOString().substring(0,16);
     return time_set;
     }
+  }
   },
 
   time36 : function(list) {
+    if (this.treatments)  {
     if (this.treatments.tree.createdAt){
     var time_begin = this.treatments.tree.createdAt;
     var time_new = new Date(time_begin);
@@ -98,9 +107,11 @@ Template.plansShow.helpers({
    // time_new.toISOString().substring(0,16);
     return time_set;
     }
+  }
   },
 
   time42 : function(list) {
+    if (this.treatments)  {
     if (this.treatments.tree.createdAt){
     var time_begin = this.treatments.tree.createdAt;
     var time_new = new Date(time_begin);
@@ -109,9 +120,11 @@ Template.plansShow.helpers({
    // time_new.toISOString().substring(0,16);
     return time_set;
     }
+  }
   },
 
   time48 : function(list) {
+    if (this.treatments)  {
     if (this.treatments.tree.createdAt){
     var time_begin = this.treatments.tree.createdAt;
     var time_new = new Date(time_begin);
@@ -120,9 +133,11 @@ Template.plansShow.helpers({
    // time_new.toISOString().substring(0,16);
     return time_set;
     }
+  }
   },
 
   time54 : function(list) {
+    if (this.treatments)  {
     if (this.treatments.tree.createdAt){
     var time_begin = this.treatments.tree.createdAt;
     var time_new = new Date(time_begin);
@@ -131,9 +146,11 @@ Template.plansShow.helpers({
    // time_new.toISOString().substring(0,16);
     return time_set;
     }
+  }
   },
 
   time66 : function(list) {
+    if (this.treatments)  {
     if (this.treatments.tree.createdAt){
     var time_begin = this.treatments.tree.createdAt;
     var time_new = new Date(time_begin);
@@ -142,33 +159,41 @@ Template.plansShow.helpers({
    // time_new.toISOString().substring(0,16);
     return time_set;
     }
+  }
   },
 
   
 
   //DISABLE CHECKED OR UNACTIVE FORM FROM INPUT
   dispatient : function (list) {
-    if (this.treatments.one.checked) { return 'disabled'; }
+    if(this.treatments) {
+      if (this.treatments.one.checked) { return 'disabled'; }
+    }
+    
   },
 
   disone : function (list) {
-     
-    if(this.treatments.one.checked || !this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { return 'disabled'; }
+     if (this.treatments)  {
+       if(this.treatments.one.checked || !this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { return 'disabled'; } 
+  }
   },
 
   distwo : function (list) {
-     
+     if (this.treatments)  {
     if(this.treatments.two.checked || Session.equals("second" , "blue")) { return 'disabled'; }
+  }
   },
 
   disfour : function (list) {
-     
+     if (this.treatments)  {
     if(this.treatments.four.checked || Session.equals("forth" , "blue")) { return 'disabled'; }
+  }
   },
 
   dissix : function (list) {
-     
+     if (this.treatments)  {
     if(this.treatments.six.checked || Session.equals("six" , "blue")) { return 'disabled'; }
+  }
   },
 
 
@@ -176,7 +201,9 @@ Template.plansShow.helpers({
     // if(this.treatments.tree.field4.pcreatin && this.treatments.tree.createdAt) {
     //   Session.set("disabled", "ready");
     // }
+    if (this.treatments)  {
     if(this.treatments.tree.checked || Session.equals("third" , "blue")) { return 'disabled'; }
+  }
   },
 
   // disabled1 : function (list) {
@@ -193,56 +220,72 @@ Template.plansShow.helpers({
     // if(this.treatments.five.field1.semtx && this.treatments.five.field2.pcreatin && this.treatments.five.createdAt && this.treatments.five.field3.semtx) {
     //   Session.set("disabled", "ready");
     // }
+    if (this.treatments)  {
     if(this.treatments.five.checked || Session.equals("fifth" , "blue")) { return 'disabled'; }    
+  }
   },
 
   disabled2 : function (list) {
     // if(this.treatments.seven.field1.semtx && this.treatments.seven.createdAt && this.treatments.seven.field2.pcreatin) {
     //   Session.set("disabled", "ready");
     // }
+    if (this.treatments)  {
     if(this.treatments.seven.checked || Session.equals("seven" , "blue")) { return 'disabled'; }
+  }
   },
 
   disabled3 : function (list) {
     // if(this.treatments.eight.field1.semtx && this.treatments.eight.createdAt && this.treatments.eight.field2.name) {
     //   Session.set("disabled", "ready");
     // }
+    if (this.treatments)  {
     if(this.treatments.eight.checked || Session.equals("eight" , "blue")) { return 'disabled'; }
+  }
   },
 
   disabled4 : function (list) {
     // if(this.treatments.nine.hurtig.first.field1.semtx && this.treatments.nine.hurtig.first.createdAt && this.treatments.nine.hurtig.first.field2.name) {
     //   Session.set("disabled", "ready");
     // }
+    if (this.treatments)  {
     if(this.treatments.nine.hurtig.first.checked || Session.equals("nine" , "blue")) { return 'disabled'; }
+  }
   },
 
   disabled5 : function (list) {
     // if(this.treatments.nine.hurtig.second.field1.semtx && this.treatments.nine.hurtig.second.createdAt && this.treatments.nine.hurtig.second.field2.name) {
     //   Session.set("disabled", "ready");
     // }
+    if (this.treatments)  {
     if(this.treatments.nine.hurtig.second.checked || Session.equals("ten" , "blue")) { return 'disabled'; }
+  }
   },
 
   disabled6 : function (list) {
     // if(this.treatments.nine.normal.first.field1.semtx && this.treatments.nine.normal.first.createdAt && this.treatments.nine.normal.first.field2.name) {
     //   Session.set("disabled", "ready");
     // }
+    if (this.treatments)  {
     if(this.treatments.nine.normal.first.checked || Session.equals("eleven" , "blue")) { return 'disabled'; }
+  }
   },
 
   disabled7 : function (list) {
     // if(this.treatments.nine.normal.second.field1.semtx && this.treatments.nine.normal.second.createdAt && this.treatments.nine.normal.second.field2.name) {
     //   Session.set("disabled", "ready");
     // }
+    if (this.treatments)  {
     if(this.treatments.nine.normal.second.checked || Session.equals("twelve" , "blue")) { return 'disabled'; }
+  }
   },
 
   disabled8 : function (list) {
     // if(this.treatments.nine.normal.third.field1.semtx && this.treatments.nine.normal.third.createdAt && this.treatments.nine.normal.third.field2.pcreatin && this.treatments.nine.normal.third.field4.name) {
     //   Session.set("disabled", "ready");
     // }
+    if (this.treatments)  {
     if(this.treatments.nine.normal.third.checked || Session.equals("thirdteen" , "blue")) { return 'disabled'; }
+  }
   },
 
 
@@ -251,7 +294,7 @@ Template.plansShow.helpers({
 
    // FIRST FORM //
   checkedClass1 : function(list) {
-   
+   if (this.treatments)  {
   if (this.treatments.one.checked === true) { 
       Session.set("first" , "treatment");
       Session.set("second" , "");
@@ -261,11 +304,12 @@ Template.plansShow.helpers({
     Session.set("second" , "blue");
   } 
     return Session.get("first");
+  }
   },
 
    // SECOND FORM //
   checkedClass2 : function(list) {
-    
+    if (this.treatments)  {
     if(this.treatments.two.checked === true)  {    
      Session.set("second" , "treatment");
      Session.set("third" , "");     
@@ -278,11 +322,12 @@ Template.plansShow.helpers({
      Session.set("third" , "blue");      
    }
     return Session.get("second");
+  }
   },
 
   // THIRD FORM //
   checkedClass3 : function(list) {
-    
+    if (this.treatments)  {
    if(this.treatments.tree.checked === true)  {   
      Session.set("third" , "treatment");
      Session.set("forth" , "");            
@@ -292,11 +337,12 @@ Template.plansShow.helpers({
       Session.set("forth" , "blue");
    }
     return Session.get("third");
+  }
   },
 
    // FORTH FORM //
   checkedClass4 : function(list) {
-   
+   if (this.treatments)  {
    if(this.treatments.four.checked === true)  {   
      Session.set("forth" , "treatment");
      Session.set("fifth" , "");            
@@ -306,11 +352,12 @@ Template.plansShow.helpers({
       Session.set("fifth" , "blue");
    }
     return Session.get("forth");
+  }
   },
 
   // FIFTH FORM //
   checkedClass5 : function(list) {
-    
+    if (this.treatments)  {
    if(this.treatments.five.checked === true)  {   
      Session.set("fifth" , "treatment");
      Session.set("six" , "");            
@@ -320,11 +367,12 @@ Template.plansShow.helpers({
       Session.set("six" , "blue");
    }
     return Session.get("fifth");
+  }
   },
 
   // SIXTH FORM //
   checkedClass6 : function(list) {
-      
+      if (this.treatments)  {
    if(this.treatments.six.checked === true)  {   
      Session.set("six" , "treatment");
      Session.set("seven" , "");            
@@ -334,11 +382,12 @@ Template.plansShow.helpers({
       Session.set("seven" , "blue");
    }
     return Session.get("six");
+  }
     },
 
      // SEVEN FORM //
   checkedClass7 : function(list) {
-     
+    if (this.treatments)  { 
    if(this.treatments.seven.checked === true)  {   
      Session.set("seven" , "treatment");
      Session.set("eight" , "");            
@@ -348,11 +397,12 @@ Template.plansShow.helpers({
       Session.set("eight" , "blue");
    }
     return Session.get("seven");
+  }
   },
 
      // EIGHT FORM //
   checkedClass8 : function(list) {
-     
+    if (this.treatments)  { 
    if(this.treatments.eight.checked === true)  {   
      Session.set("eight" , "treatment");
      Session.set("nine" , "");            
@@ -362,10 +412,12 @@ Template.plansShow.helpers({
       Session.set("nine" , "blue");
    }
     return Session.get("eight");
+  }
   },
 
   // NINE FORM  HURTIG FIRST
   checkedClass9 : function(list) {
+    if (this.treatments)  {
     if(this.treatments.nine.hurtig.first.checked === true)  {   
      Session.set("nine" , "treatment");
      Session.set("ten" , "");            
@@ -375,10 +427,12 @@ Template.plansShow.helpers({
       Session.set("ten" , "blue");
    }
     return Session.get("nine");
+  }
   },
 
   // NINE FORM  HURTIG SECOND LAST  
   checkedClass10 : function(list) {
+    if (this.treatments)  {
     if(this.treatments.nine.hurtig.second.checked === true)  {   
      Session.set("ten" , "treatment");
     // Session.set("ten" , "");            
@@ -388,11 +442,13 @@ Template.plansShow.helpers({
      // Session.set("ten" , "blue");
    }
     return Session.get("ten");
+  }
   },
 
 
   // NINE FORM NORMAL FIRST
   checkedClass11 : function(list) {
+    if (this.treatments)  {
      if(this.treatments.nine.normal.first.checked === true)  {   
      Session.set("eleven" , "treatment");
      Session.set("twelve" , "");            
@@ -402,11 +458,13 @@ Template.plansShow.helpers({
       Session.set("twelve" , "blue");
    }
     return Session.get("eleven");
+  }
   },
 
 
   // NINE FORM NORMAL SECOND
   checkedClass12 : function(list) {
+    if (this.treatments)  {
     if(this.treatments.nine.normal.second.checked === true)  {   
      Session.set("twelve" , "treatment");
      Session.set("thirdteen" , "");            
@@ -416,10 +474,12 @@ Template.plansShow.helpers({
       Session.set("thirdteen" , "blue");
    }
     return Session.get("twelve");
+  }
   },
 
   // NINE FORM NORMAL THIRD
   checkedClass13 : function(list) {
+    if (this.treatments)  {
     if(this.treatments.nine.normal.third.checked === true)  {   
      Session.set("thirdteen" , "treatment");
      //Session.set("thirdteen" , "");            
@@ -429,6 +489,7 @@ Template.plansShow.helpers({
      // Session.set("thirdteen" , "blue");
    }
     return Session.get("thirdteen");
+  }
   },
 
 
