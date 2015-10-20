@@ -216,7 +216,7 @@ Template.appBody.events({
       if (Meteor.isCordova) {  
          $("#wrapper").toggleClass("toggled");
       }   
-      if ( Meteor.isMobile  ) {  
+      if ( Meteor.isMobile || $(window).width() < 768  ) {  
          $("#wrapper").toggleClass("toggled");
       }   
       
