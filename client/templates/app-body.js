@@ -1,5 +1,6 @@
 
 
+
 // if (Meteor.isClient) {
 
 var MENU_KEY = 'menuOpen';
@@ -79,6 +80,8 @@ Template.appBody.onRendered(function() {
 
 
 Template.appBody.helpers({
+
+
   // We use #each on an array of one item so that the "list" template is
   // removed and a new copy is added when changing lists, which is
   // important for animation purposes. #each looks at the _id property of it's
@@ -153,6 +156,7 @@ Template.appBody.helpers({
     var current = Router.current();
     if (current.route.name === 'plansShow' && current.params._id === this._id) {
       return 'active';
+
     }
   },
   connected: function() {
@@ -162,6 +166,7 @@ Template.appBody.helpers({
       return true;
     }
   }
+ 
   });
 
   
@@ -211,6 +216,13 @@ Template.appBody.events({
     //   //e.preventDefault();
     //   $("#wrapper").toggleClass("toggled");
     // },
+
+     'click a.hashroot'  : function() {
+    
+      Router.go('plansShow', {_id : this._id} ,  {hash: Session.get('hash')});
+      console.log(this._id);
+     
+      },
 
     'click li.wiped': function() {
       if (Meteor.isCordova) {  

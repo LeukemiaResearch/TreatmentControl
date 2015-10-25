@@ -1,5 +1,6 @@
 var EDITING_KEY = 'editingPlan';
 Session.setDefault(EDITING_KEY, false);
+Session.setDefault('hash', 'activehash');
 
 // Track if this is the first time the list template is rendered
 var firstRender = true;

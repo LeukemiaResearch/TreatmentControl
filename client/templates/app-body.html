@@ -56,7 +56,8 @@
           <!-- <hr> -->
           <!-- {{#with plans}} -->
           {{#each plans}}
-            <li class="wiped"><a href="{{pathFor 'plansShow'}}" class="list-todo {{activePlanClass}}" title="{{header.name}}">
+            <li class="wiped"><a class="list-todo {{activePlanClass}} hashroot" title="{{header.name}}">
+            <!-- <li class="wiped"><a href="{{pathFor 'plansShow' hash=this.params.hash }}" class="list-todo {{activePlanClass}}" title="{{header.name}}"> -->
               {{#if userId}}
                 <span class="icon-lock"></span>
               {{/if}}

@@ -1,5 +1,5 @@
  //tempsearch = {} 
-
+ 
 Template.search.events({
   'submit': function(event, template) {
     event.preventDefault();
@@ -39,7 +39,7 @@ Template.search.events({
      else {
       Plans.update(searchplan._id, {$set: {tempsearch : search , userId : Meteor.userId()}});
     // tempsearch = searchplan.tempsearch; 
-    Router.go('plansShow', {_id : searchplan._id});
+    Router.go('plansShow', {_id : searchplan._id} ,  {hash: Session.get('hash')});
      }
      
    }
