@@ -1,10 +1,10 @@
 App.info({
-  name: 'Todos',
-  description: 'A simple todo list app built in Meteor.',
-  author: 'Percolate Studio Team',
-  email: 'us@percolatestudio.com',
-  website: 'http://percolatestudio.com',
-  version: '0.0.1'
+  name: 'Leukemia Treatment Control App',
+  description: 'Treatment and schudle control prototype app built in Meteor.',
+  author: 'Atanas Antonov',
+  email: 'eferwe@yahoo.com',
+  website: 'http://',
+  version: '0.5.1'
 });
 
 App.icons({
