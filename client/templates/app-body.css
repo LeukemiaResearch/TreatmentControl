@@ -405,6 +405,11 @@ position: fixed;
         margin-top: 12px;
     }
 
+     h5.navtext,h4.navtext {
+        display: inline;
+        color:white;
+    }
+
 .fa-bars {
     color: #FFF;
      
