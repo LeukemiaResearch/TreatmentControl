@@ -1,6 +1,5 @@
 var EDITING_KEY = 'editingPlan';
 Session.setDefault(EDITING_KEY, false);
-Session.setDefault('hash', 'activehash');
 
 // Track if this is the first time the list template is rendered
 var firstRender = true;
@@ -41,7 +40,9 @@ Template.plansShow.onRendered(function() {
   };
 });
 
-
+// if (this.header && this.patient)  {
+//        if( this.header.pcreatin && this.patient.name && this.patient.cpr && this.patient.surface.value) { Session.set('hash', 'hash1'); } 
+//   };
 
 
 
@@ -165,7 +166,7 @@ Template.plansShow.helpers({
 
   
 
-  //DISABLE CHECKED OR UNACTIVE FORM FROM INPUT
+  //DISABLE CHECKED OR UNACTIVE FORM FROM INPUT    || treatment or blue session state ||
   dispatient : function (list) {
     if(this.treatments) {
       if (this.treatments.one.checked) { return 'disabled'; }
@@ -904,7 +905,7 @@ Template.plansShow.events({
       return Notifications.addNotification("Denied", "You must register the patient details first", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
 
-     Plans.update(this._id, {$set: {"treatments.one.checked": ! this.treatments.one.checked , "treatments.one.userId" : Meteor.userId()}});  
+     Plans.update(this._id, {$set: {"treatments.one.checked": ! this.treatments.one.checked , "treatments.one.userId" : Meteor.userId() , "hash" : "hash2"}});  
     // colorchange(this);
      console.log(this.treatments.one.checked);
      console.log(Meteor.userId());
@@ -937,7 +938,7 @@ Template.plansShow.events({
     //  }
 
     if( this.treatments.one.userId && this.treatments.one.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.one.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.one.userId" : true } , $set:{"hash" : "hash1"}});   
     }
 
   },
@@ -958,7 +959,7 @@ Template.plansShow.events({
       return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {     
-      Plans.update(this._id, {$set: {"treatments.two.checked": ! this.treatments.two.checked , "treatments.two.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.two.checked": ! this.treatments.two.checked , "treatments.two.userId" : Meteor.userId(),  "hash" : "hash3"}});  
     }
       
      if (this.treatments.two.checked === true) {     
@@ -968,7 +969,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.two.userId && this.treatments.two.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.two.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.two.userId" : true },  $set:{"hash" : "hash2"}});
     }
   },
 
@@ -1007,7 +1008,7 @@ Template.plansShow.events({
     }
     else {
       if (!this.treatments.tree.field5.pcreatin || !this.treatments.tree.createdAt) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
-      Plans.update(this._id, {$set: {"treatments.tree.checked": ! this.treatments.tree.checked , "treatments.tree.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.tree.checked": ! this.treatments.tree.checked , "treatments.tree.userId" : Meteor.userId(), "hash":"hash4"}});  
     }
       
      if (this.treatments.tree.checked === true) {     
@@ -1017,7 +1018,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.tree.userId && this.treatments.tree.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.tree.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.tree.userId" : true},  $set:{"hash" : "hash3"}});
     }
   },
 
@@ -1034,7 +1035,7 @@ Template.plansShow.events({
        return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-      Plans.update(this._id, {$set: {"treatments.four.checked": ! this.treatments.four.checked , "treatments.four.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.four.checked": ! this.treatments.four.checked , "treatments.four.userId" : Meteor.userId(), "hash":"hash5"}});  
     }
       
      if (this.treatments.four.checked === true) {     
@@ -1044,7 +1045,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.four.userId && this.treatments.four.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.four.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.four.userId" : true},  $set:{"hash" : "hash4"}});
     }
   },
 
@@ -1062,7 +1063,7 @@ Template.plansShow.events({
     }
     else {
      if (!this.treatments.five.field1.semtx || !this.treatments.five.field2.pcreatin || !this.treatments.five.field3.semtx) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
-      Plans.update(this._id, {$set: {"treatments.five.checked": ! this.treatments.five.checked , "treatments.five.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.five.checked": ! this.treatments.five.checked , "treatments.five.userId" : Meteor.userId(), "hash":"hash6"}});  
     }
       
      if (this.treatments.five.checked === true) {     
@@ -1072,7 +1073,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.five.userId && this.treatments.five.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.five.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.five.userId" : true},  $set:{"hash" : "hash5"}});
     }
   },
 
@@ -1089,7 +1090,7 @@ Template.plansShow.events({
       return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-      Plans.update(this._id, {$set: {"treatments.six.checked": ! this.treatments.six.checked , "treatments.six.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.six.checked": ! this.treatments.six.checked , "treatments.six.userId" : Meteor.userId(), "hash":"hash7"}});  
     }
       
      if (this.treatments.six.checked === true) {     
@@ -1099,7 +1100,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.six.userId  && this.treatments.six.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.six.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.six.userId" : true},  $set:{"hash" : "hash6"}});
     }
   },
 
@@ -1123,7 +1124,7 @@ Template.plansShow.events({
     else {
       if (!this.treatments.seven.field1.semtx || !this.treatments.seven.field2.pcreatin) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       if (confirm(message)) {
-     Plans.update(this._id, {$set: {"treatments.seven.checked": ! this.treatments.seven.checked , "treatments.seven.userId" : Meteor.userId()}});
+     Plans.update(this._id, {$set: {"treatments.seven.checked": ! this.treatments.seven.checked , "treatments.seven.userId" : Meteor.userId(),"hash":"hash8"}});
      }    else {return false;} 
         
     }
@@ -1135,7 +1136,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.seven.userId && this.treatments.seven.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.seven.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.seven.userId" : true}, $set:{"hash" : "hash7"}});
     }
   },
 
@@ -1154,6 +1155,12 @@ Template.plansShow.events({
     else {
       if (!this.treatments.eight.field1.semtx || !this.treatments.eight.field2.name) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.eight.checked": ! this.treatments.eight.checked , "treatments.eight.userId" : Meteor.userId()}});  
+            if (this.treatments.eight.field1.semtx>=0.01 && this.treatments.eight.field1.semtx < 0.6 ) {
+                Plans.update(this._id, {$set: {"hash":"hash9"}}); 
+            }
+            else  {
+                Plans.update(this._id, {$set: {"hash":"hash11"}}); 
+            }
     }
       
      if (this.treatments.eight.checked === true) {     
@@ -1163,7 +1170,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.eight.userId && this.treatments.eight.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.eight.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.eight.userId" : true},  $set:{"hash" : "hash8"}});
     }
   },
 
@@ -1181,7 +1188,7 @@ Template.plansShow.events({
     }
     else {
       if (!this.treatments.nine.hurtig.first.field1.semtx || !this.treatments.nine.hurtig.first.field2.name) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
-      Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.checked": ! this.treatments.nine.hurtig.first.checked , "treatments.nine.hurtig.first.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.checked": ! this.treatments.nine.hurtig.first.checked , "treatments.nine.hurtig.first.userId" : Meteor.userId(), "hash":"hash10"}});  
     }
       
      if (this.treatments.nine.hurtig.first.checked === true) {     
@@ -1191,7 +1198,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.nine.hurtig.first.userId && this.treatments.nine.hurtig.first.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.nine.hurtig.first.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.nine.hurtig.first.userId" : true},  $set:{"hash" : "hash9"}});
     }
   },
 
@@ -1222,7 +1229,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.nine.hurtig.second.userId && this.treatments.nine.hurtig.second.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.nine.hurtig.second.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.nine.hurtig.second.userId" : true},   $set:{"hash" : "hash10"}});
     }
   },
 
@@ -1240,7 +1247,7 @@ Template.plansShow.events({
     }
     else {
       if (!this.treatments.nine.normal.first.field1.semtx || !this.treatments.nine.normal.first.field2.name) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
-      Plans.update(this._id, {$set: {"treatments.nine.normal.first.checked": ! this.treatments.nine.normal.first.checked , "treatments.nine.normal.first.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.nine.normal.first.checked": ! this.treatments.nine.normal.first.checked , "treatments.nine.normal.first.userId" : Meteor.userId(), "hash":"hash12"}});  
     }
       
      if (this.treatments.nine.normal.first.checked === true) {     
@@ -1250,7 +1257,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.nine.normal.first.userId && this.treatments.nine.normal.first.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.nine.normal.first.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.nine.normal.first.userId" : true},  $set:{"hash" : "hash11"}});
     }
   },
 
@@ -1268,7 +1275,7 @@ Template.plansShow.events({
     }
     else {
       if (!this.treatments.nine.normal.second.field1.semtx || !this.treatments.nine.normal.second.field2.name) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
-      Plans.update(this._id, {$set: {"treatments.nine.normal.second.checked": ! this.treatments.nine.normal.second.checked , "treatments.nine.normal.second.userId" : Meteor.userId()}});  
+      Plans.update(this._id, {$set: {"treatments.nine.normal.second.checked": ! this.treatments.nine.normal.second.checked , "treatments.nine.normal.second.userId" : Meteor.userId(), "hash":"hash13"}});  
     }
       
      if (this.treatments.nine.normal.second.checked === true) {     
@@ -1278,7 +1285,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.nine.normal.second.userId && this.treatments.nine.normal.second.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.nine.normal.second.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.nine.normal.second.userId" : true},  $set:{"hash" : "hash12"}});
     }
   },
 
@@ -1306,7 +1313,7 @@ Template.plansShow.events({
          Session.set('checkedClass','');   
      }    
     if( this.treatments.nine.normal.third.userId && this.treatments.nine.normal.third.checked === true) {
-          Plans.update(this._id, {$unset: {"treatments.nine.normal.third.userId" : true}});
+          Plans.update(this._id, {$unset: {"treatments.nine.normal.third.userId" : true},  $set:{"hash" : "hash13"}});
     }
   },
   

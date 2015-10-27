@@ -219,7 +219,7 @@ Template.appBody.events({
 
      'click a.hashroot'  : function() {
     
-      Router.go('plansShow', {_id : this._id} ,  {hash: Session.get('hash')});
+      Router.go('plansShow', {_id : this._id} ,  {hash: this.hash });
       console.log(this._id);
      
       },
