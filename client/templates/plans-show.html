@@ -141,15 +141,13 @@
               <div class="form-group"> 
                <h6>Height: (cm)</h6><input class="form-control inputfield input-sm" name="patient.height" type="number" placeholder="Type to add patient height" value="{{patient.height}}" {{dispatient}}>
               </div>
-              <div class="form-group">  
-               <h6>Weight: (kg)</h6><input class="form-control inputfield input-sm" name="patient.weight" type="number" placeholder="Type to add patient weight" value="{{patient.weight}}" {{dispatient}}>
-              </div>
+             
             </form>
           </div>
           <div class="col-md-2 col-lg-2">
             <form class="js-todo-new todo-new input-symbol"> 
-              <div class="form-group">  
-                <h6>P-kreatin: µmol/l</h6><input class="form-control inputfield input-sm" name="header.pcreatin" type="number" placeholder="Type to add pcreatin" value="{{header.pcreatin}}" {{dispatient}}>
+               <div class="form-group">  
+               <h6>Weight: (kg)</h6><input class="form-control inputfield input-sm" name="patient.weight" type="number" placeholder="Type to add patient weight" value="{{patient.weight}}" {{dispatient}}>
               </div>
                <!-- <h6>Surface:</h6><input type="text" value="{{weight}}*{{height}}" disabled> -->
                <div class="form-group">
@@ -209,142 +207,174 @@
 <!-- BEGINING OF THE FORM!!! -->
 
     <!-- FIRST FORM  -->
-   <form class="active {{checkedClass1}}">    
+  <form class="active {{checkedClass1}}">    
     <hr>
          
         <div class="row">
           <div class="col-md-12" id="hash1">
-            <h3 class="title {{checkedClass1}}">First Treatment</h3>   
+            <h3 class="title {{checkedClass1}}">VÆSKEREGNSKAB:</h3>   
           </div>          
         </div>
         <hr>
       <!-- ROW for every line -->
 
-          <hr>
+          <!-- <hr>
           <div class="row firstel"><div class="col-md-12 text-center">
                 <h4 class="text center">Action take blood sample</h4> 
               </div>
           </div>
-          <hr>
-
+          <hr> -->
+      <form class="input-symbol">
       <div class="row firstel">   
-         <!-- {{#with treatments.[0]}} -->
-        <div class="col-md-2">
-            <!-- datetime -->
-            <h6>First registered at:</h6><input class="form-control inputfield input-sm" name="treatments.one.createdAt" type="datetime-local" value="{{treatments.one.createdAt}}" {{disone}}>
-        </div> 
         
-        <div class="col-md-7">
-            <h6>{{treatments.one.field1.text}}:</h6>
-         </div>
-        <div class="col-md-1">          
-         </div> 
-         <div class="col-md-1">
-          {{#if field1.value}} <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field1.value1}}">  {{/if}}
-         </div> 
-         <!-- {{/with}} -->
-      </div>
-      
-      <div class="row firstel">   
-         <!-- {{#with treatments.[0]}} -->
-        <div class="col-md-2">
-            <!-- datetime -->
-        </div> 
-        
-        <div class="col-md-8">
-            <h6>{{treatments.one.field2.text}}:</h6>
-         </div>
-        
-         <div class="col-md-1">
-           <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field2.value}}" disabled>  
-         </div> 
-         <div class="col-md-1"><h6>ml/time</h6></div>
-         <!-- {{/with}} -->
-      </div>
-      
-      <div class="row firstel">   
          <!-- {{#with treatments.[0]}} -->
         <div class="col-md-2 col-lg-2">
             <!-- datetime -->
+            
+                <div class="form-group">
+                    <h6>First registered at:</h6><input class="form-control inputfield input-sm" name="treatments.one.createdAt" type="datetime-local" value="{{treatments.one.createdAt}}" {{disone}}>
+                </div>
+                  
+         
         </div> 
         
-        <div class="col-md-8 col-lg-8">
-            <h6>{{treatments.one.field3.text}}:</h6>
-         </div>
-        
-         <div class="col-md-1 col-lg-1">
-          <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field3.value}}" disabled>   
-         <!-- {{/with}} -->
-        </div>
-        <div class="col-md-1 col-lg-1"><h6>ml/time</h6></div>
-        
-      </div>
+        <div class="col-md-7 col-lg-7">         
+              <div class="form-group">
+                <h6>{{treatments.one.field1.text}}:</h6>
+             </div>
+        </div>  <div class="col-md-2 col-lg-2"><div class="form-group">
+                    <input class="form-control inputfield input-sm" name="treatments.one.field1.pcreatin" type="number" placeholder="Type to insert value" value="{{treatments.one.field1.pcreatin}}" {{disone}}>
+                </div>  </div> <div class="col-md-1 col-lg-1"><div class="form-group"><h6>µmol/l</h6>
+                     
+                </div>  </div>
 
-          <hr>
-          <div class="row firstel"><div class="col-md-12 text-center">
-                <h4 class="text center">Action Instructions</h4> 
-              </div>
+
+           <div class="form-group">
+        <div class="col-md-7 col-lg-7">              
+                <h6>{{treatments.one.field2.text}}:</h6>          
+         </div> <div class="col-md-2 col-lg-2"> <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field2.value}}" disabled>  </div> <div class="col-md-1 col-lg-1">  <h6>ml/time</h6>  </div> </div>
+
+
+
+          <div class="form-group">
+            <div class="col-md-2 col-lg-2">&nbsp;</div> 
+        <div class="col-md-7 col-lg-7">  
+             
+                <h6>{{treatments.one.field3.text}}:</h6>
+            
+         </div> <div class="col-md-2 col-lg-2">   <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field3.value}}" disabled>  </div> <div class="col-md-1 col-lg-1">  <h6>ml/time</h6></div> </div>
+          
+
+         <div class="col-md-2 col-lg-2">&nbsp;</div> 
+         <div class="col-md-7 col-lg-7">  
+             <div class="form-group">
+                <h6>{{treatments.one.field4.text}}:</h6>
+             </div>
+          </div><div class="col-md-2 col-lg-2">&nbsp;</div><div class="col-md-1 col-lg-1">&nbsp;</div>
+       </div> 
+        
+
+
+        <div class="row firstel">             
+          <div class="col-md-2 col-lg-2">&nbsp;</div> 
+          <div class="col-md-7 col-lg-7"> 
+             <div class="form-group">
+                <h6>{{treatments.one.field5.text}}:</h6>
+             </div>
+          </div><div class="col-md-2 col-lg-2">&nbsp;</div><div class="col-md-1 col-lg-1"> &nbsp;</div>        
+        </div>     
+
+
+         <div class="row firstel">    
+            <div class="col-md-2 col-lg-2">&nbsp;</div> 
+           <div class="col-md-7 col-lg-7"> 
+             <div class="form-group">
+                <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.one.nurseNotes" tyepe="text" value="{{treatments.one.nurseNotes}}" {{disone}}>
+             </div>
+          </div><div class="col-md-2 col-lg-2">&nbsp;</div> <div class="col-md-1 col-lg-1">&nbsp;</div>
           </div>
-          <hr>
 
+        <!-- <div class="row firstel">  
+          <div class="col-md-2 col-lg-2">&nbsp;</div> 
+          <div class="col-md-7 col-lg-7"> 
+             <div class="form-group">
+               
+             </div>
+          </div><div class="col-md-2 col-lg-2">&nbsp;</div><div class="col-md-1 col-lg-1">&nbsp;</div>
+         
+        </div> -->  
+          <!-- <div class="col-md-2 col-lg-2">
+              
+                <div class="form-group">
+                    
+                </div>  
+
+                 <div class="form-group">  
+                    
+                 </div> 
+                    
+                 <div class="form-group">  
+                 
+                 </div> 
+                <div class="form-group">  
+                  
+                 </div> 
+                 <div class="form-group">  
+                 
+                 </div> 
+                 <div class="form-group">  
+                
+                 </div> 
+
+              
+          </div> -->
+
+
+
+         <!--  <div class="col-md-1 col-lg-1">
+              
+                <div class="form-group">
+                
+                </div>  
+                      
+                 <div class="form-group">  
+                  
+                 </div> 
+                    
+                 <div class="form-group">  
+               
+                 </div> 
+                 <div class="form-group">  
+               
+                 </div> 
+                 <div class="form-group">  
+               
+                 </div> 
+                 <div class="form-group">  
+               
+                 </div> 
+
+              
+          </div>
+ -->
+            
+        
+     </form>
+        
        
-      <div class="row firstel">   
-         <!-- {{#with treatments.[0]}} -->
-        <div class="col-md-2">
-            <!-- datetime -->
-        </div> 
-        
-        <div class="col-md-8">
-            <h6>{{treatments.one.field4.text}}:</h6>
-         </div>
-        
-         <div class="col-md-2">
-          <!-- <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.[0].value4}}">    -->
-         </div> 
-         <!-- {{/with}} -->
-      </div>
-        
-      <div class="row firstel">   
-         <!-- {{#with treatments.[0]}} -->
-        <div class="col-md-2">
-            <!-- datetime -->
-        </div> 
-        
-        <div class="col-md-8">
-            <h6>{{treatments.one.field5.text}}:</h6>
-         </div>
-        
-         <div class="col-md-2">
-          <!-- <input class="form-control"  type="number" placeholder="Type to insert value" value="{{treatments.[0].value5}}">    -->
-         </div> 
-         <!-- {{/with}} -->
-      </div>
-
-      <div class="row firstel">
-          <div class="col-md-2">         
-          </div>
-          <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.one.nurseNotes" tyepe="text" value="{{treatments.one.nurseNotes}}" {{disone}}>
-            <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
-          </div >
-          <div class="col-md-2">         
-          </div>
-          <div class="col-md-1">            
-          </div>
-      </div>
       <div class="row firstel">     
         <div class="col-md-12">
       
           <!-- <input type="checkbox" checked="{{treatments.one.checked}}" name="checked" value="{{treatments.one.checked}}"> Register Treatment -->
         <button type="button" name="checked" class="btn {{#if treatments.one.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.one.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
         </div>
-      </div>
+     <!--  </div> -->
 
       <!-- END ROW for every line -->
 
-
+      </div>
       <hr>
-    </form>
+  </form>
     
     <!-- SECOND FORM  --> 
     <form  class="active  {{checkedClass2}}">
@@ -352,21 +382,22 @@
       <hr>
        <div class="row" >
           <div class="col-md-12" id="hash2">
-            <h3 class="title {{checkedClass2}}">Treatment Time-4</h3>   
+            <h3 class="title {{checkedClass2}}">FORHYDRERING:</h3>   
           </div>          
         </div>
         <hr>
 
-          <hr>
+         <!--  <hr>
             <div class="row firstel"><div class="col-md-12 text-center">
                   <h4 class="text center">Action Instructions</h4> 
                 </div>
             </div>
-          <hr>
-
+          <hr> -->
+       <form class="form-group ">
       <div class="row firstel">
+     
         <div class="col-md-2">
-          <h6>Time -4</h6><input class="form-control inputfield input-sm" name="treatments.two.createdAt" type="datetime-local" value="{{treatments.two.createdAt}}" {{distwo}}>
+          <h6>Time -4</h6><input class="form-control inputfield input-sm" name="treatments.two.createdAt" type="datetime-local" value="{{treatments.two.createdAt}}" {{distwo}}> 
         </div>
         <div class="col-md-7">
           <h6>{{treatments.two.field1.text}}:</h6>
@@ -375,10 +406,13 @@
            <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.two.field1.value}}" disabled>  
          </div> 
          <div class="col-md-1"><h6>ml/time</h6></div>  
-      </div>
-      <div class="row firstel">
-          <div class="col-md-2">         
-          </div>
+
+      <!-- </div>
+      <div class="row firstel"> -->
+        
+          <!-- <div class="col-md-2">
+                    
+          </div> -->
           <div class="col-md-7">
             <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.two.nurseNotes" tyepe="text" value="{{treatments.two.nurseNotes}}" {{distwo}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
@@ -387,7 +421,9 @@
           </div>
           <div class="col-md-1">            
           </div>
+          
       </div>
+      </form>
       <div class="row firstel">
          <div class="col-md-12">
       <!-- <span class="input-group-addon"> -->
@@ -404,16 +440,16 @@
       <hr>
       <div class="row" >
           <div class="col-md-12" id="hash3">
-            <h3 class="title {{checkedClass3}}">Treatment Start Time</h3>   
+            <h3 class="title {{checkedClass3}}">MTX INFUSIONEN:   Starttidspunkt</h3>   
           </div>          
         </div>
         <hr>
-          <hr>
+          <!-- <hr>
             <div class="row firstel"><div class="col-md-12 text-center">
                   <h4 class="text center">Action Instructions</h4> 
                 </div>
             </div>
-          <hr>
+          <hr> -->
       <div class="row firstel">
           <div class="col-md-2">
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
@@ -474,12 +510,12 @@
           </div>
       </div> 
 
-          <hr>
+         <!--  <hr>
           <div class="row firstel"><div class="col-md-12 text-center">
                   <h4 class="text center">Action take blood sampe</h4> 
                 </div>
             </div>
-          <hr>
+          <hr> -->
 
       <div class="row firstel">
           <div class="col-md-2">
@@ -509,12 +545,12 @@
           </div>
       </div> 
       
-          <hr>
+        <!--   <hr>
           <div class="row firstel"><div class="col-md-12 text-center">
                   <h4 class="text center">Action enter values</h4> 
                 </div>
             </div>
-          <hr>
+          <hr> -->
 
 
       <div class="row firstel">
@@ -531,12 +567,12 @@
           </div>
       </div> 
 
-          <hr>
+         <!--  <hr>
           <div class="row firstel"><div class="col-md-12 text-center">
                   <h4 class="text center">Action Instructions</h4> 
                 </div>
             </div>
-          <hr>
+          <hr> -->
 
       <div class="row firstel">
           <div class="col-md-2">
@@ -576,7 +612,7 @@
       <hr>
       <div class="row" >
           <div class="col-md-12" id="hash4">
-            <h3 class="title {{checkedClass4}}">Treatment Time +1</h3>   
+            <h3 class="title {{checkedClass4}}">MTX INFUSIONEN: TID +1</h3>   
           </div>          
         </div>
         <hr>
@@ -625,7 +661,7 @@
      <hr>
       <div class="row" >
           <div class="col-md-12" id="hash5">
-            <h3 class="title {{checkedClass5}}">Treatment Time +23</h3>   
+            <h3 class="title {{checkedClass5}}">MTX INFUSIONEN: TID +23</h3>   
           </div>          
         </div>
         <hr>
@@ -699,7 +735,7 @@
        <hr>
        <div class="row" >
           <div class="col-md-12" id="hash6">
-            <h3 class="title {{checkedClass6}}">Treatment Time +24</h3>   
+            <h3 class="title {{checkedClass6}}">MTX INFUSIONEN: TID +24</h3>   
           </div>          
         </div>
         <hr>
@@ -745,7 +781,7 @@
      <hr>
       <div class="row" >
           <div class="col-md-12" id="hash7">
-            <h3 class="title {{checkedClass7}}">Treatment Time +36</h3>   
+            <h3 class="title {{checkedClass7}}">MONITORERING AF TOKSICITET: TID +36</h3>   
           </div>          
         </div>
         <hr>
@@ -834,7 +870,7 @@
       <hr>
       <div class="row" >
           <div class="col-md-12" id="hash8">
-            <h3 class="title {{checkedClass8}}">Treatment Time +42</h3>   
+            <h3 class="title {{checkedClass8}}">MONITORERING AF TOKSICITET: TID +42</h3>   
           </div>          
         </div>
         <hr>
@@ -965,7 +1001,7 @@
       <hr>
        <div class="row" >
           <div class="col-md-12" id="hash9">
-            <h3 class="title {{checkedClass9}}">Treatment Time +48</h3>   
+            <h3 class="title {{checkedClass9}}">MONITORERING AF TOKSICITET: TID +48</h3>   
           </div>          
         </div>
         <hr>
@@ -1028,7 +1064,7 @@
       <hr>
       <div class="row">
           <div class="col-md-12" id="hash10">
-            <h3 class="title {{checkedClass10}}">Treatment Time +54</h3>   
+            <h3 class="title {{checkedClass10}}">MONITORERING AF TOKSICITET: TID +54</h3>   
           </div>          
         </div>
         <hr>
@@ -1110,7 +1146,7 @@
       <hr>
       <div class="row" >
           <div class="col-md-12" id="hash11">
-            <h3 class="title {{checkedClass11}}">Treatment Time +48</h3>   
+            <h3 class="title {{checkedClass11}}">MONITORERING AF TOKSICITET: TID +48</h3>   
           </div>          
         </div>
         <hr>
@@ -1173,7 +1209,7 @@
       <hr>
        <div class="row" >
           <div class="col-md-12" id="hash12">
-            <h3 class="title {{checkedClass12}}">Treatment Time +54</h3>   
+            <h3 class="title {{checkedClass12}}">MONITORERING AF TOKSICITET: TID +54</h3>   
           </div>          
         </div>
         <hr>
@@ -1236,7 +1272,7 @@
       <hr>
       <div class="row" >
           <div class="col-md-12" id="hash13">
-            <h3 class="title {{checkedClass13}}">Treatment Time +66</h3>   
+            <h3 class="title {{checkedClass13}}">MONITORERING AF TOKSICITET: TID +66</h3>   
           </div>          
         </div>
         <hr>
@@ -1399,3 +1435,147 @@
 </template>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- FIRST FORM BEFORE REFACTURE  -->
+
+<!-- <form class="active {{checkedClass1}} input-symbol">    
+    <hr>
+         
+        <div class="row">
+          <div class="col-md-12" id="hash1">
+            <h3 class="title {{checkedClass1}}">VÆSKEREGNSKAB:</h3>   
+          </div>          
+        </div>
+        <hr>
+     
+
+      <div class="row firstel">   
+        
+        <div class="col-md-2">
+            
+            <h6>First registered at:</h6><input class="form-control inputfield input-sm" name="treatments.one.createdAt" type="datetime-local" value="{{treatments.one.createdAt}}" {{disone}}>
+        </div> 
+        
+        <div class="col-md-7">
+            <h6>{{treatments.one.field1.text}}:</h6>
+         </div>
+        <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.one.field1.pcreatin" type="number" placeholder="Type to insert value" value="{{treatments.one.field1.pcreatin}}" {{disone}}>
+          </div>
+          <div class="col-md-1">
+             <h6>µmol/l</h6>
+          </div>
+      
+      </div>
+      
+      <div class="row firstel">   
+       
+        <div class="col-md-2">
+          
+        </div> 
+        
+        <div class="col-md-8">
+            <h6>{{treatments.one.field2.text}}:</h6>
+         </div>
+        
+         <div class="col-md-1">
+           <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field2.value}}" disabled>  
+         </div> 
+         <div class="col-md-1"><h6>ml/time</h6></div>
+        
+      </div>
+      
+      <div class="row firstel">   
+        
+        <div class="col-md-2 col-lg-2">
+             
+        </div> 
+        
+        <div class="col-md-8 col-lg-8">
+            <h6>{{treatments.one.field3.text}}:</h6>
+         </div>
+        
+         <div class="col-md-1 col-lg-1">
+          <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field3.value}}" disabled>   
+         
+        </div>
+        <div class="col-md-1 col-lg-1"><h6>ml/time</h6></div>
+        
+      </div>
+
+         
+
+       
+      <div class="row firstel">   
+         
+        <div class="col-md-2">
+           
+        </div> 
+        
+        <div class="col-md-8">
+            <h6>{{treatments.one.field4.text}}:</h6>
+         </div>
+        
+         <div class="col-md-2">
+         
+         </div> 
+         
+      </div>
+        
+      <div class="row firstel">   
+         
+        <div class="col-md-2">
+          
+        </div> 
+        
+        <div class="col-md-8">
+            <h6>{{treatments.one.field5.text}}:</h6>
+         </div>
+        
+         <div class="col-md-2">
+        
+         </div> 
+        
+      </div>
+
+      <div class="row firstel">
+          <div class="col-md-2">         
+          </div>
+          <div class="col-md-7">
+            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.one.nurseNotes" tyepe="text" value="{{treatments.one.nurseNotes}}" {{disone}}>
+            
+          </div >
+          <div class="col-md-2">         
+          </div>
+          <div class="col-md-1">            
+          </div>
+      </div>
+      <div class="row firstel">     
+        <div class="col-md-12">
+      
+         
+        <button type="button" name="checked" class="btn {{#if treatments.one.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.one.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        </div>
+      </div>
+
+       
+
+      <hr>
+    </form>  -->

@@ -9,8 +9,8 @@ Meteor.startup(function () {
         // "createdAt" : new Date(),
         "createdAt" : new Date(),
         "name" : "General Plan",
-        "mtx" : "",
-        "pcreatin" : ""
+        "mtx" : ""
+       
     },
     "patient" : {
         "name" : "",
@@ -27,8 +27,8 @@ Meteor.startup(function () {
             "checked" : false,
             "createdAt" : "",
             "field1" : {
-                "text" : "Hydreringsvæske: 5% glucose tilsat 40 mmol Na-bicarbonat og 20 mmol KCl/liter",
-                "method" : "",
+                "text" : "Plasma kreatinin før start af kuren:",
+                "pcreatin" : "",
                 "value" : null
             },
             "field2" : {
@@ -59,6 +59,11 @@ Meteor.startup(function () {
                 "text" : "Forhydrering med hydreningsvæske starter. I alt 600 ml/m²/ 4 timer",
                 "method" : "Math.round(150*this.patient.surface.value)",
                 "value" : 0
+            },
+            "field2" : {
+                "text" : "Hydreringsvæske: 5% glucose tilsat 40 mmol Na-bicarbonat og 20 mmol KCl/liter",
+                "method" : "",
+                "value" : null
             }
             
         },
