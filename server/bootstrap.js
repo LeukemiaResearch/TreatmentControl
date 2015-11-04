@@ -18,7 +18,7 @@ Meteor.startup(function () {
         "height" : "",
         "weight" : "",
         "surface" : {
-            "method" : "(Math.sqrt(this.patient.height*this.patient.weight)/60)",
+            "method" : "(Math.sqrt(this.patient.height*this.patient.weight)/60).toFixed(2)",
             "value" : 0
         }
     },
