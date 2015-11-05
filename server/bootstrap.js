@@ -17,6 +17,7 @@ Meteor.startup(function () {
         "cpr" : "",
         "height" : "",
         "weight" : "",
+        "age" : "",
         "surface" : {
             "method" : "(Math.sqrt(this.patient.height*this.patient.weight)/60).toFixed(2)",
             "value" : 0
@@ -50,11 +51,39 @@ Meteor.startup(function () {
                 "text" : "Væskedøgn starter ved start på MTX-infusion (til tiden 0). MTX-væsken medregnes",
                 "method" : "",
                 "value" : null
+            },
+            "field6" : {
+                "text" : "Diuresemåling begynder. Diureser > 600 ml/m²/ 6 timer",
+                "method" : "Math.round(600*this.patient.surface.value)",
+                "value" : 0
+            },
+            "field7" : {
+                "text" : "Hvis diuresen er mindre gives furosemid 0,5 (- 1) mg/kg iv",
+                "method" : "Math.round(0.5*this.patient.weight)",
+                "value" : 0
+            },
+            "field8" : {
+                "text" : "Start urin-pH måling. pH måles i hver urinportion indtil pt. udskrives.",
+                "method" : "",
+                "value" : null
+            },
+            "field9" : {
+                "text" : "Ved urin-pH < 7: Giv Na-bicarbonat 20 mmol/m² iv over 30 min. i 40 ml hydreringsv.",
+                "method" : "Math.round(20*this.patient.surface.value)",
+                "value" : 0,
+                "pcreatin" : "22"
+            },
+            "field10" : {
+                "text" : "Ved urin pH > 8 skiftes til KNaG uden bicarbonat i 3 time. Når pH er under 8 skiftes til bicarbonatholdig hydrering"
             }
             
         },
         "two" : {
             "checked" : false,
+            "field0" : {
+                "text" : "Start iv. hydrening:",
+                "text1" : "Skriv dato to tid for start af hydrering"                
+            },
             "field1" : {
                 "text" : "Forhydrering med hydreningsvæske starter. I alt 600 ml/m²/ 4 timer",
                 "method" : "Math.round(150*this.patient.surface.value)",
@@ -70,8 +99,11 @@ Meteor.startup(function () {
         "tree" : {
             "createdAt" : "",
             "checked" : false,
+            "field0" : {
+                "text" : "Start bolusinfusion og skriv tidspunkt:"          
+            },
             "field1" : {
-                "text" : "Diuresemåling begynder. Diureser > 600 ml/m²/ 6 timer",
+                "text" : "Diuresemåling begynder. Diureser > 600 ml/m²/ 6 timer",          
                 "method" : "Math.round(600*this.patient.surface.value)",
                 "value" : 0
             },
@@ -107,8 +139,8 @@ Meteor.startup(function () {
             },
             "field8" : {
                 "text" : "Ved urin pH > 8 skiftes til KNaG uden bicarbonat i 3 time. Når pH er under 8 skiftes til bicarbonatholdig hydrering"
-            },
-            "value1" : "NaN"
+            }
+            
             
         },
         "four" : { "checked" : false,

@@ -141,6 +141,9 @@
               <div class="form-group"> 
                <h6>Height: (cm)</h6><input class="form-control inputfield input-sm" name="patient.height" type="number" placeholder="Type to add patient height" value="{{patient.height}}" {{dispatient}}>
               </div>
+              <div class="form-group"> 
+               <h6>Alder: (år)</h6><input class="form-control inputfield input-sm" name="patient.age" type="number" placeholder="Type to add patient height" value="{{patient.age}}" {{dispatient}}>
+              </div>
              
             </form>
           </div>
@@ -233,20 +236,17 @@
             
                 <div class="form-group">
                     <h6>First registered at:</h6><input class="form-control inputfield input-sm" name="treatments.one.createdAt" type="datetime-local" value="{{treatments.one.createdAt}}" {{disone}}>
-                </div>
-                  
-         
+                </div>                         
         </div> 
         
         <div class="col-md-7 col-lg-7">         
               <div class="form-group">
                 <h6>{{treatments.one.field1.text}}:</h6>
              </div>
-        </div>  <div class="col-md-2 col-lg-2"><div class="form-group">
+        </div><div class="col-md-2 col-lg-2"><div class="form-group">
                     <input class="form-control inputfield input-sm" name="treatments.one.field1.pcreatin" type="number" placeholder="Type to insert value" value="{{treatments.one.field1.pcreatin}}" {{disone}}>
-                </div>  </div> <div class="col-md-1 col-lg-1"><div class="form-group"><h6>µmol/l</h6>
-                     
-                </div>  </div>
+                </div></div> <div class="col-md-1 col-lg-1"><div class="form-group"><h6>µmol/l</h6>                    
+                </div></div>
 
 
            <div class="form-group">
@@ -258,10 +258,8 @@
 
           <div class="form-group">
             <div class="col-md-2 col-lg-2">&nbsp;</div> 
-        <div class="col-md-7 col-lg-7">  
-             
-                <h6>{{treatments.one.field3.text}}:</h6>
-            
+        <div class="col-md-7 col-lg-7">              
+                <h6>{{treatments.one.field3.text}}:</h6>         
          </div> <div class="col-md-2 col-lg-2">   <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field3.value}}" disabled>  </div> <div class="col-md-1 col-lg-1">  <h6>ml/time</h6></div> </div>
           
 
@@ -282,7 +280,82 @@
                 <h6>{{treatments.one.field5.text}}:</h6>
              </div>
           </div><div class="col-md-2 col-lg-2">&nbsp;</div><div class="col-md-1 col-lg-1"> &nbsp;</div>        
-        </div>     
+        </div>
+
+
+        <div class="row firstel">
+          <div class="col-md-2">           
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.one.field6.text}}:</h6>
+          </div >
+            <div class="col-md-2">
+              <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field6.value}}" disabled> 
+            </div>
+          <div class="col-md-1">
+            <h6>ml/6 timer</h6>
+          </div>
+        </div>
+
+
+        <div class="row firstel">
+          <div class="col-md-2">           
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.one.field7.text}}:</h6>
+          </div >
+            <div class="col-md-2">
+              <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field7.value}}" disabled> 
+            </div>
+          <div class="col-md-1">
+            <h6>mg</h6>
+          </div>
+        </div> 
+
+
+       <div class="row firstel">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.one.field8.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-1">
+          </div>
+      </div>  
+
+        
+
+        <div class="row firstel">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.one.field9.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.one.field9.value}}" disabled>
+          </div>
+          <div class="col-md-1"> 
+            <h6>mmol Na-bicarbonat</h6>
+          </div>
+        </div>      
+
+         
+         <div class="row firstel">
+            <div class="col-md-2">
+              <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+            </div>
+            <div class="col-md-7">
+              <h6><b>{{treatments.one.field10.text}}:</b></h6>
+            </div >
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-1">
+            </div>
+         </div>
 
 
          <div class="row firstel">    
@@ -376,6 +449,26 @@
       <hr>
   </form>
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- SECOND FORM  --> 
     <form  class="active  {{checkedClass2}}">
   
@@ -394,12 +487,31 @@
             </div>
           <hr> -->
        <form class="form-group ">
+
+      <div class="row firstel">     
+        <div class="col-md-2">
+          <h6>Time -4</h6> 
+        </div>
+        <div class="col-md-3">
+             <h4>{{treatments.two.field0.text}}:</h4>
+          </div>
+        <div class="col-md-4">         
+        </div>
+         <div class="col-md-2">           
+         </div> 
+         <div class="col-md-1"> </div>  
+      </div>    
+
+
       <div class="row firstel">
      
         <div class="col-md-2">
-          <h6>Time -4</h6><input class="form-control inputfield input-sm" name="treatments.two.createdAt" type="datetime-local" value="{{treatments.two.createdAt}}" {{distwo}}> 
+          <input class="form-control inputfield input-sm" name="treatments.two.createdAt" type="datetime-local" value="{{treatments.two.createdAt}}" {{distwo}}> 
         </div>
-        <div class="col-md-7">
+        <div class="col-md-3">
+            <h5>{{treatments.two.field0.text1}}:</h5>
+          </div>
+        <div class="col-md-4">
           <h6>{{treatments.two.field1.text}}:</h6>
         </div>
          <div class="col-md-2">
@@ -407,12 +519,31 @@
          </div> 
          <div class="col-md-1"><h6>ml/time</h6></div>  
 
-      <!-- </div>
-      <div class="row firstel"> -->
+      </div>
+      
+      <div class="row firstel">
+     
+          <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-3">
+            
+          </div>
+          <div class="col-md-4">
+            <h6>{{treatments.two.field2.text}}:</h6>
+          </div>
+           <div class="col-md-2">
+               
+           </div> 
+         <div class="col-md-1"></div>  
+
+      </div>
+
+      <div class="row firstel"> 
         
-          <!-- <div class="col-md-2">
+        <div class="col-md-2">
                     
-          </div> -->
+          </div> 
           <div class="col-md-7">
             <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.two.nurseNotes" tyepe="text" value="{{treatments.two.nurseNotes}}" {{distwo}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
@@ -435,6 +566,25 @@
       <hr>
     </form>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- THIRD FORM -->
     <form class="active {{checkedClass3}}">
       <hr>
@@ -453,73 +603,75 @@
       <div class="row firstel">
           <div class="col-md-2">
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
-            <h6>Time 0</h6><h6>Skriv start</h6><input class="form-control inputfield input-sm" name="treatments.tree.createdAt" type="datetime-local" value="{{treatments.tree.createdAt}}" {{disabled}}>
+            <h6>Time 0</h6><h6>Skriv start</h6> 
           </div>
           <div class="col-md-7">
-            <h6>{{treatments.tree.field1.text}}:</h6>
+            <!-- <h6>{{treatments.tree.field1.text}}:</h6> --><h5>{{treatments.tree.field0.text}}</h5>
           </div >
           <div class="col-md-2">
-            <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field1.value}}" disabled> 
+            <!-- <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field1.value}}" disabled>  --> 
           </div>
           <div class="col-md-1">
-            <h6>ml/6 timer</h6>
+            <!-- <h6>ml/6 timer</h6> -->
           </div>
       </div> 
 
       <div class="row firstel">
           <div class="col-md-2">
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
-           <!--  <h6>Skriv start</h6> -->
+           <!-- <h6>Skriv start</h6>  --><input class="form-control inputfield input-sm" name="treatments.tree.createdAt" type="datetime-local" value="{{treatments.tree.createdAt}}" {{disabled}}> 
           </div>
           <div class="col-md-7">
-             <h6>{{treatments.tree.field2.text}}:</h6>
+             <!-- <h6>{{treatments.tree.field2.text}}:</h6> --><h6>{{treatments.tree.field5.text}}:</h6>
           </div >
           <div class="col-md-2">
-            <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field2.value}}" disabled> 
+            <!-- <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field2.value}}" disabled>  --><input class="form-control inputfield input-sm" name="treatments.tree.field5.pcreatin" type="number" placeholder="Type to insert value" value="{{treatments.tree.field5.pcreatin}}" {{disabled}}>
           </div>
           <div class="col-md-1">
-            <h6>mg furosemid iv.</h6>
+            <!-- <h6>mg furosemid iv.</h6> --> <h6>µmol/l</h6>
           </div>
       </div>  
 
       <div class="row firstel">
           <div class="col-md-2">
-            <!-- <input class="form-control input-sm" name="regdate" type="date" value="{{treatments.tree.createdAt}}" {{disabled}}> -->
+               <!-- <input class="form-control inputfield input-sm" name="treatments.tree.createdAt" type="datetime-local" value="{{treatments.tree.createdAt}}" {{disabled}}> -->
           </div>
           <div class="col-md-7">
-            <h6>{{treatments.tree.field3.text}}:</h6>
+            <!-- <h6>{{treatments.tree.field3.text}}:</h6> --><h6>{{treatments.tree.field7.text}}:</h6>
           </div >
           <div class="col-md-2">
+            <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field7.value}}" disabled>
           </div>
           <div class="col-md-1">
+            <h6>mg MTX</h6>
           </div>
       </div> 
 
-      <div class="row firstel">
-          <div class="col-md-2">
+    <!--   <div class="row firstel">
+          <div class="col-md-2"> -->
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
-          </div>
-          <div class="col-md-7">
-            <h6>{{treatments.tree.field4.text}}:</h6>
-          </div >
-          <div class="col-md-2">
-            <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field4.value}}" disabled>
-          </div>
-          <div class="col-md-1"> 
-            <h6>mmol Na-bicarbonat</h6>
-          </div>
-      </div> 
-
+         <!--  </div>
+          <div class="col-md-7"> -->
+            <!-- <h6>{{treatments.tree.field4.text}}:</h6> -->
+         <!--  </div >
+          <div class="col-md-2"> -->
+            <!-- <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field4.value}}" disabled> -->
+         <!--  </div>
+          <div class="col-md-1">  -->
+            <!-- <h6>mmol Na-bicarbonat</h6> -->
+          <!-- </div> -->
+      <!-- </div>  -->
+ 
          <!--  <hr>
           <div class="row firstel"><div class="col-md-12 text-center">
                   <h4 class="text center">Action take blood sampe</h4> 
                 </div>
             </div>
-          <hr> -->
+          <hr>
 
       <div class="row firstel">
           <div class="col-md-2">
-            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+            
           </div>
           <div class="col-md-7">
             <h6>{{treatments.tree.field5.text}}:</h6>
@@ -528,22 +680,22 @@
             <input class="form-control inputfield input-sm" name="treatments.tree.field5.pcreatin" type="number" placeholder="Type to insert value" value="{{treatments.tree.field5.pcreatin}}" {{disabled}}>
           </div>
           <div class="col-md-1">
-             <h6>µmol/l</h6>
+            
           </div>
       </div> 
 
       <div class="row firstel">
           <div class="col-md-2">
-            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+            
           </div>
           <div class="col-md-7">
-            <h6>{{treatments.tree.field6.text}}:</h6>
+            
           </div >
           <div class="col-md-2">
           </div>
           <div class="col-md-1">
           </div>
-      </div> 
+      </div>  -->
       
         <!--   <hr>
           <div class="row firstel"><div class="col-md-12 text-center">
@@ -553,9 +705,9 @@
           <hr> -->
 
 
-      <div class="row firstel">
+      <!-- <div class="row firstel">
           <div class="col-md-2">
-            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+            
           </div>
           <div class="col-md-7">
             <h6>{{treatments.tree.field7.text}}:</h6>
@@ -564,8 +716,9 @@
             <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field7.value}}" disabled>
           </div>
           <div class="col-md-1">
+            <h6>mg MTX</h6>
           </div>
-      </div> 
+      </div>  -->
 
          <!--  <hr>
           <div class="row firstel"><div class="col-md-12 text-center">
@@ -574,18 +727,20 @@
             </div>
           <hr> -->
 
-      <div class="row firstel">
+      <!-- <div class="row firstel">
           <div class="col-md-2">
-            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+            
           </div>
           <div class="col-md-7">
-            <h6><b>{{treatments.tree.field8.text}}:</b></h6>
+             
           </div >
           <div class="col-md-2">
           </div>
           <div class="col-md-1">
           </div>
-      </div>
+      </div> -->
+
+
       <div class="row firstel">
           <div class="col-md-2">         
           </div>
@@ -606,6 +761,23 @@
       </div> 
       <hr>   
     </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- FORTH FORM -->
     <form class="active {{checkedClass4}}">
