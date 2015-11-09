@@ -606,7 +606,7 @@
             <h6>Time 0</h6><h6>Skriv start</h6> 
           </div>
           <div class="col-md-7">
-            <!-- <h6>{{treatments.tree.field1.text}}:</h6> --><h5>{{treatments.tree.field0.text}}</h5>
+            <!-- <h6>{{treatments.tree.field1.text}}:</h6> --><h4>{{treatments.tree.field0.text}}</h4>
           </div >
           <div class="col-md-2">
             <!-- <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.tree.field1.value}}" disabled>  --> 
@@ -791,7 +791,24 @@
        <div class="row firstel">
           <div class="col-md-2">
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
-             <h6>Time 1</h6><input class="form-control input-sm" type="datetime-local" value="{{time1}}" disabled>
+             <h6>Time 1</h6> 
+             <!-- <input class="form-control inputfield input-sm" name="treatments.four.createdAt" type="datetime-local" value="{{treatments.four.time.value}}" disabled> -->
+          </div>
+          <div class="col-md-7">
+            <h4>{{treatments.four.field0.text}}</h4>             
+          </div >
+          <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-1">
+           
+          </div>
+      </div>
+
+      <div class="row firstel">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+              <input class="form-control input-sm" type="datetime-local" value="{{time1}}" disabled>
              <!-- <input class="form-control inputfield input-sm" name="treatments.four.createdAt" type="datetime-local" value="{{treatments.four.time.value}}" disabled> -->
           </div>
           <div class="col-md-7">
@@ -804,6 +821,26 @@
             <h6>mg MTX</h6>
           </div>
       </div>
+
+
+      <div class="row firstel">
+          <div class="col-md-2">
+            <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
+              
+             <!-- <input class="form-control inputfield input-sm" name="treatments.four.createdAt" type="datetime-local" value="{{treatments.four.time.value}}" disabled> -->
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.four.field2.text}}</h6>             
+          </div >
+          <div class="col-md-2">
+           <input class="form-control input-sm"  type="number" placeholder="Type to insert value" value="{{treatments.four.field2.value}}" disabled> 
+          </div>
+          <div class="col-md-1">
+           <h6>ml/time</h6>
+          </div>
+      </div>
+
+
       <div class="row firstel">
           <div class="col-md-2">
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
@@ -828,6 +865,23 @@
       <hr>     
     </form>
 
+
+
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- FIFTH FORM -->
     <form class="active {{checkedClass5}}">
      <hr>
@@ -837,9 +891,27 @@
           </div>          
         </div>
         <hr>
+
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Time +23</h6><input class="form-control input-sm" type="datetime-local" value="{{time23}}" disabled>
+            <h6>Time +23</h6> 
+            <!-- <input class="form-control inputfield input-sm" name="treatments.five.createdAt" type="datetime-local" value="{{treatments.five.createdAt}}" {{disabled1}}> -->
+          </div>
+          <div class="col-md-7">
+            <h4>{{treatments.five.field0.text}}:</h4>
+          </div >
+          <div class="col-md-2">
+                         
+          </div>
+          <div class="col-md-1">
+            
+          </div>
+      </div> 
+
+
+      <div class="row firstel">
+          <div class="col-md-2">
+           <input class="form-control input-sm" type="datetime-local" value="{{time23}}" disabled>
             <!-- <input class="form-control inputfield input-sm" name="treatments.five.createdAt" type="datetime-local" value="{{treatments.five.createdAt}}" {{disabled1}}> -->
           </div>
           <div class="col-md-7">
@@ -874,7 +946,7 @@
             <h6>{{treatments.five.field3.text}}:</h6>
           </div >
           <div class="col-md-2">
-            <input class="form-control inputfield input-sm" name="treatments.five.field3.semtx" type="number" placeholder="Type to insert value" value="{{treatments.five.field3.semtx}}" {{disabled1}}>
+            <input class="form-control  input-sm" name="treatments.five.field3.semtx" type="number"   value="{{time23administrere}}" disabled>
           </div>
           <div class="col-md-1">
             <h6>mg MTX i.sp.</h6>
@@ -902,6 +974,22 @@
      <hr>
     </form>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- SIXTH FORM -->
     <form class="active {{checkedClass6}}">
        <hr>
@@ -913,19 +1001,109 @@
         <hr>
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Time +24</h6><input class="form-control input-sm" type="datetime-local" value="{{time24}}" disabled>
-            <!-- <input class="form-control inputfield input-sm" name="treatments.six.createdAt" type="datetime-local" value="{{treatments.six.time.value}}" disabled> -->
+            <h6>Time +24</h6> 
+           
+          </div>
+          <div class="col-md-7">
+            <h4>{{treatments.six.field0.text}}:</h4>
+          </div >
+          <div class="col-md-2">
+                 
+          </div>
+          <div class="col-md-1">
+           
+          </div>
+      </div>
+
+
+      <div class="row firstel">
+          <div class="col-md-2">
+            <input class="form-control input-sm" type="datetime-local" value="{{time24}}" disabled>
           </div>
           <div class="col-md-7">
             <h6>{{treatments.six.field1.text}}:</h6>
           </div >
           <div class="col-md-2">
-            <!-- <input class="form-control" name="semtx" type="number" placeholder="Type to insert value" value="{{treatments.[4].field1.semtx}}">    -->         
+                 <input class="form-control inputfield input-sm" name="treatments.six.field1.pcreatin" type="number" placeholder="Type to insert value" value="{{treatments.six.field1.pcreatin}}" {{dissix}}>    
           </div>
           <div class="col-md-1">
-            <!-- <h6>µmol/l</h6> -->
+            <h6>µmol/l</h6>
           </div>
-      </div>
+      </div>  
+
+      {{#if treatments.six.field2.value}}
+      <div class="row firstel">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-7">
+            <h4>{{treatments.six.field2.text}}:</h4>
+          </div >
+          <div class="col-md-2">                  
+          </div>
+          <div class="col-md-1">           
+          </div>
+      </div>  
+
+      
+      <div class="row firstel">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.six.field4.text}}:</h6>
+          </div >
+          <div class="col-md-2">   <input class="form-control  input-sm" name="treatments.six.field4.value" type="number"   value="{{treatments.six.field4.value}}" disabled>                
+          </div>
+          <div class="col-md-1"> <h6>ml/time</h6>           
+          </div>
+      </div>  
+
+
+       <div class="row firstel">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.six.field6.text}}:</h6>
+          </div >
+          <div class="col-md-2"> <input class="form-control  input-sm" name="treatments.six.field6.value" type="number"   value="{{treatments.six.field6.value}}" disabled>                     
+          </div>
+          <div class="col-md-1"> <h6>ml/6 timer</h6>            
+          </div>
+      </div>   
+
+
+      {{else}}
+
+      
+      
+      <div class="row firstel">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.six.field3.text}}:</h6>
+          </div >
+          <div class="col-md-2">   <input class="form-control  input-sm" name="treatments.six.field3.value" type="number"   value="{{treatments.six.field3.value}}" disabled>                
+          </div>
+          <div class="col-md-1"> <h6>ml/time</h6>           
+          </div>
+       </div>  
+
+
+       <div class="row firstel">
+          <div class="col-md-2">
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.six.field5.text}}:</h6>
+          </div >
+          <div class="col-md-2"> <input class="form-control  input-sm" name="treatments.six.field5.value" type="number"   value="{{treatments.six.field5.value}}" disabled>                     
+          </div>
+          <div class="col-md-1"> <h6>ml/6 timer</h6>            
+          </div>
+      </div>   
+
+    {{/if}}  
+    
+    
+
       <div class="row firstel">
           <div class="col-md-2">
            <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.six.createdAt" type="datetime-local" value="{{treatments.six.createdAt}}" {{dissix}}>         
@@ -948,6 +1126,21 @@
       <hr>
     </form>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- SEVENTH FORM -->
     <form class="active {{checkedClass7}}">
      <hr>
@@ -957,9 +1150,26 @@
           </div>          
         </div>
         <hr>
+       
+      
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Time +36</h6><input class="form-control input-sm" type="datetime-local" value="{{time36}}" disabled>
+            <h6>Time +36</h6> 
+            <!-- <input class="form-control inputfield input-sm" name="treatments.seven.createdAt" type="datetime-local" value="{{treatments.seven.createdAt}}" {{disabled2}}>  -->
+          </div>
+          <div class="col-md-7">
+            <h4>{{treatments.seven.field0.text}}:</h4>
+          </div >
+          <div class="col-md-2">                       
+          </div>
+          <div class="col-md-1">           
+          </div>
+      </div>   
+
+
+      <div class="row firstel">
+          <div class="col-md-2">
+             <input class="form-control input-sm" type="datetime-local" value="{{time36}}" disabled>
             <!-- <input class="form-control inputfield input-sm" name="treatments.seven.createdAt" type="datetime-local" value="{{treatments.seven.createdAt}}" {{disabled2}}>  -->
           </div>
           <div class="col-md-7">
@@ -972,6 +1182,9 @@
             <h6>µmol/l</h6>
           </div>
       </div> 
+
+
+
       <div class="row firstel">
           <div class="col-md-2">
              
@@ -987,23 +1200,57 @@
           </div>
       </div> 
       <br>
+
+
+      {{#if treatments.seven.field3.value}}
+
       <div class="row firstel">
-          <div class="col-md-2">
-          
+          <div class="col-md-2">         
           </div>
           <div class="col-md-7">
-            <h6>{{treatments.seven.field3.text}}:</h6>
+            <h4>{{treatments.seven.field3.text}}:</h4>
           </div >
           <div class="col-md-2">
-            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.seven.field3.value}}" disabled>
           </div>
-          <div class="col-md-1">
-            <h6>ml/time</h6>
+          <div class="col-md-1">          
           </div>
       </div>
+
+
+
       <div class="row firstel">
+          <div class="col-md-2">         
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.seven.field5.text}}:</h6>
+          </div >
           <div class="col-md-2">
-          
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.seven.field5.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>ml/6 timer</h6>
+          </div>
+      </div>
+
+       <div class="row firstel">
+          <div class="col-md-2">         
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.seven.field7.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.seven.field7.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>ml/6 timer</h6>
+          </div>
+      </div>
+
+     {{else}}   
+
+      
+      <div class="row firstel">
+          <div class="col-md-2">         
           </div>
           <div class="col-md-7">
             <h6>{{treatments.seven.field4.text}}:</h6>
@@ -1015,6 +1262,24 @@
             <h6>ml/6 timer</h6>
           </div>
       </div>
+
+       <div class="row firstel">
+          <div class="col-md-2">         
+          </div>
+          <div class="col-md-7">
+            <h6>{{treatments.seven.field6.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.seven.field6.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>ml/6 timer</h6>
+          </div>
+      </div>  
+
+      {{/if}}
+
+
       <div class="row firstel">
           <div class="col-md-2">
            <h6>Aktuel tide: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.seven.createdAt" type="datetime-local" value="{{treatments.seven.createdAt}}" {{disabled2}}>         
@@ -1036,6 +1301,24 @@
       </div>   
      <hr>
     </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- EIGHT FORM -->
     <form class="active {{checkedClass8}}">
@@ -1144,6 +1427,14 @@
       <hr>
     </form>
 
+
+
+
+
+
+
+
+
     <!-- LOGIC FOR CHANGE DIFF. PLANS -->
         {{#if treatments.nine.hurtig.visible.value}}
         <hr>       
@@ -1162,6 +1453,24 @@
         </div>          
          <hr> 
         {{/if}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     <!-- NINTH FORM-->
@@ -1230,6 +1539,12 @@
       </div> 
       <hr>
     </form>
+
+
+
+
+
+
 
       <!-- SECOND -->
       <form class="active {{checkedClass10}}">
@@ -1311,7 +1626,15 @@
     {{/if}}
     
 
+
+
+
+
+
+
     {{#if treatments.nine.normal.visible.value}}
+
+
     <!-- NORMAL -->
       <!--FIRST  -->
     <form class="active {{checkedClass11}}">
@@ -1376,6 +1699,12 @@
       <hr>
     </form>
 
+
+
+
+
+
+
       <!--SECOND FORM -->
       <form class="active {{checkedClass12}}">
       <hr>
@@ -1438,6 +1767,15 @@
       </div>
        <hr>
     </form>
+
+
+
+
+
+
+
+
+
       
     <!-- THIRD FORM -->
     <form class="active {{checkedClass13}}">

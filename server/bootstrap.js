@@ -149,18 +149,29 @@ Meteor.startup(function () {
             //      "value" : ""  
             // },
             "time" : 1,
+            "field0" : {
+                "text" : "Start kontinuerlig infusion af MTX:"          
+            },
             "field1" : {
                 "text" : "9/10 af MTX dosis gives på 23 timer. Hydreringsvæske reduceret til samlet 3000 ml/m2/døgn",
                 "method" : "Math.ceil(450*this.patient.surface.value-1)*10",
                 "value" : ""
+            },
+            "field2" : {
+                "text" : "Samlet mængde af MTX og hydreringsvæske: ",
+                "method" : "(Math.round(3000*this.patient.surface.value)/24).toFixed()",
+                "value" : "0"
             }
         },
         "five" : {
             "checked" : false,
             "time" : 23,
             "createdAt" : "",
+            "field0" : {
+                "text" : "Tag blodprøver plasma MTX og kreatinin før MTX infusionen stoppes"          
+            },
             "field1" : {
-                "text" : "Tag Se-MTX konc t23 (steady state, analyseres næste dag)  -- Se-MTX t23",
+                "text" : "Indtast plasma MTX:  Tag Se-MTX konc t23 (steady state, analyseres næste dag)  -- Se-MTX t23",
                 "semtx" : ""
             },
             "field2" : {
@@ -168,7 +179,7 @@ Meteor.startup(function () {
                 "pcreatin" : ""
             },
             "field3" : {
-                "text" : "Pt. køres på OP til MTX is. ",
+                "text" : "Administrere:  Der skal gives intraspinal MTX dosis",
                 "semtx" : ""
             }
             
@@ -177,8 +188,37 @@ Meteor.startup(function () {
             "checked" : false,
             "time" : 24,
             "createdAt" : "",
+            "field0" : {
+                "text" : "Stop MTX infusionen når hele kuren er løbet ind"
+            },
             "field1" : {
-                "text" : "MTX infusionen afsluttes - hydreringsvæskens hastighed øges"
+                "text" : "Indtast blodprøveværdi:    -- P-kreatin",
+                "pcreatin" : ""
+            },
+            "field2" : {
+                "text" : "OPMÆRKSOM: Patienten er i høj-risiko for at have forsinket MTX udskillelse." ,
+                "method" : "(this.treatments.six.field1.pcreatin > (this.treatments.one.field1.pcreatin*1.5))" ,
+                "value" : ""                            
+            },
+            "field3" : {
+                "text" : "Hydreringen fortsættes med 3000 ml/m²/døgn svarende til        Hydrering: ",
+                "method" : "(Math.round(3000*this.patient.surface.value)/24).toFixed()" ,
+                "value" : ""                  
+            },
+            "field4" : {
+                "text" : "Hydreringen øges til 4500 ml/m²/døgn svt.         Hydrering: ",
+                "method" : "(Math.round(4500*this.patient.surface.value)/24).toFixed()" ,
+                "value" : ""                 
+            },
+            "field5" : {
+                "text" : "Diuresen skal være over 600 ml/m²/ 6 timer svt." ,
+                "method" : "Math.round(600*this.patient.surface.value).toFixed()" ,
+                "value" : ""                                   
+            },
+            "field6" : {
+                "text" : "Diuresen skal være over 900 ml/m²/ 6 timer svt." ,
+                "method" : "Math.round(900*this.patient.surface.value).toFixed()" ,
+                "value" : ""                                
             }
            
         },
@@ -186,6 +226,9 @@ Meteor.startup(function () {
             "checked" : false,
             "time" : 36,
             "createdAt" : "",
+            "field0" : {
+                "text" : "Tag blodprøver plasma MTX og kreatinin"                 
+            },
             "field1" : {
                 "text" : "Tag Se-MTX konc t36 (analyseres sammen med Se-MTX t42 og Se-MTX t23) -- Se-MTX t36",
                 "semtx" : ""
@@ -195,14 +238,29 @@ Meteor.startup(function () {
                 "pcreatin" : ""
             },
             "field3" : {
-                "text" : "Hvis P-kreatinin t23 eller t36 er steget > 50% eller Se-MTX t36 > 3,0 µmol/l: --- øges hydreringsvæsken til 4500 ml/m²/24 timer",
-                "method" : "(Math.round(4500*this.patient.surface.value)/24).toFixed()",
-                "value" : "0"
+                "text" : "OPMÆRKSOM: Patienten er i høj-risiko for at have forsinket MTX udskillelse." ,
+                "method" : "(this.treatments.seven.field2.pcreatin > (this.treatments.one.field1.pcreatin*1.5) || this.treatments.seven.field1.semtx > 3)" ,
+                "value" : ""                            
             },
             "field4" : {
-                "text" : "Diurese: 900 ml/m²/ 6 timer",
-                "method" : "Math.round(900*this.patient.surface.value).toFixed()",
-                "value" : "0"
+                "text" : "Hydreringen fortsættes med 3000 ml/m²/døgn svarende til        Hydrering: ",
+                "method" : "(Math.round(3000*this.patient.surface.value)/24).toFixed()" ,
+                "value" : ""                  
+            },
+            "field5" : {
+                "text" : "Hydreringen øges til 4500 ml/m²/døgn svt.         Hydrering: ",
+                "method" : "(Math.round(4500*this.patient.surface.value)/24).toFixed()" ,
+                "value" : ""                 
+            },
+            "field6" : {
+                "text" : "Diuresen skal være over 600 ml/m²/ 6 timer svt." ,
+                "method" : "Math.round(600*this.patient.surface.value).toFixed()" ,
+                "value" : ""                                   
+            },
+            "field7" : {
+                "text" : "Diuresen skal være over 900 ml/m²/ 6 timer svt." ,
+                "method" : "Math.round(900*this.patient.surface.value).toFixed()" ,
+                "value" : ""                                
             }
             
         },

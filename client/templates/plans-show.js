@@ -290,6 +290,25 @@ Template.plansShow.helpers({
   }
   },
 
+  // disabled9 : function (list) {
+  //   // if(this.treatments.nine.normal.third.field1.semtx && this.treatments.nine.normal.third.createdAt && this.treatments.nine.normal.third.field2.pcreatin && this.treatments.nine.normal.third.field4.name) {
+  //   //   Session.set("disabled", "ready");
+  //   // }
+  //   if (this.treatments)  {
+  //   if(this.treatments.six.checked || Session.equals("six" , "blue")) { return 'disabled'; }
+  // }
+  // },
+
+
+
+  time23administrere : function(list){
+    if (this.patient.age < 2){
+      return 8;
+    } 
+    if (this.patient.age >= 2 && this.patient.age <= 3){ return 10;}
+    if (this.patient.age > 3 ) {return 12;}
+  },
+
 
 
 
@@ -900,7 +919,7 @@ Template.plansShow.events({
     //  return alert("You cannot unregister this treatment before unregister the next one!");
       return Notifications.addNotification("Denied", "You cannot unregister this treatment before unregister the next one!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
-    if (!this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { 
+    if (!this.patient.age || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { 
      // return alert("You must register the patient details first"); 
       return Notifications.addNotification("Denied", "You must register the patient details first", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
@@ -1062,7 +1081,7 @@ Template.plansShow.events({
       return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-     if (!this.treatments.five.field1.semtx || !this.treatments.five.field2.pcreatin || !this.treatments.five.field3.semtx) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+     if (!this.treatments.five.field1.semtx || !this.treatments.five.field2.pcreatin ) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.five.checked": ! this.treatments.five.checked , "treatments.five.userId" : Meteor.userId(), "hash":"hash6"}});  
     }
       
