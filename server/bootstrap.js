@@ -268,12 +268,35 @@ Meteor.startup(function () {
             "checked" : false,
             "time" : 42,
             "createdAt" : "",
+            "visible1" : {
+                    "method" : "(this.treatments.eight.field1.semtx>= 1 && this.treatments.eight.field1.semtx<2)",
+                    "value" : ""
+                },
+            "visible2" : {
+                    "method" : "(this.treatments.eight.field1.semtx>= 2 && this.treatments.eight.field1.semtx<3)",
+                    "value" : ""
+                },
+            "visible3" : {
+                    "method" : "(this.treatments.eight.field1.semtx>= 3 && this.treatments.eight.field1.semtx<4)",
+                    "value" : ""
+                },
+            "visible4" : {
+                    "method" : "(this.treatments.eight.field1.semtx>= 4 && this.treatments.eight.field1.semtx<5)",
+                    "value" : ""
+                },
+            "visible5" : {
+                    "method" : "(this.treatments.eight.field1.semtx>= 5)",
+                    "value" : ""
+                }, 
+            "field0" : {
+                "text" : "Tag blodprøve plasma MTX"                 
+            },
             "field1" : {
                 "text" : "Tag Se-MTX konc t42 (analyseres sammen med Se-MTX t36 og Se-MTX t23)  -- Se-MTX t42:",
                 "semtx" : ""
             },
             "field2" : {
-                "text" : "1. calciumfolinat-dosis 15 mg/m².   Givet af:",
+                "text" : "Administrere:   1. calciumfolinat-dosis 15 mg/m².   Givet af:",
                 "name" : "",
                 "method" : "Math.round(15*this.patient.surface.value).toFixed()",
                 "value" : "0"
@@ -282,9 +305,44 @@ Meteor.startup(function () {
                 "text" : "Opstart evt. calciumfolinat mundskyl"
             },
             "field4" : {
-                "text" : "For se-MTX konc t42 >1,0 µmol/l (langsom udskillelse) fortsættes på skema for senudskillelse"
+                "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t42.   Givet af:",
+                "name" : "",
+                "method" : "Math.round(15*this.patient.surface.value).toFixed()",
+                "value" : "0"
+                
             },
             "field5" : {
+                "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t42.   Givet af:",
+                "name" : "",
+                "method" : "Math.round(30*this.patient.surface.value).toFixed()",
+                "value" : "0"
+                
+            },
+            "field6" : {
+                "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t42.   Givet af:",
+                "name" : "",
+                "method" : "Math.round(45*this.patient.surface.value).toFixed()",
+                "value" : "0"
+                
+            },
+            "field7" : {
+                "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t42.   Givet af:",
+                "name" : "",
+                "method" : "Math.round(60*this.patient.surface.value).toFixed()",
+                "value" : "0"
+                
+            },
+            "field8" : {
+                "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t42.   Givet af:",
+                "name" : "",
+                "method" : "Math.round(this.treatments.eight.field1.semtx*this.patient.weight)",
+                "value" : "0"
+                
+            },
+            "field9" : {
+                "text" : "For se-MTX konc t42 >1,0 µmol/l (langsom udskillelse) fortsættes på skema for senudskillelse"
+            },
+            "field10" : {
                 "text" : "For se-MTX konc t42 <0,6 µmol/l (hurtig udskillelse) fortsæt på dette skema t48:"
             }
             

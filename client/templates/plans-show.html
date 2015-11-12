@@ -942,8 +942,11 @@
           <div class="col-md-2">
           
           </div>
-          <div class="col-md-7">
+          <div class="col-md-5">
             <h6>{{treatments.five.field3.text}}:</h6>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.five.field3.createdAt" type="datetime-local" value="{{treatments.five.field3.createdAt}}" {{disabled1}}>
           </div >
           <div class="col-md-2">
             <input class="form-control  input-sm" name="treatments.five.field3.semtx" type="number"   value="{{time23administrere}}" disabled>
@@ -1331,7 +1334,24 @@
         <hr>
       <div class="row firstel">
         <div class="col-md-2">
-             <h6>Time +42</h6><input class="form-control input-sm" type="datetime-local" value="{{time42}}" disabled>
+             <h6>Time +42</h6> 
+             <!-- <input class="form-control inputfield input-sm" name="treatments.eight.createdAt" type="datetime-local" value="{{treatments.eight.createdAt}}" {{disabled3}}> -->
+          </div>
+        <div class="col-md-7">
+            <h4>{{treatments.eight.field0.text}}:</h4>
+          </div>
+        <div class="col-md-2">
+                      
+          </div>
+          <div class="col-md-1">
+             
+          </div>    
+      </div>
+
+      
+      <div class="row firstel">
+        <div class="col-md-2">
+             <input class="form-control input-sm" type="datetime-local" value="{{time42}}" disabled>
              <!-- <input class="form-control inputfield input-sm" name="treatments.eight.createdAt" type="datetime-local" value="{{treatments.eight.createdAt}}" {{disabled3}}> -->
           </div>
         <div class="col-md-7">
@@ -1343,7 +1363,9 @@
           <div class="col-md-1">
             <h6>µmol/l</h6>
           </div>    
-      </div>
+      </div>  
+
+
       <div class="row firstel">
         <div class="col-md-2">
               
@@ -1361,6 +1383,9 @@
             <h6>mg iv.</h6>
           </div>   
       </div>
+
+
+
       <div class="row firstel">
         <div class="col-md-2">
             
@@ -1376,12 +1401,122 @@
           </div> 
       </div>
       <br>
+
+      {{#if treatments.eight.visible1.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.eight.field4.text}}</h6>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control inputfield input-sm" name="treatments.eight.field4.name" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field4.name}}" {{disabled3}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.eight.field4.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.eight.visible2.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.eight.field5.text}}</h6>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control inputfield input-sm" name="treatments.eight.field5.name" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field5.name}}" {{disabled3}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.eight.field5.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.eight.visible3.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.eight.field6.text}}</h6>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control inputfield input-sm" name="treatments.eight.field6.name" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field6.name}}" {{disabled3}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.eight.field6.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+       {{#if treatments.eight.visible4.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.eight.field7.text}}</h6>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control inputfield input-sm" name="treatments.eight.field7.name" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field7.name}}" {{disabled3}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.eight.field7.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.eight.visible5.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.eight.field8.text}}</h6>
+          </div>
+          <div class="col-md-4">
+            <input class="form-control inputfield input-sm" name="treatments.eight.field8.name" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field8.name}}" {{disabled3}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.eight.field8.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
       <div class="row firstel">
         <div class="col-md-2">
             
           </div>
           <div class="col-md-7">
-             <h6><b>{{treatments.eight.field4.text}}</b></h6>
+             <h6><b>{{treatments.eight.field9.text}}</b></h6>
           </div >
           <div class="col-md-2">
                  
@@ -1394,9 +1529,13 @@
       <div class="row firstel">
         <div class="col-md-2">
             
+
+
+
+
           </div>
           <div class="col-md-7">
-             <h6><b>{{treatments.eight.field5.text}}</b></h6>
+             <h6><b>{{treatments.eight.field10.text}}</b></h6>
           </div >
           <div class="col-md-2">
                  

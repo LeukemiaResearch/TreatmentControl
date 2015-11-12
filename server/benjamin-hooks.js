@@ -1,4 +1,6 @@
 // Hook for benjaminrh:event-hooks 
+// Unmark the bellow lines if you want to turn on the auto logout functionality 
+
 
 // Hooks.onLoggedOut = function () {
 //     var user = Plans.findOne({userId: Meteor.userId()});

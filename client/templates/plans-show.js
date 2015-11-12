@@ -1081,7 +1081,7 @@ Template.plansShow.events({
       return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-     if (!this.treatments.five.field1.semtx || !this.treatments.five.field2.pcreatin ) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+     if (!this.treatments.five.field1.semtx || !this.treatments.five.field2.pcreatin || !this.treatments.five.field3.createdAt) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.five.checked": ! this.treatments.five.checked , "treatments.five.userId" : Meteor.userId(), "hash":"hash6"}});  
     }
       
