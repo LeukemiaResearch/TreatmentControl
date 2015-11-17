@@ -359,6 +359,29 @@ Meteor.startup(function () {
                 "first" : {
                     "checked" : false,
                     "createdAt" : "",
+                    "visible1" : {
+                            "method" : "(this.treatments.nine.hurtig.first.field1.semtx>= 1 && this.treatments.nine.hurtig.first.field1.semtx<2)",
+                            "value" : ""
+                        },
+                    "visible2" : {
+                            "method" : "(this.treatments.nine.hurtig.first.field1.semtx>= 2 && this.treatments.nine.hurtig.first.field1.semtx<3)",
+                            "value" : ""
+                        },
+                    "visible3" : {
+                            "method" : "(this.treatments.nine.hurtig.first.field1.semtx>= 3 && this.treatments.nine.hurtig.first.field1.semtx<4)",
+                            "value" : ""
+                        },
+                    "visible4" : {
+                            "method" : "(this.treatments.nine.hurtig.first.field1.semtx>= 4 && this.treatments.nine.hurtig.first.field1.semtx<5)",
+                            "value" : ""
+                        },
+                    "visible5" : {
+                            "method" : "(this.treatments.nine.hurtig.first.field1.semtx>= 5)",
+                            "value" : ""
+                        }, 
+                    "field0" : {
+                        "text" : "Tag blodprøve plasma MTX"                 
+                    },
                     "field1" : {
                         "text" : "Tag Se-MTX konc t48 (analyseres med Se-MTX t54 næste dag) --Se-MTX t48: ",
                         "semtx" : ""
@@ -368,12 +391,50 @@ Meteor.startup(function () {
                         "name" : "",
                         "method" : "Math.round(15*this.patient.surface.value).toFixed()",
                         "value" : "0"
+                    },
+                    "field3" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t48.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(15*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                
+                     },
+                    "field4" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t48.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(30*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field5" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t48.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(45*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field6" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t48.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(60*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field7" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t48.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(his.treatments.nine.hurtig.first.field1.semtx*this.patient.weight)",
+                        "value" : "0"
+                        
                     }
                     
                 },
                 "second" : {
                     "checked" : false,
                     "createdAt" : "",
+                    "field0" : {
+                        "text" : "Tag blodprøve plasma MTX"                 
+                    },
                     "field1" : {
                         "text" : "Tag Se-MTX konc t54 (analyseres med Se-MTX t48 næste dag) --Se-MTX t54: ",
                         "semtx" : ""
@@ -400,6 +461,9 @@ Meteor.startup(function () {
                     "checked" : false,
                     "time" : 48,
                     "createdAt" : "",
+                    "field0" : {
+                        "text" : "Tag blodprøve plasma MTX"                 
+                    },
                     "field1" : {
                         "text" : "Tag Se-MTX konc t48 (analyseres med Se-MTX t54 og Se-MTX t66 næste dag) --Se-MTX t48:",
                         "semtx" : ""
@@ -416,6 +480,9 @@ Meteor.startup(function () {
                     "checked" : false,
                     "time" : 54,
                     "createdAt" : "",
+                    "field0" : {
+                        "text" : "Tag blodprøve plasma MTX"                 
+                    },
                     "field1" : {
                         "text" : "Tag Se-MTX konc t54 (analyseres med Se-MTX t48 og Se-MTX t66 næste dag) --Se-MTX t54:",
                         "semtx" : ""
@@ -432,6 +499,9 @@ Meteor.startup(function () {
                     "checked" : false,
                     "time" : 66,
                     "createdAt" : "",
+                    "field0" : {
+                        "text" : "Tag blodprøve plasma MTX"                 
+                    },
                     "field1" : {
                         "text" : "Tag Se-MTX konc t66 (analyseres med Se-MTX t48 og Se-MTX t54 næste dag) --Se-MTX t66:",
                         "semtx" : ""

@@ -6,7 +6,7 @@
         <div class="row">
           <div class="col-md-2">
             <!-- date time -->
-            <h6>Document created at:</h6><input class="form-control input-sm" name="header.createdAt" type="datetime-local" value="{{header.createdAt}}" disabled>
+            <h6>Dokument oprettet på:</h6><input class="form-control input-sm" name="header.createdAt" type="datetime-local" value="{{header.createdAt}}" disabled>
             <!-- <h6>Dato:</h6>{{#autoForm id="afUpdateDemo" schema="Schemas.plans" type=update collection=Collections.Plans doc=selectedPersonDoc autosave=true}}
   {{> afQuickField name="datetimepicker" type="bootstrap-datetimepicker"}}
  {{/autoForm}} -->
@@ -24,7 +24,7 @@
             <div class="form-group"> 
                  <h6>MTX nr: {{header.mtx}}</h6>
                   <select class="mtx-option" {{dispatient}}>>
-              <option disabled selected>Select MTX nr</option>             
+              <option disabled selected>Vælg MTX nr</option>             
                 <option value="1">1</option>             
                 <option value="2">2</option>           
               <option value="3">3</option>
@@ -42,7 +42,7 @@
        <div class="row">
         <div class="col-md-2">
             <!-- date time -->
-            <h6>Document created at:</h6><input class="form-control input-sm " name="header.createdAt" type="datetime-local" value="{{header.createdAt}}" disabled>
+            <h6>Dokument oprettet på:</h6><input class="form-control input-sm " name="header.createdAt" type="datetime-local" value="{{header.createdAt}}" disabled>
          <!--    {{#autoForm collection="Try" id="plansShow" type="update" autosave=true}}
     
     <div class="clearfix">
@@ -73,13 +73,13 @@
         <div class="nav-group right">
           <div class="nav-item options-mobile">
             <select class="list-edit">
-              <option disabled selected>Select an action</option>
+              <option disabled selected>Vælg en handling</option>
               {{#if userId}}
-                <option value="public">Make Public</option>
+                <option value="public">Lav Public</option>
               {{else}}
-                <option value="private">Make Private</option>
+                <option value="private">Lav Privat</option>
               {{/if}}
-              <option value="delete">Delete</option>
+              <option value="delete">Slet</option>
             </select>
             <span class="icon-cog"></span>
           </div>
@@ -102,7 +102,7 @@
             <div class="form-group"> 
                  <h6>MTX nr: {{header.mtx}}</h6>
                   <select class="mtx-option" {{dispatient}}>>
-              <option disabled selected>Select MTX nr</option>             
+              <option disabled selected>Vælg MTX nr</option>             
                 <option value="1">1</option>             
                 <option value="2">2</option>           
               <option value="3">3</option>
@@ -124,7 +124,7 @@
                <!-- <span class="icon-add js-todo-add"></span>                       -->
                   <div class="form-group">
                  <!-- <h6>Patient Name:</h6><input class="form-control inputfield" name="patientname" type="text" placeholder="Type to add Patient Name" value="{{patient.name}}" >  -->
-                   <h6>Patient Name:</h6><input class="form-control inputfield input-sm" name="patient.name" type="text" placeholder="Type to add Patient Name" value="{{patient.name}}" {{dispatient}}>
+                   <h6>Patient navn:</h6><input class="form-control inputfield input-sm" name="patient.name" type="text" placeholder="Type to add Patient Name" value="{{patient.name}}" {{dispatient}}>
                  </div>
                  <div class="form-group">
                    <h6>CPR:</h6><input class="form-control inputfield input-sm" name="patient.cpr" type="number" placeholder="Type to add CPR number" value="{{patient.cpr}}" {{dispatient}}>
@@ -139,7 +139,7 @@
                 
               
               <div class="form-group"> 
-               <h6>Height: (cm)</h6><input class="form-control inputfield input-sm" name="patient.height" type="number" placeholder="Type to add patient height" value="{{patient.height}}" {{dispatient}}>
+               <h6>Højde: (cm)</h6><input class="form-control inputfield input-sm" name="patient.height" type="number" placeholder="Type to add patient height" value="{{patient.height}}" {{dispatient}}>
               </div>
               <div class="form-group"> 
                <h6>Alder: (år)</h6><input class="form-control inputfield input-sm" name="patient.age" type="number" placeholder="Type to add patient height" value="{{patient.age}}" {{dispatient}}>
@@ -150,11 +150,11 @@
           <div class="col-md-2 col-lg-2">
             <form class="js-todo-new todo-new input-symbol"> 
                <div class="form-group">  
-               <h6>Weight: (kg)</h6><input class="form-control inputfield input-sm" name="patient.weight" type="number" placeholder="Type to add patient weight" value="{{patient.weight}}" {{dispatient}}>
+               <h6>Vægt: (kg)</h6><input class="form-control inputfield input-sm" name="patient.weight" type="number" placeholder="Type to add patient weight" value="{{patient.weight}}" {{dispatient}}>
               </div>
                <!-- <h6>Surface:</h6><input type="text" value="{{weight}}*{{height}}" disabled> -->
                <div class="form-group">
-                 <h6>Surface: m²</h6><input class="form-control input-sm" type="number" value="{{patient.surface.value}}" disabled>
+                 <h6>Overflade: m²</h6><input class="form-control input-sm" type="number" value="{{patient.surface.value}}" disabled>
                </div>
             </form>
           </div>
@@ -178,7 +178,7 @@
       <!-- {{#if header.mtx}} -->
       <div class="row" > 
       <hr>
-      <h2 class="title">Treatments</h2>
+      <h2 class="title">Trin</h2>
       <hr>
       </div>
       <!-- {{#if todosReady}}
@@ -235,7 +235,7 @@
             <!-- datetime -->
             
                 <div class="form-group">
-                    <h6>First registered at:</h6><input class="form-control inputfield input-sm" name="treatments.one.createdAt" type="datetime-local" value="{{treatments.one.createdAt}}" {{disone}}>
+                    <h6>Først registreret på:</h6><input class="form-control inputfield input-sm" name="treatments.one.createdAt" type="datetime-local" value="{{treatments.one.createdAt}}" {{disone}}>
                 </div>                         
         </div> 
         
@@ -362,7 +362,7 @@
             <div class="col-md-2 col-lg-2">&nbsp;</div> 
            <div class="col-md-7 col-lg-7"> 
              <div class="form-group">
-                <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.one.nurseNotes" tyepe="text" value="{{treatments.one.nurseNotes}}" {{disone}}>
+                <h6> Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.one.nurseNotes" tyepe="text" value="{{treatments.one.nurseNotes}}" {{disone}}>
              </div>
           </div><div class="col-md-2 col-lg-2">&nbsp;</div> <div class="col-md-1 col-lg-1">&nbsp;</div>
           </div>
@@ -439,7 +439,7 @@
         <div class="col-md-12">
       
           <!-- <input type="checkbox" checked="{{treatments.one.checked}}" name="checked" value="{{treatments.one.checked}}"> Register Treatment -->
-        <button type="button" name="checked" class="btn {{#if treatments.one.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.one.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        <button type="button" name="checked" class="btn {{#if treatments.one.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.one.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
      <!--  </div> -->
 
@@ -490,7 +490,7 @@
 
       <div class="row firstel">     
         <div class="col-md-2">
-          <h6>Time -4</h6> 
+          <h6>Tid -4</h6> 
         </div>
         <div class="col-md-3">
              <h4>{{treatments.two.field0.text}}:</h4>
@@ -545,7 +545,7 @@
                     
           </div> 
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.two.nurseNotes" tyepe="text" value="{{treatments.two.nurseNotes}}" {{distwo}}>
+            <h6> Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.two.nurseNotes" tyepe="text" value="{{treatments.two.nurseNotes}}" {{distwo}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -559,7 +559,7 @@
          <div class="col-md-12">
       <!-- <span class="input-group-addon"> -->
       <!-- <input type="checkbox" checked="{{treatments.two.checked}}" name="checked1" value="{{treatments.two.checked}}"> Register Treatment -->
-      <button type="button" name="checked1" class="btn {{#if treatments.two.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.two.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+      <button type="button" name="checked1" class="btn {{#if treatments.two.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.two.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
       <!-- </span> -->
      </div>
       </div>
@@ -603,7 +603,7 @@
       <div class="row firstel">
           <div class="col-md-2">
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
-            <h6>Time 0</h6><h6>Skriv start</h6> 
+            <h6>Tid 0</h6><h6>Skriv start</h6> 
           </div>
           <div class="col-md-7">
             <!-- <h6>{{treatments.tree.field1.text}}:</h6> --><h4>{{treatments.tree.field0.text}}</h4>
@@ -745,7 +745,7 @@
           <div class="col-md-2">         
           </div>
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.tree.nurseNotes" tyepe="text" value="{{treatments.tree.nurseNotes}}" {{disabled}}>
+            <h6> Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.tree.nurseNotes" tyepe="text" value="{{treatments.tree.nurseNotes}}" {{disabled}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -756,7 +756,7 @@
       <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.tree.checked}}" name="checked2" value="{{treatments.tree.checked}}"> Register Treatment       -->
-          <button type="button" name="checked2" class="btn {{#if treatments.tree.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.tree.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+          <button type="button" name="checked2" class="btn {{#if treatments.tree.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.tree.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div> 
       <hr>   
@@ -791,7 +791,7 @@
        <div class="row firstel">
           <div class="col-md-2">
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
-             <h6>Time 1</h6> 
+             <h6>Tid 1</h6> 
              <!-- <input class="form-control inputfield input-sm" name="treatments.four.createdAt" type="datetime-local" value="{{treatments.four.time.value}}" disabled> -->
           </div>
           <div class="col-md-7">
@@ -847,7 +847,7 @@
              <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.four.createdAt" type="datetime-local" value="{{treatments.four.createdAt}}" {{disfour}}>
           </div>
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.four.nurseNotes" tyepe="text" value="{{treatments.four.nurseNotes}}" {{disfour}}>
+            <h6> Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.four.nurseNotes" tyepe="text" value="{{treatments.four.nurseNotes}}" {{disfour}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -859,7 +859,7 @@
       <div class="row firstel">
         <div class="col-md-12">      
          <!-- <input type="checkbox" checked="{{treatments.four.checked}}" name="checked3" value="{{treatments.four.checked}}"> Register Treatment       -->
-         <button type="button" name="checked3" class="btn {{#if treatments.four.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.four.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+         <button type="button" name="checked3" class="btn {{#if treatments.four.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.four.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div>
       <hr>     
@@ -894,7 +894,7 @@
 
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Time +23</h6> 
+            <h6>Tid +23</h6> 
             <!-- <input class="form-control inputfield input-sm" name="treatments.five.createdAt" type="datetime-local" value="{{treatments.five.createdAt}}" {{disabled1}}> -->
           </div>
           <div class="col-md-7">
@@ -960,7 +960,7 @@
            <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.five.createdAt" type="datetime-local" value="{{treatments.five.createdAt}}" {{disabled1}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.five.nurseNotes" tyepe="text" value="{{treatments.five.nurseNotes}}" {{disabled1}}>
+            <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.five.nurseNotes" tyepe="text" value="{{treatments.five.nurseNotes}}" {{disabled1}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -971,7 +971,7 @@
       <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.five.checked}}" name="checked4" value="{{treatments.five.checked}}"> Register Treatment       -->
-          <button type="button" name="checked4" class="btn {{#if treatments.five.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.five.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+          <button type="button" name="checked4" class="btn {{#if treatments.five.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.five.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div> 
      <hr>
@@ -1004,7 +1004,7 @@
         <hr>
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Time +24</h6> 
+            <h6>Tid +24</h6> 
            
           </div>
           <div class="col-md-7">
@@ -1112,7 +1112,7 @@
            <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.six.createdAt" type="datetime-local" value="{{treatments.six.createdAt}}" {{dissix}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.six.nurseNotes" tyepe="text" value="{{treatments.six.nurseNotes}}" {{dissix}}>
+            <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.six.nurseNotes" tyepe="text" value="{{treatments.six.nurseNotes}}" {{dissix}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -1123,7 +1123,7 @@
       <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.six.checked}}" name="checked5" value="{{treatments.six.checked}}"> Register Treatment       -->
-          <button type="button" name="checked5" class="btn {{#if treatments.six.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.six.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+          <button type="button" name="checked5" class="btn {{#if treatments.six.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.six.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div>  
       <hr>
@@ -1157,7 +1157,7 @@
       
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Time +36</h6> 
+            <h6>Tid +36</h6> 
             <!-- <input class="form-control inputfield input-sm" name="treatments.seven.createdAt" type="datetime-local" value="{{treatments.seven.createdAt}}" {{disabled2}}>  -->
           </div>
           <div class="col-md-7">
@@ -1288,7 +1288,7 @@
            <h6>Aktuel tide: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.seven.createdAt" type="datetime-local" value="{{treatments.seven.createdAt}}" {{disabled2}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.seven.nurseNotes" tyepe="text" value="{{treatments.seven.nurseNotes}}" {{disabled2}}>
+            <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.seven.nurseNotes" tyepe="text" value="{{treatments.seven.nurseNotes}}" {{disabled2}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -1299,7 +1299,7 @@
       <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.seven.checked}}" name="checked6" value="{{treatments.seven.checked}}"> Register Treatment       -->
-          <button type="button" name="checked6" class="btn {{#if treatments.seven.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.seven.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+          <button type="button" name="checked6" class="btn {{#if treatments.seven.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.seven.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div>   
      <hr>
@@ -1334,7 +1334,7 @@
         <hr>
       <div class="row firstel">
         <div class="col-md-2">
-             <h6>Time +42</h6> 
+             <h6>Tid +42</h6> 
              <!-- <input class="form-control inputfield input-sm" name="treatments.eight.createdAt" type="datetime-local" value="{{treatments.eight.createdAt}}" {{disabled3}}> -->
           </div>
         <div class="col-md-7">
@@ -1373,7 +1373,10 @@
          <div class="col-md-3">
             <h6>{{treatments.eight.field2.text}}</h6>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.eight.field2.createdAt" type="datetime-local" value="{{treatments.eight.field2.createdAt}}" {{disabled3}}>
+          </div >
+          <div class="col-md-2">
             <input class="form-control inputfield input-sm" name="treatments.eight.field2.name" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field2.name}}" {{disabled3}}>
           </div>
         <div class="col-md-2">
@@ -1400,7 +1403,7 @@
          
           </div> 
       </div>
-      <br>
+     
 
       {{#if treatments.eight.visible1.value}}
       <div class="row firstel">
@@ -1410,7 +1413,10 @@
          <div class="col-md-3">
             <h6>{{treatments.eight.field4.text}}</h6>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.eight.field4.createdAt" type="datetime-local" value="{{treatments.eight.field4.createdAt}}" {{disabled3}}>
+          </div >
+          <div class="col-md-2">
             <input class="form-control inputfield input-sm" name="treatments.eight.field4.name" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field4.name}}" {{disabled3}}>
           </div>
         <div class="col-md-2">
@@ -1432,7 +1438,10 @@
          <div class="col-md-3">
             <h6>{{treatments.eight.field5.text}}</h6>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.eight.field5.createdAt" type="datetime-local" value="{{treatments.eight.field5.createdAt}}" {{disabled3}}>
+          </div >
+          <div class="col-md-2">
             <input class="form-control inputfield input-sm" name="treatments.eight.field5.name" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field5.name}}" {{disabled3}}>
           </div>
         <div class="col-md-2">
@@ -1454,7 +1463,10 @@
          <div class="col-md-3">
             <h6>{{treatments.eight.field6.text}}</h6>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.eight.field6.createdAt" type="datetime-local" value="{{treatments.eight.field6.createdAt}}" {{disabled3}}>
+          </div >
+          <div class="col-md-2">
             <input class="form-control inputfield input-sm" name="treatments.eight.field6.name" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field6.name}}" {{disabled3}}>
           </div>
         <div class="col-md-2">
@@ -1476,7 +1488,10 @@
          <div class="col-md-3">
             <h6>{{treatments.eight.field7.text}}</h6>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.eight.field7.createdAt" type="datetime-local" value="{{treatments.eight.field7.createdAt}}" {{disabled3}}>
+          </div >
+          <div class="col-md-2">
             <input class="form-control inputfield input-sm" name="treatments.eight.field7.name" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field7.name}}" {{disabled3}}>
           </div>
         <div class="col-md-2">
@@ -1498,7 +1513,10 @@
          <div class="col-md-3">
             <h6>{{treatments.eight.field8.text}}</h6>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.eight.field8.createdAt" type="datetime-local" value="{{treatments.eight.field8.createdAt}}" {{disabled3}}>
+          </div >
+          <div class="col-md-2">
             <input class="form-control inputfield input-sm" name="treatments.eight.field8.name" type="text" placeholder="Write who did the treatment" value="{{treatments.eight.field8.name}}" {{disabled3}}>
           </div>
         <div class="col-md-2">
@@ -1511,7 +1529,7 @@
       {{/if}}
 
 
-      <div class="row firstel">
+      <!-- <div class="row firstel">
         <div class="col-md-2">
             
           </div>
@@ -1526,13 +1544,11 @@
           </div> 
       </div>
       <br>
+
+
       <div class="row firstel">
         <div class="col-md-2">
             
-
-
-
-
           </div>
           <div class="col-md-7">
              <h6><b>{{treatments.eight.field10.text}}</b></h6>
@@ -1543,13 +1559,16 @@
           <div class="col-md-1">
          
           </div> 
-      </div>
+      </div> -->
+
+
+
       <div class="row firstel">
           <div class="col-md-2">
            <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.eight.createdAt" type="datetime-local" value="{{treatments.eight.createdAt}}" {{disabled3}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.eight.nurseNotes" tyepe="text" value="{{treatments.eight.nurseNotes}}" {{disabled3}}>
+            <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.eight.nurseNotes" tyepe="text" value="{{treatments.eight.nurseNotes}}" {{disabled3}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -1560,7 +1579,7 @@
       <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.eight.checked}}" name="checked7" value="{{treatments.eight.checked}}"> Register Treatment       -->
-          <button type="button" name="checked7" class="btn {{#if treatments.eight.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.eight.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+          <button type="button" name="checked7" class="btn {{#if treatments.eight.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.eight.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div>  
       <hr>
@@ -1625,9 +1644,29 @@
           </div>          
         </div>
         <hr>
+
+      
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Time +48</h6><input class="form-control input-sm" type="datetime-local" value="{{time48}}" disabled>
+            <h6>Tid +48</h6>
+            <!-- <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.createdAt}}" {{disabled4}}> -->
+          </div>
+          <div class="col-md-7">
+             <h4>{{treatments.nine.hurtig.first.field0.text}}:</h4>
+          </div>
+          <div class="col-md-2">
+                              
+          </div>
+          <div class="col-md-1">
+                   
+          </div> 
+      </div>
+
+
+
+      <div class="row firstel">
+          <div class="col-md-2">
+            <input class="form-control input-sm" type="datetime-local" value="{{time48}}" disabled>
             <!-- <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.createdAt}}" {{disabled4}}> -->
           </div>
           <div class="col-md-7">
@@ -1640,6 +1679,10 @@
              <h6>µmol/l</h6>       
           </div> 
       </div>
+
+
+
+
       <div class="row firstel">
         <div class="col-md-2">
                
@@ -1647,7 +1690,10 @@
          <div class="col-md-3">
             <h6>{{treatments.nine.hurtig.first.field2.text}}</h6>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field2.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.field2.createdAt}}" {{disabled4}}>
+          </div >
+          <div class="col-md-2">
             <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field2.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.first.field2.name}}" {{disabled4}}>
           </div>
         <div class="col-md-2">
@@ -1657,12 +1703,140 @@
             <h6>mg iv.</h6>
           </div>   
       </div>
+
+
+  
+      {{#if treatments.nine.hurtig.first.visible1.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.first.field3.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field3.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.field3.createdAt}}" {{disabled4}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field3.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.first.field3.name}}" {{disabled4}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.first.field3.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.nine.hurtig.first.visible2.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.first.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field4.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.field4.createdAt}}" {{disabled4}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field4.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.first.field4.name}}" {{disabled4}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.first.field4.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}   
+
+      {{#if treatments.nine.hurtig.first.visible3.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.first.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field5.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.field5.createdAt}}" {{disabled4}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field5.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.first.field5.name}}" {{disabled4}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.first.field5.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}    
+
+
+      {{#if treatments.nine.hurtig.first.visible4.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.first.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field6.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.field6.createdAt}}" {{disabled4}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field6.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.first.field6.name}}" {{disabled4}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.first.field6.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}   
+
+
+
+
+      {{#if treatments.nine.hurtig.first.visible5.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.first.field7.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field7.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.field7.createdAt}}" {{disabled4}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.field7.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.first.field7.name}}" {{disabled4}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.first.field7.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}   
+
+
+
+
+
       <div class="row firstel">
           <div class="col-md-2">
            <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.createdAt}}" {{disabled4}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.nurseNotes" tyepe="text" value="{{treatments.nine.hurtig.first.nurseNotes}}" {{disabled4}}>
+            <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.nurseNotes" tyepe="text" value="{{treatments.nine.hurtig.first.nurseNotes}}" {{disabled4}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -1670,10 +1844,17 @@
           <div class="col-md-1">            
           </div>
       </div>
+
+
+
+
+
+
+
       <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.nine.hurtig.first.checked}}" name="checked8" value="{{treatments.nine.hurtig.first.checked}}"> Register Treatment       -->
-          <button type="button" name="checked8" class="btn {{#if treatments.nine.hurtig.first.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.nine.hurtig.first.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+          <button type="button" name="checked8" class="btn {{#if treatments.nine.hurtig.first.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.nine.hurtig.first.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div> 
       <hr>
@@ -1696,7 +1877,7 @@
         <hr>
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Time +54</h6><input class="form-control input-sm" type="datetime-local" value="{{time54}}" disabled>
+            <h6>Tid +54</h6><input class="form-control input-sm" type="datetime-local" value="{{time54}}" disabled>
             <!-- <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.createdAt}}" {{disabled5}}> -->
           </div>
           <div class="col-md-7">
@@ -1746,7 +1927,7 @@
            <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.createdAt}}" {{disabled5}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.nurseNotes" tyepe="text" value="{{treatments.nine.hurtig.second.nurseNotes}}" {{disabled5}}>
+            <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.nurseNotes" tyepe="text" value="{{treatments.nine.hurtig.second.nurseNotes}}" {{disabled5}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -1757,7 +1938,7 @@
       <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.nine.hurtig.second.checked}}" name="checked9" value="{{treatments.nine.hurtig.second.checked}}"> Register Treatment       -->
-          <button type="button" name="checked9" class="btn {{#if treatments.nine.hurtig.second.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.nine.hurtig.second.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+          <button type="button" name="checked9" class="btn {{#if treatments.nine.hurtig.second.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.nine.hurtig.second.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div>  
       <hr>
@@ -1786,7 +1967,7 @@
         <hr>
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Time +48</h6><input class="form-control input-sm" type="datetime-local" value="{{time48}}" disabled>
+            <h6>Tid +48</h6><input class="form-control input-sm" type="datetime-local" value="{{time48}}" disabled>
             <!-- <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.createdAt}}" {{disabled6}}> -->
           </div>
           <div class="col-md-7">
@@ -1821,7 +2002,7 @@
            <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.first.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.createdAt}}" {{disabled6}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.first.nurseNotes" tyepe="text" value="{{treatments.nine.normal.first.nurseNotes}}" {{disabled6}}>
+            <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.first.nurseNotes" tyepe="text" value="{{treatments.nine.normal.first.nurseNotes}}" {{disabled6}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -1832,7 +2013,7 @@
       <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.nine.normal.first.checked}}" name="checked10" value="{{treatments.nine.normal.first.checked}}"> Register Treatment       -->
-          <button type="button" name="checked10" class="btn {{#if treatments.nine.normal.first.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.nine.normal.first.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+          <button type="button" name="checked10" class="btn {{#if treatments.nine.normal.first.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.nine.normal.first.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div> 
       <hr>
@@ -1855,7 +2036,7 @@
         <hr>
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Time +54</h6><input class="form-control input-sm" type="datetime-local" value="{{time54}}" disabled>
+            <h6>Tid +54</h6><input class="form-control input-sm" type="datetime-local" value="{{time54}}" disabled>
              <!-- <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.createdAt}}" {{disabled7}}> -->
           </div>
           <div class="col-md-7">
@@ -1890,7 +2071,7 @@
            <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.second.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.createdAt}}" {{disabled7}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.second.nurseNotes" tyepe="text" value="{{treatments.nine.normal.second.nurseNotes}}" {{disabled7}}>
+            <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.second.nurseNotes" tyepe="text" value="{{treatments.nine.normal.second.nurseNotes}}" {{disabled7}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -1901,7 +2082,7 @@
       <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.nine.normal.second.checked}}" name="checked11" value="{{treatments.nine.normal.second.checked}}"> Register Treatment       -->
-          <button type="button" name="checked11" class="btn {{#if treatments.nine.normal.second.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.nine.normal.second.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+          <button type="button" name="checked11" class="btn {{#if treatments.nine.normal.second.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.nine.normal.second.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div>
        <hr>
@@ -1927,7 +2108,7 @@
         <hr>
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Time +66</h6><input class="form-control input-sm" type="datetime-local" value="{{time66}}" disabled>
+            <h6>Tid +66</h6><input class="form-control input-sm" type="datetime-local" value="{{time66}}" disabled>
             <!-- <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.createdAt}}" {{disabled8}}>  -->
           </div>
           <div class="col-md-7">
@@ -2053,7 +2234,7 @@
            <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.third.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.createdAt}}" {{disabled8}}>         
           </div>
           <div class="col-md-7">
-            <h6> Notes: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.third.nurseNotes" tyepe="text" value="{{treatments.nine.normal.third.nurseNotes}}" {{disabled8}}>
+            <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.third.nurseNotes" tyepe="text" value="{{treatments.nine.normal.third.nurseNotes}}" {{disabled8}}>
             <!-- <textarea class="inputfield" name="treatments.four.nurseNotes">{{treatments.four.nurseNotes}}</textarea>              -->
           </div >
           <div class="col-md-2">         
@@ -2064,7 +2245,7 @@
        <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.nine.normal.third.checked}}" name="checked12" value="{{treatments.nine.normal.third.checked}}"> Register Treatment       -->
-          <button type="button" name="checked12" class="btn {{#if treatments.nine.normal.third.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.nine.normal.third.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+          <button type="button" name="checked12" class="btn {{#if treatments.nine.normal.third.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.nine.normal.third.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div>
         
@@ -2220,7 +2401,7 @@
         <div class="col-md-12">
       
          
-        <button type="button" name="checked" class="btn {{#if treatments.one.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.one.checked}}UNREGISTER{{else}}REGISTER{{/if}}</button>
+        <button type="button" name="checked" class="btn {{#if treatments.one.checked}}btn-danger{{else}}btn-success{{/if}} center-block done">{{#if treatments.one.checked}}AFMELD{{else}}REGISTER{{/if}}</button>
         </div>
       </div>
 

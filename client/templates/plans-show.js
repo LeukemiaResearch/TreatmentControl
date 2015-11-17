@@ -1172,7 +1172,13 @@ Template.plansShow.events({
      return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-      if (!this.treatments.eight.field1.semtx || !this.treatments.eight.field2.name) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      if (!this.treatments.eight.field1.semtx || !this.treatments.eight.field2.name || !this.treatments.eight.field2.createdAt ) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      if (this.treatments.eight.visible1.value && (!this.treatments.eight.field4.name || !this.treatments.eight.field4.createdAt)) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      if (this.treatments.eight.visible2.value && (!this.treatments.eight.field5.name || !this.treatments.eight.field5.createdAt)) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      if (this.treatments.eight.visible3.value && (!this.treatments.eight.field6.name || !this.treatments.eight.field6.createdAt)) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      if (this.treatments.eight.visible4.value && (!this.treatments.eight.field7.name || !this.treatments.eight.field7.createdAt)) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      if (this.treatments.eight.visible5.value && (!this.treatments.eight.field8.name || !this.treatments.eight.field8.createdAt)) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+
       Plans.update(this._id, {$set: {"treatments.eight.checked": ! this.treatments.eight.checked , "treatments.eight.userId" : Meteor.userId()}});  
             if (this.treatments.eight.field1.semtx>=0.01 && this.treatments.eight.field1.semtx < 0.6 ) {
                 Plans.update(this._id, {$set: {"hash":"hash9"}}); 
@@ -1206,7 +1212,13 @@ Template.plansShow.events({
       return Notifications.addNotification("Denied", "You cannot unregister this treatment, when next one is registered!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });
     }
     else {
-      if (!this.treatments.nine.hurtig.first.field1.semtx || !this.treatments.nine.hurtig.first.field2.name) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      if (!this.treatments.nine.hurtig.first.field1.semtx || !this.treatments.nine.hurtig.first.field2.name  || !this.treatments.nine.hurtig.first.field2.createdAt) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      
+      if (this.treatments.nine.hurtig.first.visible1.value && (!this.treatments.nine.hurtig.first.field3.name || !this.treatments.nine.hurtig.first.field3.createdAt)) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      if (this.treatments.nine.hurtig.first.visible2.value && (!this.treatments.nine.hurtig.first.field4.name || !this.treatments.nine.hurtig.first.field4.createdAt)) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      if (this.treatments.nine.hurtig.first.visible3.value && (!this.treatments.nine.hurtig.first.field5.name || !this.treatments.nine.hurtig.first.field5.createdAt)) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      if (this.treatments.nine.hurtig.first.visible4.value && (!this.treatments.nine.hurtig.first.field6.name || !this.treatments.nine.hurtig.first.field6.createdAt)) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
+      if (this.treatments.nine.hurtig.first.visible5.value && (!this.treatments.nine.hurtig.first.field7.name || !this.treatments.nine.hurtig.first.field7.createdAt)) { return Notifications.addNotification("Denied", "You need to fill-in all fields first!", {type:parseInt(1, 10), timeout: parseInt(3000, 10), userCloseable: true  });}
       Plans.update(this._id, {$set: {"treatments.nine.hurtig.first.checked": ! this.treatments.nine.hurtig.first.checked , "treatments.nine.hurtig.first.userId" : Meteor.userId(), "hash":"hash10"}});  
     }
       
