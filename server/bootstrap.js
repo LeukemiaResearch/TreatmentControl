@@ -1,6 +1,6 @@
 // if the database is empty on server start, create some sample data.
 Meteor.startup(function () {
-  if (Plans.find().count() === 0) {
+  if (Plans.find().count() === 0 || ! Plans.findOne({ _id: "GENERAL-PLAN"})) {
     var data =
 
 {
@@ -8,7 +8,7 @@ Meteor.startup(function () {
     "header" : {
         // "createdAt" : new Date(),
         "createdAt" : new Date(),
-        "name" : "General Plan",
+        "name" : "Behandlingsprotokol",
         "mtx" : ""
        
     },
@@ -708,35 +708,35 @@ Meteor.startup(function () {
                         "value" : "0"
                     },
                     "field5" : {
-                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t66.   Givet af:",
                         "name" : "",
                         "method" : "Math.round(15*this.patient.surface.value).toFixed()",
                         "value" : "0"
                 
                      },
                     "field6" : {
-                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t66.   Givet af:",
                         "name" : "",
                         "method" : "Math.round(30*this.patient.surface.value).toFixed()",
                         "value" : "0"
                         
                     },
                     "field7" : {
-                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t66.   Givet af:",
                         "name" : "",
                         "method" : "Math.round(45*this.patient.surface.value).toFixed()",
                         "value" : "0"
                         
                     },
                     "field8" : {
-                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t66.   Givet af:",
                         "name" : "",
                         "method" : "Math.round(60*this.patient.surface.value).toFixed()",
                         "value" : "0"
                         
                     },
                     "field9" : {
-                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t66.   Givet af:",
                         "name" : "",
                         "method" : "Math.round(this.treatments.nine.normal.third.field1.semtx*this.patient.weight)",
                         "value" : "0"
