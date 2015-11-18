@@ -423,7 +423,7 @@ Meteor.startup(function () {
                     "field7" : {
                         "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t48.   Givet af:",
                         "name" : "",
-                        "method" : "Math.round(his.treatments.nine.hurtig.first.field1.semtx*this.patient.weight)",
+                        "method" : "Math.round(this.treatments.nine.hurtig.first.field1.semtx*this.patient.weight)",
                         "value" : "0"
                         
                     }
@@ -432,6 +432,26 @@ Meteor.startup(function () {
                 "second" : {
                     "checked" : false,
                     "createdAt" : "",
+                    "visible1" : {
+                            "method" : "(this.treatments.nine.hurtig.second.field1.semtx>= 1 && this.treatments.nine.hurtig.second.field1.semtx<2)",
+                            "value" : ""
+                        },
+                    "visible2" : {
+                            "method" : "(this.treatments.nine.hurtig.second.field1.semtx>= 2 && this.treatments.nine.hurtig.second.field1.semtx<3)",
+                            "value" : ""
+                        },
+                    "visible3" : {
+                            "method" : "(this.treatments.nine.hurtig.second.field1.semtx>= 3 && this.treatments.nine.hurtig.second.field1.semtx<4)",
+                            "value" : ""
+                        },
+                    "visible4" : {
+                            "method" : "(this.treatments.nine.hurtig.second.field1.semtx>= 4 && this.treatments.nine.hurtig.second.field1.semtx<5)",
+                            "value" : ""
+                        },
+                    "visible5" : {
+                            "method" : "(this.treatments.nine.hurtig.second.field1.semtx>= 5)",
+                            "value" : ""
+                        }, 
                     "field0" : {
                         "text" : "Tag blodprøve plasma MTX"                 
                     },
@@ -447,6 +467,41 @@ Meteor.startup(function () {
                     },
                     "field3" : {
                         "text" : "Patienten kobles fra efter t54 + calciumfolinat. Pt udskrives."
+                    },
+                    "field4" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(15*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                
+                     },
+                    "field5" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(30*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field6" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(45*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field7" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(60*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field8" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(this.treatments.nine.hurtig.second.field1.semtx*this.patient.weight)",
+                        "value" : "0"
+                        
                     }
                 }
             },
@@ -461,6 +516,26 @@ Meteor.startup(function () {
                     "checked" : false,
                     "time" : 48,
                     "createdAt" : "",
+                    "visible1" : {
+                            "method" : "(this.treatments.nine.normal.first.field1.semtx>= 1 && this.treatments.nine.normal.first.field1.semtx<2)",
+                            "value" : ""
+                        },
+                    "visible2" : {
+                            "method" : "(this.treatments.nine.normal.first.field1.semtx>= 2 && this.treatments.nine.normal.first.field1.semtx<3)",
+                            "value" : ""
+                        },
+                    "visible3" : {
+                            "method" : "(this.treatments.nine.normal.first.field1.semtx>= 3 && this.treatments.nine.normal.first.field1.semtx<4)",
+                            "value" : ""
+                        },
+                    "visible4" : {
+                            "method" : "(this.treatments.nine.normal.first.field1.semtx>= 4 && this.treatments.nine.normal.first.field1.semtx<5)",
+                            "value" : ""
+                        },
+                    "visible5" : {
+                            "method" : "(this.treatments.nine.normal.first.field1.semtx>= 5)",
+                            "value" : ""
+                        }, 
                     "field0" : {
                         "text" : "Tag blodprøve plasma MTX"                 
                     },
@@ -473,6 +548,41 @@ Meteor.startup(function () {
                         "name" : "",
                         "method" : "Math.round(15*this.patient.surface.value).toFixed()",
                         "value" : "0"
+                    },
+                    "field3" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t48.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(15*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                
+                     },
+                    "field4" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t48.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(30*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field5" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t48.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(45*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field6" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t48.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(60*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field7" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t48.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(this.treatments.nine.normal.first.field1.semtx*this.patient.weight)",
+                        "value" : "0"
+                        
                     }
                     
                 },
@@ -480,6 +590,26 @@ Meteor.startup(function () {
                     "checked" : false,
                     "time" : 54,
                     "createdAt" : "",
+                    "visible1" : {
+                            "method" : "(this.treatments.nine.normal.second.field1.semtx>= 1 && this.treatments.nine.normal.second.field1.semtx<2)",
+                            "value" : ""
+                        },
+                    "visible2" : {
+                            "method" : "(this.treatments.nine.normal.second.field1.semtx>= 2 && this.treatments.nine.normal.second.field1.semtx<3)",
+                            "value" : ""
+                        },
+                    "visible3" : {
+                            "method" : "(this.treatments.nine.normal.second.field1.semtx>= 3 && this.treatments.nine.normal.second.field1.semtx<4)",
+                            "value" : ""
+                        },
+                    "visible4" : {
+                            "method" : "(this.treatments.nine.normal.second.field1.semtx>= 4 && this.treatments.nine.normal.second.field1.semtx<5)",
+                            "value" : ""
+                        },
+                    "visible5" : {
+                            "method" : "(this.treatments.nine.normal.second.field1.semtx>= 5)",
+                            "value" : ""
+                        }, 
                     "field0" : {
                         "text" : "Tag blodprøve plasma MTX"                 
                     },
@@ -492,6 +622,41 @@ Meteor.startup(function () {
                         "name" : "",
                         "method" : "Math.round(15*this.patient.surface.value).toFixed()",
                         "value" : "0"
+                    },
+                    "field3" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(15*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                
+                     },
+                    "field4" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(30*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field5" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(45*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field6" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(60*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field7" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(this.treatments.nine.normal.second.field1.semtx*this.patient.weight)",
+                        "value" : "0"
+                        
                     }
                     
                 },
@@ -499,6 +664,26 @@ Meteor.startup(function () {
                     "checked" : false,
                     "time" : 66,
                     "createdAt" : "",
+                    "visible1" : {
+                            "method" : "(this.treatments.nine.normal.third.field1.semtx>= 1 && this.treatments.nine.normal.third.field1.semtx<2)",
+                            "value" : ""
+                        },
+                    "visible2" : {
+                            "method" : "(this.treatments.nine.normal.third.field1.semtx>= 2 && this.treatments.nine.normal.third.field1.semtx<3)",
+                            "value" : ""
+                        },
+                    "visible3" : {
+                            "method" : "(this.treatments.nine.normal.third.field1.semtx>= 3 && this.treatments.nine.normal.third.field1.semtx<4)",
+                            "value" : ""
+                        },
+                    "visible4" : {
+                            "method" : "(this.treatments.nine.normal.third.field1.semtx>= 4 && this.treatments.nine.normal.third.field1.semtx<5)",
+                            "value" : ""
+                        },
+                    "visible5" : {
+                            "method" : "(this.treatments.nine.normal.third.field1.semtx>= 5)",
+                            "value" : ""
+                        }, 
                     "field0" : {
                         "text" : "Tag blodprøve plasma MTX"                 
                     },
@@ -517,20 +702,56 @@ Meteor.startup(function () {
                     },
                     "field4" : {
                         "text" : "4. calciumfolinat-dosis. Giv calciumfolinat 15 mg/m².   Givet af:",
+                        "text1" : "Patienten må udskrives og skal komme til kontrol af blodprøver om 7 døgn",
                         "name" : "",
                         "method" : "Math.round(15*this.patient.surface.value).toFixed()",
                         "value" : "0"
                     },
                     "field5" : {
-                        "text" : "For se-MTX t66 0,2 - 0,3 µmol/l udskrives patienten efter 4.dosis calciumfolinat."
-                    },
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(15*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                
+                     },
                     "field6" : {
-                        "text" : "For se-MTX t66 0,3 - 0,4 µmol/l kan pt. udskrives med calciumfolinat 15 mg/m² x 3 po. i 2 døgn"
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(30*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
                     },
                     "field7" : {
-                        "text" : "For se-MTX t66 0,4 - 0,5 µmol/l kan pt. udskrives med calciumfolinat 15 mg/m² x 3 po. i 3 døgn"
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(45*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
                     },
                     "field8" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(60*this.patient.surface.value).toFixed()",
+                        "value" : "0"
+                        
+                    },
+                    "field9" : {
+                        "text" : "Administrere:   Ekstra dosis calciumfolinat ved forhøjet MTX t54.   Givet af:",
+                        "name" : "",
+                        "method" : "Math.round(this.treatments.nine.normal.third.field1.semtx*this.patient.weight)",
+                        "value" : "0"
+                        
+                    },
+                    "field10" : {
+                        "text" : "For se-MTX t66 0,2 - 0,3 µmol/l udskrives patienten efter 4.dosis calciumfolinat."
+                    },
+                    "field11" : {
+                        "text" : "For se-MTX t66 0,3 - 0,4 µmol/l kan pt. udskrives med calciumfolinat 15 mg/m² x 3 po. i 2 døgn"
+                    },
+                    "field12" : {
+                        "text" : "For se-MTX t66 0,4 - 0,5 µmol/l kan pt. udskrives med calciumfolinat 15 mg/m² x 3 po. i 3 døgn"
+                    },
+                    "field13" : {
                         "text" : "For se-MTX t66 >0,5 µmol/l overgår patienten til skema for senudskillelse"
                     }
                 }

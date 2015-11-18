@@ -207,6 +207,30 @@
         <!-- {{#if todosReady}} -->
         <!-- {{#if treatments.[0].value2 }} -->
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!-- BEGINING OF THE FORM!!! -->
 
     <!-- FIRST FORM  -->
@@ -844,7 +868,7 @@
       <div class="row firstel">
           <div class="col-md-2">
             <!-- <input class="form-control" name="regdate" type="date" value="{{createdAt}}"> -->
-             <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.four.createdAt" type="datetime-local" value="{{treatments.four.createdAt}}" {{disfour}}>
+             <h6>Aktuel tid: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.four.createdAt" type="datetime-local" value="{{treatments.four.createdAt}}" {{disfour}}>
           </div>
           <div class="col-md-7">
             <h6> Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.four.nurseNotes" tyepe="text" value="{{treatments.four.nurseNotes}}" {{disfour}}>
@@ -957,7 +981,7 @@
       </div>
       <div class="row firstel">
           <div class="col-md-2">
-           <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.five.createdAt" type="datetime-local" value="{{treatments.five.createdAt}}" {{disabled1}}>         
+           <h6>Aktuel tid: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.five.createdAt" type="datetime-local" value="{{treatments.five.createdAt}}" {{disabled1}}>         
           </div>
           <div class="col-md-7">
             <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.five.nurseNotes" tyepe="text" value="{{treatments.five.nurseNotes}}" {{disabled1}}>
@@ -1109,7 +1133,7 @@
 
       <div class="row firstel">
           <div class="col-md-2">
-           <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.six.createdAt" type="datetime-local" value="{{treatments.six.createdAt}}" {{dissix}}>         
+           <h6>Aktuel tid: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.six.createdAt" type="datetime-local" value="{{treatments.six.createdAt}}" {{dissix}}>         
           </div>
           <div class="col-md-7">
             <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.six.nurseNotes" tyepe="text" value="{{treatments.six.nurseNotes}}" {{dissix}}>
@@ -1285,7 +1309,7 @@
 
       <div class="row firstel">
           <div class="col-md-2">
-           <h6>Aktuel tide: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.seven.createdAt" type="datetime-local" value="{{treatments.seven.createdAt}}" {{disabled2}}>         
+           <h6>Aktuel tide: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.seven.createdAt" type="datetime-local" value="{{treatments.seven.createdAt}}" {{disabled2}}>         
           </div>
           <div class="col-md-7">
             <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.seven.nurseNotes" tyepe="text" value="{{treatments.seven.nurseNotes}}" {{disabled2}}>
@@ -1565,7 +1589,7 @@
 
       <div class="row firstel">
           <div class="col-md-2">
-           <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.eight.createdAt" type="datetime-local" value="{{treatments.eight.createdAt}}" {{disabled3}}>         
+           <h6>Aktuel tid: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.eight.createdAt" type="datetime-local" value="{{treatments.eight.createdAt}}" {{disabled3}}>         
           </div>
           <div class="col-md-7">
             <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.eight.nurseNotes" tyepe="text" value="{{treatments.eight.nurseNotes}}" {{disabled3}}>
@@ -1611,6 +1635,10 @@
         </div>          
          <hr> 
         {{/if}}
+
+
+
+
 
 
 
@@ -1833,7 +1861,7 @@
 
       <div class="row firstel">
           <div class="col-md-2">
-           <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.createdAt}}" {{disabled4}}>         
+           <h6>Aktuel tid: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.first.createdAt}}" {{disabled4}}>         
           </div>
           <div class="col-md-7">
             <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.first.nurseNotes" tyepe="text" value="{{treatments.nine.hurtig.first.nurseNotes}}" {{disabled4}}>
@@ -1875,9 +1903,30 @@
           </div>          
         </div>
         <hr>
+
+
+
+        <div class="row firstel">
+          <div class="col-md-2">
+            <h6>Tid +54</h6> 
+            <!-- <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.createdAt}}" {{disabled5}}> -->
+          </div>
+          <div class="col-md-7">
+             <h4>{{treatments.nine.hurtig.second.field0.text}}:</h4>
+          </div>
+          <div class="col-md-2">
+                             
+          </div>
+          <div class="col-md-1">
+              
+          </div> 
+      </div>
+
+
+
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Tid +54</h6><input class="form-control input-sm" type="datetime-local" value="{{time54}}" disabled>
+            <input class="form-control input-sm" type="datetime-local" value="{{time54}}" disabled>
             <!-- <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.createdAt}}" {{disabled5}}> -->
           </div>
           <div class="col-md-7">
@@ -1890,6 +1939,10 @@
              <h6>µmol/l</h6>       
           </div> 
       </div>
+
+
+
+
       <div class="row firstel">
         <div class="col-md-2">
                
@@ -1897,7 +1950,10 @@
          <div class="col-md-3">
             <h6>{{treatments.nine.hurtig.second.field2.text}}</h6>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field2.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.field2.createdAt}}" {{disabled5}}>
+          </div >
+          <div class="col-md-2">
             <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field2.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.second.field2.name}}" {{disabled5}}>
           </div>
         <div class="col-md-2">
@@ -1907,6 +1963,10 @@
             <h6>mg iv.</h6>
           </div>   
       </div>
+
+
+
+
        <div class="row firstel">
         <div class="col-md-2">
             
@@ -1922,9 +1982,145 @@
            
           </div>   
       </div>
+
+
+
+      
+      {{#if treatments.nine.hurtig.second.visible1.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.second.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field4.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.field4.createdAt}}" {{disabled5}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field4.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.second.field4.name}}" {{disabled5}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.second.field4.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+
+      {{#if treatments.nine.hurtig.second.visible2.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.second.field5.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field5.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.field5.createdAt}}" {{disabled5}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field5.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.second.field5.name}}" {{disabled5}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.second.field5.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+
+      {{#if treatments.nine.hurtig.second.visible3.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.second.field5.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field6.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.field6.createdAt}}" {{disabled5}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field6.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.second.field6.name}}" {{disabled5}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.second.field6.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+
+      {{#if treatments.nine.hurtig.second.visible4.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.second.field5.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field7.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.field7.createdAt}}" {{disabled5}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field7.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.second.field7.name}}" {{disabled5}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.second.field7.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+
+      {{#if treatments.nine.hurtig.second.visible5.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+              
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.hurtig.second.field5.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field8.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.field8.createdAt}}" {{disabled5}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.field8.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.hurtig.second.field8.name}}" {{disabled5}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.hurtig.second.field8.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+
+
+
       <div class="row firstel">
           <div class="col-md-2">
-           <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.createdAt}}" {{disabled5}}>         
+           <h6>Aktuel tid: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.createdAt" type="datetime-local" value="{{treatments.nine.hurtig.second.createdAt}}" {{disabled5}}>         
           </div>
           <div class="col-md-7">
             <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.hurtig.second.nurseNotes" tyepe="text" value="{{treatments.nine.hurtig.second.nurseNotes}}" {{disabled5}}>
@@ -1952,6 +2148,26 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     {{#if treatments.nine.normal.visible.value}}
 
 
@@ -1965,9 +2181,26 @@
           </div>          
         </div>
         <hr>
+
+
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Tid +48</h6><input class="form-control input-sm" type="datetime-local" value="{{time48}}" disabled>
+            <h6>Tid +48</h6>           
+          </div>
+          <div class="col-md-7">
+             <h4>{{treatments.nine.normal.first.field0.text}}:</h4>
+          </div>
+          <div class="col-md-2">                        
+          </div>
+          <div class="col-md-1">           
+          </div> 
+      </div>
+
+
+
+      <div class="row firstel">
+          <div class="col-md-2">
+            <input class="form-control input-sm" type="datetime-local" value="{{time48}}" disabled>
             <!-- <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.createdAt}}" {{disabled6}}> -->
           </div>
           <div class="col-md-7">
@@ -1980,14 +2213,20 @@
              <h6>µmol/l</h6>       
           </div> 
       </div>
+
+
+
+
       <div class="row firstel">
-        <div class="col-md-2">
-               
+        <div class="col-md-2">               
           </div>
          <div class="col-md-3">
             <h6>{{treatments.nine.normal.first.field2.text}}</h6>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field2.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.field2.createdAt}}" {{disabled6}}>
+          </div >
+          <div class="col-md-2">
             <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field2.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.first.field2.name}}" {{disabled6}}>
           </div>
         <div class="col-md-2">
@@ -1997,9 +2236,135 @@
             <h6>mg iv.</h6>
           </div>   
       </div>
+
+
+
+      {{#if treatments.nine.normal.first.visible1.value}}
+        <div class="row firstel">
+        <div class="col-md-2">               
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.first.field3.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field3.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.field3.createdAt}}" {{disabled6}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field3.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.first.field3.name}}" {{disabled6}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.first.field3.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.nine.normal.first.visible2.value}}
+        <div class="row firstel">
+        <div class="col-md-2">               
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.first.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field4.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.field4.createdAt}}" {{disabled6}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field4.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.first.field4.name}}" {{disabled6}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.first.field4.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+          
+        
+      {{#if treatments.nine.normal.first.visible3.value}}
+        <div class="row firstel">
+        <div class="col-md-2">               
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.first.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field5.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.field5.createdAt}}" {{disabled6}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field5.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.first.field5.name}}" {{disabled6}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.first.field5.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.nine.normal.first.visible4.value}}
+        <div class="row firstel">
+        <div class="col-md-2">               
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.first.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field6.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.field6.createdAt}}" {{disabled6}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field6.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.first.field6.name}}" {{disabled6}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.first.field6.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.nine.normal.first.visible5.value}}
+        <div class="row firstel">
+        <div class="col-md-2">               
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.first.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field7.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.field7.createdAt}}" {{disabled6}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.first.field7.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.first.field7.name}}" {{disabled6}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.first.field7.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}   
+
+
+
+
+
       <div class="row firstel">
           <div class="col-md-2">
-           <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.first.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.createdAt}}" {{disabled6}}>         
+           <h6>Aktuel tid: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.first.createdAt" type="datetime-local" value="{{treatments.nine.normal.first.createdAt}}" {{disabled6}}>         
           </div>
           <div class="col-md-7">
             <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.first.nurseNotes" tyepe="text" value="{{treatments.nine.normal.first.nurseNotes}}" {{disabled6}}>
@@ -2010,6 +2375,11 @@
           <div class="col-md-1">            
           </div>
       </div> 
+
+
+
+
+
       <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.nine.normal.first.checked}}" name="checked10" value="{{treatments.nine.normal.first.checked}}"> Register Treatment       -->
@@ -2018,6 +2388,12 @@
       </div> 
       <hr>
     </form>
+
+
+
+
+
+
 
 
 
@@ -2034,9 +2410,28 @@
           </div>          
         </div>
         <hr>
+
+
+
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Tid +54</h6><input class="form-control input-sm" type="datetime-local" value="{{time54}}" disabled>
+            <h6>Tid +54</h6>          
+          </div>
+          <div class="col-md-7">
+             <h4>{{treatments.nine.normal.second.field0.text}}:</h4>
+          </div>
+          <div class="col-md-2">                       
+          </div>
+          <div class="col-md-1">        
+          </div> 
+      </div>
+
+
+
+
+      <div class="row firstel">
+          <div class="col-md-2">
+             <input class="form-control input-sm" type="datetime-local" value="{{time54}}" disabled>
              <!-- <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.createdAt}}" {{disabled7}}> -->
           </div>
           <div class="col-md-7">
@@ -2049,6 +2444,10 @@
              <h6>µmol/l</h6>       
           </div> 
       </div>
+
+
+
+
       <div class="row firstel">
         <div class="col-md-2">
               
@@ -2056,7 +2455,10 @@
          <div class="col-md-3">
             <h6>{{treatments.nine.normal.second.field2.text}}</h6>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field2.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.field2.createdAt}}" {{disabled7}}>
+          </div >
+          <div class="col-md-2">
             <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field2.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.second.field2.name}}" {{disabled7}}>
           </div>
         <div class="col-md-2">
@@ -2066,9 +2468,136 @@
             <h6>mg iv.</h6>
           </div>   
       </div>
+
+
+
+
+      {{#if treatments.nine.normal.second.visible1.value}}
+        <div class="row firstel">
+        <div class="col-md-2">               
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.second.field3.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field3.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.field3.createdAt}}" {{disabled7}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field3.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.second.field3.name}}" {{disabled7}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.second.field3.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.nine.normal.second.visible2.value}}
+        <div class="row firstel">
+        <div class="col-md-2">               
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.second.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field4.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.field4.createdAt}}" {{disabled7}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field4.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.second.field4.name}}" {{disabled7}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.second.field4.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+          
+        
+      {{#if treatments.nine.normal.second.visible3.value}}
+        <div class="row firstel">
+        <div class="col-md-2">               
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.second.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field5.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.field5.createdAt}}" {{disabled7}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field5.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.second.field5.name}}" {{disabled7}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.second.field5.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.nine.normal.second.visible4.value}}
+        <div class="row firstel">
+        <div class="col-md-2">               
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.second.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field6.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.field6.createdAt}}" {{disabled7}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field6.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.second.field6.name}}" {{disabled7}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.second.field6.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.nine.normal.second.visible5.value}}
+        <div class="row firstel">
+        <div class="col-md-2">               
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.second.field4.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field7.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.field7.createdAt}}" {{disabled7}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.second.field7.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.second.field7.name}}" {{disabled7}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.second.field7.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}} 
+
+
+
+
+
       <div class="row firstel">
           <div class="col-md-2">
-           <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.second.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.createdAt}}" {{disabled7}}>         
+           <h6>Aktuel tid: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.second.createdAt" type="datetime-local" value="{{treatments.nine.normal.second.createdAt}}" {{disabled7}}>         
           </div>
           <div class="col-md-7">
             <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.second.nurseNotes" tyepe="text" value="{{treatments.nine.normal.second.nurseNotes}}" {{disabled7}}>
@@ -2079,6 +2608,10 @@
           <div class="col-md-1">            
           </div>
       </div>
+
+
+
+
       <div class="row firstel">
         <div class="col-md-12">      
           <!-- <input type="checkbox" checked="{{treatments.nine.normal.second.checked}}" name="checked11" value="{{treatments.nine.normal.second.checked}}"> Register Treatment       -->
@@ -2087,6 +2620,8 @@
       </div>
        <hr>
     </form>
+
+
 
 
 
@@ -2106,9 +2641,28 @@
           </div>          
         </div>
         <hr>
+
+
+
       <div class="row firstel">
           <div class="col-md-2">
-            <h6>Tid +66</h6><input class="form-control input-sm" type="datetime-local" value="{{time66}}" disabled>
+            <h6>Tid +66</h6> 
+            <!-- <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.createdAt}}" {{disabled8}}>  -->
+          </div>
+          <div class="col-md-7">
+             <h4>{{treatments.nine.normal.third.field0.text}}:</h4>
+          </div>
+          <div class="col-md-2">                            
+          </div>
+          <div class="col-md-1">                
+          </div> 
+      </div>
+
+
+
+      <div class="row firstel">
+          <div class="col-md-2">
+            <input class="form-control input-sm" type="datetime-local" value="{{time66}}" disabled>
             <!-- <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.createdAt}}" {{disabled8}}>  -->
           </div>
           <div class="col-md-7">
@@ -2121,6 +2675,9 @@
              <h6>µmol/l</h6>       
           </div> 
       </div>
+
+
+
       <div class="row firstel">
         <div class="col-md-2">
               
@@ -2135,6 +2692,9 @@
             <h6>µmol/l</h6>
           </div>   
       </div>
+
+
+
       {{#if treatments.nine.normal.third.field3.value}}
       <div class="row firstel">
         <div class="col-md-2">
@@ -2143,7 +2703,10 @@
          <div class="col-md-3">
             <h6>{{treatments.nine.normal.third.field4.text}}</h6>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field4.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.field4.createdAt}}" {{disabled8}}>
+          </div >
+          <div class="col-md-2">
             <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field4.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.third.field4.name}}" {{disabled8}}>
           </div>
         <div class="col-md-2">
@@ -2153,9 +2716,156 @@
             <h6>mg iv.</h6>
           </div>   
       </div>
+      {{else}}
+      <div class="row firstel">
+        <div class="col-md-2">
+          
+          </div>
+         <div class="col-md-7">
+            <h3>{{treatments.nine.normal.third.field4.text1}}</h3>
+          </div>
+          <!-- <div class="col-md-4">
+            
+          </div> -->
+        <div class="col-md-2">
+             
+          </div>
+          <div class="col-md-1">
+            
+          </div>   
+      </div>
       {{/if}}
 
-       <br>
+
+
+
+      {{#if treatments.nine.normal.third.visible1.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+          
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.third.field5.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field5.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.field5.createdAt}}" {{disabled8}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field5.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.third.field5.name}}" {{disabled8}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field5.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.nine.normal.third.visible2.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+          
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.third.field6.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field6.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.field6.createdAt}}" {{disabled8}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field6.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.third.field6.name}}" {{disabled8}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field6.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.nine.normal.third.visible3.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+          
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.third.field7.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field7.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.field7.createdAt}}" {{disabled8}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field7.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.third.field7.name}}" {{disabled8}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field7.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      {{#if treatments.nine.normal.third.visible4.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+          
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.third.field8.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field8.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.field8.createdAt}}" {{disabled8}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field8.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.third.field8.name}}" {{disabled8}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field8.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+      
+      
+      {{#if treatments.nine.normal.third.visible5.value}}
+      <div class="row firstel">
+        <div class="col-md-2">
+          
+          </div>
+         <div class="col-md-3">
+            <h6>{{treatments.nine.normal.third.field9.text}}</h6>
+          </div>
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field9.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.field9.createdAt}}" {{disabled8}}>
+          </div >
+          <div class="col-md-2">
+            <input class="form-control inputfield input-sm" name="treatments.nine.normal.third.field9.name" type="text" placeholder="Write who did the treatment" value="{{treatments.nine.normal.third.field9.name}}" {{disabled8}}>
+          </div>
+        <div class="col-md-2">
+            <input class="form-control input-sm" type="number" placeholder="Type to insert value" value="{{treatments.nine.normal.third.field9.value}}" disabled>
+          </div>
+          <div class="col-md-1">
+            <h6>mg iv.</h6>
+          </div>   
+      </div>
+      {{/if}}
+
+
+
+      
       <div class="row firstel">
           <div class="col-md-2">
             
@@ -2171,55 +2881,13 @@
           </div> 
       </div>
 
+
       <div class="row firstel">
           <div class="col-md-2">
             
           </div>
           <div class="col-md-7">
-             <h6>{{treatments.nine.normal.third.field5.text}}:</h6>
-          </div>
-          <div class="col-md-2">
-                                 
-          </div>
-          <div class="col-md-1">
-                
-          </div> 
-      </div>
-      <div class="row firstel">
-          <div class="col-md-2">
-            
-          </div>
-          <div class="col-md-7">
-             <h6>{{treatments.nine.normal.third.field6.text}}:</h6>
-          </div>
-          <div class="col-md-2">
-                                 
-          </div>
-          <div class="col-md-1">
-                
-          </div> 
-      </div>
-      <div class="row firstel">
-          <div class="col-md-2">
-            
-          </div>
-          <div class="col-md-7">
-             <h6>{{treatments.nine.normal.third.field7.text}}:</h6>
-          </div>
-          <div class="col-md-2">
-                                 
-          </div>
-          <div class="col-md-1">
-                
-          </div> 
-      </div>
-      <br>
-      <div class="row firstel">
-          <div class="col-md-2">
-            
-          </div>
-          <div class="col-md-7">
-             <h6>{{treatments.nine.normal.third.field8.text}}:</h6>
+             <h6>{{treatments.nine.normal.third.field10.text}}:</h6>
           </div>
           <div class="col-md-2">
                                  
@@ -2229,9 +2897,64 @@
           </div> 
       </div>
 
+
+
+
       <div class="row firstel">
           <div class="col-md-2">
-           <h6>Aktuel tid: (optional)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.third.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.createdAt}}" {{disabled8}}>         
+            
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.normal.third.field11.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+                                 
+          </div>
+          <div class="col-md-1">
+                
+          </div> 
+      </div>
+
+
+
+      <div class="row firstel">
+          <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.normal.third.field12.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+                                 
+          </div>
+          <div class="col-md-1">
+                
+          </div> 
+      </div>
+ 
+
+
+      <div class="row firstel">
+          <div class="col-md-2">
+            
+          </div>
+          <div class="col-md-7">
+             <h6>{{treatments.nine.normal.third.field13.text}}:</h6>
+          </div>
+          <div class="col-md-2">
+                                 
+          </div>
+          <div class="col-md-1">
+                
+          </div> 
+      </div>
+
+
+
+
+      <div class="row firstel">
+          <div class="col-md-2">
+           <h6>Aktuel tid: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.third.createdAt" type="datetime-local" value="{{treatments.nine.normal.third.createdAt}}" {{disabled8}}>         
           </div>
           <div class="col-md-7">
             <h6>Bemærkninger: (valgfrit)</h6><input class="form-control inputfield input-sm" name="treatments.nine.normal.third.nurseNotes" tyepe="text" value="{{treatments.nine.normal.third.nurseNotes}}" {{disabled8}}>

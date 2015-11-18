@@ -304,9 +304,9 @@ Template.appBody.events({
         cpr:"",
         height: "",
         weight: "",
-        surface: Plans.findOne({"header.name": "General Plan"}).patient.surface
+        surface: Plans.findOne({_id: "GENERAL-PLAN"}).patient.surface
       }, 
-      treatments: Plans.findOne({"header.name" :"General Plan"}).treatments
+      treatments: Plans.findOne({_id : "GENERAL-PLAN"}).treatments
       // treatments: Plans.findOne({name:"General Plan"}).treatments[1],
       // treatments: Plans.findOne({name:"General Plan"}).treatments[2]
         // { 
