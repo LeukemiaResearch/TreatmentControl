@@ -3,9 +3,12 @@ App.info({
   description: 'Treatment and schudle control prototype app built in Meteor.',
   author: 'Atanas Antonov',
   email: 'eferwe@yahoo.com',
-  website: 'http://',
+  website: 'http://tr',
   version: '0.5.1'
 });
+
+// App.accessRule('http://treatment.meteor.com');
+App.accessRule('*');
 
 App.icons({
   // iOS
