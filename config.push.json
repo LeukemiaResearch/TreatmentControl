@@ -11,10 +11,7 @@
   //   "key": "apnDevKey.pem",
   //   "cert": "apnDevCert.pem"
   // },  
-  "gcm": {
-    "apiKey": "AIzaSyBhjlzEuLMrllq7ujKqf1cJBYuPsJ9XJig",
-    "projectNumber": 149791865663 
-  },
+  
   "production": true,
    "badge": true,
    "sound": true,
