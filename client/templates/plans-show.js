@@ -176,7 +176,7 @@ Template.plansShow.helpers({
 
   disone : function (list) {
      if (this.treatments)  {
-       if(this.treatments.one.checked || !this.header.pcreatin || !this.patient.name || !this.patient.cpr || !this.patient.surface.value) { return 'disabled'; } 
+       if(this.treatments.one.checked || (!this.patient.age || !this.patient.height || !this.patient.weight || !this.patient.name || !this.patient.cpr || !this.patient.surface.value)) { return 'disabled'; } 
   }
   },
 
